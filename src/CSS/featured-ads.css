@@ -1,0 +1,166 @@
+/* Featured Ads start */
+.featured-ads-section {
+    background: #f0f6f6;
+}
+
+.featured-ads {
+    width: 100% !important;
+}
+
+.featured-card {
+    border: 1px solid #3A4FC4;
+}
+
+.left-title h1 {
+    font-family: "Montserrat", serif;
+    font-weight: 900 !important;
+}
+
+.left-title p {
+    color: #92969f;
+}
+
+.right-title {
+    padding-right: 3rem;
+}
+
+.menu__link {
+    color: #000;
+    line-height: 2;
+    position: relative;
+    padding-right: 4px;
+    text-decoration: none !important;
+    font-size: 20px;
+}
+
+.arrow {
+    position: absolute;
+    top: 52%;
+    left: 100%;
+    transform: translateY(-50%);
+    transition: transform .4s;
+}
+
+.menu__link:hover .arrow {
+    transform: translateX(5px) translateY(-50%);
+}
+
+.fa-arrow-left-long {
+    font-size: 20px;
+}
+
+.fa-arrow-right-long {
+    font-size: 20px;
+}
+
+.featured-card {
+    background: #fff;
+}
+
+.category {
+    color: #92969f;
+}
+
+.product-name {
+    color: #4c4d52;
+}
+
+.locate {
+    width: 35px;
+    height: 35px;
+    background: #faf5f2;
+    display: grid;
+    place-items: center;
+}
+
+.locate {
+    font-size: 19px;
+}
+
+.location-content h6 {
+    color: #9b9ca0;
+    font-size: 14px;
+}
+
+.rating-icon {
+    width: 35px;
+    height: 35px;
+    background: #faf5f2;
+    display: grid;
+    place-items: center;
+}
+
+.rating-icon {
+    font-size: 19px;
+}
+
+.rating-content h6 {
+    color: #9b9ca0;
+    font-size: 14px;
+}
+
+.heart {
+    background: #b1c1d0b4;
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    transition: .2s linear;
+}
+.heart:hover {
+    background: #3A4FC4 !important;
+}
+
+.bg-change {
+    background: #3A4FC4 !important;
+}
+.fav-and-watch {
+    position: absolute;
+    z-index: 3;
+    top: 5%;
+    right: 5%;
+}
+
+.fav-icon {
+    font-size: 20px;
+    margin-top: 3px;
+    color: #fff;
+}
+
+.user-content h2 {
+    color: #3A4FC4;
+}
+
+.swiper-pagination-bullet {
+    background-color: #000 !important;
+    border-radius: 50% !important;
+    margin: 0 8px !important;
+    opacity: 100% !important;
+    width: 13px !important;
+    height: 13px !important;
+}
+
+.swiper-pagination-bullet-active {
+    width: 13px !important;
+    height: 13px !important;
+    background-color: #3A4FC4 !important;
+    border: 3.5px solid #fff !important;
+    box-shadow: 0 0 0 2px #3A4FC4 !important;
+}
+
+.featured-label {
+    position: absolute;
+    z-index: 99;
+    text-align: center;
+    top: 1%;
+    left: 0%;
+}
+
+.featured-icon {
+    margin-top: 10px;
+    font-size: 30px;
+    color: #daa520;
+}
+
+/* Featured Ads end */

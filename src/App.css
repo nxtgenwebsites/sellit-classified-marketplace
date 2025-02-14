@@ -1,0 +1,215 @@
+@media(max-width: 1600px) {
+    .featured-ads {
+        height: 550px !important;
+    }
+
+    .tabs {
+        width: 50% !important;
+    }
+}
+
+@media (max-width: 1400px) {
+    .tabs {
+        width: 60% !important;
+    }
+
+    .navbar-list {
+        margin-left: 10px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .nav-btn {
+        font-size: 14px;
+    }
+.category-menu {
+    display: none !important;
+}
+    .tabs {
+        width: 70% !important;
+    }
+
+    .nav-icon i {
+        font-size: 18px;
+    }
+
+    .featured-ads {
+        height: 550px !important;
+    }
+
+    .wrapper {
+        gap: 1rem;
+    }
+
+    .center-advertisement {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 992px) {
+    .tabs {
+        width: 80% !important;
+    }
+
+    .featured-ads {
+        height: 860px !important;
+    }
+
+    .fav-and-watch {
+        position: absolute;
+        z-index: 3;
+        top: 5%;
+        right: 3%;
+    }
+
+    .footer-row {
+        gap: 0 !important;
+    }
+
+    .recent-img img {
+        height: 100vh !important;
+    }
+
+    .sidebar {
+        width: 100% !important;
+        margin: auto !important;
+    }
+
+    .page-wrapper {
+        width: 100% !important;
+    }
+}
+
+@media (max-width: 767px) {
+    .google-banner img {
+        width: 100% !important;
+        height: 100% !important;
+    }
+
+    .footer-divider {
+        margin: 1rem 0 !important;
+    }
+
+    .featured-slide {
+        width: 100% !important;
+        margin: 0 !important;
+    }
+
+    .advertise-form {
+        width: 100% !important;
+    }
+
+    .marquee {
+        height: 100px;
+        width: 100%;
+        margin: auto;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .footer-list ul {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .tabs {
+        width: 100% !important;
+        margin: 0 !important;
+    }
+
+    .buy-tabs button {
+        font-size: 14px !important;
+        padding: 10px !important;
+    }
+
+    .infinte-carousel {
+        display: block;
+        width: 200%;
+        height: 20px;
+        position: absolute;
+        overflow: hidden;
+        animation: marquee 5s linear infinite;
+    }
+
+    .infinte-carousel img {
+        width: 100%;
+    }
+
+    .marquee-heading h1 {
+        font-size: 40px !important;
+    }
+
+    .featured-ads {
+        height: 750px !important;
+    }
+
+    .seventh-section img {
+        position: relative;
+    }
+}
+
+@media (max-width: 600px) {
+    .marquee-heading h1 {
+        font-size: 30px !important;
+    }
+}
+
+@media (max-width: 550px) {
+    .google-banner img {
+        height: 100%;
+    }
+}
+
+@media (max-width: 465px) {
+    .fav-and-watch {
+        position: absolute;
+        z-index: 3;
+        top: 5%;
+        right: 5%;
+    }
+
+    .recent-img img {
+        height: 50vh !important;
+    }
+
+    .menu__link {
+        font-size: 16px;
+    }
+
+    .featured-ads {
+        height: 600px !important;
+    }
+}
+
+@media (max-width: 416px) {
+    .buy-tabs button {
+        font-size: 12px !important;
+    }
+
+    .tabs {
+        justify-content: center !important;
+    }
+}
+
+@media (max-width: 400px) {
+    .navbar-brand img {
+        width: 200px !important;
+    }
+
+    .buisness-list li {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 390px) {
+
+    .featured-ads {
+        height: 550px !important;
+    }
+}
+
+@media (max-width: 335px) {
+    .featured-ads {
+        height: 500px !important;
+    }
+}

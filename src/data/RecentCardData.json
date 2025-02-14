@@ -1,0 +1,54 @@
+{
+  "recentAds": [
+    {
+      "tag": "Electronics",
+      "name": "Apple Watch 9 Series",
+      "img": "assets/img/ad-1.jpg"
+    },
+    {
+      "tag": "Real Estate",
+      "name": "Amazing Villa For Sale",
+      "img": "assets/img/ad-2.jpg"
+    },
+    {
+      "tag": "Car",
+      "name": "Audi RS7",
+      "img": "assets/img/ad-3.jpg"
+    },
+    {
+      "tag": "Boat",
+      "name": "2024 Luxury Boat",
+      "img": "assets/img/ad-4.jpg"
+    },
+    {
+      "tag": "Mobile",
+      "name": "Samsung S24 Ultra",
+      "img": "assets/img/ad-5.jpg"
+    },
+    {
+      "tag": "Pet",
+      "name": "German Shepherd",
+      "img": "assets/img/ad-6.jpg"
+    },
+    {
+      "tag": "Bike",
+      "name": "Ninja ZX10R",
+      "img": "assets/img/ad-7.jpeg"
+    },
+    {
+      "tag": "Games",
+      "name": "Play Station 6",
+      "img": "assets/img/ad-8.jpg"
+    },
+    {
+      "tag": "Electronics",
+      "name": "Virtual Reality",
+      "img": "assets/img/ad-9.jpg"
+    }
+  ],
+  "advertisement": [
+    {
+      "img": "assets/img/Post Free Classified Ads to Sell Anything Anywhere in Pakistan.jpg"
+    }
+  ]
+}

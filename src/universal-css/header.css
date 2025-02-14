@@ -1,0 +1,154 @@
+/* Header start */
+
+.navbar {
+    background: -webkit-linear-gradient(left, #324A9F 20%, #2A336E 80%);
+    font-family: 'Tahoma', sans-serif;
+}
+
+.navbar-list {
+    margin-left: 1rem;
+}
+
+.navbar-brand {
+    font-size: 21px !important;
+    color: #fff !important;
+    font-weight: 500;
+}
+
+.dropdown-section {
+    border: 0 !important;
+    padding: 1.6rem !important;
+    width: 30%;
+}
+
+.nav-dropdown-btn {
+    transform: scale(1.5);
+    color: #fff;
+}
+
+.dropdown-nav-btn {
+    border: 1px solid #bdbebf !important;
+    color: #fff;
+    margin-top: -30px !important;
+    width: 100% !important;
+}
+
+.dropdown-nav-btn:active {
+    border: 1px solid #bdbebf !important;
+    outline: none !important;
+}
+
+.dropdown-nav-btn:focus {
+    border: 1px solid #bdbebf !important;
+    outline: none !important;
+}
+
+.nav-menu {
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, .12), 0 6px 6px 0 rgba(0, 0, 0, .24);
+    border: 0 !important;
+}
+
+.region-heading p {
+    text-transform: uppercase;
+    font-size: 12px !important;
+    color: #ababab;
+    font-weight: 400 !important;
+}
+
+.location-s-icon {
+    fill: #5c7a7d;
+    margin-right: .8rem;
+    font-size: 1.5rem;
+}
+
+.location-content p {
+    font-size: 1.2rem;
+    margin-top: 4px;
+}
+
+.location-item li {
+    transition: .1s linear;
+}
+
+.location-item li:hover {
+    background: #c8f8f6 !important;
+}
+
+.search-items {
+    width: 70% !important;
+}
+
+.search-bar {
+    width: 70% !important;
+}
+
+.search-bar input {
+    height: 58px;
+    border: 0;
+    outline: 0;
+    padding: 10px 10px;
+    font-size: 20px;
+    width: 100% !important;
+}
+
+.search-icon-div {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: grid;
+    place-items: center;
+    background: #324A9F;
+    height: 58px;
+    width: 58px;
+    cursor: pointer;
+}
+
+.search-icon {
+    font-size: 25px;
+    color: #fff;
+}
+
+.nav-icon {
+    color: #fff;
+    font-size: 22px;
+    transition: .2s;
+}
+
+.nav-icon:hover {
+    color: #324A9F;
+}
+
+.nav-btn {
+    border: 0 !important;
+    background: #fff !important;
+    font-weight: 500 !important;
+    font-size: 18px !important;
+    transition: .2s !important;
+    color: #000 !important;
+}
+
+.nav-btn:hover {
+    color: #fff !important;
+    background: #3A4FC4 !important;
+}
+
+.navbar-toggler {
+    border: 0 !important;
+    outline: 0 !important;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data: image/svg+xml, %3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30' %3e%3cpath stroke='%23ffffff' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22' /%3e%3c/svg%3e") !important;
+}
+
+.navbar-toggler:focus {
+    box-shadow: 0 0 0 0 !important;
+}
+
+.rotate {
+    transform: rotate(180deg) !important;
+}
+
+/* Header end */

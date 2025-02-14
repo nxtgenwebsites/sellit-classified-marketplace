@@ -1,0 +1,36 @@
+/* Start Buisness start */
+.buisness-second-card {
+    border: 1px solid #cecece;
+    transition: .2s linear !important;
+}
+.buisness-second-card:hover {
+    box-shadow: 0 5px 5px #dcdcdc;
+}
+
+.buisness-second-card p {
+    font-size: 18px;
+    color: #000;
+}
+
+.buisness-btns {
+    margin-left: 11px;
+}
+
+.buisness-btns button:hover {
+    background: #3A4FC4;
+    color: #fff;
+}
+
+.buisness-btns button {
+    border: 2px solid #3A4FC4;
+    background: transparent;
+    color: #3A4FC4;
+    font-weight: 500;
+    transition: .2s linear;
+}
+
+.tour-btn {
+    padding: 1rem 2rem;
+}
+
+/* Start Buisness end */

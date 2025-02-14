@@ -1,0 +1,130 @@
+/* Dropdown start */
+/* Offcanvas start */
+.header-offcanvas {
+    background: -webkit-linear-gradient(left, #324A9F 20%, #2A336E 80%);
+}
+
+.header-offcanvas li a {
+    color: #fff !important;
+    transition: .1s linear;
+}
+
+.header-offcanvas li a:hover {
+    color: #00A49F !important;
+}
+
+.header-offcanvas h6 {
+    color: #fff !important;
+    transition: .1s linear;
+}
+
+.header-offcanvas h6:hover {
+    color: #00A49F !important;
+}
+
+.btn-close {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z' /%3e%3c/svg%3e") !important;
+}
+
+.dropdown-list {
+    padding-left: 0 !important;
+}
+
+.offcanvas-btn {
+    padding: 0 !important;
+    margin-top: -33px;
+}
+
+.offcanvas-btn span {
+    color: #000;
+    font-size: 14px;
+}
+
+/* Offcanvas end */
+/* All Category dropdown start */
+.category-menu {
+    width: 160vh !important;
+    padding: 20px !important;
+    display: flex;
+    margin: .5rem 0 0 3rem !important;
+    left: -3% !important;
+}
+
+.mt-n1 {
+    margin-top: -2rem !important;
+    width: 25vh !important;
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, .12), 0 6px 6px 0 rgba(0, 0, 0, .24);
+    border: 0 !important;
+}
+
+.main-heading {
+    font-weight: 700 !important;
+    font-size: 14px !important;
+}
+
+.main-heading:focus {
+    border: 0 !important;
+}
+
+.dropdown-heading {
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.dropdown-link {
+    text-decoration: none;
+    color: #000;
+    transition: .2s;
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.dropdown-link:hover {
+    color: #00A49F;
+}
+
+.dropdown-icon {
+    color: #384BC3;
+}
+
+.dropdown-item {
+    padding: 0 !important;
+    transition: .1s linear;
+}
+
+.dropdown-item:hover {
+    background: #c8f8f6 !important;
+}
+
+.dropdown-item:active {
+    background: #c8f8f6 !important;
+}
+
+.wrapper {
+    gap: 3rem;
+}
+
+/* All Category dropdown end */
+/* Other Category Dropdown start */
+.category-link {
+    text-decoration: none;
+    color: #000;
+    transition: .2s;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.dropdown-toggle::after {
+    content: '' !important;
+    border: 0 !important;
+}
+
+.rotate {
+    transform: rotate(180deg) !important;
+}
+
+/* Other Category Dropdown end */
+/* Dropdown end */

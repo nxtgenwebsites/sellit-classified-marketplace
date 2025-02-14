@@ -1,0 +1,45 @@
+.carousel-section {
+    padding: 0 !important;
+}
+.marquee {
+    height: 174px;
+    width: 100%;
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+}
+
+.infinte-carousel {
+    display: block;
+    width: 200%;
+    height: 100px;
+    position: absolute;
+    overflow: hidden;
+    animation: marquee 15000ms linear infinite;
+}
+
+.infinte-carousel img {
+    float: left;
+    width: 100%;
+}
+
+@keyframes marquee {
+    0% {
+        left: 0;
+    }
+
+    100% {
+        left: -100%;
+    }
+}
+
+.marquee-heading {
+    margin-bottom: 6rem;
+}
+
+.marquee-heading h1 {
+    font-size: 60px;
+    text-decoration: underline;
+    font-family: "Montserrat", serif;
+    font-weight: 900 !important;
+}

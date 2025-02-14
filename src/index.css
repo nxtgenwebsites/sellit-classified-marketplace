@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+section,
+footer {
+  padding: 3rem 0;
+}
+
+.form-select:focus {
+  box-shadow: 0 0 0 0 !important;
+  border: 1px solid #bdbebf !important;
+}
