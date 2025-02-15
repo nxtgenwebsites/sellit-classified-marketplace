@@ -1,11 +1,11 @@
 import React from 'react'
-import BannerSlider from '../components/BannerSlider';
-import Marquee from '../components/Marquee';
-import FeaturedAds from '../components/FeaturedAds';
-import RecentlyAds from '../components/RecentlyAds';
-import PopularCategories from '../components/PopularCategories';
-import BuisnessProfile from '../components/BuisnessProfile';
-import GoogleBanner from "../components/GoogleBanner";
+import BannerSlider from '../components/Home/BannerSlider';
+import Marquee from '../components/Home/Marquee';
+import FeaturedAds from '../components/Home/FeaturedAds';
+import RecentlyAds from '../components/Home/RecentlyAds';
+import PopularCategories from '../components/Home/PopularCategories';
+import BuisnessProfile from '../components/Home/BuisnessProfile';
+import GoogleBanner from "../components/Home/GoogleBanner";
 
 const Homepage = () => {
     return (

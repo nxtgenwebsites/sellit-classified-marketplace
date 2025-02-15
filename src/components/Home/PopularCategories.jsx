@@ -2,7 +2,7 @@ import React from 'react'
 import '../Home/css/popular-categories.css'
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
-import PopularCategoryCard from "../components/PopularCategoryCard";
+import PopularCategoryCard from "./PopularCategoryCard";
 import PopularCategory from "../../data/Home_Data/PopularCardData.json";
 function PopularCategories() {
 

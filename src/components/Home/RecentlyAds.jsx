@@ -2,8 +2,8 @@ import React from 'react'
 import '../Home/css/Buy-and-sell.css'
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
-import Card1 from "../components/RecentAdsCards/Card1";
-import Card2 from "../components/RecentAdsCards/Card2";
+import Card1 from "./RecentAdsCards/Card1";
+import Card2 from "./RecentAdsCards/Card2";
 import RecentCardData from "../../data/Home_Data/RecentCardData.json";
 
 function RecentlyAds() {

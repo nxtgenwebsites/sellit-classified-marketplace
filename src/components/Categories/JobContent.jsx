@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import '../Home/css/mobile-css.css'
 import { Col, Row } from 'react-bootstrap'
-import Card1 from '../CategoryCards/Job/Card1';
-import Card2 from '../CategoryCards/Job/Card2';
+import Card1 from './CategoryCards/Job/Card1';
+import Card2 from './CategoryCards/Job/Card2';
 
 export default function JobContent() {
     const featuredAds = Array.from({ length: 10 });

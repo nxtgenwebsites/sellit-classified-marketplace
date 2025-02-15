@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import '../Home/css/mobile-css.css'
 import { Col, Row } from 'react-bootstrap'
-import Card1 from '../CategoryCards/Property/Card1';
-import Card2 from '../CategoryCards/Property/Card2';
+import Card1 from './CategoryCards/Mobile/Card1';
+import Card2 from './CategoryCards/Mobile/Card2';
 
-export default function PropertyContent() {
+export default function MobileContent() {
     const featuredAds = Array.from({ length: 10 });
     const freeAds = Array.from({ length: 5 });
     const [sortText, setSortText] = useState("Sort by");

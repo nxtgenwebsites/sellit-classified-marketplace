@@ -1,5 +1,5 @@
-import Footer from "./components/Footer";
-import Header from "./components/Header";
+import Footer from "./components/Footer/Footer";
+import Header from "./components/Navbar/Header";
 import HomePage from "./Pages/HomePage";
 import { Route, Routes } from "react-router-dom";
 import MobilesCategory from './Pages/MobilesCategory'
@@ -9,7 +9,7 @@ import FindJobCategory from './Pages/FindJobCategory'
 import MotorcyclesCategory from "./Pages/MotorcyclesCategory";
 import PopertyForSaleCategory from './Pages/PopertyForSaleCategory'
 import ServiceProvidersCategory from './Pages/ServiceProvidersCategory'
-import Categorydropdown from "./components/Categorydropdown";
+import Categorydropdown from "./components/Dropdown/Categorydropdown";
 import FooterGrowPage from './Pages/FooterGrowPage'
 import FooterAdvertisePage from './Pages/FooterAdvertisePage'
 import './App.css'

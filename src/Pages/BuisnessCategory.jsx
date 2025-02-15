@@ -1,8 +1,8 @@
 import React from 'react'
-import Sidebar from '../components/sidebar'
-import GoogleBanner from '../components/GoogleBanner'
+import Sidebar from '../components/Sidebar/sidebar'
+import GoogleBanner from '../components/Home/GoogleBanner'
 import Container from 'react-bootstrap/Container'
-import BuisnessContent from '../components/BuisnessContent'
+import BuisnessContent from '../components/Categories/BuisnessContent'
 
 function BuisnessCategory() {
   return (

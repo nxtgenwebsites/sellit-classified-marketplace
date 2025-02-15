@@ -1,17 +1,16 @@
 import React, { useState } from 'react';
-import '../Home/css/mobile-css.css';
-import { Col, Row } from 'react-bootstrap';
-import Card1 from '../CategoryCards/Buisness/Card1';
-import Card2 from '../CategoryCards/Buisness/Card2';
+import '../Home/css/mobile-css.css'
+import { Col, Row } from 'react-bootstrap'
+import Card1 from './CategoryCards/Motorcycle/Card1';
+import Card2 from './CategoryCards/Motorcycle/Card2';
 
-export default function BusinessContent() {
+export default function MotorcycleContent() {
     const featuredAds = Array.from({ length: 10 });
     const freeAds = Array.from({ length: 5 });
     const [sortText, setSortText] = useState("Sort by");
     function updateSortText(text) {
         setSortText(text);
     }
-
     return (
         <div className="page-wrapper">
             <div className="mobile-heading mb-3 d-flex w-100 justify-content-between">
@@ -28,7 +27,7 @@ export default function BusinessContent() {
                                 className="btn right-button"
                                 data-bs-toggle="dropdown"
                             >
-                                {sortText}
+                                {sortText} {/* This will update dynamically */}
                                 <span className="dropdown-btn">
                                     <img src="assets/icons/chevron.svg" alt="IMG" className="ms-1" />
                                 </span>
@@ -67,7 +66,6 @@ export default function BusinessContent() {
                     </div>
                 </div>
             </div>
-
             {/* Featured Ads start */}
             <Row className="row-gap-2">
                 {featuredAds.map((i) => (
@@ -82,5 +80,5 @@ export default function BusinessContent() {
                 a
             </div>
         </div>
-    );
+    )
 }
