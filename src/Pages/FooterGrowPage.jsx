@@ -10,10 +10,10 @@ export default function FooterGrowPage() {
           <div class="accordion" id="myAccordion">
             <div class="accordion-item">
               <h2 class="accordion-header" id="headingOne">
-                <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse"
+                <button type="button" class="accordion-button" data-bs-toggle="collapse"
                   data-bs-target="#collapseOne">1. What is HTML?</button>
               </h2>
-              <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#myAccordion">
+              <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#myAccordion">
                 <div class="card-body">
                   <p>HTML stands for HyperText Markup Language. HTML is the standard markup language for
                     describing the structure of web pages.
@@ -23,10 +23,10 @@ export default function FooterGrowPage() {
             </div>
             <div class="accordion-item">
               <h2 class="accordion-header" id="headingTwo">
-                <button type="button" class="accordion-button" data-bs-toggle="collapse"
+                <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse"
                   data-bs-target="#collapseTwo">2. What is Bootstrap?</button>
               </h2>
-              <div id="collapseTwo" class="accordion-collapse collapse show" data-bs-parent="#myAccordion">
+              <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#myAccordion">
                 <div class="card-body">
                   <p>Bootstrap is a sleek, intuitive, and powerful front-end framework for faster and easier web
                     development. It is a collection of CSS and HTML conventions.</p>
