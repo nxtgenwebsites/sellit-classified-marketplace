@@ -2,7 +2,7 @@ import React from 'react'
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import "../universal-css/footer.css";
+import "footer.css";
 import { Link } from 'react-router-dom';
 import { BsInstagram } from "react-icons/bs";
 import { BsLinkedin } from "react-icons/bs";

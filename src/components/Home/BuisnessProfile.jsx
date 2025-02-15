@@ -3,7 +3,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { BsArrowRight } from "react-icons/bs";
-import '../CSS/Home_CSS/buisness-profile.css'
+import '../Home/css/buisness-profile.css'
 function BuisnessProfile() {
     return (
         <div>

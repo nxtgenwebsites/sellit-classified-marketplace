@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import '../CSS/Home_CSS/mobile-css.css';
+import '../Home/css/mobile-css.css';
 import { Col, Row } from 'react-bootstrap';
-import Card1 from './CategoryCards/Buisness/Card1';
-import Card2 from './CategoryCards/Buisness/Card2';
+import Card1 from '../CategoryCards/Buisness/Card1';
+import Card2 from '../CategoryCards/Buisness/Card2';
 
 export default function BusinessContent() {
     const featuredAds = Array.from({ length: 10 });

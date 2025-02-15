@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import '../CSS/Home_CSS/mobile-css.css'
+import '../Home/css/mobile-css.css'
 import { Col, Row } from 'react-bootstrap'
-import Card1 from './CategoryCards/Property/Card1';
-import Card2 from './CategoryCards/Property/Card2';
+import Card1 from '../CategoryCards/Job/Card1';
+import Card2 from '../CategoryCards/Job/Card2';
 
-export default function PropertyContent() {
+export default function JobContent() {
     const featuredAds = Array.from({ length: 10 });
     const freeAds = Array.from({ length: 5 });
     const [sortText, setSortText] = useState("Sort by");
@@ -68,12 +68,14 @@ export default function PropertyContent() {
         </div>
             {/* Featured Ads start */}
             <Row className="row-gap-2">
-                {featuredAds.map((i) => (
-                    <Card1 key={i} />
-                ))}
-                {freeAds.map((i) => (
-                    <Card2 key={i} />
-                ))}
+                <Row className="row-gap-2">
+                    {featuredAds.map((i) => (
+                        <Card1 key={i} />
+                    ))}
+                    {freeAds.map((i) => (
+                        <Card2 key={i} />
+                    ))}
+                </Row>
             </Row>
             {/* Featured Ads end */}
             <div className="pagination-section my-3">

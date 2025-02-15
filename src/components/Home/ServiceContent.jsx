@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import '../CSS/Home_CSS/mobile-css.css'
-import { Row } from 'react-bootstrap'
-import Card1 from './CategoryCards/Cars/Card1';
-import Card2 from './CategoryCards/Cars/Card2';
+import '../Home/css/mobile-css.css'
+import { Col, Row } from 'react-bootstrap'
+import Card1 from '../CategoryCards/Service Provider/Card1';
+import Card2 from '../CategoryCards/Service Provider/Card2';
 
-export default function CarContent() {
+export default function ServiceContent() {
     const featuredAds = Array.from({ length: 10 });
     const freeAds = Array.from({ length: 5 });
     const [sortText, setSortText] = useState("Sort by");
@@ -27,7 +27,7 @@ export default function CarContent() {
                             className="btn right-button"
                             data-bs-toggle="dropdown"
                         >
-                            {sortText}
+                            {sortText} {/* This will update dynamically */}
                             <span className="dropdown-btn">
                                 <img src="assets/icons/chevron.svg" alt="IMG" className="ms-1" />
                             </span>
