@@ -17,7 +17,7 @@ export default function Header() {
         <div>
             <Navbar expand='lg'>
                 <Container>
-                    <Link to={'/'}><img src="/assets/icons/Navbar-logo.png" alt="" width={200} /></Link>
+                    <Link to={'/'}><img src="/assets/icons/Navbar-logo.png" alt="IMG" width={200} /></Link>
                     <Navbar.Collapse id='Header' className='mt-3 mt-lg-0'>
                         <div className="search-items d-flex align-items-center mx-auto">
                             <div className="dropdown-section mt-3 rounded-2">
@@ -107,7 +107,7 @@ export default function Header() {
                                 </div>
                             </div>
                             <div className="search-bar position-relative">
-                                <input type="text" className='rounded-2' />
+                                <input type="text" className='rounded-2' placeholder='Search Here' />
                                 <div className="search-icon-div rounded-end-1">
                                     <FaSearch className='search-icon' />
                                 </div>

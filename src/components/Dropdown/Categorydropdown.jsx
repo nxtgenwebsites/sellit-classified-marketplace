@@ -526,7 +526,7 @@ export default function Categorydropdown() {
                         <div className="category-wrapper d-lg-flex align-items-center gap-3">
                             <Dropdown className="category-item">
                                 <Dropdown.Toggle className='bg-transparent border-0'>
-                                    <h6 className="fw-medium text-black">Motors<span><img src="/assets/icons/chevron.svg" alt="" className='ms-2' /></span></h6>
+                                    <h6 className="fw-medium text-black">Motors<span><img src="/assets/icons/chevron.svg" alt="IMG" className='ms-2' /></span></h6>
 
                                 </Dropdown.Toggle>
                                 <Dropdown.Menu className='mt-n1 p-0 menu-ca'>
@@ -540,7 +540,7 @@ export default function Categorydropdown() {
                             </Dropdown>
                             <Dropdown className="category-item">
                                 <Dropdown.Toggle className='bg-transparent border-0'>
-                                    <h6 className="fw-medium text-black">Property<span><img src="/assets/icons/chevron.svg" alt="" className='ms-2' /></span></h6>
+                                    <h6 className="fw-medium text-black">Property<span><img src="/assets/icons/chevron.svg" alt="IMG" className='ms-2' /></span></h6>
                                 </Dropdown.Toggle>
                                 <Dropdown.Menu className='mt-n1 p-0 menu-ca'>
                                     <Dropdown.Item className='dropdown-item category_item p-2 rounded-top-2'>
@@ -553,7 +553,7 @@ export default function Categorydropdown() {
                             </Dropdown>
                             <Dropdown className="category-item">
                                 <Dropdown.Toggle className='bg-transparent border-0'>
-                                    <h6 className="fw-medium text-black">Buisnesses<span><img src="/assets/icons/chevron.svg" alt="" className='ms-2' /></span></h6>
+                                    <h6 className="fw-medium text-black">Buisnesses<span><img src="/assets/icons/chevron.svg" alt="IMG" className='ms-2' /></span></h6>
                                 </Dropdown.Toggle>
                                 <Dropdown.Menu className='mt-n1 p-0 menu-ca'>
                                     <Dropdown.Item className='dropdown-item category_item p-2 rounded-top-2'>
@@ -569,7 +569,7 @@ export default function Categorydropdown() {
                             </Dropdown>
                             <Dropdown className="category-item">
                                 <Dropdown.Toggle className='bg-transparent border-0'>
-                                    <h6 className="fw-medium text-black">Electronics<span><img src="/assets/icons/chevron.svg" alt="" className='ms-2' /></span></h6>
+                                    <h6 className="fw-medium text-black">Electronics<span><img src="/assets/icons/chevron.svg" alt="IMG" className='ms-2' /></span></h6>
                                 </Dropdown.Toggle>
                                 <Dropdown.Menu className='mt-n1 p-0'>
                                     <Dropdown.Item className='dropdown-item category_item p-2 rounded-2'>
