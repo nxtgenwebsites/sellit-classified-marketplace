@@ -2,7 +2,7 @@ import React from 'react'
 import Sidebar from '../components/Sidebar/sidebar'
 import GoogleBanner from '../components/Home/GoogleBanner'
 import Container from 'react-bootstrap/Container'
-import CarContent from '../components/Home/CarContent'
+import CarContent from '../components/Categories/CarContent'
 
 export default function CarsCategory() {
   return (

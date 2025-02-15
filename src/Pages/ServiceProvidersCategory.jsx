@@ -2,7 +2,7 @@ import React from 'react'
 import Sidebar from '../components/Sidebar/sidebar'
 import GoogleBanner from '../components/Home/GoogleBanner'
 import Container from 'react-bootstrap/Container'
-import ServiceContent from '../components/Home/ServiceContent'
+import ServiceContent from '../components/Categories/ServiceContent'
 
 export default function ServiceProvidersCategory() {
   return (
