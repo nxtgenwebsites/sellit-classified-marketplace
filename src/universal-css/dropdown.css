@@ -117,6 +117,15 @@
     font-size: 16px;
 }
 
+.category-icon {
+    margin-top: 2px;
+    font-weight: 400;
+    font-size: 21px;
+    color: #000 !important;
+}
+.menu-ca {
+    width: 30vh !important;
+}
 .dropdown-toggle::after {
     content: '' !important;
     border: 0 !important;

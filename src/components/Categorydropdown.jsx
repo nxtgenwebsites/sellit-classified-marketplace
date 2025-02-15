@@ -4,6 +4,12 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import { Link } from 'react-router-dom';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import Button from 'react-bootstrap/Button';
+import { CiMobile3 } from "react-icons/ci";
+import { IoCarSportOutline } from "react-icons/io5";
+import { FaMotorcycle } from "react-icons/fa6";
+import { BsHouseDoor } from "react-icons/bs";
+import { IoBriefcaseOutline } from "react-icons/io5";
+import { FaHeadset } from "react-icons/fa6";
 
 export default function Categorydropdown() {
     function Toggle() {
@@ -523,12 +529,12 @@ export default function Categorydropdown() {
                                     <h6 className="fw-medium text-black">Motors<span><img src="/assets/icons/chevron.svg" alt="" className='ms-2' /></span></h6>
 
                                 </Dropdown.Toggle>
-                                <Dropdown.Menu className='mt-n1 p-0'>
+                                <Dropdown.Menu className='mt-n1 p-0 menu-ca'>
                                     <Dropdown.Item className='dropdown-item p-2 rounded-top-2'>
-                                        <Link to={'/cars-category'} className="category-link">Cars</Link>
+                                        <Link to={'/cars-category'} className="category-link d-flex align-items-center gap-2"><IoCarSportOutline className='category-icon' /> Cars</Link>
                                     </Dropdown.Item>
                                     <Dropdown.Item className='dropdown-item p-2 rounded-bottom-2'>
-                                        <Link to={'/motorcycle-category'} className="category-link">Motorcycles</Link>
+                                        <Link to={'/motorcycle-category'} className="category-link d-flex align-items-center gap-2"><FaMotorcycle className='category-icon' /> Motorcycles</Link>
                                     </Dropdown.Item>
                                 </Dropdown.Menu>
                             </Dropdown>
@@ -536,12 +542,12 @@ export default function Categorydropdown() {
                                 <Dropdown.Toggle className='bg-transparent border-0'>
                                     <h6 className="fw-medium text-black">Property<span><img src="/assets/icons/chevron.svg" alt="" className='ms-2' /></span></h6>
                                 </Dropdown.Toggle>
-                                <Dropdown.Menu className='mt-n1 p-0'>
+                                <Dropdown.Menu className='mt-n1 p-0 menu-ca'>
                                     <Dropdown.Item className='dropdown-item p-2 rounded-top-2'>
-                                        <Link to={'/property-sale'} className="category-link">Property For Sale</Link>
+                                        <Link to={'/property-sale'} className="category-link d-flex align-items-center gap-2"><BsHouseDoor className='category-icon' /> Property For Sale</Link>
                                     </Dropdown.Item>
                                     <Dropdown.Item className='dropdown-item p-2 rounded-bottom-2'>
-                                        <Link to={'/property-rent'} className="category-link">Property For Rent</Link>
+                                        <Link to={'/property-rent'} className="category-link d-flex align-items-center gap-2"><BsHouseDoor className='category-icon' /> Property For Rent</Link>
                                     </Dropdown.Item>
                                 </Dropdown.Menu>
                             </Dropdown>
@@ -549,15 +555,15 @@ export default function Categorydropdown() {
                                 <Dropdown.Toggle className='bg-transparent border-0'>
                                     <h6 className="fw-medium text-black">Buisnesses<span><img src="/assets/icons/chevron.svg" alt="" className='ms-2' /></span></h6>
                                 </Dropdown.Toggle>
-                                <Dropdown.Menu className='mt-n1 p-0'>
+                                <Dropdown.Menu className='mt-n1 p-0 menu-ca'>
                                     <Dropdown.Item className='dropdown-item p-2 rounded-top-2'>
-                                        <Link to={'/buisness-category'} className="category-link">Find A Buisness</Link>
+                                        <Link to={'/buisness-category'} className="category-link d-flex align-items-center gap-2"><IoBriefcaseOutline className='category-icon' /> Find A Buisness</Link>
                                     </Dropdown.Item>
                                     <Dropdown.Item className='dropdown-item p-2'>
-                                        <Link to={'/service-category'} className="category-link">Find a Service Provider</Link>
+                                        <Link to={'/service-category'} className="category-link d-flex align-items-center gap-2"><FaHeadset className='category-icon' /> Find a Service Provider</Link>
                                     </Dropdown.Item>
                                     <Dropdown.Item className='dropdown-item p-2 rounded-bottom-2'>
-                                        <Link to={'/job-category'} className="category-link">Find a Job</Link>
+                                        <Link to={'/job-category'} className="category-link d-flex align-items-center gap-2"><IoBriefcaseOutline className='category-icon' /> Find a Job</Link>
                                     </Dropdown.Item>
                                 </Dropdown.Menu>
                             </Dropdown>
@@ -567,7 +573,7 @@ export default function Categorydropdown() {
                                 </Dropdown.Toggle>
                                 <Dropdown.Menu className='mt-n1 p-0'>
                                     <Dropdown.Item className='dropdown-item p-2 rounded-2'>
-                                        <Link to={'/mobiles-category'} className="category-link">Mobiles</Link>
+                                        <Link to={'/mobiles-category'} className="category-link d-flex align-items-center gap-2"><CiMobile3 className='category-icon' /> Mobiles</Link>
                                     </Dropdown.Item>
                                 </Dropdown.Menu>
                             </Dropdown>
