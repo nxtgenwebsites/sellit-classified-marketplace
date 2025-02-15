@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import "../CSS/Footer_CSS/footer-advertise-css.css";
+import "./footer-css/footer-advertise-css.css";
 import ReCAPTCHA from "react-google-recaptcha";
 
-export default function FooterAdvertisePage() {
+export default function AdvertisePage() {
   const [captchaValue, setCaptchaValue] = useState(null);
   const handleCaptchaChange = (value) => {
     setCaptchaValue(value);

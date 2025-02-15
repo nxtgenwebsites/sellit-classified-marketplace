@@ -8,10 +8,10 @@ import BuisnessCategory from './Pages/BuisnessCategory'
 import FindJobCategory from './Pages/FindJobCategory'
 import MotorcyclesCategory from "./Pages/MotorcyclesCategory";
 import PopertyForSaleCategory from './Pages/PopertyForSaleCategory'
-import ServiceProvidersCategory from './Pages/ServiceProvidersCategory'
+import ServiceProvidersCategory from './Pages/ServiceProvidersCategory';
 import Categorydropdown from "./components/Dropdown/Categorydropdown";
-import FooterGrowPage from './Pages/FooterGrowPage'
-import FooterAdvertisePage from './Pages/FooterAdvertisePage'
+import FooterGrowPage from './Pages/GrowPage'
+import FooterAdvertisePage from './Pages/AdvertisePage'
 import './App.css'
 function App() {
   return (

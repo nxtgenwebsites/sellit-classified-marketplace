@@ -1,8 +1,8 @@
 import React from 'react'
 import Container from 'react-bootstrap/Container'
-import '../CSS/Footer_CSS/footer-grow-css.css'
+import './footer-css/footer-grow-css.css'
 
-export default function FooterGrowPage() {
+export default function GrowPage() {
   return (
     <div>
       <Container>
