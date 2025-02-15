@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import "../CSS/footer-grow-css.css";
+import "../CSS/footer-advertise-css.css";
 import ReCAPTCHA from "react-google-recaptcha";
 
 export default function FooterAdvertisePage() {
