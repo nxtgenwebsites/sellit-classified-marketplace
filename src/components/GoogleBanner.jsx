@@ -1,5 +1,5 @@
 import React from 'react'
-import "../CSS/Banner.css";
+import "../CSS/Home_CSS/Banner.css";
 
 function GoogleBanner() {
     return (

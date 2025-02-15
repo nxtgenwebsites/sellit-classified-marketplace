@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../CSS/mobile-css.css'
+import '../CSS/Home_CSS/mobile-css.css'
 import { Col, Row } from 'react-bootstrap'
 import Card1 from './CategoryCards/Property/Card1';
 import Card2 from './CategoryCards/Property/Card2';

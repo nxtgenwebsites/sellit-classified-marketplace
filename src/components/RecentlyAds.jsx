@@ -1,5 +1,5 @@
 import React from 'react'
-import '../CSS/Buy-and-sell.css'
+import '../CSS/Home_CSS/Buy-and-sell.css'
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Card1 from "../components/RecentAdsCards/Card1";

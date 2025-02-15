@@ -1,5 +1,5 @@
 import React from 'react'
-import '../CSS/popular-categories.css'
+import '../CSS/Home_CSS/popular-categories.css'
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import PopularCategoryCard from "../components/PopularCategoryCard";
