@@ -67,8 +67,8 @@ export default function CarContent() {
             </div>
             {/* Featured Ads start */}
             <Row className="row-gap-2">
-                {CategoryContentData.Cars.map((data, i) => (
-                    <Card data={data} key={i} />
+                {CategoryContentData.Cars.map((cars, i) => (
+                    <Card cars={cars} key={i} />
                 ))}
             </Row>
             {/* Featured Ads end */}

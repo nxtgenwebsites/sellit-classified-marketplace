@@ -5,23 +5,23 @@ import { IoTimeOutline } from "react-icons/io5";
 import { HiOutlineHeart } from "react-icons/hi2";
 import { BsGeoAlt } from "react-icons/bs";
 
-export default function Card({ data }) {
+export default function Card({ cars }) {
     return (
         <div>
             <Col lg={12} className="page-card rounded-3 d-lg-flex w-100 gap-2 position-relative p-2">
                 <div className="featured-icon rounded-4">
-                    <h2 className="fw-semibold">{data.featured && <MdOutlineStarPurple500 />}</h2>
+                    <h2 className="fw-semibold">{cars.featured && <MdOutlineStarPurple500 />}</h2>
                 </div>
                 <div className="page-img">
-                    <img src={data.img} alt="IMG" className="rounded-1" />
+                    <img src={cars.img} alt="IMG" className="rounded-1" />
                 </div>
                 <div className="page-1-sect d-lg-flex">
                     <div className="page-content p-2 mt-sm-0 mt-3">
                         <div className="page-category d-flex justify-content-between w-100">
-                            <h6 className="fw-bold">{data.tag}</h6>
+                            <h6 className="fw-bold">{cars.tag}</h6>
                         </div>
                         <h5 className="fw-medium heading">
-                            {data.heading}
+                            {cars.heading}
                         </h5>
                         <div className="rating-and-icons gap-4 text-center d-flex my-3 align-items-center">
                             <div className="location d-flex gap-3 align-items-center">
@@ -29,7 +29,7 @@ export default function Card({ data }) {
                                     <BsGeoAlt className='location-icon' />
                                 </div>
                                 <div className="location-content">
-                                    <h6 className="fw-medium">{data.location}</h6>
+                                    <h6 className="fw-medium">{cars.location}</h6>
                                 </div>
                             </div>
                             <div className="rating d-flex gap-3 align-items-center">
@@ -37,12 +37,12 @@ export default function Card({ data }) {
                                     <IoTimeOutline />
                                 </div>
                                 <div className="rating-content">
-                                    <h6 className="fw-medium">{data.time}</h6>
+                                    <h6 className="fw-medium">{cars.time}</h6>
                                 </div>
                             </div>
                         </div>
                         <h5 className="description">
-                            {data.description}
+                            {cars.description}
                         </h5>
                     </div>
                 </div>
@@ -53,10 +53,10 @@ export default function Card({ data }) {
                     </div>
                     <div className="content mt-3">
                         <div className="price">
-                            <h3 className="fw-semibold">{data.price}</h3>
+                            <h3 className="fw-semibold">{cars.price}</h3>
                         </div>
                         <div className="views">
-                            <h6 className="fw-normal">{data.view} views</h6>
+                            <h6 className="fw-normal">{cars.view} views</h6>
                         </div>
                         <div className="content-btn my-4">
                             <button class="cta">
@@ -70,7 +70,7 @@ export default function Card({ data }) {
                                 >
                                     <path
                                         id="Path_10"
-                                        data-name="Path 10"
+                                        cars-name="Path 10"
                                         d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z"
                                         transform="translate(30)"
                                     ></path>

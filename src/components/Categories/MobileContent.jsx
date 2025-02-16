@@ -2,11 +2,9 @@ import React, { useState } from 'react';
 import '../Home/css/mobile-css.css'
 import { Col, Row } from 'react-bootstrap'
 import Card from './CategoryCards/Mobile/Card';
-import Card2 from './CategoryCards/Mobile/Card2';
+import CategoryContentData from './data/CategoryContentData.json'
 
 export default function MobileContent() {
-    const featuredAds = Array.from({ length: 10 });
-    const freeAds = Array.from({ length: 5 });
     const [sortText, setSortText] = useState("Sort by");
     function updateSortText(text) {
         setSortText(text);
@@ -68,11 +66,8 @@ export default function MobileContent() {
             </div>
             {/* Featured Ads start */}
             <Row className="row-gap-2">
-                {featuredAds.map((i) => (
-                    <Card key={i} />
-                ))}
-                {freeAds.map((i) => (
-                    <Card2 key={i} />
+                {CategoryContentData.Mobile.map((mobile, i) => (
+                    <Card mobile={mobile} key={i} />
                 ))}
             </Row>
             {/* Featured Ads end */}
