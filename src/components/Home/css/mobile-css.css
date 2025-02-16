@@ -28,6 +28,23 @@
     width: 70px;
 }
 
+.btn-active {
+    box-shadow: 0 2px 10px #00000036;
+    border-radius: 50% !important;
+}
+
+.arrow-active {
+    color: #3A4FC4 !important;
+    opacity: 100% !important;
+    scale: 1.5;
+}
+
+.arrow-disabled {
+    color: #000 !important;
+    opacity: 100% !important;
+    scale: 1.5;
+}
+
 .featured-icon h2 {
     margin-top: 5px;
     color: #daa520;

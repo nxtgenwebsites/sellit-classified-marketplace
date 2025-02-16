@@ -1,14 +1,24 @@
 import React, { useState } from 'react';
-import '../Home/css/mobile-css.css'
-import { Col, Row } from 'react-bootstrap'
+import '../Home/css/mobile-css.css';
+import { Col, Row } from 'react-bootstrap';
 import Card from './CategoryCards/Service Provider/Card';
-import CategoryContentData from './data/CategoryContentData.json'
+import CategoryContentData from './data/CategoryContentData.json';
+import { BsArrowRight, BsArrowLeft } from 'react-icons/bs';
 
 export default function ServiceContent() {
     const [sortText, setSortText] = useState("Sort by");
+    const [currentPage, setCurrentPage] = useState(1);
+    const itemsPerPage = 10;
+    const businessAds = CategoryContentData.Buisness || [];
+    const totalPages = Math.ceil(businessAds.length / itemsPerPage);
+    const firstItem = (currentPage - 1) * itemsPerPage;
+    const lastItem = firstItem + itemsPerPage;
+    const currentItems = businessAds.slice(firstItem, lastItem);
+
     function updateSortText(text) {
         setSortText(text);
     }
+
     return (
         <div className="page-wrapper">
             <div className="mobile-heading mb-3 d-flex w-100 justify-content-between">
@@ -25,7 +35,7 @@ export default function ServiceContent() {
                                 className="btn right-button"
                                 data-bs-toggle="dropdown"
                             >
-                                {sortText} {/* This will update dynamically */}
+                                {sortText}
                                 <span className="dropdown-btn">
                                     <img src="assets/icons/chevron.svg" alt="IMG" className="ms-1" />
                                 </span>
@@ -64,16 +74,47 @@ export default function ServiceContent() {
                     </div>
                 </div>
             </div>
+
             {/* Featured Ads start */}
             <Row className="row-gap-2">
-                {CategoryContentData.Service.map((service, i) => (
+                {currentItems.map((service, i) => (
                     <Card service={service} key={i} />
                 ))}
             </Row>
             {/* Featured Ads end */}
+
             <div className="pagination-section my-3">
-                a
+                <div className="d-flex justify-content-center align-items-center mt-3">
+                    <button
+                        className="btn border-0 me-2"
+                        onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+                        disabled={currentPage === 1}
+                    >
+                        <BsArrowLeft />
+                    </button>
+
+                    {[...Array(totalPages)].map((_, index) => {
+                        const pageNum = index + 1;
+                        return (
+                            <button
+                                key={pageNum}
+                                className={`btn mx-1 ${currentPage === pageNum ? "btn-active" : "btn-unactive"}`}
+                                onClick={() => setCurrentPage(pageNum)}
+                            >
+                                {pageNum}
+                            </button>
+                        );
+                    })}
+
+                    <button
+                        className="btn ms-2"
+                        onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+                        disabled={currentPage === totalPages}
+                    >
+                        <BsArrowRight />
+                    </button>
+                </div>
             </div>
         </div>
-    )
+    );
 }

@@ -3,8 +3,18 @@ import '../Home/css/mobile-css.css'
 import { Col, Row } from 'react-bootstrap'
 import Card from './CategoryCards/Motorcycle/Card';
 import CategoryContentData from './data/CategoryContentData.json'
+import { BsArrowRight } from "react-icons/bs";
+import { BsArrowLeft } from "react-icons/bs";
+
 export default function MotorcycleContent() {
     const [sortText, setSortText] = useState("Sort by");
+    const [currentPage, setCurrentPage] = useState(1);
+    const itemsPerPage = 10;
+    const businessAds = CategoryContentData.Buisness || [];
+    const totalPages = Math.ceil(businessAds.length / itemsPerPage);
+    const firstItem = (currentPage - 1) * itemsPerPage;
+    const lastItem = firstItem + itemsPerPage;
+    const currentItems = businessAds.slice(firstItem, lastItem);
     function updateSortText(text) {
         setSortText(text);
     }
@@ -65,13 +75,45 @@ export default function MotorcycleContent() {
             </div>
             {/* Featured Ads start */}
             <Row className="row-gap-2">
-                {CategoryContentData.Motorcycle.map((motorcycle, i) => (
+                {currentItems.map((motorcycle, i) => (
                     <Card motorcycle={motorcycle} key={i} />
                 ))}
             </Row>
             {/* Featured Ads end */}
+
             <div className="pagination-section my-3">
-                a
+                <div className="d-flex justify-content-center align-items-center mt-3">
+                    <button
+                        className="btn border-0 me-2"
+                        onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+                        disabled={currentPage === 1}
+                    >
+                        <BsArrowLeft />
+                    </button>
+
+                    {[...Array(totalPages)].map((_, index) => {
+                        const pageNum = index + 1;
+                        return (
+                            <button
+                                key={pageNum}
+                                className={`btn mx-1 ${currentPage === pageNum ? "btn-active" : "btn-unactive"}`}
+                                onClick={() => setCurrentPage(pageNum)}
+                            >
+                                {pageNum}
+                            </button>
+                        );
+                    })}
+
+                    <button
+                        className="btn ms-2"
+                        onClick={() =>
+                            setCurrentPage((prev) => Math.min(prev + 1, totalPages))
+                        }
+                        disabled={currentPage === totalPages}
+                    >
+                        <BsArrowRight />
+                    </button>
+                </div>
             </div>
         </div>
     )

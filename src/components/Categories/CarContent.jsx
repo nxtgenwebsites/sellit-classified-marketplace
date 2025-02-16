@@ -4,9 +4,17 @@ import { Row } from 'react-bootstrap'
 import Card from './CategoryCards/Cars/Card';
 import Pagination from 'react-bootstrap/Pagination';
 import CategoryContentData from './data/CategoryContentData.json'
+import { BsArrowRight } from "react-icons/bs";
+import { BsArrowLeft } from "react-icons/bs";
 export default function CarContent() {
     const [sortText, setSortText] = useState("Sort by");
-
+    const [currentPage, setCurrentPage] = useState(1);
+    const itemsPerPage = 10;
+    const businessAds = CategoryContentData.Buisness || [];
+    const totalPages = Math.ceil(businessAds.length / itemsPerPage);
+    const firstItem = (currentPage - 1) * itemsPerPage;
+    const lastItem = firstItem + itemsPerPage;
+    const currentItems = businessAds.slice(firstItem, lastItem);
     function updateSortText(text) {
         setSortText(text);
     }
@@ -67,22 +75,45 @@ export default function CarContent() {
             </div>
             {/* Featured Ads start */}
             <Row className="row-gap-2">
-                {CategoryContentData.Cars.map((cars, i) => (
+                {currentItems.map((cars, i) => (
                     <Card cars={cars} key={i} />
                 ))}
             </Row>
             {/* Featured Ads end */}
+
             <div className="pagination-section my-3">
-                <Pagination className='justify-content-center'>
-                    <Pagination.Prev />
-                    <Pagination.Item>{1}</Pagination.Item>
-                    <Pagination.Item>{2}</Pagination.Item>
-                    <Pagination.Item>{3}</Pagination.Item>
-                    <Pagination.Item>{4}</Pagination.Item>
-                    <Pagination.Ellipsis />
-                    <Pagination.Item>{20}</Pagination.Item>
-                    <Pagination.Next />
-                </Pagination>
+                <div className="d-flex justify-content-center align-items-center mt-3">
+                    <button
+                        className="btn border-0 me-2"
+                        onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+                        disabled={currentPage === 1}
+                    >
+                        <BsArrowLeft />
+                    </button>
+
+                    {[...Array(totalPages)].map((_, index) => {
+                        const pageNum = index + 1;
+                        return (
+                            <button
+                                key={pageNum}
+                                className={`btn mx-1 ${currentPage === pageNum ? "btn-active" : "btn-unactive"}`}
+                                onClick={() => setCurrentPage(pageNum)}
+                            >
+                                {pageNum}
+                            </button>
+                        );
+                    })}
+
+                    <button
+                        className="btn ms-2"
+                        onClick={() =>
+                            setCurrentPage((prev) => Math.min(prev + 1, totalPages))
+                        }
+                        disabled={currentPage === totalPages}
+                    >
+                        <BsArrowRight />
+                    </button>
+                </div>
             </div>
         </div>
     )
