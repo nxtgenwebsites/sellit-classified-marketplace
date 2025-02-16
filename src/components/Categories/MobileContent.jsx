@@ -83,8 +83,9 @@ export default function MobileContent() {
 
             <div className="pagination-section my-3">
                 <div className="d-flex justify-content-center align-items-center mt-3">
+                    {/* Previous Button */}
                     <button
-                        className="btn border-0 me-2"
+                        className={`btn border-0 me-2 arrow-btn ${currentPage === 1 ? 'arrow-disabled' : 'arrow-active'}`}
                         onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
                         disabled={currentPage === 1}
                     >
@@ -104,11 +105,10 @@ export default function MobileContent() {
                         );
                     })}
 
+                    {/* Next Button */}
                     <button
-                        className="btn ms-2"
-                        onClick={() =>
-                            setCurrentPage((prev) => Math.min(prev + 1, totalPages))
-                        }
+                        className={`btn ms-2 arrow-btn ${currentPage === totalPages ? 'arrow-disabled' : 'arrow-active'}`}
+                        onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
                         disabled={currentPage === totalPages}
                     >
                         <BsArrowRight />
