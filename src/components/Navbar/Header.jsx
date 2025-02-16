@@ -123,7 +123,7 @@ export default function Header() {
                             <Nav.Link href='#'>
                                 <BsFillPersonFill className='nav-icon' />
                             </Nav.Link>
-                            <Button type="button" className="rounded-2 nav-btn p-2">Add Listings</Button>
+                            <Link to={'/add-listing'}><Button type="button" className="rounded-2 nav-btn p-2">Add Listings</Button></Link>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

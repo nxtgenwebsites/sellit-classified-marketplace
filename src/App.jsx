@@ -12,6 +12,7 @@ import ServiceProvidersCategory from './Pages/ServiceProvidersCategory';
 import Categorydropdown from "./components/Dropdown/Categorydropdown";
 import FooterGrowPage from './Pages/GrowPage'
 import FooterAdvertisePage from './Pages/AdvertisePage'
+import AddListingPage from "./Pages/AddListingPage";
 import './App.css'
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
         <Route path="/service-category" element={<ServiceProvidersCategory />} />
         <Route path="/footer-grow-page" element={<FooterGrowPage />} />
         <Route path="/footer-advertise-page" element={<FooterAdvertisePage />} />
+        <Route path="/add-listing" element={<AddListingPage />} />
       </Routes>
       <Footer />
     </>
