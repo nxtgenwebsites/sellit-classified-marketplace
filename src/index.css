@@ -11,7 +11,12 @@ footer {
   padding: 3rem 0;
 }
 
+.form-select {
+  border: 1px solid #bdbebf !important;
+}
+
 .form-select:focus {
   box-shadow: 0 0 0 0 !important;
   border: 1px solid #bdbebf !important;
+
 }
