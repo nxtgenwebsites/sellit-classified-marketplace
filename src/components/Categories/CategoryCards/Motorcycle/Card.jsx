@@ -60,8 +60,8 @@ export default function Card({ motorcycle }) {
                             <h6 className="fw-normal">{motorcycle.views} views</h6>
                         </div>
                         <div className="content-btn my-4">
-                            <button class="cta">
-                                <span class="hover-underline-animation"> Shop now </span>
+                            <button className="cta">
+                                <span className="hover-underline-animation"> Shop now </span>
                                 <svg
                                     id="arrow-horizontal"
                                     xmlns="http://www.w3.org/2000/svg"
