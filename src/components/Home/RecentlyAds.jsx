@@ -4,7 +4,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Card1 from "./RecentAdsCards/Card1";
 import Card2 from "./RecentAdsCards/Card2";
-import RecentCardData from "../../data/Home_Data/RecentCardData.json";
+import RecentCardData from "./data/RecentCardData.json";
 
 function RecentlyAds() {
 

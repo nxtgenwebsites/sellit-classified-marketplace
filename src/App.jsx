@@ -1,7 +1,11 @@
+import { Route, Routes } from "react-router-dom";
+
+// universalPages
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Navbar/Header";
+import Categorydropdown from "./components/Dropdown/Categorydropdown";
+// homePages
 import HomePage from "./Pages/HomePage";
-import { Route, Routes } from "react-router-dom";
 import MobilesCategory from './Pages/MobilesCategory'
 import CarsCategory from './Pages/CarsCategory'
 import BuisnessCategory from './Pages/BuisnessCategory'
@@ -9,11 +13,15 @@ import FindJobCategory from './Pages/FindJobCategory'
 import MotorcyclesCategory from "./Pages/MotorcyclesCategory";
 import PopertyForSaleCategory from './Pages/PopertyForSaleCategory'
 import ServiceProvidersCategory from './Pages/ServiceProvidersCategory';
-import Categorydropdown from "./components/Dropdown/Categorydropdown";
+// footerPages
+
 import FooterGrowPage from './Pages/GrowPage'
 import FooterAdvertisePage from './Pages/AdvertisePage'
+
 import AddListingPage from "./Pages/AddListingPage";
+
 import './App.css'
+
 function App() {
   return (
     <>

@@ -1,0 +1,164 @@
+{
+  "Cars": [
+    {
+      "img": "assets/img/ad-3.jpg",
+      "tag": "Electronics",
+      "heading": "BMW RS7",
+      "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque ipsam at soluta velit!",
+      "price": "PKR 380,000",
+      "time": "5 days ago",
+      "location": "New York, USA",
+      "views": "2569",
+      "featured": true
+    },
+    {
+      "img": "assets/img/ad-3.jpg",
+      "tag": "Electronics",
+      "heading": "BMW RS7",
+      "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque ipsam at soluta velit!",
+      "price": "PKR 380,000",
+      "time": "5 days ago",
+      "location": "New York, USA",
+      "views": "2569",
+      "featured": true
+    },
+    {
+      "img": "assets/img/ad-3.jpg",
+      "tag": "Electronics",
+      "heading": "BMW RS7",
+      "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque ipsam at soluta velit!",
+      "price": "PKR 380,000",
+      "time": "5 days ago",
+      "location": "New York, USA",
+      "views": "2569",
+      "featured": true
+    },
+    {
+      "img": "assets/img/ad-3.jpg",
+      "tag": "Electronics",
+      "heading": "BMW RS7",
+      "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque ipsam at soluta velit!",
+      "price": "PKR 380,000",
+      "time": "5 days ago",
+      "location": "New York, USA",
+      "views": "2569",
+      "featured": true
+    },
+    {
+      "img": "assets/img/ad-3.jpg",
+      "tag": "Electronics",
+      "heading": "BMW RS7",
+      "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque ipsam at soluta velit!",
+      "price": "PKR 380,000",
+      "time": "5 days ago",
+      "location": "New York, USA",
+      "views": "2569",
+      "featured": true
+    },
+    {
+      "img": "assets/img/ad-3.jpg",
+      "tag": "Electronics",
+      "heading": "BMW RS7",
+      "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque ipsam at soluta velit!",
+      "price": "PKR 380,000",
+      "time": "5 days ago",
+      "location": "New York, USA",
+      "views": "2569",
+      "featured": true
+    },
+    {
+      "img": "assets/img/ad-3.jpg",
+      "tag": "Electronics",
+      "heading": "BMW RS7",
+      "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque ipsam at soluta velit!",
+      "price": "PKR 380,000",
+      "time": "5 days ago",
+      "location": "New York, USA",
+      "views": "2569",
+      "featured": true
+    },
+    {
+      "img": "assets/img/ad-3.jpg",
+      "tag": "Electronics",
+      "heading": "BMW RS7",
+      "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque ipsam at soluta velit!",
+      "price": "PKR 380,000",
+      "time": "5 days ago",
+      "location": "New York, USA",
+      "views": "2569",
+      "featured": true
+    },
+    {
+      "img": "assets/img/ad-3.jpg",
+      "tag": "Electronics",
+      "heading": "BMW RS7",
+      "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque ipsam at soluta velit!",
+      "price": "PKR 380,000",
+      "time": "5 days ago",
+      "location": "New York, USA",
+      "views": "2569",
+      "featured": true
+    },
+    {
+      "img": "assets/img/ad-3.jpg",
+      "tag": "Electronics",
+      "heading": "BMW RS7",
+      "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque ipsam at soluta velit!",
+      "price": "PKR 380,000",
+      "time": "5 days ago",
+      "location": "New York, USA",
+      "views": "2569",
+      "featured": true
+    },
+    {
+      "img": "assets/img/ad-3.jpg",
+      "tag": "Electronics",
+      "heading": "BMW RS7",
+      "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque ipsam at soluta velit!",
+      "price": "PKR 380,000",
+      "time": "5 days ago",
+      "location": "New York, USA",
+      "views": "2569"
+    },
+    {
+      "img": "assets/img/ad-3.jpg",
+      "tag": "Electronics",
+      "heading": "BMW RS7",
+      "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque ipsam at soluta velit!",
+      "price": "PKR 380,000",
+      "time": "5 days ago",
+      "location": "New York, USA",
+      "views": "2569"
+    },
+    {
+      "img": "assets/img/ad-3.jpg",
+      "tag": "Electronics",
+      "heading": "BMW RS7",
+      "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque ipsam at soluta velit!",
+      "price": "PKR 380,000",
+      "time": "5 days ago",
+      "location": "New York, USA",
+      "views": "2569"
+    },
+    {
+      "img": "assets/img/ad-3.jpg",
+      "tag": "Electronics",
+      "heading": "BMW RS7",
+      "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque ipsam at soluta velit!",
+      "price": "PKR 380,000",
+      "time": "5 days ago",
+      "location": "New York, USA",
+      "views": "2569"
+    },
+    {
+      "img": "assets/img/ad-3.jpg",
+      "tag": "Electronics",
+      "heading": "BMW RS7",
+      "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque ipsam at soluta velit!",
+      "price": "PKR 380,000",
+      "time": "5 days ago",
+      "location": "New York, USA",
+      "views": "2569"
+    }
+  ]
+}

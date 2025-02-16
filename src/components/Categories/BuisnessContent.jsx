@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import '../Home/css/mobile-css.css';
 import { Col, Row } from 'react-bootstrap';
-import Card1 from './CategoryCards/Buisness/Card1';
-import Card2 from './CategoryCards/Buisness/Card2';
+import Card from './CategoryCards/Buisness/Card';
 
 export default function BusinessContent() {
     const featuredAds = Array.from({ length: 10 });
@@ -71,7 +70,7 @@ export default function BusinessContent() {
             {/* Featured Ads start */}
             <Row className="row-gap-2">
                 {featuredAds.map((i) => (
-                    <Card1 key={i} />
+                    <Card key={i} />
                 ))}
                 {freeAds.map((i) => (
                     <Card2 key={i} />

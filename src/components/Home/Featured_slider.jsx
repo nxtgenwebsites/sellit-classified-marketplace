@@ -5,7 +5,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "../Home/css/featured-ads.css";
-import FeaturedAdsData from "../../data/Home_Data/FeaturedAdsData.json";
+import FeaturedAdsData from "./data/FeaturedAdsData.json";
 import { MdOutlineStarPurple500 } from "react-icons/md";
 import { IoTimeOutline } from "react-icons/io5";
 import { BsGeoAlt } from "react-icons/bs";

@@ -3,10 +3,8 @@ import { Col } from 'react-bootstrap'
 import { MdOutlineStarPurple500 } from "react-icons/md";
 import { IoTimeOutline } from "react-icons/io5";
 import { HiOutlineHeart } from "react-icons/hi2";
-import { BsGeoAlt } from "react-icons/bs";
 
-
-export default function Card1() {
+export default function Card() {
     return (
         <div>
             <Col lg={12} className="page-card rounded-3 d-lg-flex w-100 gap-2 position-relative p-2">
@@ -14,7 +12,7 @@ export default function Card1() {
                     <h2 className="fw-semibold"><MdOutlineStarPurple500 /></h2>
                 </div>
                 <div className="page-img">
-                    <img src="assets/img/ad-2.jpg" alt="IMG" className="rounded-1" />
+                    <img src="assets/img/ad-22.jpeg" alt="IMG" className="rounded-1" />
                 </div>
                 <div className="page-1-sect d-lg-flex">
                     <div className="page-content p-2 mt-sm-0 mt-3">
@@ -50,7 +48,7 @@ export default function Card1() {
                 <div className="card-divider"></div>
                 <div className="page-2-sect text-lg-end text-start">
                     <div className="icons ms-lg-auto ms-0">
-                        <HiOutlineHeart className='favorite-icon' />
+                        <HiOutlineHeart className='favorite-icon'/>
                     </div>
                     <div className="content mt-3">
                         <div className="price">

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../Home/css/mobile-css.css'
 import { Col, Row } from 'react-bootstrap'
-import Card1 from './CategoryCards/Mobile/Card1';
+import Card from './CategoryCards/Mobile/Card';
 import Card2 from './CategoryCards/Mobile/Card2';
 
 export default function MobileContent() {
@@ -69,7 +69,7 @@ export default function MobileContent() {
             {/* Featured Ads start */}
             <Row className="row-gap-2">
                 {featuredAds.map((i) => (
-                    <Card1 key={i} />
+                    <Card key={i} />
                 ))}
                 {freeAds.map((i) => (
                     <Card2 key={i} />

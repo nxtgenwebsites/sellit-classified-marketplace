@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import '../Home/css/mobile-css.css'
 import { Row } from 'react-bootstrap'
-import Card1 from './CategoryCards/Cars/Card1';
-import Card2 from './CategoryCards/Cars/Card2';
-
+import Card from './CategoryCards/Cars/Card';
+import Pagination from 'react-bootstrap/Pagination';
+import CategoryContentData from './data/CategoryContentData.json'
 export default function CarContent() {
-    const featuredAds = Array.from({ length: 10 });
-    const freeAds = Array.from({ length: 5 });
     const [sortText, setSortText] = useState("Sort by");
+
     function updateSortText(text) {
         setSortText(text);
     }
@@ -68,16 +67,22 @@ export default function CarContent() {
             </div>
             {/* Featured Ads start */}
             <Row className="row-gap-2">
-                {featuredAds.map((i) => (
-                    <Card1 key={i} />
-                ))}
-                {freeAds.map((i) => (
-                    <Card2 key={i} />
+                {CategoryContentData.Cars.map((data, i) => (
+                    <Card data={data} key={i} />
                 ))}
             </Row>
             {/* Featured Ads end */}
             <div className="pagination-section my-3">
-                a
+                <Pagination className='justify-content-center'>
+                    <Pagination.Prev />
+                    <Pagination.Item>{1}</Pagination.Item>
+                    <Pagination.Item>{2}</Pagination.Item>
+                    <Pagination.Item>{3}</Pagination.Item>
+                    <Pagination.Item>{4}</Pagination.Item>
+                    <Pagination.Ellipsis />
+                    <Pagination.Item>{20}</Pagination.Item>
+                    <Pagination.Next />
+                </Pagination>
             </div>
         </div>
     )

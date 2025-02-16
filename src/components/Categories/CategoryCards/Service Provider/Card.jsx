@@ -6,7 +6,7 @@ import { HiOutlineHeart } from "react-icons/hi2";
 import { BsGeoAlt } from "react-icons/bs";
 
 
-export default function Card1() {
+export default function Card() {
   return (
     <div>
           <Col lg={12} className="page-card rounded-3 d-lg-flex w-100 gap-2 position-relative p-2">

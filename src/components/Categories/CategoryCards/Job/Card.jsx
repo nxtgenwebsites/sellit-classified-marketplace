@@ -1,15 +1,19 @@
 import React from 'react'
 import { Col } from 'react-bootstrap'
+import { MdOutlineStarPurple500 } from "react-icons/md";
 import { IoTimeOutline } from "react-icons/io5";
 import { HiOutlineHeart } from "react-icons/hi2";
 import { BsGeoAlt } from "react-icons/bs";
 
-export default function Card2() {
+export default function Card() {
   return (
     <div>
           <Col lg={12} className="page-card rounded-3 d-lg-flex w-100 gap-2 position-relative p-2">
-              <div className="page-img">
-                  <img src="assets/img/ad-7.jpeg" alt="IMG" className="rounded-1" />
+              <div className="featured-icon rounded-4">
+                  <h2 className="fw-semibold"><MdOutlineStarPurple500 /></h2>
+              </div>
+              <div className="page-img w-50">
+                  <img src="assets/img/ad-20.jpeg" alt="IMG" className="rounded-1" />
               </div>
               <div className="page-1-sect d-lg-flex">
                   <div className="page-content p-2 mt-sm-0 mt-3">
