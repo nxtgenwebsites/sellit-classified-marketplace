@@ -8,7 +8,24 @@ export default function AddListstingContent() {
         motors: useRef(),
         "property-sale": useRef(),
         "property-rent": useRef(),
-        "find-buisness": useRef(),
+        "find-business": useRef(),
+        "find-service": useRef(),
+        "find-job": useRef(),
+        electronics: useRef(),
+        bikes: useRef(),
+        animals: useRef(),
+        furniture: useRef(),
+        fashion: useRef(),
+        books: useRef(),
+        kids: useRef()
+    };
+
+    const headings = {
+        mobiles: useRef(),
+        motors: useRef(),
+        "property-sale": useRef(),
+        "property-rent": useRef(),
+        "find-business": useRef(),
         "find-service": useRef(),
         "find-job": useRef(),
         electronics: useRef(),
@@ -24,41 +41,53 @@ export default function AddListstingContent() {
     const [isEnabled, setIsEnabled] = useState(false);
 
     function handleCategory() {
-        const selectedCategory = mainCategory.current.value;
+        const selectedCategory = mainCategory.current?.value;
 
         setIsEnabled(selectedCategory === "mobiles");
 
-        Object.values(categories).forEach((category) => {
-            category.current.classList.remove("d-block");
-            category.current.classList.add("d-none");
+        Object.values(categories).forEach((categoryRef) => {
+            if (categoryRef.current) {
+                categoryRef.current.classList.remove("d-block");
+                categoryRef.current.classList.add("d-none");
+            }
         });
-        if (categories[selectedCategory]) {
+        Object.values(headings).forEach((headingRef) => {
+            if (headingRef.current) {
+                headingRef.current.classList.add("d-none");
+            }
+        });
+        if (categories[selectedCategory]?.current) {
             categories[selectedCategory].current.classList.add("d-block");
             categories[selectedCategory].current.classList.remove("d-none");
         }
+
+        if (headings[selectedCategory]?.current) {
+            headings[selectedCategory].current.classList.remove("d-none");
+        }
     }
+
     return (
         <div>
             <Container>
-                {/* Form Heading start */}
+                {/* Form Heading */}
                 <div className="listing-heading">
                     <h1 className="fw-semibold">Post New Ads</h1>
                     <p>Lorem ipsum dolor sit amet consectetur.</p>
                 </div>
-                {/* Form Heading end */}
-                {/* Form start */}
+
+                {/* Form */}
                 <form>
                     <div className="form-group d-md-flex gap-2">
                         <div className="category w-100">
-                            <select ref={mainCategory} onChange={handleCategory} className='form-select px-3 py-2'>
-                                <option value="select-category" disabled selected>Select Category</option>
+                            <select ref={mainCategory} onChange={handleCategory} className="form-select px-3 py-2">
+                                <option value="" disabled selected>Select Category</option>
                                 <option value="mobiles">Mobiles</option>
                                 <option value="motors">Motors</option>
                                 <option value="property-sale">Property for Sale</option>
                                 <option value="property-rent">Property for Rent</option>
-                                <option value="electronics">Electronics & Home Applications</option>
+                                <option value="electronics">Electronics & Home Appliances</option>
                                 <option value="bikes">Bikes</option>
-                                <option value="find-buisness">Business, Industrial & Agriculture</option>
+                                <option value="find-business">Business, Industrial & Agriculture</option>
                                 <option value="find-service">Services</option>
                                 <option value="find-job">Jobs</option>
                                 <option value="animals">Animals</option>
@@ -68,38 +97,34 @@ export default function AddListstingContent() {
                                 <option value="kids">Kids</option>
                             </select>
                         </div>
-                        <div ref={categories.mobiles} className="sub-category mt-md-0 w-100">
-                            <select className='form-select px-3 py-2' disabled={!isEnabled}>
-                                <option value="select-subcategory" disabled selected>Select Sub-Category</option>
-                                <option value="1">Tablets</option>
-                                <option value="2">Accessories</option>
-                                <option value="3">Mobile Phones</option>
-                                <option value="4">Smart Watches</option>
+                        <div ref={categories.mobiles} className="sub-category mt-md-0 w-100 d-none">
+                            <select className="form-select px-3 py-2" disabled={!isEnabled}>
+                                <option value="" disabled selected>Select Sub-Category</option>
+                                <option value="tablets">Tablets</option>
+                                <option value="accessories">Accessories</option>
+                                <option value="phones">Mobile Phones</option>
+                                <option value="watches">Smart Watches</option>
                             </select>
+                            <h1 ref={headings.mobiles} className="d-none">Mobiles Category</h1>
                         </div>
                         <div ref={categories.motors} className="sub-category mt-md-0 w-100 d-none">
-                            <select className='form-select px-3 py-2'>
-                                <option value="select-subcategory" selected disabled>Select Sub-Category</option>
-                                <option value="1">Cars</option>
-                                <option value="2">Cars On Installments</option>
-                                <option value="3">Car Accessories</option>
-                                <option value="4">Spare Parts</option>
-                                <option value="5">Buses, Vans & Trucks</option>
-                                <option value="6">Rickshaw & Chingchi</option>
-                                <option value="7">Other Vehicles</option>
-                                <option value="8">Boats</option>
-                                <option value="9">Tractors & Trailers</option>
+                            <select className="form-select px-3 py-2">
+                                <option value="" disabled selected>Select Sub-Category</option>
+                                <option value="cars">Cars</option>
+                                <option value="installments">Cars on Installments</option>
+                                <option value="accessories">Car Accessories</option>
+                                <option value="spare-parts">Spare Parts</option>
                             </select>
+                            <h1 ref={headings.motors} className="d-none">Motors Category</h1>
                         </div>
                         <div ref={categories["property-sale"]} className="sub-category mt-md-0 w-100 d-none">
-                            <select className='form-select px-3 py-2'>
-                                <option value="select-subcategory" selected disabled>Select Sub-Category</option>
-                                <option value="1">Lands & Plots</option>
-                                <option value="2">Houses</option>
-                                <option value="3">Apartments</option>
-                                <option value="4">Shops - Offices - Commercial Space</option>
-                                <option value="5">Portions & Floors</option>
+                            <select className="form-select px-3 py-2">
+                                <option value="" disabled selected>Select Sub-Category</option>
+                                <option value="lands">Lands & Plots</option>
+                                <option value="houses">Houses</option>
+                                <option value="apartments">Apartments</option>
                             </select>
+                            <h1 ref={headings["property-sale"]} className="d-none">Property for Sale</h1>
                         </div>
                         <div ref={categories["property-rent"]} className="sub-category mt-md-0 w-100 d-none">
                             <select className='form-select px-3 py-2'>
@@ -113,8 +138,44 @@ export default function AddListstingContent() {
                                 <option value="7">Vacation Rentals - Guest Houses</option>
                                 <option value="8">Land & Plots</option>
                             </select>
+                            <h1 ref={headings["property-rent"]} className="d-none">Property for Rent</h1>
                         </div>
-                        <div ref={categories["find-buisness"]} className="sub-category mt-md-0 w-100 d-none">
+                        <div ref={categories.electronics} className="sub-category mt-md-0 w-100 d-none">
+                            <select className='form-select px-3 py-2'>
+                                <option value="select-subcategory" selected disabled>Select Sub-Category</option>
+                                <option value="1">Computer & Accessories</option>
+                                <option value="2">Games & Entertainment</option>
+                                <option value="3">Cameras & Accessories</option>
+                                <option value="4">Television & Accessories</option>
+                                <option value="5">Video-Audios</option>
+                                <option value="6">AC & Coolers</option>
+                                <option value="7">Fans</option>
+                                <option value="8">Heaters & Geysers</option>
+                                <option value="9">Air Purifiers & Humidifiers</option>
+                                <option value="10">Washing Machines & Dryers</option>
+                                <option value="11">Irons & Steamers</option>
+                                <option value="12">Generators, UPS & Power Solutions</option>
+                                <option value="13">Other Applications</option>
+                                <option value="14">Refrigerators & Freezers</option>
+                                <option value="15">Water Dispensers</option>
+                                <option value="16">Microwaves & Ovens</option>
+                                <option value="17">Kitchen Applications</option>
+                            </select>
+                            <h1 ref={headings.electronics} className="d-none">Electronics & Home Appliances</h1>
+                        </div>
+                        <div ref={categories.bikes} className="sub-category mt-md-0 w-100 d-none">
+                            <select className='form-select px-3 py-2'>
+                                <option value="select-subcategory" selected disabled>Select Sub-Category</option>
+                                <option value="1">Motorcycles</option>
+                                <option value="2">Spare Parts</option>
+                                <option value="3">Bike Accessories</option>
+                                <option value="4">Bicycles</option>
+                                <option value="5">ATV & Quads</option>
+                                <option value="6">Scooters</option>
+                            </select>
+                            <h1 ref={headings.bikes} className="d-none">Bikes</h1>
+                        </div>
+                        <div ref={categories["find-business"]} className="sub-category mt-md-0 w-100 d-none">
                             <select className='form-select px-3 py-2'>
                                 <option value="select-subcategory" selected disabled>Select Sub-Category</option>
                                 <option value="1">Buisness For Sale</option>
@@ -125,6 +186,7 @@ export default function AddListstingContent() {
                                 <option value="6">Trade & Industrial Machinery</option>
                                 <option value="7">Other Buisness & Industry</option>
                             </select>
+                            <h1 ref={headings["find-business"]} className="d-none">Business, Industrial & Agriculture</h1>
                         </div>
                         <div ref={categories["find-service"]} className="sub-category mt-md-0 w-100 d-none">
                             <select className='form-select px-3 py-2'>
@@ -153,6 +215,7 @@ export default function AddListstingContent() {
                                 <option value="22">Web Development</option>
                                 <option value="23">Other Services</option>
                             </select>
+                            <h1 ref={headings["find-service"]} className="d-none">Services</h1>
                         </div>
                         <div ref={categories["find-job"]} className="sub-category mt-md-0 w-100 d-none">
                             <select className='form-select px-3 py-2'>
@@ -183,39 +246,7 @@ export default function AddListstingContent() {
                                 <option value="24">Sales</option>
                                 <option value="25">Security</option>
                             </select>
-                        </div>
-                        <div ref={categories.electronics} className="sub-category mt-md-0 w-100 d-none">
-                            <select className='form-select px-3 py-2'>
-                                <option value="select-subcategory" selected disabled>Select Sub-Category</option>
-                                <option value="1">Computer & Accessories</option>
-                                <option value="2">Games & Entertainment</option>
-                                <option value="3">Cameras & Accessories</option>
-                                <option value="4">Television & Accessories</option>
-                                <option value="5">Video-Audios</option>
-                                <option value="6">AC & Coolers</option>
-                                <option value="7">Fans</option>
-                                <option value="8">Heaters & Geysers</option>
-                                <option value="9">Air Purifiers & Humidifiers</option>
-                                <option value="10">Washing Machines & Dryers</option>
-                                <option value="11">Irons & Steamers</option>
-                                <option value="12">Generators, UPS & Power Solutions</option>
-                                <option value="13">Other Applications</option>
-                                <option value="14">Refrigerators & Freezers</option>
-                                <option value="15">Water Dispensers</option>
-                                <option value="16">Microwaves & Ovens</option>
-                                <option value="17">Kitchen Applications</option>
-                            </select>
-                        </div>
-                        <div ref={categories.bikes} className="sub-category mt-md-0 w-100 d-none">
-                            <select className='form-select px-3 py-2'>
-                                <option value="select-subcategory" selected disabled>Select Sub-Category</option>
-                                <option value="1">Motorcycles</option>
-                                <option value="2">Spare Parts</option>
-                                <option value="3">Bike Accessories</option>
-                                <option value="4">Bicycles</option>
-                                <option value="5">ATV & Quads</option>
-                                <option value="6">Scooters</option>
-                            </select>
+                            <h1 ref={headings["find-job"]} className="d-none">Jobs</h1>
                         </div>
                         <div ref={categories.animals} className="sub-category mt-md-0 w-100 d-none">
                             <select className='form-select px-3 py-2'>
@@ -238,6 +269,7 @@ export default function AddListstingContent() {
                                 <option value="16">Livestock</option>
                                 <option value="17">Pet Food & Accessories</option>
                             </select>
+                            <h1 ref={headings.animals} className="d-none">Animals</h1>
                         </div>
                         <div ref={categories.furniture} className="sub-category mt-md-0 w-100 d-none">
                             <select className='form-select px-3 py-2'>
@@ -254,22 +286,24 @@ export default function AddListstingContent() {
                                 <option value="10">Home Decoration</option>
                                 <option value="11">Other Household Items</option>
                             </select>
+                            <h1 ref={headings.furniture} className="d-none">Furniture & Home Decor</h1>
                         </div>
                         <div ref={categories.fashion} className="sub-category mt-md-0 w-100 d-none">
                             <select className='form-select px-3 py-2'>
-                                <option value="select-subcategory" selected disabled>Select Sub-Category</option>
-                                <option value="1">Fashion Accessories</option>
-                                <option value="2">Clothes</option>
-                                <option value="3">Footwear</option>
-                                <option value="4">Bags</option>
-                                <option value="5">Jewellery</option>
-                                <option value="6">Makeup</option>
-                                <option value="7">Skin & Hair</option>
-                                <option value="8">Watches</option>
-                                <option value="9">Fragrance</option>
-                                <option value="10">Wedding</option>
-                                <option value="11">Other Fashion</option>
-                            </select>
+                            <option value="select-subcategory" selected disabled>Select Sub-Category</option>
+                            <option value="1">Fashion Accessories</option>
+                            <option value="2">Clothes</option>
+                            <option value="3">Footwear</option>
+                            <option value="4">Bags</option>
+                            <option value="5">Jewellery</option>
+                            <option value="6">Makeup</option>
+                            <option value="7">Skin & Hair</option>
+                            <option value="8">Watches</option>
+                            <option value="9">Fragrance</option>
+                            <option value="10">Wedding</option>
+                            <option value="11">Other Fashion</option>
+                        </select>
+                            <h1 ref={headings.fashion} className="d-none">Fashion & Beauty</h1>
                         </div>
                         <div ref={categories.books} className="sub-category mt-md-0 w-100 d-none">
                             <select className='form-select px-3 py-2'>
@@ -280,6 +314,7 @@ export default function AddListstingContent() {
                                 <option value="4">Gym & Fitness</option>
                                 <option value="5">Other Hobbies</option>
                             </select>
+                            <h1 ref={headings.books} className="d-none">Books</h1>
                         </div>
                         <div ref={categories.kids} className="sub-category mt-md-0 w-100 d-none">
                             <select className='form-select px-3 py-2'>
@@ -293,6 +328,7 @@ export default function AddListstingContent() {
                                 <option value="7">Kids Clothing</option>
                                 <option value="8">Kids Accessories</option>
                             </select>
+                            <h1 ref={headings.kids} className="d-none">Kids</h1>
                         </div>
                     </div>
                 </form>
