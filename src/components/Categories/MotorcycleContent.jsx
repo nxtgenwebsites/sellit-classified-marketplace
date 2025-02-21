@@ -10,7 +10,7 @@ export default function MotorcycleContent() {
     const [sortText, setSortText] = useState("Sort by");
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 10;
-    const businessAds = CategoryContentData.Buisness || [];
+    const businessAds = CategoryContentData.Motorcycle || [];
     const totalPages = Math.ceil(businessAds.length / itemsPerPage);
     const firstItem = (currentPage - 1) * itemsPerPage;
     const lastItem = firstItem + itemsPerPage;

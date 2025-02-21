@@ -1,3 +1,271 @@
 .listing-heading h1 {
     font-weight: 900 !important;
 }
+
+.form-second-group {
+    border: 1px solid #3A4FC4;
+}
+
+.form-second-group label {
+    font-size: 16px;
+    font-weight: 700;
+    width: 70%;
+}
+
+.disabled {
+    color: #000 !important;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.checkOne {
+    appearance: none;
+    -webkit-appearance: none;
+    border: 1px solid;
+    width: 60px;
+    height: 50px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.checkOne::before {
+    content: 'New';
+}
+
+.checkOne:checked {
+    border: 5px solid #3A4FC4;
+    background: #526cff;
+    color: #fff;
+}
+
+.checkTwo {
+    appearance: none;
+    -webkit-appearance: none;
+    border: 1px solid;
+    width: 60px;
+    height: 50px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.checkTwo::before {
+    content: 'Used';
+}
+
+.checkTwo:checked {
+    border: 5px solid #3A4FC4;
+    background: #526cff;
+    color: #fff;
+}
+
+.checkThree {
+    appearance: none;
+    -webkit-appearance: none;
+    border: 1px solid;
+    width: 100px;
+    height: 50px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.checkThree::before {
+    content: 'Automatic';
+}
+
+.checkThree:checked {
+    border: 5px solid #3A4FC4;
+    background: #526cff;
+    color: #fff;
+}
+
+.checkFour {
+    appearance: none;
+    -webkit-appearance: none;
+    border: 1px solid;
+    width: 80px;
+    height: 50px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.checkFour::before {
+    content: 'Manual';
+}
+
+.checkFour:checked {
+    border: 5px solid #3A4FC4;
+    background: #526cff;
+    color: #fff;
+}
+
+.checkFive {
+    appearance: none;
+    -webkit-appearance: none;
+    border: 1px solid;
+    width: 80px;
+    height: 50px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.checkFive::before {
+    content: 'Original';
+}
+
+.checkFive:checked {
+    border: 5px solid #3A4FC4;
+    background: #526cff;
+    color: #fff;
+}
+
+.checkSix {
+    appearance: none;
+    -webkit-appearance: none;
+    border: 1px solid;
+    width: 80px;
+    height: 50px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.checkSix::before {
+    content: 'Duplicate';
+}
+
+.checkSix:checked {
+    border: 5px solid #3A4FC4;
+    background: #526cff;
+    color: #fff;
+}
+
+.checkSeven {
+    appearance: none;
+    -webkit-appearance: none;
+    border: 1px solid;
+    width: 80px;
+    height: 50px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.checkSeven::before {
+    content: 'Local';
+}
+
+.checkSeven:checked {
+    border: 5px solid #3A4FC4;
+    background: #526cff;
+    color: #fff;
+}
+
+.checkEight {
+    appearance: none;
+    -webkit-appearance: none;
+    border: 1px solid;
+    width: 80px;
+    height: 50px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.checkEight::before {
+    content: 'Imported';
+}
+
+.checkEight:checked {
+    border: 5px solid #3A4FC4;
+    background: #526cff;
+    color: #fff;
+}
+
+.year-input {
+    width: 100%;
+    outline: 0;
+    border: 1px solid #bdbebf;
+}
+
+.checkbox-1 span {
+    font-weight: 400;
+    color: #76A7C4 !important;
+    font-size: 16px;
+}
+
+.checkbox-1 input {
+    appearance: none;
+    -webkit-appearance: none;
+    border: 1px solid #000;
+    width: 25px;
+    height: 25px;
+    border-radius: 5px;
+}
+
+.checkbox-1 input:checked::after {
+    content: '✓';
+    padding: 0 6px;
+    background: #002F34;
+    color: #fff;
+}
+
+.checkbox-2 input:checked::after {
+    content: '✓';
+    padding: 0 6px;
+    color: #fff;
+    background: #002F34;
+}
+
+.checkbox-1 input:checked {
+    border-radius: 5px;
+    background: #002F34;
+}
+
+.checkbox-2 input:checked {
+    border-radius: 5px;
+    background: #002F34;
+}
+
+.checkbox-1:hover input {
+    border-width: 2px;
+}
+
+.checkbox-1:hover span {
+    color: #002F34 !important;
+}
+
+.checkbox-2 input {
+    appearance: none;
+    -webkit-appearance: none;
+    border: 1px solid #000;
+    width: 25px;
+    height: 25px;
+    border-radius: 5px;
+}
+
+.checkbox-2 span {
+    font-weight: 400;
+    color: #76A7C4 !important;
+    font-size: 16px;
+}
+
+.checkbox-2:hover input {
+    border-width: 2px;
+}
+
+.checkbox-2:hover span {
+    color: #002F34 !important;
+}

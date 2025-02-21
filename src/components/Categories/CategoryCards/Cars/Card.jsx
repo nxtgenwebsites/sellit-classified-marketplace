@@ -56,7 +56,7 @@ export default function Card({ cars }) {
                             <h3 className="fw-semibold">{cars.price}</h3>
                         </div>
                         <div className="views">
-                            <h6 className="fw-normal">{cars.view} views</h6>
+                            <h6 className="fw-normal">{cars.views} views</h6>
                         </div>
                         <div className="content-btn my-4">
                             <button className="cta">

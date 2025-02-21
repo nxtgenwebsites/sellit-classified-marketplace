@@ -2,15 +2,15 @@ import React, { useState } from 'react';
 import '../Home/css/mobile-css.css'
 import { Row } from 'react-bootstrap'
 import Card from './CategoryCards/Cars/Card';
-import Pagination from 'react-bootstrap/Pagination';
 import CategoryContentData from './data/CategoryContentData.json'
 import { BsArrowRight } from "react-icons/bs";
 import { BsArrowLeft } from "react-icons/bs";
+
 export default function CarContent() {
     const [sortText, setSortText] = useState("Sort by");
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 10;
-    const businessAds = CategoryContentData.Buisness || [];
+    const businessAds = CategoryContentData.Cars || [];
     const totalPages = Math.ceil(businessAds.length / itemsPerPage);
     const firstItem = (currentPage - 1) * itemsPerPage;
     const lastItem = firstItem + itemsPerPage;
@@ -18,6 +18,7 @@ export default function CarContent() {
     function updateSortText(text) {
         setSortText(text);
     }
+
     return (
         <div className="page-wrapper">
             <div className="mobile-heading mb-3 d-flex w-100 justify-content-between">

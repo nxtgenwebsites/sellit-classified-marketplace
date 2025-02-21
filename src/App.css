@@ -22,9 +22,11 @@
     .nav-btn {
         font-size: 14px;
     }
-.category-menu {
-    display: none !important;
-}
+
+    .category-menu {
+        display: none !important;
+    }
+
     .tabs {
         width: 70% !important;
     }
@@ -53,6 +55,25 @@
 
     .featured-ads {
         height: 860px !important;
+    }
+
+    .card-divider {
+        height: 1px;
+        width: 100%;
+        background: #ededed;
+        margin: 2% auto;
+    }
+
+    .page-img {
+        width: 100%;
+    }
+
+    .page-1-sect {
+        width: 100% !important;
+    }
+
+    .page-2-sect {
+        width: 100% !important;
     }
 
     .fav-and-watch {
