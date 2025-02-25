@@ -2,14 +2,32 @@
     font-weight: 900 !important;
 }
 
+/* Category groups start */
+.form-first-group {
+    border: 1px solid #3A4FC4;
+}
+
 .form-second-group {
     border: 1px solid #3A4FC4;
 }
 
-.form-second-group label {
+.form-third-group {
+    border: 1px solid #3A4FC4;
+}
+
+.form-fourth-group {
+    border: 1px solid #3A4FC4;
+}
+
+.form-fifth-group {
+    border: 1px solid #3A4FC4;
+}
+
+/* Category groups end */
+.label {
     font-size: 16px;
     font-weight: 700;
-    width: 70%;
+    width: 35%;
 }
 
 .disabled {
@@ -18,6 +36,34 @@
     font-size: 14px;
 }
 
+.disabled-heading {
+    color: #A4B4B6 !important;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+/* Stuck Form start */
+.title-input small {
+    font-size: 12px;
+}
+
+.description-input small {
+    font-size: 12px;
+}
+
+.price-input input {
+    width: 88%;
+    outline: 0;
+    border: 1px solid #bdbebf;
+}
+
+.description-input textarea {
+    resize: none;
+    height: 150px;
+}
+
+/* Stuck Form end */
+/* Motors start */
 .checkOne {
     appearance: none;
     -webkit-appearance: none;
@@ -35,7 +81,7 @@
 }
 
 .checkOne:checked {
-    border: 5px solid #3A4FC4;
+    border: 4px solid #3A4FC4;
     background: #526cff;
     color: #fff;
 }
@@ -57,7 +103,7 @@
 }
 
 .checkTwo:checked {
-    border: 5px solid #3A4FC4;
+    border: 4px solid #3A4FC4;
     background: #526cff;
     color: #fff;
 }
@@ -79,7 +125,7 @@
 }
 
 .checkThree:checked {
-    border: 5px solid #3A4FC4;
+    border: 4px solid #3A4FC4;
     background: #526cff;
     color: #fff;
 }
@@ -101,7 +147,7 @@
 }
 
 .checkFour:checked {
-    border: 5px solid #3A4FC4;
+    border: 4px solid #3A4FC4;
     background: #526cff;
     color: #fff;
 }
@@ -123,7 +169,7 @@
 }
 
 .checkFive:checked {
-    border: 5px solid #3A4FC4;
+    border: 4px solid #3A4FC4;
     background: #526cff;
     color: #fff;
 }
@@ -145,7 +191,7 @@
 }
 
 .checkSix:checked {
-    border: 5px solid #3A4FC4;
+    border: 4px solid #3A4FC4;
     background: #526cff;
     color: #fff;
 }
@@ -167,7 +213,7 @@
 }
 
 .checkSeven:checked {
-    border: 5px solid #3A4FC4;
+    border: 4px solid #3A4FC4;
     background: #526cff;
     color: #fff;
 }
@@ -189,7 +235,7 @@
 }
 
 .checkEight:checked {
-    border: 5px solid #3A4FC4;
+    border: 4px solid #3A4FC4;
     background: #526cff;
     color: #fff;
 }
@@ -269,3 +315,602 @@
 .checkbox-2:hover span {
     color: #002F34 !important;
 }
+
+/* Motors end */
+/* Property For Sale start */
+.input-1-checkbox-1 input {
+    appearance: none;
+    -webkit-appearance: none;
+    border: 1px solid;
+    width: 95px;
+    height: 50px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.input-1-checkbox-1 input::before {
+    content: 'Corner Plot';
+    font-size: 16px;
+}
+
+.input-1-checkbox-1 input:checked {
+    border: 4px solid #3A4FC4;
+    background: #526cff;
+    color: #fff;
+}
+
+.input-1-checkbox-2 input {
+    appearance: none;
+    -webkit-appearance: none;
+    border: 1px solid;
+    width: 95px;
+    height: 50px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.input-1-checkbox-2 input::before {
+    content: 'Park Facing';
+    font-size: 16px;
+}
+
+.input-1-checkbox-2 input:checked {
+    border: 4px solid #3A4FC4;
+    background: #526cff;
+    color: #fff;
+}
+
+.input-1-checkbox-3 input {
+    appearance: none;
+    -webkit-appearance: none;
+    border: 1px solid;
+    width: 95px;
+    height: 50px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.input-1-checkbox-3 input::before {
+    content: 'Disputed';
+    font-size: 16px;
+}
+
+.input-1-checkbox-3 input:checked {
+    border: 4px solid #3A4FC4;
+    background: #526cff;
+    color: #fff;
+}
+
+.input-1-checkbox-4 input {
+    appearance: none;
+    -webkit-appearance: none;
+    border: 1px solid;
+    width: 95px;
+    height: 50px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.input-1-checkbox-4 input::before {
+    content: 'Sewerage';
+    font-size: 16px;
+}
+
+.input-1-checkbox-4 input:checked {
+    border: 4px solid #3A4FC4;
+    background: #526cff;
+    color: #fff;
+}
+
+.input-1-checkbox-5 input {
+    appearance: none;
+    -webkit-appearance: none;
+    border: 1px solid;
+    width: 95px;
+    height: 50px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.input-1-checkbox-5 input::before {
+    content: 'Electricity';
+    font-size: 16px;
+}
+
+.input-1-checkbox-5 input:checked {
+    border: 4px solid #3A4FC4;
+    background: #526cff;
+    color: #fff;
+}
+
+.input-1-checkbox-6 input {
+    appearance: none;
+    -webkit-appearance: none;
+    border: 1px solid;
+    width: 110px;
+    height: 50px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.input-1-checkbox-6 input::before {
+    content: 'Water Supply';
+    font-size: 16px;
+}
+
+.input-1-checkbox-6 input:checked {
+    border: 4px solid #3A4FC4;
+    background: #526cff;
+    color: #fff;
+}
+
+.input-1-checkbox-7 input {
+    appearance: none;
+    -webkit-appearance: none;
+    border: 1px solid;
+    width: 95px;
+    height: 50px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.input-1-checkbox-7 input::before {
+    content: 'Gas Supply';
+    font-size: 16px;
+}
+
+.input-1-checkbox-7 input:checked {
+    border: 4px solid #3A4FC4;
+    background: #526cff;
+    color: #fff;
+}
+
+.input-1-checkbox-8 input {
+    appearance: none;
+    -webkit-appearance: none;
+    border: 1px solid;
+    width: 120px;
+    height: 50px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.input-1-checkbox-8 input::before {
+    content: 'Boundary Wall';
+    font-size: 16px;
+}
+
+.input-1-checkbox-8 input:checked {
+    border: 4px solid #3A4FC4;
+    background: #526cff;
+    color: #fff;
+}
+
+/* Property For Sale end */
+/* Property For Rent start */
+.checkNine {
+    appearance: none;
+    -webkit-appearance: none;
+    border: 1px solid;
+    width: 100px;
+    height: 50px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.checkNine::before {
+    content: 'Unfurnished';
+}
+
+.checkNine:checked {
+    border: 4px solid #3A4FC4;
+    background: #526cff;
+    color: #fff;
+}
+
+.checkTen {
+    appearance: none;
+    -webkit-appearance: none;
+    border: 1px solid;
+    width: 100px;
+    height: 50px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.checkTen::before {
+    content: 'Furnished';
+}
+
+.checkTen:checked {
+    border: 4px solid #3A4FC4;
+    background: #526cff;
+    color: #fff;
+}
+
+.checkTwelve {
+    appearance: none;
+    -webkit-appearance: none;
+    border: 1px solid;
+    width: 80px;
+    height: 50px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.checkTwelve::before {
+    content: 'Finished';
+}
+
+.checkTwelve:checked {
+    border: 4px solid #3A4FC4;
+    background: #526cff;
+    color: #fff;
+}
+
+.checkEleven {
+    appearance: none;
+    -webkit-appearance: none;
+    border: 1px solid;
+    width: 125px;
+    height: 50px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.checkEleven::before {
+    content: 'Grey Structure';
+}
+
+.checkEleven:checked {
+    border: 4px solid #3A4FC4;
+    background: #526cff;
+    color: #fff;
+}
+
+.input-1-checkbox_1 input {
+    appearance: none;
+    -webkit-appearance: none;
+    border: 1px solid;
+    width: 135px;
+    height: 50px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.input-1-checkbox_1 input::before {
+    content: 'Servant Quarters';
+    font-size: 16px;
+}
+
+.input-1-checkbox_1 input:checked {
+    border: 4px solid #3A4FC4;
+    background: #526cff;
+    color: #fff;
+}
+
+.input-1-checkbox_2 input {
+    appearance: none;
+    -webkit-appearance: none;
+    border: 1px solid;
+    width: 120px;
+    height: 50px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.input-1-checkbox_2 input::before {
+    content: 'Drawing Room';
+    font-size: 16px;
+}
+
+.input-1-checkbox_2 input:checked {
+    border: 4px solid #3A4FC4;
+    background: #526cff;
+    color: #fff;
+}
+
+.input-1-checkbox_3 input {
+    appearance: none;
+    -webkit-appearance: none;
+    border: 1px solid;
+    width: 110px;
+    height: 50px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.input-1-checkbox_3 input::before {
+    content: 'Dining Room';
+    font-size: 16px;
+}
+
+.input-1-checkbox_3 input:checked {
+    border: 4px solid #3A4FC4;
+    background: #526cff;
+    color: #fff;
+}
+
+.input-1-checkbox_4 input {
+    appearance: none;
+    -webkit-appearance: none;
+    border: 1px solid;
+    width: 80px;
+    height: 50px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.input-1-checkbox_4 input::before {
+    content: 'Kitchen';
+    font-size: 16px;
+}
+
+.input-1-checkbox_4 input:checked {
+    border: 4px solid #3A4FC4;
+    background: #526cff;
+    color: #fff;
+}
+
+.input-1-checkbox_5 input {
+    appearance: none;
+    -webkit-appearance: none;
+    border: 1px solid;
+    width: 95px;
+    height: 50px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.input-1-checkbox_5 input::before {
+    content: 'Study Room';
+    font-size: 16px;
+}
+
+.input-1-checkbox_5 input:checked {
+    border: 4px solid #3A4FC4;
+    background: #526cff;
+    color: #fff;
+}
+
+.input-1-checkbox_6 input {
+    appearance: none;
+    -webkit-appearance: none;
+    border: 1px solid;
+    width: 110px;
+    height: 50px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.input-1-checkbox_6 input::before {
+    content: 'Prayer Room';
+    font-size: 16px;
+}
+
+.input-1-checkbox_6 input:checked {
+    border: 4px solid #3A4FC4;
+    background: #526cff;
+    color: #fff;
+}
+
+.input-1-checkbox_7 input {
+    appearance: none;
+    -webkit-appearance: none;
+    border: 1px solid;
+    width: 110px;
+    height: 50px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.input-1-checkbox_7 input::before {
+    content: 'Powder Room';
+    font-size: 16px;
+}
+
+.input-1-checkbox_7 input:checked {
+    border: 4px solid #3A4FC4;
+    background: #526cff;
+    color: #fff;
+}
+
+.input-1-checkbox_8 input {
+    appearance: none;
+    -webkit-appearance: none;
+    border: 1px solid;
+    width: 70px;
+    height: 50px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.input-1-checkbox_8 input::before {
+    content: 'Gym';
+    font-size: 16px;
+}
+
+.input-1-checkbox_8 input:checked {
+    border: 4px solid #3A4FC4;
+    background: #526cff;
+    color: #fff;
+}
+
+.input-1-checkbox_9 input {
+    appearance: none;
+    -webkit-appearance: none;
+    border: 1px solid;
+    width: 95px;
+    height: 50px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.input-1-checkbox_9 input::before {
+    content: 'Store Room';
+    font-size: 16px;
+}
+
+.input-1-checkbox_9 input:checked {
+    border: 4px solid #3A4FC4;
+    background: #526cff;
+    color: #fff;
+}
+
+.input-1-checkbox_10 input {
+    appearance: none;
+    -webkit-appearance: none;
+    border: 1px solid;
+    width: 110px;
+    height: 50px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.input-1-checkbox_10 input::before {
+    content: 'Steam Room';
+    font-size: 16px;
+}
+
+.input-1-checkbox_10 input:checked {
+    border: 4px solid #3A4FC4;
+    background: #526cff;
+    color: #fff;
+}
+
+.input-1-checkbox_11 input {
+    appearance: none;
+    -webkit-appearance: none;
+    border: 1px solid;
+    width: 105px;
+    height: 50px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.input-1-checkbox_11 input::before {
+    content: 'Sitting Room';
+    font-size: 16px;
+}
+
+.input-1-checkbox_11 input:checked {
+    border: 4px solid #3A4FC4;
+    background: #526cff;
+    color: #fff;
+}
+
+.input-1-checkbox_12 input {
+    appearance: none;
+    -webkit-appearance: none;
+    border: 1px solid;
+    width: 120px;
+    height: 50px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.input-1-checkbox_12 input::before {
+    content: 'Laundary Room';
+    font-size: 16px;
+}
+
+.input-1-checkbox_12 input:checked {
+    border: 4px solid #3A4FC4;
+    background: #526cff;
+    color: #fff;
+}
+
+/* Property For Rent end */
+/* Electronics start */
+.checkThirteen {
+    appearance: none;
+    -webkit-appearance: none;
+    border: 1px solid;
+    width: 60px;
+    height: 50px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.checkThirteen::before {
+    content: 'New';
+}
+
+.checkThirteen:checked {
+    border: 4px solid #3A4FC4;
+    background: #526cff;
+    color: #fff;
+}
+
+.checkFourteen {
+    appearance: none;
+    -webkit-appearance: none;
+    border: 1px solid;
+    width: 60px;
+    height: 50px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.checkFourteen::before {
+    content: 'Used';
+}
+
+.checkFourteen:checked {
+    border: 4px solid #3A4FC4;
+    background: #526cff;
+    color: #fff;
+}
+/* Electronics end */

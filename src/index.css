@@ -20,3 +20,15 @@ footer {
   border: 1px solid #bdbebf !important;
 
 }
+
+.input-number {
+  width: 100%;
+  outline: 0;
+  border: 1px solid #bdbebf;
+}
+
+.input-text {
+  width: 100%;
+  outline: 0;
+  border: 1px solid #bdbebf;
+}
