@@ -1,16 +1,38 @@
-import React, { useRef, useState } from 'react'
-import Container from 'react-bootstrap/Container'
-import './css/add-listing.css'
+import React, { useRef, useState } from "react";
+import Container from "react-bootstrap/Container";
+import "./css/add-listing.css";
+import { CiCamera } from "react-icons/ci";
 
 export default function AddListstingContent() {
     const [isEnabled, setIsEnabled] = useState(false);
-    const [checked1, setChecked1] = useState({ checkOne: false, checkTwo: false });
-    const [checked2, setChecked2] = useState({ checkThree: false, checkFour: false });
-    const [checked3, setChecked3] = useState({ checkFive: false, checkSix: false });
-    const [checked4, setChecked4] = useState({ checkSeven: false, checkEight: false });
-    const [checked5, setChecked5] = useState({ checkNine: false, checkTen: false });
-    const [checked6, setChecked6] = useState({ checkEleven: false, checkTwelve: false });
-    const [checked7, setChecked7] = useState({ checkThirteen: false, checkFourteen: false });
+    const [checked1, setChecked1] = useState({
+        checkOne: false,
+        checkTwo: false,
+    });
+    const [checked2, setChecked2] = useState({
+        checkThree: false,
+        checkFour: false,
+    });
+    const [checked3, setChecked3] = useState({
+        checkFive: false,
+        checkSix: false,
+    });
+    const [checked4, setChecked4] = useState({
+        checkSeven: false,
+        checkEight: false,
+    });
+    const [checked5, setChecked5] = useState({
+        checkNine: false,
+        checkTen: false,
+    });
+    const [checked6, setChecked6] = useState({
+        checkEleven: false,
+        checkTwelve: false,
+    });
+    const [checked7, setChecked7] = useState({
+        checkThirteen: false,
+        checkFourteen: false,
+    });
     const mainCategory = useRef();
     const categories = {
         mobiles: useRef(),
@@ -26,7 +48,7 @@ export default function AddListstingContent() {
         furniture: useRef(),
         fashion: useRef(),
         books: useRef(),
-        kids: useRef()
+        kids: useRef(),
     };
     const forms = {
         mobiles: useRef(),
@@ -42,7 +64,7 @@ export default function AddListstingContent() {
         furniture: useRef(),
         fashion: useRef(),
         books: useRef(),
-        kids: useRef()
+        kids: useRef(),
     };
 
     function handleCategory() {
@@ -119,7 +141,26 @@ export default function AddListstingContent() {
             checkFourteen: name === "checkFourteen" ? true : false,
         });
     };
+    // Image Uploader
+    const [image, setImage] = useState(null);
 
+    const handleImageChange = (event) => {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                setImage(reader.result);
+            };
+            reader.readAsDataURL(file);
+        }
+    };
+    // Image Clicker
+    const imageHandler = () => {
+        document.getElementById("IMG").click()
+    }
+    const cameraIcon = () => {
+        document.getElementById('cameraIcon').classList.add('z-n1');
+    }
     return (
         <div>
             <Container>
@@ -133,15 +174,25 @@ export default function AddListstingContent() {
                 <form>
                     <div className="forms-group d-lg-flex gap-2">
                         <div className="form-category w-100">
-                            <select ref={mainCategory} onChange={handleCategory} className="form-select px-3 py-2">
-                                <option value="" disabled selected>Select Category</option>
+                            <select
+                                ref={mainCategory}
+                                onChange={handleCategory}
+                                className="form-select px-3 py-2"
+                            >
+                                <option value="" disabled selected>
+                                    Select Category
+                                </option>
                                 <option value="mobiles">Mobiles</option>
                                 <option value="motors">Motors</option>
                                 <option value="property-sale">Property for Sale</option>
                                 <option value="property-rent">Property for Rent</option>
-                                <option value="electronics">Electronics & Home Appliances</option>
+                                <option value="electronics">
+                                    Electronics & Home Appliances
+                                </option>
                                 <option value="bikes">Bikes</option>
-                                <option value="find-business">Business, Industrial & Agriculture</option>
+                                <option value="find-business">
+                                    Business, Industrial & Agriculture
+                                </option>
                                 <option value="find-service">Services</option>
                                 <option value="find-job">Jobs</option>
                                 <option value="animals">Animals</option>
@@ -151,13 +202,46 @@ export default function AddListstingContent() {
                                 <option value="kids">Kids</option>
                             </select>
                             <div className="form-first-group w-100 p-3 my-3 rounded-2">
+                                <div
+                                    className="img-div"
+                                    style={{
+                                        backgroundImage: image ? `url(${image})` : "none",
+                                        backgroundSize: "cover",
+                                        backgroundPosition: "center",
+                                        width: "100px",
+                                        height: "100px",
+                                        cursor: "pointer",
+                                        position: "relative"
+                                    }} onClick={imageHandler}
+                                    onChange={cameraIcon}
+                                >
+                                    <CiCamera className="camera-icon" id='cameraIcon' />
+                                    <input
+                                        type="file"
+                                        accept="image/*"
+                                        id="IMG"
+                                        className="d-none"
+                                        onChange={handleImageChange}
+                                    />
+                                </div>
                                 <div className="first-form_group d-flex justify-content-between w-100 my-3">
                                     <div className="label">
                                         <label htmlFor="Ad Title">Ad Title</label>
                                     </div>
                                     <div className="input title-input w-100">
-                                        <input type="text" name="Ad Title" id="Ad Title" className='w-100 px-3 py-2 rounded-2 year-input' minLength={1} maxLength={100} required />
-                                        <small>Mention the key features of your item (e.g. brand, model, age, type)</small>
+                                        <input
+                                            type="text"
+                                            name="Ad Title"
+                                            id="Ad Title"
+                                            className="w-100 px-3 py-2 rounded-2 year-input"
+                                            minLength={1}
+                                            maxLength={100}
+                                            required
+                                        />
+                                        <small>
+                                            Mention the key features of your item (e.g. brand, model,
+                                            age, type)
+                                        </small>
                                     </div>
                                 </div>
                                 <div className="second-form_group d-flex justify-content-between w-100 my-3">
@@ -165,8 +249,15 @@ export default function AddListstingContent() {
                                         <label htmlFor="Description">Description</label>
                                     </div>
                                     <div className="input description-input w-100">
-                                        <textarea name="Description" id="Description" className='w-100 px-3 py-2 rounded-2 year-input' required></textarea>
-                                        <small>Include condition, features and reason for selling</small>
+                                        <textarea
+                                            name="Description"
+                                            id="Description"
+                                            className="w-100 px-3 py-2 rounded-2 year-input"
+                                            required
+                                        ></textarea>
+                                        <small>
+                                            Include condition, features and reason for selling
+                                        </small>
                                     </div>
                                 </div>
                                 <div className="third-form_group d-flex justify-content-between w-100 my-3">
@@ -174,9 +265,18 @@ export default function AddListstingContent() {
                                         <label htmlFor="Location">Location</label>
                                     </div>
                                     <div className="select location-input w-100">
-                                        <select name="Location" id="Location" className='form-select' required>
-                                            <option value="" disabled selected>Select Location</option>
-                                            <option value="" disabled className='disabled-heading'>Choose Region</option>
+                                        <select
+                                            name="Location"
+                                            id="Location"
+                                            className="form-select"
+                                            required
+                                        >
+                                            <option value="" disabled selected>
+                                                Select Location
+                                            </option>
+                                            <option value="" disabled className="disabled-heading">
+                                                Choose Region
+                                            </option>
                                             <option value="1">Azad Kashmir, Pakistan</option>
                                             <option value="2">Balochistan, Pakistan</option>
                                             <option value="3">Islamabad, Pakistan</option>
@@ -191,8 +291,15 @@ export default function AddListstingContent() {
                                         <label htmlFor="Location">Location</label>
                                     </div>
                                     <div className="input input-group price-input w-100">
-                                        <span className='input-group-text rounded-start-2'>PKR</span>
-                                        <input type="number" placeholder='Enter Price' className='px-3 py-2 rounded-end-2' required />
+                                        <span className="input-group-text rounded-start-2">
+                                            PKR
+                                        </span>
+                                        <input
+                                            type="number"
+                                            placeholder="Enter Price"
+                                            className="px-3 py-2 rounded-end-2"
+                                            required
+                                        />
                                     </div>
                                 </div>
                                 <div className="fifth-form_group d-flex justify-content-between w-100 my-3">
@@ -200,7 +307,12 @@ export default function AddListstingContent() {
                                         <label htmlFor="Name">Name</label>
                                     </div>
                                     <div className="input name-input w-100">
-                                        <input type="text" placeholder='Enter Name' className='px-3 py-2 rounded-2 w-100 input-text' required />
+                                        <input
+                                            type="text"
+                                            placeholder="Enter Name"
+                                            className="px-3 py-2 rounded-2 w-100 input-text"
+                                            required
+                                        />
                                     </div>
                                 </div>
                                 <div className="fourth-form_group d-flex justify-content-between w-100 my-3">
@@ -208,31 +320,58 @@ export default function AddListstingContent() {
                                         <label htmlFor="Mobile Number">Mobile Number</label>
                                     </div>
                                     <div className="input number-input w-100">
-                                        <input type="number" placeholder='Enter Mobile Number' className='px-3 py-2 rounded-2 w-100 input-number' minLength={1} maxLength={11} required />
+                                        <input
+                                            type="number"
+                                            placeholder="Enter Mobile Number"
+                                            className="px-3 py-2 rounded-2 w-100 input-number"
+                                            minLength={1}
+                                            maxLength={11}
+                                            required
+                                        />
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div ref={categories.mobiles} className="sub-categories mt-md-0 w-100 d-none">
+                        <div
+                            ref={categories.mobiles}
+                            className="sub-categories mt-md-0 w-100 d-none"
+                        >
                             <select className="form-select px-3 py-2" disabled={!isEnabled}>
-                                <option value="" disabled selected>Select Sub-Category</option>
+                                <option value="" disabled selected>
+                                    Select Sub-Category
+                                </option>
                                 <option value="tablets">Tablets</option>
                                 <option value="accessories">Accessories</option>
                                 <option value="phones">Mobile Phones</option>
                                 <option value="watches">Smart Watches</option>
                             </select>
-                            <div ref={forms.mobiles} className="form-second-group w-100 p-3 my-3 rounded-2 d-none">
+                            <div
+                                ref={forms.mobiles}
+                                className="form-second-group w-100 p-3 my-3 rounded-2 d-none"
+                            >
                                 <div className="first-form-dropdown d-flex align-items-center justify-content-between w-100">
-                                    <label htmlFor="brand" className='w-75'>Brand</label>
-                                    <select name="brand" id="brand" className='py-2 px-3 form-select w-100'>
-                                        <option value="" selected disabled>Select Brands</option>
-                                        <option value="" disabled className='disabled'>Popular Brands</option>
+                                    <label htmlFor="brand" className="w-75">
+                                        Brand
+                                    </label>
+                                    <select
+                                        name="brand"
+                                        id="brand"
+                                        className="py-2 px-3 form-select w-100"
+                                    >
+                                        <option value="" selected disabled>
+                                            Select Brands
+                                        </option>
+                                        <option value="" disabled className="disabled">
+                                            Popular Brands
+                                        </option>
                                         <option value="1">Apple</option>
                                         <option value="2">Samsung</option>
                                         <option value="3">Other Tablets</option>
                                         <option value="4">Lenovo</option>
                                         <option value="5">Amazon</option>
-                                        <option value="" disabled className='disabled'>Others</option>
+                                        <option value="" disabled className="disabled">
+                                            Others
+                                        </option>
                                         <option value="6">Apple</option>
                                         <option value="7">Dany Tabs</option>
                                         <option value="8">Huawei</option>
@@ -253,9 +392,17 @@ export default function AddListstingContent() {
                                     </select>
                                 </div>
                                 <div className="second-form-dropdown d-flex justify-content-between w-100 my-3">
-                                    <label htmlFor="brand" className='w-75'>Condition</label>
-                                    <select name="brand" id="brand" className='py-2 px-3 form-select w-100'>
-                                        <option value="" selected disabled>Select Condition</option>
+                                    <label htmlFor="brand" className="w-75">
+                                        Condition
+                                    </label>
+                                    <select
+                                        name="brand"
+                                        id="brand"
+                                        className="py-2 px-3 form-select w-100"
+                                    >
+                                        <option value="" selected disabled>
+                                            Select Condition
+                                        </option>
                                         <option value="1">New</option>
                                         <option value="2">Open Box</option>
                                         <option value="3">Used</option>
@@ -266,29 +413,49 @@ export default function AddListstingContent() {
                                 </div>
                             </div>
                         </div>
-                        <div ref={categories.motors} className="sub-categories mt-md-0 w-100 d-none">
+                        <div
+                            ref={categories.motors}
+                            className="sub-categories mt-md-0 w-100 d-none"
+                        >
                             <select className="form-select px-3 py-2">
-                                <option value="" disabled selected>Select Sub-Category</option>
+                                <option value="" disabled selected>
+                                    Select Sub-Category
+                                </option>
                                 <option value="cars">Cars</option>
                                 <option value="installments">Cars on Installments</option>
                                 <option value="accessories">Car Accessories</option>
                                 <option value="spare-parts">Spare Parts</option>
                             </select>
-                            <div ref={forms.motors} className="form-second-group w-100 p-3 my-3 rounded-2 d-none">
+                            <div
+                                ref={forms.motors}
+                                className="form-second-group w-100 p-3 my-3 rounded-2 d-none"
+                            >
                                 <div className="first-form-dropdown d-lg-flex justify-content-between w-100">
                                     <div className="label">
-                                        <label htmlFor="make" className='w-75'>Make</label>
+                                        <label htmlFor="make" className="w-75">
+                                            Make
+                                        </label>
                                     </div>
                                     <div className="select w-100">
-                                        <select name="make" id="make" className='py-2 px-3 form-select w-100'>
-                                            <option value="" selected disabled>Select make</option>
-                                            <option value="" disabled className='disabled'>Popular Make</option>
+                                        <select
+                                            name="make"
+                                            id="make"
+                                            className="py-2 px-3 form-select w-100"
+                                        >
+                                            <option value="" selected disabled>
+                                                Select make
+                                            </option>
+                                            <option value="" disabled className="disabled">
+                                                Popular Make
+                                            </option>
                                             <option value="1">Suzuki</option>
                                             <option value="2">Toyota</option>
                                             <option value="3">Honda</option>
                                             <option value="4">Daihatsu</option>
                                             <option value="5">Nissan</option>
-                                            <option value="" disabled className='disabled'>Others</option>
+                                            <option value="" disabled className="disabled">
+                                                Others
+                                            </option>
                                             <option value="6">Adam</option>
                                             <option value="7">Audi</option>
                                             <option value="8">BAIC</option>
@@ -350,11 +517,25 @@ export default function AddListstingContent() {
                                 </div>
                                 <div className="second-form-dropdown d-lg-flex justify-content-between w-100 my-3">
                                     <div className="label">
-                                        <label htmlFor="brand" className='w-75'>Condition</label>
+                                        <label htmlFor="brand" className="w-75">
+                                            Condition
+                                        </label>
                                     </div>
                                     <div className="d-flex gap-2 align-items-center condition-group">
-                                        <input type="checkbox" name="checkOne" className='checkOne' checked={checked1.checkOne} onChange={() => handleChange1("checkOne")} />
-                                        <input type="checkbox" name="checkTwo" className='checkTwo' checked={checked1.checkTwo} onChange={() => handleChange1("checkTwo")} />
+                                        <input
+                                            type="checkbox"
+                                            name="checkOne"
+                                            className="checkOne"
+                                            checked={checked1.checkOne}
+                                            onChange={() => handleChange1("checkOne")}
+                                        />
+                                        <input
+                                            type="checkbox"
+                                            name="checkTwo"
+                                            className="checkTwo"
+                                            checked={checked1.checkTwo}
+                                            onChange={() => handleChange1("checkTwo")}
+                                        />
                                     </div>
                                 </div>
                                 <div className="third-form-dropdown d-lg-flex justify-content-between w-100 my-3">
@@ -362,7 +543,13 @@ export default function AddListstingContent() {
                                         <label htmlFor="year">Year</label>
                                     </div>
                                     <div className="input w-100">
-                                        <input type="number" name="year" id="year" className='year-input px-3 py-2 rounded-2' placeholder='Enter Year' />
+                                        <input
+                                            type="number"
+                                            name="year"
+                                            id="year"
+                                            className="year-input px-3 py-2 rounded-2"
+                                            placeholder="Enter Year"
+                                        />
                                     </div>
                                 </div>
                                 <div className="fourth-form-dropdown d-lg-flex justify-content-between w-100 my-3">
@@ -370,8 +557,14 @@ export default function AddListstingContent() {
                                         <label htmlFor="Fuel">Fuel</label>
                                     </div>
                                     <div className="select w-100">
-                                        <select name="Fuel" id="Fuel" className="form-select px-3 py-2">
-                                            <option value="" selected disabled>Select Fuel</option>
+                                        <select
+                                            name="Fuel"
+                                            id="Fuel"
+                                            className="form-select px-3 py-2"
+                                        >
+                                            <option value="" selected disabled>
+                                                Select Fuel
+                                            </option>
                                             <option value="1">Patrol</option>
                                             <option value="2">Diesel</option>
                                             <option value="3">LPG</option>
@@ -383,27 +576,53 @@ export default function AddListstingContent() {
                                 </div>
                                 <div className="fifth-form-dropdown d-lg-flex justify-content-between w-100 my-3">
                                     <div className="label">
-                                        <label htmlFor="Trasmission" className='w-75'>Trasmission</label>
+                                        <label htmlFor="Trasmission" className="w-75">
+                                            Trasmission
+                                        </label>
                                     </div>
                                     <div className="d-flex gap-2 align-items-center condition-group">
-                                        <input type="checkbox" name="checkThree" className='checkThree' checked={checked2.checkThree} onChange={() => handleChange2("checkThree")} />
-                                        <input type="checkbox" name="checkFour" className='checkFour' checked={checked2.checkFour} onChange={() => handleChange2("checkFour")} />
+                                        <input
+                                            type="checkbox"
+                                            name="checkThree"
+                                            className="checkThree"
+                                            checked={checked2.checkThree}
+                                            onChange={() => handleChange2("checkThree")}
+                                        />
+                                        <input
+                                            type="checkbox"
+                                            name="checkFour"
+                                            className="checkFour"
+                                            checked={checked2.checkFour}
+                                            onChange={() => handleChange2("checkFour")}
+                                        />
                                     </div>
                                 </div>
                                 <div className="sixth-form-dropdown d-lg-flex justify-content-between w-100 my-3">
                                     <div className="label">
-                                        <label htmlFor="Body Type" className='w-75'>Body Type</label>
+                                        <label htmlFor="Body Type" className="w-75">
+                                            Body Type
+                                        </label>
                                     </div>
                                     <div className="select w-100">
-                                        <select name="Body Type" id="Body Type" className='form-select px-3 py-2'>
-                                            <option value="" selected disabled>Select Body Type</option>
-                                            <option value="" disabled className='disabled'>Popular Body Type</option>
+                                        <select
+                                            name="Body Type"
+                                            id="Body Type"
+                                            className="form-select px-3 py-2"
+                                        >
+                                            <option value="" selected disabled>
+                                                Select Body Type
+                                            </option>
+                                            <option value="" disabled className="disabled">
+                                                Popular Body Type
+                                            </option>
                                             <option value="1">Sedan</option>
                                             <option value="2">Hatchback</option>
                                             <option value="3">Other</option>
                                             <option value="4">Small city car</option>
                                             <option value="5">SUV</option>
-                                            <option value="" disabled className='disabled'>Others</option>
+                                            <option value="" disabled className="disabled">
+                                                Others
+                                            </option>
                                             <option value="6">Convertible</option>
                                             <option value="6">Estate</option>
                                             <option value="6">Hatchback</option>
@@ -417,14 +636,18 @@ export default function AddListstingContent() {
                                             <option value="6">Van / Bus</option>
                                         </select>
                                     </div>
-
                                 </div>
                                 <div className="seventh-form-dropdown d-lg-flex justify-content-between w-100 my-3">
                                     <div className="label">
                                         <label htmlFor="Color">Color</label>
                                     </div>
                                     <div className="input w-100">
-                                        <input type="color" name="Color" id="Color" className='w-100' />
+                                        <input
+                                            type="color"
+                                            name="Color"
+                                            id="Color"
+                                            className="w-100"
+                                        />
                                     </div>
                                 </div>
                                 <div className="eighth-form-dropdown d-lg-flex justify-content-between w-100 my-3">
@@ -432,12 +655,20 @@ export default function AddListstingContent() {
                                         <label htmlFor="Number Of Seats">Number Of Seats</label>
                                     </div>
                                     <div className="input w-100">
-                                        <input type="number" name="Number Of Seats" id="Number Of Seats" className='year-input px-3 py-2 rounded-2' placeholder='Enter number of seats' />
+                                        <input
+                                            type="number"
+                                            name="Number Of Seats"
+                                            id="Number Of Seats"
+                                            className="year-input px-3 py-2 rounded-2"
+                                            placeholder="Enter number of seats"
+                                        />
                                     </div>
                                 </div>
                                 <div className="ninth-form-dropdown d-lg-flex justify-content-between w-100 my-3">
                                     <div className="label">
-                                        <label htmlFor="Features" className='w-75'>Features</label>
+                                        <label htmlFor="Features" className="w-75">
+                                            Features
+                                        </label>
                                     </div>
                                     <div className="input w-100">
                                         <div className="checkbox-main w-100">
@@ -446,7 +677,11 @@ export default function AddListstingContent() {
                                                     <div className="col-md-6">
                                                         <div className="checkboxes w-100">
                                                             <div className="checkbox-1 d-flex align-items-center w-100 gap-1">
-                                                                <input type="checkbox" name="Features1" id="Features1" />
+                                                                <input
+                                                                    type="checkbox"
+                                                                    name="Features1"
+                                                                    id="Features1"
+                                                                />
                                                                 <span>ABS</span>
                                                             </div>
                                                         </div>
@@ -454,7 +689,11 @@ export default function AddListstingContent() {
                                                     <div className="col-md-6">
                                                         <div className="checkboxes">
                                                             <div className="checkbox-2 d-flex align-items-center w-100 gap-1">
-                                                                <input type="checkbox" name="Features2" id="Features2" />
+                                                                <input
+                                                                    type="checkbox"
+                                                                    name="Features2"
+                                                                    id="Features2"
+                                                                />
                                                                 <span>Airbags</span>
                                                             </div>
                                                         </div>
@@ -462,7 +701,11 @@ export default function AddListstingContent() {
                                                     <div className="col-md-6">
                                                         <div className="checkboxes">
                                                             <div className="checkbox-1 d-flex align-items-center w-100 gap-1">
-                                                                <input type="checkbox" name="Features3" id="Features3" />
+                                                                <input
+                                                                    type="checkbox"
+                                                                    name="Features3"
+                                                                    id="Features3"
+                                                                />
                                                                 <span>Premium Wheels</span>
                                                             </div>
                                                         </div>
@@ -470,7 +713,11 @@ export default function AddListstingContent() {
                                                     <div className="col-md-6">
                                                         <div className="checkboxes">
                                                             <div className="checkbox-2 d-flex align-items-center w-100 gap-1">
-                                                                <input type="checkbox" name="Features4" id="Features4" />
+                                                                <input
+                                                                    type="checkbox"
+                                                                    name="Features4"
+                                                                    id="Features4"
+                                                                />
                                                                 <span>AM/FM Radio</span>
                                                             </div>
                                                         </div>
@@ -485,44 +732,94 @@ export default function AddListstingContent() {
                                         <label htmlFor="Number Of Owners">Number Of Owners</label>
                                     </div>
                                     <div className="input w-100">
-                                        <input type="number" name="Number Of Owners" id="Number Of Owners" className='year-input px-3 py-2 rounded-2' placeholder='Enter number of owners' />
+                                        <input
+                                            type="number"
+                                            name="Number Of Owners"
+                                            id="Number Of Owners"
+                                            className="year-input px-3 py-2 rounded-2"
+                                            placeholder="Enter number of owners"
+                                        />
                                     </div>
                                 </div>
                                 <div className="eleventh-form-dropdown d-lg-flex justify-content-between w-100 my-3">
                                     <div className="label">
-                                        <label htmlFor="Car Documents" className='w-75'>Car Documents</label>
+                                        <label htmlFor="Car Documents" className="w-75">
+                                            Car Documents
+                                        </label>
                                     </div>
                                     <div className="d-flex gap-2 align-items-center condition-group">
-                                        <input type="checkbox" name="checkFive" className='checkFive' checked={checked3.checkFive} onChange={() => handleChange3("checkFive")} />
-                                        <input type="checkbox" name="checkSix" className='checkSix' checked={checked3.checkSix} onChange={() => handleChange3("checkSix")} />
+                                        <input
+                                            type="checkbox"
+                                            name="checkFive"
+                                            className="checkFive"
+                                            checked={checked3.checkFive}
+                                            onChange={() => handleChange3("checkFive")}
+                                        />
+                                        <input
+                                            type="checkbox"
+                                            name="checkSix"
+                                            className="checkSix"
+                                            checked={checked3.checkSix}
+                                            onChange={() => handleChange3("checkSix")}
+                                        />
                                     </div>
                                 </div>
                                 <div className="twelveth-form-dropdown d-lg-flex justify-content-between w-100 my-3">
                                     <div className="label">
-                                        <label htmlFor="Assembly" className='w-75'>Assembly</label>
+                                        <label htmlFor="Assembly" className="w-75">
+                                            Assembly
+                                        </label>
                                     </div>
                                     <div className="d-flex gap-2 align-items-center condition-group">
-                                        <input type="checkbox" name="checkSeven" className='checkSeven' checked={checked4.checkSeven} onChange={() => handleChange4("checkSeven")} />
-                                        <input type="checkbox" name="checkEight" className='checkEight' checked={checked4.checkEight} onChange={() => handleChange4("checkEight")} />
+                                        <input
+                                            type="checkbox"
+                                            name="checkSeven"
+                                            className="checkSeven"
+                                            checked={checked4.checkSeven}
+                                            onChange={() => handleChange4("checkSeven")}
+                                        />
+                                        <input
+                                            type="checkbox"
+                                            name="checkEight"
+                                            className="checkEight"
+                                            checked={checked4.checkEight}
+                                            onChange={() => handleChange4("checkEight")}
+                                        />
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div ref={categories["property-sale"]} className="sub-categories mt-md-0 w-100 d-none">
+                        <div
+                            ref={categories["property-sale"]}
+                            className="sub-categories mt-md-0 w-100 d-none"
+                        >
                             <select className="form-select px-3 py-2">
-                                <option value="" disabled selected>Select Sub-Category</option>
+                                <option value="" disabled selected>
+                                    Select Sub-Category
+                                </option>
                                 <option value="lands">Lands & Plots</option>
                                 <option value="houses">Houses</option>
                                 <option value="apartments">Apartments</option>
                             </select>
-                            <div ref={forms["property-sale"]} className="form-third-group w-100 p-3 my-3 rounded-2 d-none">
+                            <div
+                                ref={forms["property-sale"]}
+                                className="form-third-group w-100 p-3 my-3 rounded-2 d-none"
+                            >
                                 <div className="first-form-dropdown d-lg-flex justify-content-between w-100">
                                     <div className="label">
-                                        <label htmlFor="Type" className='w-75'>Type</label>
+                                        <label htmlFor="Type" className="w-75">
+                                            Type
+                                        </label>
                                     </div>
                                     <div className="select w-100">
-                                        <select name="Type" id="Type" className='py-2 px-3 form-select w-100'>
-                                            <option value="" selected disabled>Select Type</option>
+                                        <select
+                                            name="Type"
+                                            id="Type"
+                                            className="py-2 px-3 form-select w-100"
+                                        >
+                                            <option value="" selected disabled>
+                                                Select Type
+                                            </option>
                                             <option value="1">Agricultural Land</option>
                                             <option value="2">Commercial Plots</option>
                                             <option value="3">Files</option>
@@ -534,7 +831,9 @@ export default function AddListstingContent() {
                                 </div>
                                 <div className="second-form-dropdown d-lg-flex justify-content-between w-100 my-3">
                                     <div className="label">
-                                        <label htmlFor="Features" className='w-75'>Features</label>
+                                        <label htmlFor="Features" className="w-75">
+                                            Features
+                                        </label>
                                     </div>
                                     <div className="input">
                                         <div className="input-1 d-flex align-items-center gap-2">
@@ -569,11 +868,19 @@ export default function AddListstingContent() {
                                 </div>
                                 <div className="third-form-dropdown d-lg-flex justify-content-between w-100 my-3">
                                     <div className="label">
-                                        <label htmlFor="Area Unit" className='w-75'>Area Unit</label>
+                                        <label htmlFor="Area Unit" className="w-75">
+                                            Area Unit
+                                        </label>
                                     </div>
                                     <div className="select w-100">
-                                        <select name="Area Unit" id="Area Unit" className='px-3 py-2 form-select w-100'>
-                                            <option value="" selected disabled>Select Area Unit</option>
+                                        <select
+                                            name="Area Unit"
+                                            id="Area Unit"
+                                            className="px-3 py-2 form-select w-100"
+                                        >
+                                            <option value="" selected disabled>
+                                                Select Area Unit
+                                            </option>
                                             <option value="1">Kanal</option>
                                             <option value="2">Marla</option>
                                             <option value="3">Square Feet</option>
@@ -587,14 +894,24 @@ export default function AddListstingContent() {
                                         <label htmlFor="Area">Area</label>
                                     </div>
                                     <div className="input w-100">
-                                        <input type="number" name="Area" id="Area" className='px-3 py-2 rounded-2 w-100 input-number' />
+                                        <input
+                                            type="number"
+                                            name="Area"
+                                            id="Area"
+                                            className="px-3 py-2 rounded-2 w-100 input-number"
+                                        />
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div ref={categories["property-rent"]} className="sub-categories mt-md-0 w-100 d-none">
-                            <select className='form-select px-3 py-2'>
-                                <option value="select-subcategory" selected disabled>Select Sub-Category</option>
+                        <div
+                            ref={categories["property-rent"]}
+                            className="sub-categories mt-md-0 w-100 d-none"
+                        >
+                            <select className="form-select px-3 py-2">
+                                <option value="select-subcategory" selected disabled>
+                                    Select Sub-Category
+                                </option>
                                 <option value="1">Houses</option>
                                 <option value="2">Apartements & Flats</option>
                                 <option value="3">Portions & Floors</option>
@@ -604,14 +921,31 @@ export default function AddListstingContent() {
                                 <option value="7">Vacation Rentals - Guest Houses</option>
                                 <option value="8">Land & Plots</option>
                             </select>
-                            <div ref={forms["property-rent"]} className="form-fourth-group w-100 p-3 my-3 rounded-2 d-none">
+                            <div
+                                ref={forms["property-rent"]}
+                                className="form-fourth-group w-100 p-3 my-3 rounded-2 d-none"
+                            >
                                 <div className="first-form-dropdown d-lg-flex justify-content-between w-100 my-3">
                                     <div className="label">
-                                        <label htmlFor="Furnished" className='w-75'>Furnished</label>
+                                        <label htmlFor="Furnished" className="w-75">
+                                            Furnished
+                                        </label>
                                     </div>
                                     <div className="d-flex gap-2 align-items-center condition-group">
-                                        <input type="checkbox" name="checkNine" className='checkNine' checked={checked5.checkNine} onChange={() => handleChange5("checkNine")} />
-                                        <input type="checkbox" name="checkTen" className='checkTen' checked={checked5.checkTen} onChange={() => handleChange5("checkTen")} />
+                                        <input
+                                            type="checkbox"
+                                            name="checkNine"
+                                            className="checkNine"
+                                            checked={checked5.checkNine}
+                                            onChange={() => handleChange5("checkNine")}
+                                        />
+                                        <input
+                                            type="checkbox"
+                                            name="checkTen"
+                                            className="checkTen"
+                                            checked={checked5.checkTen}
+                                            onChange={() => handleChange5("checkTen")}
+                                        />
                                     </div>
                                 </div>
                                 <div className="second-form-dropdown d-lg-flex justify-content-between w-100 my-3">
@@ -619,7 +953,11 @@ export default function AddListstingContent() {
                                         <label htmlFor="Bedrooms">Bedrooms</label>
                                     </div>
                                     <div className="select w-100">
-                                        <select name="Bedrooms" id="Bedrooms" className='px-3 py-2 form-select w-100'>
+                                        <select
+                                            name="Bedrooms"
+                                            id="Bedrooms"
+                                            className="px-3 py-2 form-select w-100"
+                                        >
                                             <option value="1">1</option>
                                             <option value="2">2</option>
                                             <option value="3">3</option>
@@ -635,7 +973,11 @@ export default function AddListstingContent() {
                                         <label htmlFor="Bathrooms">Bathrooms</label>
                                     </div>
                                     <div className="select w-100">
-                                        <select name="Bathrooms" id="Bathrooms" className='px-3 py-2 form-select w-100'>
+                                        <select
+                                            name="Bathrooms"
+                                            id="Bathrooms"
+                                            className="px-3 py-2 form-select w-100"
+                                        >
                                             <option value="1">1</option>
                                             <option value="2">2</option>
                                             <option value="3">3</option>
@@ -651,7 +993,11 @@ export default function AddListstingContent() {
                                         <label htmlFor="No of storeys">No of storeys</label>
                                     </div>
                                     <div className="select w-100">
-                                        <select name="No of storeys" id="No of storeys" className='px-3 py-2 form-select w-100'>
+                                        <select
+                                            name="No of storeys"
+                                            id="No of storeys"
+                                            className="px-3 py-2 form-select w-100"
+                                        >
                                             <option value="1">1</option>
                                             <option value="2">2</option>
                                             <option value="3">3</option>
@@ -661,7 +1007,9 @@ export default function AddListstingContent() {
                                 </div>
                                 <div className="fifth-form-dropdown d-lg-flex justify-content-between w-100 my-3">
                                     <div className="label">
-                                        <label htmlFor="Construction State" className='w-75'>Construction State</label>
+                                        <label htmlFor="Construction State" className="w-75">
+                                            Construction State
+                                        </label>
                                     </div>
                                     <div className="d-flex gap-2 align-items-center condition-group">
                                         <input
@@ -682,7 +1030,9 @@ export default function AddListstingContent() {
                                 </div>
                                 <div className="sixth-form-dropdown d-lg-flex justify-content-between w-100 my-3">
                                     <div className="label">
-                                        <label htmlFor="Features" className='w-75'>Features</label>
+                                        <label htmlFor="Features" className="w-75">
+                                            Features
+                                        </label>
                                     </div>
                                     <div className="input">
                                         <div className="input-1 d-flex align-items-center gap-2">
@@ -731,11 +1081,19 @@ export default function AddListstingContent() {
                                 </div>
                                 <div className="seventh-form-dropdown d-lg-flex justify-content-between w-100 my-3">
                                     <div className="label">
-                                        <label htmlFor="Area Unit" className='w-75'>Area Unit</label>
+                                        <label htmlFor="Area Unit" className="w-75">
+                                            Area Unit
+                                        </label>
                                     </div>
                                     <div className="select w-100">
-                                        <select name="Area Unit" id="Area Unit" className='px-3 py-2 form-select w-100'>
-                                            <option value="" selected disabled>Select Area Unit</option>
+                                        <select
+                                            name="Area Unit"
+                                            id="Area Unit"
+                                            className="px-3 py-2 form-select w-100"
+                                        >
+                                            <option value="" selected disabled>
+                                                Select Area Unit
+                                            </option>
                                             <option value="1">Kanal</option>
                                             <option value="2">Marla</option>
                                             <option value="3">Square Feet</option>
@@ -749,14 +1107,24 @@ export default function AddListstingContent() {
                                         <label htmlFor="Area">Area</label>
                                     </div>
                                     <div className="input w-100">
-                                        <input type="number" name="Area" id="Area" className='px-3 py-2 rounded-2 w-100 input-number' />
+                                        <input
+                                            type="number"
+                                            name="Area"
+                                            id="Area"
+                                            className="px-3 py-2 rounded-2 w-100 input-number"
+                                        />
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div ref={categories.electronics} className="sub-categories mt-md-0 w-100 d-none">
-                            <select className='form-select px-3 py-2'>
-                                <option value="select-subcategory" selected disabled>Select Sub-Category</option>
+                        <div
+                            ref={categories.electronics}
+                            className="sub-categories mt-md-0 w-100 d-none"
+                        >
+                            <select className="form-select px-3 py-2">
+                                <option value="select-subcategory" selected disabled>
+                                    Select Sub-Category
+                                </option>
                                 <option value="1">Computer & Accessories</option>
                                 <option value="2">Games & Entertainment</option>
                                 <option value="3">Cameras & Accessories</option>
@@ -775,7 +1143,10 @@ export default function AddListstingContent() {
                                 <option value="16">Microwaves & Ovens</option>
                                 <option value="17">Kitchen Applications</option>
                             </select>
-                            <div ref={forms.electronics} className="form-fifth-group w-100 p-3 my-3 rounded-2">
+                            <div
+                                ref={forms.electronics}
+                                className="form-fifth-group w-100 p-3 my-3 rounded-2"
+                            >
                                 <div className="first-form-dropdown d-lg-flex justify-content-between w-100 my-3">
                                     <div className="label">
                                         <label htmlFor="Condition">Condition</label>
@@ -799,9 +1170,14 @@ export default function AddListstingContent() {
                                 </div>
                             </div>
                         </div>
-                        <div ref={categories.bikes} className="sub-categories mt-md-0 w-100 d-none">
-                            <select className='form-select px-3 py-2'>
-                                <option value="select-subcategory" selected disabled>Select Sub-Category</option>
+                        <div
+                            ref={categories.bikes}
+                            className="sub-categories mt-md-0 w-100 d-none"
+                        >
+                            <select className="form-select px-3 py-2">
+                                <option value="select-subcategory" selected disabled>
+                                    Select Sub-Category
+                                </option>
                                 <option value="1">Motorcycles</option>
                                 <option value="2">Spare Parts</option>
                                 <option value="3">Bike Accessories</option>
@@ -809,11 +1185,18 @@ export default function AddListstingContent() {
                                 <option value="5">ATV & Quads</option>
                                 <option value="6">Scooters</option>
                             </select>
-                            <h1 ref={forms.bikes} className="d-none">Bikes</h1>
+                            <h1 ref={forms.bikes} className="d-none">
+                                Bikes
+                            </h1>
                         </div>
-                        <div ref={categories["find-business"]} className="sub-categories mt-md-0 w-100 d-none">
-                            <select className='form-select px-3 py-2'>
-                                <option value="select-subcategory" selected disabled>Select Sub-Category</option>
+                        <div
+                            ref={categories["find-business"]}
+                            className="sub-categories mt-md-0 w-100 d-none"
+                        >
+                            <select className="form-select px-3 py-2">
+                                <option value="select-subcategory" selected disabled>
+                                    Select Sub-Category
+                                </option>
                                 <option value="1">Buisness For Sale</option>
                                 <option value="2">Food & Restraunt</option>
                                 <option value="3">Construction & Heavy Machinery</option>
@@ -822,11 +1205,18 @@ export default function AddListstingContent() {
                                 <option value="6">Trade & Industrial Machinery</option>
                                 <option value="7">Other Buisness & Industry</option>
                             </select>
-                            <h1 ref={forms["find-business"]} className="d-none">Business, Industrial & Agriculture</h1>
+                            <h1 ref={forms["find-business"]} className="d-none">
+                                Business, Industrial & Agriculture
+                            </h1>
                         </div>
-                        <div ref={categories["find-service"]} className="sub-categories mt-md-0 w-100 d-none">
-                            <select className='form-select px-3 py-2'>
-                                <option value="select-subcategory" selected disabled>Select Sub-Category</option>
+                        <div
+                            ref={categories["find-service"]}
+                            className="sub-categories mt-md-0 w-100 d-none"
+                        >
+                            <select className="form-select px-3 py-2">
+                                <option value="select-subcategory" selected disabled>
+                                    Select Sub-Category
+                                </option>
                                 <option value="1">Agriculture & Interior Design</option>
                                 <option value="2">Camera Installments</option>
                                 <option value="3">Car Rental</option>
@@ -851,11 +1241,18 @@ export default function AddListstingContent() {
                                 <option value="22">Web Development</option>
                                 <option value="23">Other Services</option>
                             </select>
-                            <h1 ref={forms["find-service"]} className="d-none">Services</h1>
+                            <h1 ref={forms["find-service"]} className="d-none">
+                                Services
+                            </h1>
                         </div>
-                        <div ref={categories["find-job"]} className="sub-categories mt-md-0 w-100 d-none">
-                            <select className='form-select px-3 py-2'>
-                                <option value="select-subcategory" selected disabled>Select Sub-Category</option>
+                        <div
+                            ref={categories["find-job"]}
+                            className="sub-categories mt-md-0 w-100 d-none"
+                        >
+                            <select className="form-select px-3 py-2">
+                                <option value="select-subcategory" selected disabled>
+                                    Select Sub-Category
+                                </option>
                                 <option value="1">Accounting & Finance</option>
                                 <option value="2">Advertising & PR</option>
                                 <option value="3">Architecture & Interior Design</option>
@@ -882,11 +1279,18 @@ export default function AddListstingContent() {
                                 <option value="24">Sales</option>
                                 <option value="25">Security</option>
                             </select>
-                            <h1 ref={forms["find-job"]} className="d-none">Jobs</h1>
+                            <h1 ref={forms["find-job"]} className="d-none">
+                                Jobs
+                            </h1>
                         </div>
-                        <div ref={categories.animals} className="sub-categories mt-md-0 w-100 d-none">
-                            <select className='form-select px-3 py-2'>
-                                <option value="select-subcategory" selected disabled>Select Sub-Category</option>
+                        <div
+                            ref={categories.animals}
+                            className="sub-categories mt-md-0 w-100 d-none"
+                        >
+                            <select className="form-select px-3 py-2">
+                                <option value="select-subcategory" selected disabled>
+                                    Select Sub-Category
+                                </option>
                                 <option value="1">Cats</option>
                                 <option value="2">Dogs</option>
                                 <option value="3">Horses</option>
@@ -905,11 +1309,18 @@ export default function AddListstingContent() {
                                 <option value="16">Livestock</option>
                                 <option value="17">Pet Food & Accessories</option>
                             </select>
-                            <h1 ref={forms.animals} className="d-none">Animals</h1>
+                            <h1 ref={forms.animals} className="d-none">
+                                Animals
+                            </h1>
                         </div>
-                        <div ref={categories.furniture} className="sub-categories mt-md-0 w-100 d-none">
-                            <select className='form-select px-3 py-2'>
-                                <option value="select-subcategory" selected disabled>Select Sub-Category</option>
+                        <div
+                            ref={categories.furniture}
+                            className="sub-categories mt-md-0 w-100 d-none"
+                        >
+                            <select className="form-select px-3 py-2">
+                                <option value="select-subcategory" selected disabled>
+                                    Select Sub-Category
+                                </option>
                                 <option value="1">Sofa & Chairs</option>
                                 <option value="2">Beds & Wardrobes</option>
                                 <option value="3">Tables & Dining</option>
@@ -922,11 +1333,18 @@ export default function AddListstingContent() {
                                 <option value="10">Home Decoration</option>
                                 <option value="11">Other Household Items</option>
                             </select>
-                            <h1 ref={forms.furniture} className="d-none">Furniture & Home Decor</h1>
+                            <h1 ref={forms.furniture} className="d-none">
+                                Furniture & Home Decor
+                            </h1>
                         </div>
-                        <div ref={categories.fashion} className="sub-categories mt-md-0 w-100 d-none">
-                            <select className='form-select px-3 py-2'>
-                                <option value="select-subcategory" selected disabled>Select Sub-Category</option>
+                        <div
+                            ref={categories.fashion}
+                            className="sub-categories mt-md-0 w-100 d-none"
+                        >
+                            <select className="form-select px-3 py-2">
+                                <option value="select-subcategory" selected disabled>
+                                    Select Sub-Category
+                                </option>
                                 <option value="1">Fashion Accessories</option>
                                 <option value="2">Clothes</option>
                                 <option value="3">Footwear</option>
@@ -939,22 +1357,36 @@ export default function AddListstingContent() {
                                 <option value="10">Wedding</option>
                                 <option value="11">Other Fashion</option>
                             </select>
-                            <h1 ref={forms.fashion} className="d-none">Fashion & Beauty</h1>
+                            <h1 ref={forms.fashion} className="d-none">
+                                Fashion & Beauty
+                            </h1>
                         </div>
-                        <div ref={categories.books} className="sub-categories mt-md-0 w-100 d-none">
-                            <select className='form-select px-3 py-2'>
-                                <option value="select-subcategory" selected disabled>Select Sub-Category</option>
+                        <div
+                            ref={categories.books}
+                            className="sub-categories mt-md-0 w-100 d-none"
+                        >
+                            <select className="form-select px-3 py-2">
+                                <option value="select-subcategory" selected disabled>
+                                    Select Sub-Category
+                                </option>
                                 <option value="1">Books & Magazines</option>
                                 <option value="2">Musical Instruments</option>
                                 <option value="3">Sports Equipment</option>
                                 <option value="4">Gym & Fitness</option>
                                 <option value="5">Other Hobbies</option>
                             </select>
-                            <h1 ref={forms.books} className="d-none">Books</h1>
+                            <h1 ref={forms.books} className="d-none">
+                                Books
+                            </h1>
                         </div>
-                        <div ref={categories.kids} className="sub-categories mt-md-0 w-100 d-none">
-                            <select className='form-select px-3 py-2'>
-                                <option value="select-subcategory" selected disabled>Select Sub-Category</option>
+                        <div
+                            ref={categories.kids}
+                            className="sub-categories mt-md-0 w-100 d-none"
+                        >
+                            <select className="form-select px-3 py-2">
+                                <option value="select-subcategory" selected disabled>
+                                    Select Sub-Category
+                                </option>
                                 <option value="1">Kids Furniture</option>
                                 <option value="2">Kids Vehicles</option>
                                 <option value="3">Toys</option>
@@ -964,12 +1396,14 @@ export default function AddListstingContent() {
                                 <option value="7">Kids Clothing</option>
                                 <option value="8">Kids Accessories</option>
                             </select>
-                            <h1 ref={forms.kids} className="d-none">Kids</h1>
+                            <h1 ref={forms.kids} className="d-none">
+                                Kids
+                            </h1>
                         </div>
                     </div>
                 </form>
             </Container>
             {/* Form end */}
         </div >
-    )
+    );
 }
