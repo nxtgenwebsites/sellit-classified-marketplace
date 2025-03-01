@@ -23,11 +23,16 @@
     border: 1px solid #3A4FC4;
 }
 
+.form-sixth-group {
+    border: 1px solid #3A4FC4;
+}
+
 /* Category groups end */
 .label {
     font-size: 16px;
     font-weight: 700;
     width: 35%;
+    color: #000;
 }
 
 .disabled {
@@ -50,11 +55,13 @@
 .description-input small {
     font-size: 12px;
 }
+
 .img-div {
     background: #3A4FC4;
     margin: auto;
     border-radius: 50%;
 }
+
 .camera-icon {
     position: absolute;
     top: 30%;
@@ -62,6 +69,7 @@
     font-size: 40px;
     color: #fff;
 }
+
 .price-input input {
     width: 88%;
     outline: 0;
@@ -897,7 +905,7 @@
     content: 'New';
 }
 
-.checkThirteen  :checked {
+.checkThirteen:checked {
     border: 4px solid #3A4FC4;
     background: #526cff;
     color: #fff;
@@ -924,4 +932,207 @@
     background: #526cff;
     color: #fff;
 }
+
 /* Electronics end */
+/* Bikes start */
+.checkFifteen {
+    appearance: none;
+    -webkit-appearance: none;
+    border: 1px solid;
+    width: 85px;
+    height: 50px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.checkFifteen::before {
+    content: '2 Stroke';
+}
+
+.checkFifteen:checked {
+    border: 4px solid #3A4FC4;
+    background: #526cff;
+    color: #fff;
+}
+
+.checkSixteen {
+    appearance: none;
+    -webkit-appearance: none;
+    border: 1px solid;
+    width: 85px;
+    height: 50px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.checkSixteen::before {
+    content: '4 Stroke';
+}
+
+.checkSixteen:checked {
+    border: 4px solid #3A4FC4;
+    background: #526cff;
+    color: #fff;
+}
+
+.checkSeventeen {
+    appearance: none;
+    -webkit-appearance: none;
+    border: 1px solid;
+    width: 85px;
+    height: 50px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.checkSeventeen::before {
+    content: 'Self Start';
+}
+
+.checkSeventeen:checked {
+    border: 4px solid #3A4FC4;
+    background: #526cff;
+    color: #fff;
+}
+
+.checkEighteen {
+    appearance: none;
+    -webkit-appearance: none;
+    border: 1px solid;
+    width: 105px;
+    height: 50px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.checkEighteen::before {
+    content: 'Kickstarter';
+}
+
+.checkEighteen:checked {
+    border: 4px solid #3A4FC4;
+    background: #526cff;
+    color: #fff;
+}
+
+.checkNinteen {
+    appearance: none;
+    -webkit-appearance: none;
+    border: 1px solid;
+    width: 85px;
+    height: 50px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.checkNinteen::before {
+    content: 'Local';
+}
+
+.checkNinteen:checked {
+    border: 4px solid #3A4FC4;
+    background: #526cff;
+    color: #fff;
+}
+
+.checkTwenty {
+    appearance: none;
+    -webkit-appearance: none;
+    border: 1px solid;
+    width: 85px;
+    height: 50px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.checkTwenty::before {
+    content: 'Chinese';
+}
+
+.checkTwenty:checked {
+    border: 4px solid #3A4FC4;
+    background: #526cff;
+    color: #fff;
+}
+
+.checkTwentyOne {
+    appearance: none;
+    -webkit-appearance: none;
+    border: 1px solid;
+    width: 85px;
+    height: 50px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.checkTwentyOne::before {
+    content: 'Imported';
+}
+
+.checkTwentyOne:checked {
+    border: 4px solid #3A4FC4;
+    background: #526cff;
+    color: #fff;
+}
+
+.checkTwentyTwo {
+    appearance: none;
+    -webkit-appearance: none;
+    border: 1px solid;
+    width: 75px;
+    height: 50px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.checkTwentyTwo::before {
+    content: 'New';
+}
+
+.checkTwentyTwo:checked {
+    border: 4px solid #3A4FC4;
+    background: #526cff;
+    color: #fff;
+}
+
+.checkTwentyThree {
+    appearance: none;
+    -webkit-appearance: none;
+    border: 1px solid;
+    width: 75px;
+    height: 50px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.checkTwentyThree::before {
+    content: 'Used';
+}
+
+.checkTwentyThree:checked {
+    border: 4px solid #3A4FC4;
+    background: #526cff;
+    color: #fff;
+}
+
+/* Bikes end */
+/* Jobs start */
+/* Jobs end */
