@@ -51,6 +51,20 @@ export default function AddListstingContent() {
         checkTwentyTwo: false,
         checkTwentyThree: false,
     });
+    const [checked12, setChecked12] = useState({
+        checkTwentyFour: false,
+        checkTwentyFive: false,
+        checkTwentySix: false,
+    });
+    const [checked13, setChecked13] = useState({
+        checkTwentySeven: false,
+        checkTwentyEight: false,
+    });
+    const [checked14, setChecked14] = useState({
+        checkTwentyNine: false,
+        checkThirty: false,
+        checkThirtyOne: false,
+    });
     // Categories
     const mainCategory = useRef();
     const categories = {
@@ -189,6 +203,30 @@ export default function AddListstingContent() {
             checkTwentyThree: name === "checkTwentyThree" ? true : false,
         });
     };
+
+    const handleChange12 = (name) => {
+        setChecked12({
+            checkTwentyFour: name === "checkTwentyFour" ? true : false,
+            checkTwentyFive: name === "checkTwentyFive" ? true : false,
+            checkTwentySix: name === "checkTwentySix" ? true : false,
+        });
+    };
+
+    const handleChange13 = (name) => {
+        setChecked13({
+            checkTwentySeven: name === "checkTwentySeven" ? true : false,
+            checkTwentyEight: name === "checkTwentyEight" ? true : false,
+        });
+    };
+
+    const handleChange14 = (name) => {
+        setChecked14({
+            checkTwentyNine: name === "checkTwentyNine" ? true : false,
+            checkThirty: name === "checkThirty" ? true : false,
+            checkThirtyOne: name === "checkThirtyOne" ? true : false,
+        });
+    };
+
     // Image Uploader
     const [image, setImage] = useState(null);
 
@@ -202,6 +240,7 @@ export default function AddListstingContent() {
             reader.readAsDataURL(file);
         }
     };
+
     // Image Clicker
     const imageHandler = () => {
         document.getElementById("IMG").click()
@@ -221,7 +260,7 @@ export default function AddListstingContent() {
                 {/* Form */}
                 <form>
                     <div className="forms-group d-lg-flex gap-2">
-                        <div className="form-category w-100">
+                        <div className="form-category">
                             <select
                                 ref={mainCategory}
                                 onChange={handleCategory}
@@ -1277,7 +1316,7 @@ export default function AddListstingContent() {
                                         <label htmlFor="Model">Model</label>
                                     </div>
                                     <div className="input w-100">
-                                        <input type="text" name="Model" id="Model" placeholder="Model" className="input-text py-2 px-3 rounded-2" />
+                                        <input type="text" name="Model" id="Model" placeholder="Enter Model" className="input-text py-2 px-3 rounded-2" />
                                     </div>
                                 </div>
                                 <div className="third-form-dropdown d-lg-flex justify-content-between w-100 my-3">
@@ -1637,33 +1676,121 @@ export default function AddListstingContent() {
                                 <option value="24">Sales</option>
                                 <option value="25">Security</option>
                             </select>
-                            <div ref={forms["find-job"]} className="form-sixth-group w-100 p-3 my-3 rounded-2">
-                                <div className="first-form-dropdown">
-                                    <div className="label">
-                                        <label htmlFor=""></label>
+                            <div ref={forms["find-job"]} className="form-sixth-group w-100 p-3 my-3 rounded-2 d-none">
+                                <div className="first-form-dropdown d-lg-flex justify-content-between w-100">
+                                    <div className="label w-100">
+                                        <label htmlFor="Hiring Person/Company">Hiring Person/Company</label>
                                     </div>
                                     <div className="d-flex gap-2 align-items-center condition-group">
                                         <input
                                             type="checkbox"
                                             name="checkTwentyFour"
                                             className="checkTwentyFour"
-                                            checked={checked11.checkTwentyFour}
-                                            onChange={() => handleChange11("checkTwentyFour")}
+                                            checked={checked12.checkTwentyFour}
+                                            onChange={() => handleChange12("checkTwentyFour")}
                                         />
                                         <input
                                             type="checkbox"
                                             name="checkTwentyFive"
                                             className="checkTwentyFive"
-                                            checked={checked11.checkTwentyFive}
-                                            onChange={() => handleChange11("checkTwentyFive")}
+                                            checked={checked12.checkTwentyFive}
+                                            onChange={() => handleChange12("checkTwentyFive")}
                                         />
                                         <input
                                             type="checkbox"
                                             name="checkTwentySix"
                                             className="checkTwentySix"
-                                            checked={checked11.checkTwentySix}
-                                            onChange={() => handleChange11("checkTwentySix")}
+                                            checked={checked12.checkTwentySix}
+                                            onChange={() => handleChange12("checkTwentySix")}
                                         />
+                                    </div>
+                                </div>
+                                <div className="second-form-dropdown d-lg-flex justify-content-between w-100 my-3">
+                                    <div className="label">
+                                        <label htmlFor="Company Name">Company Name</label>
+                                    </div>
+                                    <div className="input w-100">
+                                        <input type="text" name="Company Name" id="Company Name" className="input-text py-2 px-3 rounded-2" placeholder="Enter Company Name" />
+                                    </div>
+                                </div>
+                                <div className="third-form-dropdown d-lg-flex justify-content-between w-100 my-3">
+                                    <div className="label">
+                                        <label htmlFor="Type Of Ad">Type Of Ad</label>
+                                    </div>
+                                    <div className="d-flex gap-2 align-items-center condition-group">
+                                        <input
+                                            type="checkbox"
+                                            name="checkTwentySeven"
+                                            className="checkTwentySeven"
+                                            checked={checked13.checkTwentySeven}
+                                            onChange={() => handleChange13("checkTwentySeven")}
+                                        />
+                                        <input
+                                            type="checkbox"
+                                            name="checkTwentyEight"
+                                            className="checkTwentyEight"
+                                            checked={checked13.checkTwentyEight}
+                                            onChange={() => handleChange13("checkTwentyEight")}
+                                        />
+                                    </div>
+                                </div>
+                                <div className="fourth-form-dropdown d-lg-flex justify-content-between w-100 my-3">
+                                    <div className="label">
+                                        <label htmlFor="Salary from">Salary from</label>
+                                    </div>
+                                    <div className="input w-100">
+                                        <input type="number" name="Salary from" id="Salary from" className="input-number py-2 px-3 rounded-2" placeholder="Enter Salary from" />
+                                    </div>
+                                </div>
+                                <div className="fifth-form-dropdown d-lg-flex justify-content-between w-100 my-3">
+                                    <div className="label">
+                                        <label htmlFor="Salary to">Salary to</label>
+                                    </div>
+                                    <div className="input w-100">
+                                        <input type="number" name="Salary to" id="Salary to" className="input-number py-2 px-3 rounded-2" placeholder="Enter Salary to" />
+                                    </div>
+                                </div>
+                                <div className="sixth-form-dropdown d-lg-flex justify-content-between w-100 my-3">
+                                    <div className="label">
+                                        <label htmlFor="Career Level">Career Level</label>
+                                    </div>
+                                    <div className="select w-100">
+                                        <select name="Career Level" id="Career Level" className="w-100 form-select ">
+                                            <option value="" disabled selected>Select Career Level</option>
+                                            <option value="1">Entry Level</option>
+                                            <option value="2">Associate</option>
+                                            <option value="3">Mid-Senior Level</option>
+                                            <option value="4">Director</option>
+                                            <option value="5">Executive</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div className="seventh-form-dropdown d-lg-flex justify-content-between w-100 my-3">
+                                    <div className="label">
+                                        <label htmlFor="Salary Period">Salary Period</label>
+                                    </div>
+                                    <div className="select w-100">
+                                        <select name="Salary Period" id="Salary Period" className="w-100 form-select ">
+                                            <option value="" disabled selected>Select Salary Period</option>
+                                            <option value="1">Monthly</option>
+                                            <option value="2">Hourly</option>
+                                            <option value="3">Weekly</option>
+                                            <option value="4">Yearly</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div className="eighth-form-dropdown d-lg-flex justify-content-between w-100 my-3">
+                                    <div className="label">
+                                        <label htmlFor="Position Type">Position Type</label>
+                                    </div>
+                                    <div className="select w-100">
+                                        <select name="Position Type" id="Position Type" className="w-100 form-select ">
+                                            <option value="" disabled selected>Select Position Type</option>
+                                            <option value="1">Full-time</option>
+                                            <option value="2">Part-time</option>
+                                            <option value="3">Contract</option>
+                                            <option value="4">Temporary</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
@@ -1693,9 +1820,52 @@ export default function AddListstingContent() {
                                 <option value="16">Livestock</option>
                                 <option value="17">Pet Food & Accessories</option>
                             </select>
-                            <h1 ref={forms.animals} className="d-none">
-                                Animals
-                            </h1>
+                            <div ref={forms.animals} className="form-seventh-group w-100 p-3 my-3 rounded-2">
+                                <div className="first-form-dropdown d-lg-flex justify-content-between w-100">
+                                    <div className="label">
+                                        <label htmlFor="Breed">Breed</label>
+                                    </div>
+                                    <div className="input w-100">
+                                        <input type="text" name="Breed" id="Breed" placeholder="Enter Breed" className="input-text w-100 py-2 px-3 rounded-2" />
+                                    </div>
+                                </div>
+                                <div className="second-form-dropdown d-lg-flex justify-content-between w-100 my-3">
+                                    <div className="label">
+                                        <label htmlFor="Sex">Sex</label>
+                                    </div>
+                                    <div className="d-flex gap-2 align-items-center condition-group">
+                                        <input
+                                            type="checkbox"
+                                            name="checkTwentyNine"
+                                            className="checkTwentyNine"
+                                            checked={checked14.checkTwentyNine}
+                                            onChange={() => handleChange14("checkTwentyNine")}
+                                        />
+                                        <input
+                                            type="checkbox"
+                                            name="checkThirty"
+                                            className="checkThirty"
+                                            checked={checked14.checkThirty}
+                                            onChange={() => handleChange14("checkThirty")}
+                                        />
+                                        <input
+                                            type="checkbox"
+                                            name="checkThirtyOne"
+                                            className="checkThirtyOne"
+                                            checked={checked14.checkThirtyOne}
+                                            onChange={() => handleChange14("checkThirtyOne")}
+                                        />
+                                    </div>
+                                </div>
+                                <div className="third-form-dropdown d-lg-flex justify-content-between w-100 my-3">
+                                    <div className="label">
+                                        <label htmlFor="Age">Age</label>
+                                    </div>
+                                    <div className="input w-100">
+                                        <input type="number" name="Age" id="Age" placeholder="Enter Age" className="input-number py-2 px-3 w-100 rounded-2" />
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div ref={categories.furniture}
                             className="sub-categories mt-md-0 w-100 d-none"
@@ -1716,9 +1886,11 @@ export default function AddListstingContent() {
                                 <option value="10">Home Decoration</option>
                                 <option value="11">Other Household Items</option>
                             </select>
-                            <h1 ref={forms.furniture} className="d-none">
-                                Furniture & Home Decor
-                            </h1>
+                            <div ref={forms.furniture} className="d-none">
+                                <div className="first-form-dropdown">
+                                    
+                                </div>
+                            </div>
                         </div>
                         <div ref={categories.fashion}
                             className="sub-categories mt-md-0 w-100 d-none"
