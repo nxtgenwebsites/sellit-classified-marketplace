@@ -16,7 +16,24 @@ import Kids_ from "./addListingCards/Kids_"
 import MainCategory from "./addListingCards/MainCategory";
 
 export default function AddListstingContent() {
-    
+
+    // Category references
+    const categories = {
+        mobiles: useRef(),
+        motors: useRef(),
+        "property-sale": useRef(),
+        "property-rent": useRef(),
+        "find-business": useRef(),
+        "find-service": useRef(),
+        "find-job": useRef(),
+        electronics: useRef(),
+        bikes: useRef(),
+        animals: useRef(),
+        furniture: useRef(),
+        fashion: useRef(),
+        books: useRef(),
+        kids: useRef(),
+    };
     return (
         <div>
             <Container>
