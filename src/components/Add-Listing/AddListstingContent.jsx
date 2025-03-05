@@ -18,6 +18,7 @@ import MainCategory from "./addListingCards/MainCategory";
 export default function AddListstingContent() {
 
     // Category references
+    const mainCategory = useRef();
     const categories = {
         mobiles: useRef(),
         motors: useRef(),
@@ -34,6 +35,49 @@ export default function AddListstingContent() {
         books: useRef(),
         kids: useRef(),
     };
+    // Form section references
+    const forms = {
+        mobiles: useRef(),
+        motors: useRef(),
+        "property-sale": useRef(),
+        "property-rent": useRef(),
+        "find-business": useRef(),
+        "find-service": useRef(),
+        "find-job": useRef(),
+        electronics: useRef(),
+        bikes: useRef(),
+        animals: useRef(),
+        furniture: useRef(),
+        fashion: useRef(),
+        books: useRef(),
+        kids: useRef(),
+    };
+    function handleCategory() {
+        const selectedCategory = mainCategory.current?.value;
+        // Hide all categories and forms
+        Object.values(categories).forEach(categoryRef => {
+            if (categoryRef.current) {
+                categoryRef.current.classList.remove("d-block");
+                categoryRef.current.classList.add("d-none");
+            }
+        });
+
+        Object.values(forms).forEach(headingRef => {
+            if (headingRef.current) {
+                headingRef.current.classList.add("d-none");
+            }
+        });
+
+        // Show selected category and form
+        if (categories[selectedCategory]?.current) {
+            categories[selectedCategory].current.classList.add("d-block");
+            categories[selectedCategory].current.classList.remove("d-none");
+        }
+
+        if (forms[selectedCategory]?.current) {
+            forms[selectedCategory].current.classList.remove("d-none");
+        }
+    }
     return (
         <div>
             <Container>
@@ -47,6 +91,33 @@ export default function AddListstingContent() {
                 <form>
                     <div className="forms-group d-lg-flex gap-2">
                         <div className="form-category">
+                                        <select
+                                            ref={mainCategory}
+                                            onChange={handleCategory}
+                                            className="form-select px-3 py-2"
+                                        >
+                                            <option value="" disabled selected>
+                                                Select Category
+                                            </option>
+                                            <option value="mobiles">Mobiles</option>
+                                            <option value="motors">Motors</option>
+                                            <option value="property-sale">Property for Sale</option>
+                                            <option value="property-rent">Property for Rent</option>
+                                            <option value="electronics">
+                                                Electronics & Home Appliances
+                                            </option>
+                                            <option value="bikes">Bikes</option>
+                                            <option value="find-business">
+                                                Business, Industrial & Agriculture
+                                            </option>
+                                            <option value="find-service">Services</option>
+                                            <option value="find-job">Jobs</option>
+                                            <option value="animals">Animals</option>
+                                            <option value="furniture">Furniture & Home Decor</option>
+                                            <option value="fashion">Fashion & Beauty</option>
+                                            <option value="books">Books, Sports & Hobbies</option>
+                                            <option value="kids">Kids</option>
+                                        </select>
                             <MainCategory />
                         </div>
                         <div ref={categories.mobiles}
