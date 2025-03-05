@@ -4,68 +4,24 @@ import "./css/add-listing.css";
 import { CiCamera } from "react-icons/ci";
 
 export default function AddListstingContent() {
-    const [isEnabled, setIsEnabled] = useState(false);
-    // Checkbox
-    const [checked1, setChecked1] = useState({
-        checkOne: false,
-        checkTwo: false,
-    });
-    const [checked2, setChecked2] = useState({
-        checkThree: false,
-        checkFour: false,
-    });
-    const [checked3, setChecked3] = useState({
-        checkFive: false,
-        checkSix: false,
-    });
-    const [checked4, setChecked4] = useState({
-        checkSeven: false,
-        checkEight: false,
-    });
-    const [checked5, setChecked5] = useState({
-        checkNine: false,
-        checkTen: false,
-    });
-    const [checked6, setChecked6] = useState({
-        checkEleven: false,
-        checkTwelve: false,
-    });
-    const [checked7, setChecked7] = useState({
-        checkThirteen: false,
-        checkFourteen: false,
-    });
-    const [checked8, setChecked8] = useState({
-        checkFifteen: false,
-        checkSixteen: false,
-    });
-    const [checked9, setChecked9] = useState({
-        checkSeventeen: false,
-        checkEighteen: false,
-    });
-    const [checked10, setChecked10] = useState({
-        checkNinteen: false,
-        checkTwenty: false,
-        checkTwentyOne: false,
-    });
-    const [checked11, setChecked11] = useState({
-        checkTwentyTwo: false,
-        checkTwentyThree: false,
-    });
-    const [checked12, setChecked12] = useState({
-        checkTwentyFour: false,
-        checkTwentyFive: false,
-        checkTwentySix: false,
-    });
-    const [checked13, setChecked13] = useState({
-        checkTwentySeven: false,
-        checkTwentyEight: false,
-    });
-    const [checked14, setChecked14] = useState({
-        checkTwentyNine: false,
-        checkThirty: false,
-        checkThirtyOne: false,
-    });
-    // Categories
+    // Checkbox state management
+    const [checked1, setChecked1] = useState({ checkOne: false, checkTwo: false });
+    const [checked2, setChecked2] = useState({ checkThree: false, checkFour: false });
+    const [checked3, setChecked3] = useState({ checkFive: false, checkSix: false });
+    const [checked4, setChecked4] = useState({ checkSeven: false, checkEight: false });
+    const [checked5, setChecked5] = useState({ checkNine: false, checkTen: false });
+    const [checked6, setChecked6] = useState({ checkEleven: false, checkTwelve: false });
+    const [checked7, setChecked7] = useState({ checkThirteen: false, checkFourteen: false });
+    const [checked8, setChecked8] = useState({ checkFifteen: false, checkSixteen: false });
+    const [checked9, setChecked9] = useState({ checkSeventeen: false, checkEighteen: false });
+    const [checked10, setChecked10] = useState({ checkNinteen: false, checkTwenty: false, checkTwentyOne: false });
+    const [checked11, setChecked11] = useState({ checkTwentyTwo: false, checkTwentyThree: false });
+    const [checked12, setChecked12] = useState({ checkTwentyFour: false, checkTwentyFive: false, checkTwentySix: false });
+    const [checked13, setChecked13] = useState({ checkTwentySeven: false, checkTwentyEight: false });
+    const [checked14, setChecked14] = useState({ checkTwentyNine: false, checkThirty: false, checkThirtyOne: false });
+    const [checked15, setChecked15] = useState({ checkThirtyTwo: false, checkThirtyThree: false });
+
+    // Category references
     const mainCategory = useRef();
     const categories = {
         mobiles: useRef(),
@@ -83,6 +39,8 @@ export default function AddListstingContent() {
         books: useRef(),
         kids: useRef(),
     };
+
+    // Form section references
     const forms = {
         mobiles: useRef(),
         motors: useRef(),
@@ -102,20 +60,21 @@ export default function AddListstingContent() {
 
     function handleCategory() {
         const selectedCategory = mainCategory.current?.value;
-
-        setIsEnabled(selectedCategory === "mobiles");
-
-        Object.values(categories).forEach((categoryRef) => {
+        // Hide all categories and forms
+        Object.values(categories).forEach(categoryRef => {
             if (categoryRef.current) {
                 categoryRef.current.classList.remove("d-block");
                 categoryRef.current.classList.add("d-none");
             }
         });
-        Object.values(forms).forEach((headingRef) => {
+
+        Object.values(forms).forEach(headingRef => {
             if (headingRef.current) {
                 headingRef.current.classList.add("d-none");
             }
         });
+
+        // Show selected category and form
         if (categories[selectedCategory]?.current) {
             categories[selectedCategory].current.classList.add("d-block");
             categories[selectedCategory].current.classList.remove("d-none");
@@ -126,127 +85,102 @@ export default function AddListstingContent() {
         }
     }
 
-    const handleChange1 = (name) => {
-        setChecked1({
-            checkOne: name === "checkOne" ? true : false,
-            checkTwo: name === "checkTwo" ? true : false,
-        });
-    };
+    // Checkbox handlers
+    const handleChange1 = name => setChecked1({ checkOne: name === "checkOne", checkTwo: name === "checkTwo" });
+    const handleChange2 = name => setChecked2({ checkThree: name === "checkThree", checkFour: name === "checkFour" });
+    const handleChange3 = name => setChecked3({ checkFive: name === "checkFive", checkSix: name === "checkSix" });
+    const handleChange4 = name => setChecked4({ checkSeven: name === "checkSeven", checkEight: name === "checkEight" });
+    const handleChange5 = name => setChecked5({ checkNine: name === "checkNine", checkTen: name === "checkTen" });
+    const handleChange6 = name => setChecked6({ checkEleven: name === "checkEleven", checkTwelve: name === "checkTwelve" });
+    const handleChange7 = name => setChecked7({ checkThirteen: name === "checkThirteen", checkFourteen: name === "checkFourteen" });
+    const handleChange8 = name => setChecked8({ checkFifteen: name === "checkFifteen", checkSixteen: name === "checkSixteen" });
+    const handleChange9 = name => setChecked9({ checkSeventeen: name === "checkSeventeen", checkEighteen: name === "checkEighteen" });
+    const handleChange10 = name => setChecked10({ checkNinteen: name === "checkNinteen", checkTwenty: name === "checkTwenty", checkTwentyOne: name === "checkTwentyOne" });
+    const handleChange11 = name => setChecked11({ checkTwentyTwo: name === "checkTwentyTwo", checkTwentyThree: name === "checkTwentyThree" });
+    const handleChange12 = name => setChecked12({ checkTwentyFour: name === "checkTwentyFour", checkTwentyFive: name === "checkTwentyFive", checkTwentySix: name === "checkTwentySix" });
+    const handleChange13 = name => setChecked13({ checkTwentySeven: name === "checkTwentySeven", checkTwentyEight: name === "checkTwentyEight" });
+    const handleChange14 = name => setChecked14({ checkTwentyNine: name === "checkTwentyNine", checkThirty: name === "checkThirty", checkThirtyOne: name === "checkThirtyOne" });
+    const handleChange15 = name => setChecked15({ checkThirtyTwo: name === "checkThirtyTwo", checkThirtyThree: name === "checkThirtyThree" });
 
-    const handleChange2 = (name) => {
-        setChecked2({
-            checkThree: name === "checkThree" ? true : false,
-            checkFour: name === "checkFour" ? true : false,
-        });
-    };
-
-    const handleChange3 = (name) => {
-        setChecked3({
-            checkFive: name === "checkFive" ? true : false,
-            checkSix: name === "checkSix" ? true : false,
-        });
-    };
-
-    const handleChange4 = (name) => {
-        setChecked4({
-            checkSeven: name === "checkSeven" ? true : false,
-            checkEight: name === "checkEight" ? true : false,
-        });
-    };
-
-    const handleChange5 = (name) => {
-        setChecked5({
-            checkNine: name === "checkNine" ? true : false,
-            checkTen: name === "checkTen" ? true : false,
-        });
-    };
-
-    const handleChange6 = (name) => {
-        setChecked6({
-            checkEleven: name === "checkEleven" ? true : false,
-            checkTwelve: name === "checkTwelve" ? true : false,
-        });
-    };
-
-    const handleChange7 = (name) => {
-        setChecked7({
-            checkThirteen: name === "checkThirteen" ? true : false,
-            checkFourteen: name === "checkFourteen" ? true : false,
-        });
-    };
-
-    const handleChange8 = (name) => {
-        setChecked8({
-            checkFifteen: name === "checkFifteen" ? true : false,
-            checkSixteen: name === "checkSixteen" ? true : false,
-        });
-    };
-
-    const handleChange9 = (name) => {
-        setChecked9({
-            checkSeventeen: name === "checkSeventeen" ? true : false,
-            checkEighteen: name === "checkEighteen" ? true : false,
-        });
-    };
-
-    const handleChange10 = (name) => {
-        setChecked10({
-            checkNinteen: name === "checkNinteen" ? true : false,
-            checkTwenty: name === "checkTwenty" ? true : false,
-            checkTwentyOne: name === "checkTwentyOne" ? true : false,
-        });
-    };
-
-    const handleChange11 = (name) => {
-        setChecked11({
-            checkTwentyTwo: name === "checkTwentyTwo" ? true : false,
-            checkTwentyThree: name === "checkTwentyThree" ? true : false,
-        });
-    };
-
-    const handleChange12 = (name) => {
-        setChecked12({
-            checkTwentyFour: name === "checkTwentyFour" ? true : false,
-            checkTwentyFive: name === "checkTwentyFive" ? true : false,
-            checkTwentySix: name === "checkTwentySix" ? true : false,
-        });
-    };
-
-    const handleChange13 = (name) => {
-        setChecked13({
-            checkTwentySeven: name === "checkTwentySeven" ? true : false,
-            checkTwentyEight: name === "checkTwentyEight" ? true : false,
-        });
-    };
-
-    const handleChange14 = (name) => {
-        setChecked14({
-            checkTwentyNine: name === "checkTwentyNine" ? true : false,
-            checkThirty: name === "checkThirty" ? true : false,
-            checkThirtyOne: name === "checkThirtyOne" ? true : false,
-        });
-    };
-
-    // Image Uploader
+    // Image handling
     const [image, setImage] = useState(null);
-
-    const handleImageChange = (event) => {
+    const handleImageChange = event => {
         const file = event.target.files[0];
         if (file) {
             const reader = new FileReader();
-            reader.onloadend = () => {
-                setImage(reader.result);
-            };
+            reader.onloadend = () => setImage(reader.result);
             reader.readAsDataURL(file);
         }
     };
 
-    // Image Clicker
-    const imageHandler = () => {
-        document.getElementById("IMG").click()
-    }
-    const cameraIcon = () => {
-        document.getElementById('cameraIcon').classList.add('z-n1');
+    const imageHandler = () => document.getElementById("IMG").click();
+    const cameraIcon = () => document.getElementById('cameraIcon').classList.add('z-n1');
+    const booksMainCategory = useRef();
+    const Books = useRef();
+    const Music = useRef();
+    const Sports = useRef();
+    const Gym = useRef();
+    function booksCategoriesHandler() {
+        if (booksMainCategory.current.value === 'Books') {
+            Books.current.classList.remove('d-none');
+            Books.current.classList.add('d-lg-flex');
+            Music.current.classList.add('d-none');
+            Music.current.classList.remove('d-lg-flex');
+            Sports.current.classList.add('d-none');
+            Sports.current.classList.remove('d-lg-flex');
+            Gym.current.classList.add('d-none');
+            Gym.current.classList.remove('d-lg-flex');
+        }
+        else if (booksMainCategory.current.value === 'Music') {
+            Books.current.classList.add('d-none');
+            Books.current.classList.remove('d-lg-flex');
+            Sports.current.classList.remove('d-lg-flex');
+            Sports.current.classList.add('d-none');
+            Music.current.classList.remove('d-none');
+            Music.current.classList.add('d-lg-flex');
+            Gym.current.classList.remove('d-lg-flex');
+            Gym.current.classList.add('d-none');
+        }
+        else if (booksMainCategory.current.value === 'Sports') {
+            Books.current.classList.add('d-none');
+            Books.current.classList.remove('d-lg-flex');
+            Music.current.classList.add('d-none');
+            Music.current.classList.remove('d-lg-flex');
+            Sports.current.classList.remove('d-none');
+            Sports.current.classList.add('d-lg-flex');
+            Gym.current.classList.add('d-none');
+            Gym.current.classList.remove('d-lg-flex');
+        }
+        else if (booksMainCategory.current.value === 'Gym') {
+            Books.current.classList.add('d-none');
+            Books.current.classList.remove('d-lg-flex');
+            Music.current.classList.add('d-none');
+            Music.current.classList.remove('d-lg-flex');
+            Sports.current.classList.add('d-none');
+            Sports.current.classList.remove('d-lg-flex');
+            Gym.current.classList.remove('d-none');
+            Gym.current.classList.add('d-lg-flex');
+        }
+        else if (booksMainCategory.current.value === 'Other Hobbies') {
+            Books.current.classList.add('d-none');
+            Books.current.classList.remove('d-lg-flex');
+            Music.current.classList.add('d-none');
+            Music.current.classList.remove('d-lg-flex');
+            Sports.current.classList.add('d-none');
+            Sports.current.classList.remove('d-lg-flex');
+            Gym.current.classList.add('d-none');
+            Gym.current.classList.remove('d-lg-flex');
+        }
+        else {
+            Books.current.classList.add('d-none');
+            Books.current.classList.remove('d-lg-flex');
+            Music.current.classList.add('d-none');
+            Music.current.classList.remove('d-lg-flex');
+            Sports.current.classList.add('d-none');
+            Sports.current.classList.remove('d-lg-flex');
+            Gym.current.classList.add('d-none');
+            Gym.current.classList.remove('d-lg-flex');
+        }
     }
     return (
         <div>
@@ -312,7 +246,7 @@ export default function AddListstingContent() {
                                         onChange={handleImageChange}
                                     />
                                 </div>
-                                <div className="first-form_group d-flex justify-content-between w-100 my-3">
+                                <div className="first-form_group d-lg-flex justify-content-between w-100 my-3">
                                     <div className="label">
                                         <label htmlFor="Ad Title">Ad Title</label>
                                     </div>
@@ -332,7 +266,7 @@ export default function AddListstingContent() {
                                         </small>
                                     </div>
                                 </div>
-                                <div className="second-form_group d-flex justify-content-between w-100 my-3">
+                                <div className="second-form_group d-lg-flex justify-content-between w-100 my-3">
                                     <div className="label">
                                         <label htmlFor="Description">Description</label>
                                     </div>
@@ -348,7 +282,7 @@ export default function AddListstingContent() {
                                         </small>
                                     </div>
                                 </div>
-                                <div className="third-form_group d-flex justify-content-between w-100 my-3">
+                                <div className="third-form_group d-lg-flex justify-content-between w-100 my-3">
                                     <div className="label">
                                         <label htmlFor="Location">Location</label>
                                     </div>
@@ -374,23 +308,20 @@ export default function AddListstingContent() {
                                         </select>
                                     </div>
                                 </div>
-                                <div className="fourth-form_group d-flex justify-content-between w-100 my-3">
+                                <div className="fourth-form_group d-lg-flex justify-content-between w-100 my-3">
                                     <div className="label">
-                                        <label htmlFor="Location">Location</label>
+                                        <label htmlFor="Price">Price</label>
                                     </div>
-                                    <div className="input input-group price-input w-100">
-                                        <span className="input-group-text rounded-start-2">
-                                            PKR
-                                        </span>
+                                    <div className="input price-input w-100">
                                         <input
                                             type="number"
                                             placeholder="Enter Price"
-                                            className="px-3 py-2 rounded-end-2"
+                                            className="px-3 py-2 rounded-2 input-number w-100"
                                             required
                                         />
                                     </div>
                                 </div>
-                                <div className="fifth-form_group d-flex justify-content-between w-100 my-3">
+                                <div className="fifth-form_group d-lg-flex justify-content-between w-100 my-3">
                                     <div className="label">
                                         <label htmlFor="Name">Name</label>
                                     </div>
@@ -403,7 +334,7 @@ export default function AddListstingContent() {
                                         />
                                     </div>
                                 </div>
-                                <div className="fourth-form_group d-flex justify-content-between w-100 my-3">
+                                <div className="fourth-form_group d-lg-flex justify-content-between w-100 my-3">
                                     <div className="label">
                                         <label htmlFor="Mobile Number">Mobile Number</label>
                                     </div>
@@ -422,7 +353,7 @@ export default function AddListstingContent() {
                         </div>
                         <div ref={categories.mobiles}
                             className="sub-categories mt-md-0 w-100 d-none">
-                            <select className="form-select px-3 py-2" disabled={!isEnabled}>
+                            <select className="form-select px-3 py-2">
                                 <option value="" disabled selected>
                                     Select Sub-Category
                                 </option>
@@ -435,10 +366,13 @@ export default function AddListstingContent() {
                                 ref={forms.mobiles}
                                 className="form-second-group w-100 p-3 my-3 rounded-2 d-none"
                             >
-                                <div className="first-form-dropdown d-flex align-items-center justify-content-between w-100">
-                                    <label htmlFor="brand" className="w-75">
-                                        Brand
-                                    </label>
+                                <div className="first-form-dropdown d-lg-flex align-items-center justify-content-between w-100">
+                                    <div className="label">
+                                        <label htmlFor="brand" className="w-75">
+                                            Brand
+                                        </label>
+                                    </div>
+                                    <div className="select w-100">
                                     <select
                                         name="brand"
                                         id="brand"
@@ -476,26 +410,32 @@ export default function AddListstingContent() {
                                         <option value="21">Samsung</option>
                                         <option value="22">Other Tablets</option>
                                     </select>
+                                    </div>
                                 </div>
-                                <div className="second-form-dropdown d-flex justify-content-between w-100 my-3">
-                                    <label htmlFor="brand" className="w-75">
-                                        Condition
-                                    </label>
-                                    <select
-                                        name="brand"
-                                        id="brand"
-                                        className="py-2 px-3 form-select w-100"
-                                    >
-                                        <option value="" selected disabled>
-                                            Select Condition
-                                        </option>
-                                        <option value="1">New</option>
-                                        <option value="2">Open Box</option>
-                                        <option value="3">Used</option>
-                                        <option value="4">Refurbished</option>
-                                        <option value="5">For Parts</option>
-                                        <option value="6">Not Working</option>
-                                    </select>
+                                <div className="second-form-dropdown d-lg-flex justify-content-between w-100 my-3">
+                                    <div className="label">
+                                        <label htmlFor="brand" className="w-75">
+                                            Condition
+                                        </label>
+                                    </div>
+                                    <div className="select w-100">
+                                        <select
+                                            name="brand"
+                                            id="brand"
+                                            className="py-2 px-3 form-select w-100"
+                                        >
+                                            <option value="" selected disabled>
+                                                Select Condition
+                                            </option>
+                                            <option value="1">New</option>
+                                            <option value="2">Open Box</option>
+                                            <option value="3">Used</option>
+                                            <option value="4">Refurbished</option>
+                                            <option value="5">For Parts</option>
+                                            <option value="6">Not Working</option>
+                                        </select>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
@@ -1755,7 +1695,7 @@ export default function AddListstingContent() {
                                         <label htmlFor="Career Level">Career Level</label>
                                     </div>
                                     <div className="select w-100">
-                                        <select name="Career Level" id="Career Level" className="w-100 form-select ">
+                                        <select name="Career Level" id="Career Level" className="w-100 form-select py-2 px-3">
                                             <option value="" disabled selected>Select Career Level</option>
                                             <option value="1">Entry Level</option>
                                             <option value="2">Associate</option>
@@ -1770,7 +1710,7 @@ export default function AddListstingContent() {
                                         <label htmlFor="Salary Period">Salary Period</label>
                                     </div>
                                     <div className="select w-100">
-                                        <select name="Salary Period" id="Salary Period" className="w-100 form-select ">
+                                        <select name="Salary Period" id="Salary Period" className="w-100 form-select py-2 px-3">
                                             <option value="" disabled selected>Select Salary Period</option>
                                             <option value="1">Monthly</option>
                                             <option value="2">Hourly</option>
@@ -1784,7 +1724,7 @@ export default function AddListstingContent() {
                                         <label htmlFor="Position Type">Position Type</label>
                                     </div>
                                     <div className="select w-100">
-                                        <select name="Position Type" id="Position Type" className="w-100 form-select ">
+                                        <select name="Position Type" id="Position Type" className="w-100 form-select py-2 px-3">
                                             <option value="" disabled selected>Select Position Type</option>
                                             <option value="1">Full-time</option>
                                             <option value="2">Part-time</option>
@@ -1820,7 +1760,7 @@ export default function AddListstingContent() {
                                 <option value="16">Livestock</option>
                                 <option value="17">Pet Food & Accessories</option>
                             </select>
-                            <div ref={forms.animals} className="form-seventh-group w-100 p-3 my-3 rounded-2">
+                            <div ref={forms.animals} className="form-seventh-group w-100 p-3 my-3 rounded-2 d-none">
                                 <div className="first-form-dropdown d-lg-flex justify-content-between w-100">
                                     <div className="label">
                                         <label htmlFor="Breed">Breed</label>
@@ -1886,9 +1826,35 @@ export default function AddListstingContent() {
                                 <option value="10">Home Decoration</option>
                                 <option value="11">Other Household Items</option>
                             </select>
-                            <div ref={forms.furniture} className="d-none">
-                                <div className="first-form-dropdown">
-                                    
+                            <div ref={forms.furniture} className="form-eighth-group w-100 p-3 my-3 rounded-2 d-none">
+                                <div className="first-form-dropdown d-lg-flex w-100 justify-content-between">
+                                    <div className="label">
+                                        <label htmlFor="Type">Type</label>
+                                    </div>
+                                    <div className="input w-100">
+                                        <input type="text" name="Type" id="Type" placeholder="Enter Type" className="input-text py-2 px-3 rounded-2 w-100" />
+                                    </div>
+                                </div>
+                                <div className="second-form-dropdown d-lg-flex w-100 justify-content-between my-3">
+                                    <div className="label">
+                                        <label htmlFor="Condition">Condition</label>
+                                    </div>
+                                    <div className="d-flex gap-2 align-items-center condition-group">
+                                        <input
+                                            type="checkbox"
+                                            name="checkThirtyTwo"
+                                            className="checkThirtyTwo"
+                                            checked={checked15.checkThirtyTwo}
+                                            onChange={() => handleChange15("checkThirtyTwo")}
+                                        />
+                                        <input
+                                            type="checkbox"
+                                            name="checkThirtyThree"
+                                            className="checkThirtyThree"
+                                            checked={checked15.checkThirtyThree}
+                                            onChange={() => handleChange15("checkThirtyThree")}
+                                        />
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -1911,25 +1877,215 @@ export default function AddListstingContent() {
                                 <option value="10">Wedding</option>
                                 <option value="11">Other Fashion</option>
                             </select>
-                            <h1 ref={forms.fashion} className="d-none">
-                                Fashion & Beauty
-                            </h1>
+                            <div ref={forms.fashion} className="form-nineth-group w-100 p-3 my-3 rounded-2 d-none">
+                                <div className="first-form-dropdown d-lg-flex w-100 justify-content-between">
+                                    <div className="label">
+                                        <label htmlFor="Sex">Sex</label>
+                                    </div>
+                                    <div className="select w-100">
+                                        <select name="Sex" id="Sex" className="form-select py-2 px-3">
+                                            <option value="" disabled selected>Select Sex</option>
+                                            <option value="1">Male</option>
+                                            <option value="2">Female</option>
+                                            <option value="3">Unisex</option>
+                                            <option value="4">Boy</option>
+                                            <option value="5">Girl</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div className="second-form-dropdown d-lg-flex w-100 justify-content-between my-3">
+                                    <div className="label">
+                                        <label htmlFor="Condition">Condition</label>
+                                    </div>
+                                    <div className="d-flex gap-2 align-items-center condition-group">
+                                        <input
+                                            type="checkbox"
+                                            name="checkThirtyTwo"
+                                            className="checkThirtyTwo"
+                                            checked={checked15.checkThirtyTwo}
+                                            onChange={() => handleChange15("checkThirtyTwo")}
+                                        />
+                                        <input
+                                            type="checkbox"
+                                            name="checkThirtyThree"
+                                            className="checkThirtyThree"
+                                            checked={checked15.checkThirtyThree}
+                                            onChange={() => handleChange15("checkThirtyThree")}
+                                        />
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div ref={categories.books}
                             className="sub-categories mt-md-0 w-100 d-none">
-                            <select className="form-select px-3 py-2">
+                            <select className="form-select px-3 py-2" ref={booksMainCategory} onChange={booksCategoriesHandler}>
                                 <option value="select-subcategory" selected disabled>
                                     Select Sub-Category
                                 </option>
-                                <option value="1">Books & Magazines</option>
-                                <option value="2">Musical Instruments</option>
-                                <option value="3">Sports Equipment</option>
-                                <option value="4">Gym & Fitness</option>
-                                <option value="5">Other Hobbies</option>
+                                <option value="Books">Books & Magazines</option>
+                                <option value="Music">Musical Instruments</option>
+                                <option value="Sports">Sports Equipment</option>
+                                <option value="Gym">Gym & Fitness</option>
+                                <option value="Other Hobbies">Other Hobbies</option>
                             </select>
-                            <h1 ref={forms.books} className="d-none">
-                                Books
-                            </h1>
+                            <div ref={forms.books} className="form-tenth-group w-100 p-3 my-3 rounded-2 d-none">
+                                <div className="first-form-dropdown w-100 justify-content-between d-none" ref={Books}>
+                                    <div className="label">
+                                        <label htmlFor="Type">Type</label>
+                                    </div>
+                                    <div className="select w-100">
+                                        <select name="Type" id="Type" className="form-select py-2 px-3">
+                                            <option value="" selected disabled>Select Type</option>
+                                            <option value="" className="disabled" disabled>Books</option>
+                                            <option value="1">Religious Books</option>
+                                            <option value="2">Children's Books</option>
+                                            <option value="3">Education & Training Books</option>
+                                            <option value="4">Literature & Fiction Books</option>
+                                            <option value="5">Other Books</option>
+                                            <option value="" className="disabled" disabled>Other</option>
+                                            <option value="6">Magazines</option>
+                                            <option value="7">Stationary Items</option>
+                                            <option value="8">Dictionary</option>
+                                            <option value="9">Calculators</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div className="first-form-dropdown w-100 justify-content-between d-none" ref={Music}>
+                                    <div className="label">
+                                        <label htmlFor="Type">Type</label>
+                                    </div>
+                                    <div className="select w-100">
+                                        <select name="Type" id="Type" className="form-select py-2 px-3">
+                                            <option value="" selected disabled>Select Type</option>
+                                            <option value="" className="disabled" disabled>Popular Type</option>
+                                            <option value="1">Guitars</option>
+                                            <option value="2">Other Instruments & Accessories</option>
+                                            <option value="3">Pianos</option>
+                                            <option value="4">Rabab</option>
+                                            <option value="5">Harmonium</option>
+                                            <option value="" className="disabled" disabled>Others</option>
+                                            <option value="6">Guitars</option>
+                                            <option value="7">Ukuleles</option>
+                                            <option value="8">Pianos</option>
+                                            <option value="9">Violins</option>
+                                            <option value="10">Drums</option>
+                                            <option value="11">Flutes</option>
+                                            <option value="12">Melodica</option>
+                                            <option value="13">Harmonium</option>
+                                            <option value="14">Dholak</option>
+                                            <option value="15">Tabla Set</option>
+                                            <option value="16">Duff</option>
+                                            <option value="17">Rabab</option>
+                                            <option value="18">Other Instruments & Accessories</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div className="first-form-dropdown w-100 justify-content-between d-none" ref={Sports}>
+                                    <div className="label">
+                                        <label htmlFor="Type">Type</label>
+                                    </div>
+                                    <div className="select w-100">
+                                        <select name="Type" id="Type" className="form-select py-2 px-3">
+                                            <option value="" selected disabled>Select Type</option>
+                                            <option value="" className="disabled" disabled>Popular Type</option>
+                                            <option value="1">Cricket</option>
+                                            <option value="2">Snooker</option>
+                                            <option value="3">Other Sports</option>
+                                            <option value="4">Football</option>
+                                            <option value="5">Table Tennis</option>
+                                            <option value="" className="disabled" disabled>Others</option>
+                                            <option value="6">Trampoline</option>
+                                            <option value="7">Carrom Boards</option>
+                                            <option value="8">Chess</option>
+                                            <option value="9">Table Tennis</option>
+                                            <option value="10">Football</option>
+                                            <option value="11">Billiards</option>
+                                            <option value="12">Snooker</option>
+                                            <option value="13">Pool</option>
+                                            <option value="14">Ludo</option>
+                                            <option value="15">Sqaush</option>
+                                            <option value="16">Badminton</option>
+                                            <option value="17">asketball</option>
+                                            <option value="18">Cricket</option>
+                                            <option value="19">Football</option>
+                                            <option value="20">Hockey</option>
+                                            <option value="21">Volleyball</option>
+                                            <option value="22">Baseball</option>
+                                            <option value="23">Tennis</option>
+                                            <option value="24">Camping</option>
+                                            <option value="25">Hiking</option>
+                                            <option value="26">Horse Riding</option>
+                                            <option value="27">Golf</option>
+                                            <option value="28">Boxing</option>
+                                            <option value="29">Skating</option>
+                                            <option value="30">Swimming</option>
+                                            <option value="31">Fishing</option>
+                                            <option value="32">Sport Clothes</option>
+                                            <option value="33">Sport Shoes</option>
+                                            <option value="34">Other Sports</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div className="first-form-dropdown w-100 justify-content-between d-none" ref={Gym}>
+                                    <div className="label">
+                                        <label htmlFor="Type">Type</label>
+                                    </div>
+                                    <div className="select w-100">
+                                        <select name="Type" id="Type" className="form-select py-2 px-3">
+                                            <option value="" selected disabled>Select Type</option>
+                                            <option value="" className="disabled" disabled>Popular Type</option>
+                                            <option value="1">Treadmills</option>
+                                            <option value="2">Other Gym Equipments</option>
+                                            <option value="3">Massagers</option>
+                                            <option value="4">Exercise Bikes</option>
+                                            <option value="5">Supplements</option>
+                                            <option value="" className="disabled" disabled>Others</option>
+                                            <option value="6">Treadmills</option>
+                                            <option value="7">Ellipticals</option>
+                                            <option value="8">Exercise Bikes</option>
+                                            <option value="9">AB Exercisers</option>
+                                            <option value="10">Tummy Trimers</option>
+                                            <option value="11">Dumbbells</option>
+                                            <option value="12">Barbell Bars</option>
+                                            <option value="13">Weight Plates</option>
+                                            <option value="14">Shakers</option>
+                                            <option value="15">Kettlebells</option>
+                                            <option value="16">Resistance Bands</option>
+                                            <option value="17">Jump Ropes</option>
+                                            <option value="18">Gym Balls</option>
+                                            <option value="19">Yoga Mats</option>
+                                            <option value="20">Massagers</option>
+                                            <option value="21">Supplements</option>
+                                            <option value="22">Belts</option>
+                                            <option value="23">Gym Bags & Sacks</option>
+                                            <option value="24">Gym Clothes</option>
+                                            <option value="25">Gym Shoes</option>
+                                            <option value="26">Other Gym Equipments</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div className="second-form-dropdown d-lg-flex w-100 justify-content-between my-3">
+                                    <div className="label">
+                                        <label htmlFor="Condition">Condition</label>
+                                    </div>
+                                    <div className="d-flex gap-2 align-items-center condition-group">
+                                        <input
+                                            type="checkbox"
+                                            name="checkThirtyTwo"
+                                            className="checkThirtyTwo"
+                                            checked={checked15.checkThirtyTwo}
+                                            onChange={() => handleChange15("checkThirtyTwo")}
+                                        />
+                                        <input
+                                            type="checkbox"
+                                            name="checkThirtyThree"
+                                            className="checkThirtyThree"
+                                            checked={checked15.checkThirtyThree}
+                                            onChange={() => handleChange15("checkThirtyThree")}
+                                        />
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div ref={categories.kids}
                             className="sub-categories mt-md-0 w-100 d-none"
@@ -1947,10 +2103,33 @@ export default function AddListstingContent() {
                                 <option value="7">Kids Clothing</option>
                                 <option value="8">Kids Accessories</option>
                             </select>
-                            <h1 ref={forms.kids} className="d-none">
-                                Kids
-                            </h1>
+                            <div ref={forms.kids} className="form-eleventh-group w-100 p-3 my-3 rounded-2 d-none">
+                                <div className="second-form-dropdown d-lg-flex w-100 justify-content-between my-3">
+                                    <div className="label">
+                                        <label htmlFor="Condition">Condition</label>
+                                    </div>
+                                    <div className="d-flex gap-2 align-items-center condition-group">
+                                        <input
+                                            type="checkbox"
+                                            name="checkThirtyTwo"
+                                            className="checkThirtyTwo"
+                                            checked={checked15.checkThirtyTwo}
+                                            onChange={() => handleChange15("checkThirtyTwo")}
+                                        />
+                                        <input
+                                            type="checkbox"
+                                            name="checkThirtyThree"
+                                            className="checkThirtyThree"
+                                            checked={checked15.checkThirtyThree}
+                                            onChange={() => handleChange15("checkThirtyThree")}
+                                        />
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+                    </div>
+                    <div className="btn text-center mx-auto w-100">
+                        <button type="submit" className="submit-btn">Post</button>
                     </div>
                 </form>
             </Container>

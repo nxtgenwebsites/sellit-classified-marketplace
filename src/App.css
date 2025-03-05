@@ -1,4 +1,4 @@
-@media(max-width: 1600px) {
+@media (max-width: 1600px) {
     .featured-ads {
         height: 550px !important;
     }
@@ -20,7 +20,8 @@
 
 @media (max-width: 1200px) {
     .nav-btn {
-        font-size: 14px;
+        font-size: 12.5px !important;
+        padding: .3rem .2rem !important;
     }
 
     .category-menu {
@@ -29,6 +30,10 @@
 
     .tabs {
         width: 70% !important;
+    }
+
+    .dropdown-section {
+        padding: 1.6rem .6rem !important;
     }
 
     .nav-icon i {
@@ -52,9 +57,34 @@
     .tabs {
         width: 80% !important;
     }
+        .nav-btn {
+            font-size: 16px !important;
+            padding: .5rem !important;
+        }
+    .dropdown-section {
+        width: 100%;
+        padding: 1.6rem 0 !important;
+    }
+
+    .search-bar {
+        width: 100% !important;
+    }
+
+    .search-items {
+        width: 100% !important;
+        margin-bottom: 20px
+    }
+
+    .nav-menu {
+        width: 100%;
+    }
 
     .featured-ads {
         height: 860px !important;
+    }
+
+    .form-category {
+        width: 100%;
     }
 
     .card-divider {
@@ -168,17 +198,17 @@
         position: relative;
     }
 
-    .input-1 input[type=checkbox] {
+    .input-1 input[type="checkbox"] {
         width: 100%;
         padding: 0 10px;
     }
 
-    .input-2 input[type=checkbox] {
+    .input-2 input[type="checkbox"] {
         width: 100%;
         padding: 0 10px;
     }
 
-    .input-3 input[type=checkbox] {
+    .input-3 input[type="checkbox"] {
         width: 100%;
         padding: 0 10px;
     }
@@ -204,15 +234,15 @@
         right: 5%;
     }
 
-    .input-1 input[type=checkbox] {
+    .input-1 input[type="checkbox"] {
         font-size: 2px !important;
     }
 
-    .input-2 input[type=checkbox] {
+    .input-2 input[type="checkbox"] {
         font-size: 2px !important;
     }
 
-    .input-3 input[type=checkbox] {
+    .input-3 input[type="checkbox"] {
         font-size: 2px !important;
     }
 
@@ -237,15 +267,19 @@
     .tabs {
         justify-content: center !important;
     }
+
     .input-1 {
         flex-direction: column;
     }
+
     .input-2 {
         flex-direction: column;
     }
+
     .input-3 {
         flex-direction: column;
     }
+
     .label {
         width: 100%;
         margin-bottom: 20px;
@@ -263,7 +297,6 @@
 }
 
 @media (max-width: 390px) {
-
     .featured-ads {
         height: 550px !important;
     }

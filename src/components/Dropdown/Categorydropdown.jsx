@@ -577,7 +577,7 @@ export default function Categorydropdown() {
                                     </Dropdown.Item>
                                 </Dropdown.Menu>
                             </Dropdown>
-                            <Button onClick={handleShow} className='bg-transparent border-0 d-xl-none offcanvas-btn'>
+                            <Button onClick={handleShow} className='bg-transparent border-0 d-xl-none offcanvas-btn ps-2'>
                                 <span>See All</span>
                             </Button>
                             <Offcanvas show={show} onHide={handleClose} className="p-2 header-offcanvas d-xl-none">

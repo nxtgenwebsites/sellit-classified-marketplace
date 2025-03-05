@@ -18,8 +18,9 @@ export default function Header() {
             <Navbar expand='lg'>
                 <Container>
                     <Link to={'/'}><img src="/assets/icons/Navbar-logo.png" alt="IMG" width={200} /></Link>
+                    <Navbar.Toggle aria-controls="Header" />
                     <Navbar.Collapse id='Header' className='mt-3 mt-lg-0'>
-                        <div className="search-items d-flex align-items-center mx-auto">
+                        <div className="search-items d-lg-flex align-items-center mx-auto">
                             <div className="dropdown-section mt-3 rounded-2">
                                 <div className="second-dropdown dropdown mt-3 w-100">
                                     <button type="button"
@@ -79,7 +80,9 @@ export default function Header() {
                                                     <i className="bi bi-geo-alt"></i>
                                                 </div>
                                                 <div className="location-content">
-                                                    <p>Kyber Pakhtunkhwa,<br />Pakistan</p>
+                                                    <p className='d-lg-block d-none'>Kyber Pakhtunkhwa,<br />Pakistan</p>
+                                                    <p className='d-lg-none d-sm-block d-none'>Kyber Pakhtunkhwa, Pakistan</p>
+                                                    <p className='d-sm-none d-block'>Kyber Pakhtunkhwa,<br /> Pakistan</p>
                                                 </div>
                                             </li>
                                         </a>
@@ -115,7 +118,7 @@ export default function Header() {
                         </div>
                         <Nav className=' mb-2 mb-lg-0 gap-2 navbar-list align-items-lg-baseline'>
                             <Nav.Link href='#'>
-                                <BsChatLeftTextFill className='nav-icon'/>
+                                <BsChatLeftTextFill className='nav-icon' />
                             </Nav.Link>
                             <Nav.Link href='#'>
                                 <BsHeartFill className='nav-icon' />
