@@ -46,7 +46,7 @@ export default function MainCategory() {
   // <!-- Display Phone Card end -->
 
   return (
-    <div className="position-relative">
+    <div className="position-relative w-100">
       <form className="form-first-group w-100 p-3 my-3 rounded-2">
         <div
           className="img-div"

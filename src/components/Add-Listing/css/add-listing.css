@@ -1414,13 +1414,13 @@
 /* Furniture & Decor end */
 /* Card start */
 .card-message {
-    background: rgba(34, 34, 34, .9);
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 3;
+  background: rgba(34, 34, 34, 0.9);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
 }
 .number-card {
   background: #fff;
@@ -1440,12 +1440,12 @@
   color: #3a4fc4;
 }
 .submit-btn {
-  padding: .5rem 4.5rem;
+  padding: 0.5rem 4.5rem;
   border: 1px solid #3a4fc4;
   color: #3a4fc4;
   background: none;
   font-weight: 500;
-  transition: .2s linear;
+  transition: 0.2s linear;
   margin-top: 10rem;
   border-radius: 5px;
 }
