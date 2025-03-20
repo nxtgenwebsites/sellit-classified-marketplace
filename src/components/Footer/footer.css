@@ -1,79 +1,79 @@
 /* Footer start */
 .footer-section {
-    background: -webkit-linear-gradient(left, #324A9F 20%, #2A336E 80%);
+  background: -webkit-linear-gradient(left, #324a9f 20%, #2a336e 80%);
 }
 
 .footer-img img {
-    width: 100%;
-    max-width: 300px;
+  width: 100%;
+  max-width: 300px;
 }
 
 .footer-heading h6 {
-    font-size: 16px;
+  font-size: 16px;
 }
 
 .footer-link {
-    padding: 3px 0 !important;
-    font-size: 15.5px !important;
+  padding: 3px 0 !important;
+  font-size: 15.5px !important;
 }
 
 .footer-row {
-    color: #fff !important;
+  color: #fff !important;
 }
 
 .footer-hover:hover {
-    color: #00A49F !important;
+  color: #00a49f !important;
 }
 
 .form-group input {
-    border: 1px solid #c2c2c2;
-    outline: none;
-    height: 55px;
-    padding: 10px;
-    border-radius: 5px;
+  border: 1px solid #c2c2c2;
+  outline: none;
+  height: 55px;
+  padding: 10px;
+  border-radius: 5px;
 }
 
 .form-group button {
-    position: absolute;
-    top: 15%;
-    right: 2%;
-    background: transparent;
-    border: 1px solid #3A4FC4 !important;
-    transition: .2s linear;
+  position: absolute;
+  top: 15%;
+  right: 2%;
+  background: transparent;
+  border: 1px solid #3a4fc4 !important;
+  transition: 0.2s linear;
 }
 
 .form-group button:hover {
-    background: #f0f0f0;
-    border: 1px solid transparent !important;
+  background: #f0f0f0;
+  border: 1px solid transparent !important;
 }
 
 .social-icons {
-    font-size: 25px !important;
-    color: #fff;
+  font-size: 25px !important;
+  color: #fff;
 }
 
 .footer-content {
-    font-size: 18px !important;
-    font-weight: 400;
+  font-size: 18px !important;
+  font-weight: 400;
 }
 
 .footer-divider {
-    opacity: 100%;
-    color: #fff !important;
-    margin: 1rem 37px 1rem 0 !important;
+  opacity: 100%;
+  color: #fff !important;
+  margin: 1rem 37px 1rem 0 !important;
 }
 
 /* Copyright start */
 .copyright-section {
-    color: #fff;
+  color: #fff;
 }
 
 .copyright-link:hover {
-    color: #9b9ca0;
+  color: #9b9ca0;
 }
 
 .copyright-link {
-    color: #fff;
+  color: #fff;
 }
 
 /* Copyright end */

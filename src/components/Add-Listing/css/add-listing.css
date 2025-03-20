@@ -1,1409 +1,1425 @@
 .listing-heading h1 {
-    font-weight: 900 !important;
+  font-weight: 900 !important;
 }
 
 /* Category groups start */
 .form-first-group {
-    border: 1px solid #3A4FC4;
+  border: 1px solid #3a4fc4;
+  height: 115.5vh;
 }
 
 .form-second-group {
-    border: 1px solid #3A4FC4;
+  border: 1px solid #3a4fc4;
+  height: 115.5vh;
 }
 
 .form-third-group {
-    border: 1px solid #3A4FC4;
+  border: 1px solid #3a4fc4;
+  height: 115.5vh;
 }
 
 .form-fourth-group {
-    border: 1px solid #3A4FC4;
+  border: 1px solid #3a4fc4;
+  height: 115.5vh;
 }
 
 .form-fifth-group {
-    border: 1px solid #3A4FC4;
+  border: 1px solid #3a4fc4;
+  height: 115.5vh;
 }
 
 .form-sixth-group {
-    border: 1px solid #3A4FC4;
+  border: 1px solid #3a4fc4;
+  height: 115.5vh;
 }
 
 .form-seventh-group {
-    border: 1px solid #3A4FC4;
+  border: 1px solid #3a4fc4;
+  height: 115.5vh;
 }
 
 .form-eighth-group {
-    border: 1px solid #3A4FC4;
+  border: 1px solid #3a4fc4;
+  height: 115.5vh;
 }
 
 .form-nineth-group {
-    border: 1px solid #3A4FC4;
+  border: 1px solid #3a4fc4;
+  height: 115.5vh;
 }
 
 .form-tenth-group {
-    border: 1px solid #3A4FC4;
+  border: 1px solid #3a4fc4;
+  height: 115.5vh;
 }
 
 .form-eleventh-group {
-    border: 1px solid #3A4FC4;
+  border: 1px solid #3a4fc4;
+  height: 115.5vh;
 }
 
 /* Category groups end */
 .label {
-    font-size: 15px;
-    font-weight: 700;
-    width: 35%;
-    color: #000;
+  font-size: 15px;
+  font-weight: 700;
+  width: 35%;
+  color: #000;
 }
 
 .disabled {
-    color: #000 !important;
-    font-weight: 600;
-    font-size: 14px;
+  color: #000 !important;
+  font-weight: 600;
+  font-size: 14px;
 }
 
 .disabled-heading {
-    color: #A4B4B6 !important;
-    font-weight: 600;
-    font-size: 16px;
+  color: #a4b4b6 !important;
+  font-weight: 600;
+  font-size: 16px;
 }
 
 /* Stuck Form start */
 .title-input small {
-    font-size: 12px;
+  font-size: 12px;
 }
 
 .description-input small {
-    font-size: 12px;
+  font-size: 12px;
 }
 
 .img-div {
-    background: #3A4FC4;
-    margin: auto;
-    border-radius: 50%;
+  background: #3a4fc4;
+  margin: auto;
+  border-radius: 50%;
 }
 
 .camera-icon {
-    position: absolute;
-    top: 30%;
-    right: 30%;
-    font-size: 40px;
-    color: #fff;
+  position: absolute;
+  top: 30%;
+  right: 30%;
+  font-size: 40px;
+  color: #fff;
 }
 
 .form-category {
-    width: 85%;
-    margin: 0 auto;
+  width: 85%;
+  margin: 0 auto;
 }
 
 .d-none {
-    display: none !important;
+  display: none !important;
 }
 
 .d-block {
-    display: block !important;
+  display: block !important;
 }
 
 .description-input textarea {
-    resize: none;
-    height: 150px;
+  resize: none;
+  height: 150px;
 }
 
 .submit-btn {
-    background: #fff;
-    border: 1px solid #3A4FC4;
-    color: #3A4FC4;
-    font-weight: 500;
-    font-size: 1.5rem;
-    padding: 1rem 2.5rem;
-    transition: .3s linear;
-    border-radius: 0.375rem;
+  background: #fff;
+  border: 1px solid #3a4fc4;
+  color: #3a4fc4;
+  font-weight: 500;
+  font-size: 1.5rem;
+  padding: 1rem 2.5rem;
+  transition: 0.3s linear;
+  border-radius: 0.375rem;
 }
 
 .submit-btn:hover {
-    background: #3A4FC4;
-    border: 1px solid transparent;
-    color: #fff;
-    font-size: 1.2rem;
-    padding: 1rem 5.5rem;
-    border-radius: 50px;
+  background: #3a4fc4;
+  border: 1px solid transparent;
+  color: #fff;
+  font-size: 1.2rem;
+  padding: 1rem 5.5rem;
+  border-radius: 50px;
 }
 
 /* Stuck Form end */
 /* Motors start */
+/* Mobiles start */
+.form-second-group {
+  height: 100%;
+}
+/* Mobiles end */
 .checkOne {
-    appearance: none;
-    -webkit-appearance: none;
-    border: 1px solid;
-    width: 60px;
-    height: 50px;
-    display: grid;
-    place-items: center;
-    cursor: pointer;
-    border-radius: 5px;
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid;
+  width: 60px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 .checkOne::before {
-    content: 'New';
+  content: "New";
 }
 
 .checkOne:checked {
-    border: 4px solid #3A4FC4;
-    background: #526cff;
-    color: #fff;
+  border: 4px solid #3a4fc4;
+  background: #526cff;
+  color: #fff;
 }
 
 .checkTwo {
-    appearance: none;
-    -webkit-appearance: none;
-    border: 1px solid;
-    width: 60px;
-    height: 50px;
-    display: grid;
-    place-items: center;
-    cursor: pointer;
-    border-radius: 5px;
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid;
+  width: 60px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 .checkTwo::before {
-    content: 'Used';
+  content: "Used";
 }
 
 .checkTwo:checked {
-    border: 4px solid #3A4FC4;
-    background: #526cff;
-    color: #fff;
+  border: 4px solid #3a4fc4;
+  background: #526cff;
+  color: #fff;
 }
 
 .checkThree {
-    appearance: none;
-    -webkit-appearance: none;
-    border: 1px solid;
-    width: 100px;
-    height: 50px;
-    display: grid;
-    place-items: center;
-    cursor: pointer;
-    border-radius: 5px;
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid;
+  width: 100px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 .checkThree::before {
-    content: 'Automatic';
+  content: "Automatic";
 }
 
 .checkThree:checked {
-    border: 4px solid #3A4FC4;
-    background: #526cff;
-    color: #fff;
+  border: 4px solid #3a4fc4;
+  background: #526cff;
+  color: #fff;
 }
 
 .checkFour {
-    appearance: none;
-    -webkit-appearance: none;
-    border: 1px solid;
-    width: 80px;
-    height: 50px;
-    display: grid;
-    place-items: center;
-    cursor: pointer;
-    border-radius: 5px;
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid;
+  width: 80px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 .checkFour::before {
-    content: 'Manual';
+  content: "Manual";
 }
 
 .checkFour:checked {
-    border: 4px solid #3A4FC4;
-    background: #526cff;
-    color: #fff;
+  border: 4px solid #3a4fc4;
+  background: #526cff;
+  color: #fff;
 }
 
 .checkFive {
-    appearance: none;
-    -webkit-appearance: none;
-    border: 1px solid;
-    width: 80px;
-    height: 50px;
-    display: grid;
-    place-items: center;
-    cursor: pointer;
-    border-radius: 5px;
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid;
+  width: 80px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 .checkFive::before {
-    content: 'Original';
+  content: "Original";
 }
 
 .checkFive:checked {
-    border: 4px solid #3A4FC4;
-    background: #526cff;
-    color: #fff;
+  border: 4px solid #3a4fc4;
+  background: #526cff;
+  color: #fff;
 }
 
 .checkSix {
-    appearance: none;
-    -webkit-appearance: none;
-    border: 1px solid;
-    width: 80px;
-    height: 50px;
-    display: grid;
-    place-items: center;
-    cursor: pointer;
-    border-radius: 5px;
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid;
+  width: 80px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 .checkSix::before {
-    content: 'Duplicate';
+  content: "Duplicate";
 }
 
 .checkSix:checked {
-    border: 4px solid #3A4FC4;
-    background: #526cff;
-    color: #fff;
+  border: 4px solid #3a4fc4;
+  background: #526cff;
+  color: #fff;
 }
 
 .checkSeven {
-    appearance: none;
-    -webkit-appearance: none;
-    border: 1px solid;
-    width: 80px;
-    height: 50px;
-    display: grid;
-    place-items: center;
-    cursor: pointer;
-    border-radius: 5px;
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid;
+  width: 80px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 .checkSeven::before {
-    content: 'Local';
+  content: "Local";
 }
 
 .checkSeven:checked {
-    border: 4px solid #3A4FC4;
-    background: #526cff;
-    color: #fff;
+  border: 4px solid #3a4fc4;
+  background: #526cff;
+  color: #fff;
 }
 
 .checkEight {
-    appearance: none;
-    -webkit-appearance: none;
-    border: 1px solid;
-    width: 80px;
-    height: 50px;
-    display: grid;
-    place-items: center;
-    cursor: pointer;
-    border-radius: 5px;
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid;
+  width: 80px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 .checkEight::before {
-    content: 'Imported';
+  content: "Imported";
 }
 
 .checkEight:checked {
-    border: 4px solid #3A4FC4;
-    background: #526cff;
-    color: #fff;
+  border: 4px solid #3a4fc4;
+  background: #526cff;
+  color: #fff;
 }
 
 .year-input {
-    width: 100%;
-    outline: 0;
-    border: 1px solid #bdbebf;
+  width: 100%;
+  outline: 0;
+  border: 1px solid #bdbebf;
 }
 
 .checkbox-1 span {
-    font-weight: 400;
-    color: #76A7C4 !important;
-    font-size: 16px;
+  font-weight: 400;
+  color: #76a7c4 !important;
+  font-size: 16px;
 }
 
 .checkbox-1 input {
-    appearance: none;
-    -webkit-appearance: none;
-    border: 1px solid #000;
-    width: 25px;
-    height: 25px;
-    border-radius: 5px;
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid #000;
+  width: 25px;
+  height: 25px;
+  border-radius: 5px;
 }
 
 .checkbox-1 input:checked::after {
-    content: '✓';
-    padding: 0 6px;
-    background: #002F34;
-    color: #fff;
+  content: "✓";
+  padding: 0 6px;
+  background: #002f34;
+  color: #fff;
 }
 
 .checkbox-2 input:checked::after {
-    content: '✓';
-    padding: 0 6px;
-    color: #fff;
-    background: #002F34;
+  content: "✓";
+  padding: 0 6px;
+  color: #fff;
+  background: #002f34;
 }
 
 .checkbox-1 input:checked {
-    border-radius: 5px;
-    background: #002F34;
+  border-radius: 5px;
+  background: #002f34;
 }
 
 .checkbox-2 input:checked {
-    border-radius: 5px;
-    background: #002F34;
+  border-radius: 5px;
+  background: #002f34;
 }
 
 .checkbox-1:hover input {
-    border-width: 2px;
+  border-width: 2px;
 }
 
 .checkbox-1:hover span {
-    color: #002F34 !important;
+  color: #002f34 !important;
 }
 
 .checkbox-2 input {
-    appearance: none;
-    -webkit-appearance: none;
-    border: 1px solid #000;
-    width: 25px;
-    height: 25px;
-    border-radius: 5px;
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid #000;
+  width: 25px;
+  height: 25px;
+  border-radius: 5px;
 }
 
 .checkbox-2 span {
-    font-weight: 400;
-    color: #76A7C4 !important;
-    font-size: 16px;
+  font-weight: 400;
+  color: #76a7c4 !important;
+  font-size: 16px;
 }
 
 .checkbox-2:hover input {
-    border-width: 2px;
+  border-width: 2px;
 }
 
 .checkbox-2:hover span {
-    color: #002F34 !important;
+  color: #002f34 !important;
 }
 
 /* Motors end */
 /* Property For Sale start */
 .input-1-checkbox-1 input {
-    appearance: none;
-    -webkit-appearance: none;
-    border: 1px solid;
-    width: 95px;
-    height: 50px;
-    display: grid;
-    place-items: center;
-    cursor: pointer;
-    border-radius: 5px;
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid;
+  width: 95px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 .input-1-checkbox-1 input::before {
-    content: 'Corner Plot';
-    font-size: 16px;
+  content: "Corner Plot";
+  font-size: 16px;
 }
 
 .input-1-checkbox-1 input:checked {
-    border: 4px solid #3A4FC4;
-    background: #526cff;
-    color: #fff;
+  border: 4px solid #3a4fc4;
+  background: #526cff;
+  color: #fff;
 }
 
 .input-1-checkbox-2 input {
-    appearance: none;
-    -webkit-appearance: none;
-    border: 1px solid;
-    width: 95px;
-    height: 50px;
-    display: grid;
-    place-items: center;
-    cursor: pointer;
-    border-radius: 5px;
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid;
+  width: 95px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 .input-1-checkbox-2 input::before {
-    content: 'Park Facing';
-    font-size: 16px;
+  content: "Park Facing";
+  font-size: 16px;
 }
 
 .input-1-checkbox-2 input:checked {
-    border: 4px solid #3A4FC4;
-    background: #526cff;
-    color: #fff;
+  border: 4px solid #3a4fc4;
+  background: #526cff;
+  color: #fff;
 }
 
 .input-1-checkbox-3 input {
-    appearance: none;
-    -webkit-appearance: none;
-    border: 1px solid;
-    width: 95px;
-    height: 50px;
-    display: grid;
-    place-items: center;
-    cursor: pointer;
-    border-radius: 5px;
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid;
+  width: 95px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 .input-1-checkbox-3 input::before {
-    content: 'Disputed';
-    font-size: 16px;
+  content: "Disputed";
+  font-size: 16px;
 }
 
 .input-1-checkbox-3 input:checked {
-    border: 4px solid #3A4FC4;
-    background: #526cff;
-    color: #fff;
+  border: 4px solid #3a4fc4;
+  background: #526cff;
+  color: #fff;
 }
 
 .input-1-checkbox-4 input {
-    appearance: none;
-    -webkit-appearance: none;
-    border: 1px solid;
-    width: 95px;
-    height: 50px;
-    display: grid;
-    place-items: center;
-    cursor: pointer;
-    border-radius: 5px;
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid;
+  width: 95px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 .input-1-checkbox-4 input::before {
-    content: 'Sewerage';
-    font-size: 16px;
+  content: "Sewerage";
+  font-size: 16px;
 }
 
 .input-1-checkbox-4 input:checked {
-    border: 4px solid #3A4FC4;
-    background: #526cff;
-    color: #fff;
+  border: 4px solid #3a4fc4;
+  background: #526cff;
+  color: #fff;
 }
 
 .input-1-checkbox-5 input {
-    appearance: none;
-    -webkit-appearance: none;
-    border: 1px solid;
-    width: 95px;
-    height: 50px;
-    display: grid;
-    place-items: center;
-    cursor: pointer;
-    border-radius: 5px;
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid;
+  width: 95px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 .input-1-checkbox-5 input::before {
-    content: 'Electricity';
-    font-size: 16px;
+  content: "Electricity";
+  font-size: 16px;
 }
 
 .input-1-checkbox-5 input:checked {
-    border: 4px solid #3A4FC4;
-    background: #526cff;
-    color: #fff;
+  border: 4px solid #3a4fc4;
+  background: #526cff;
+  color: #fff;
 }
 
 .input-1-checkbox-6 input {
-    appearance: none;
-    -webkit-appearance: none;
-    border: 1px solid;
-    width: 110px;
-    height: 50px;
-    display: grid;
-    place-items: center;
-    cursor: pointer;
-    border-radius: 5px;
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid;
+  width: 110px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 .input-1-checkbox-6 input::before {
-    content: 'Water Supply';
-    font-size: 16px;
+  content: "Water Supply";
+  font-size: 16px;
 }
 
 .input-1-checkbox-6 input:checked {
-    border: 4px solid #3A4FC4;
-    background: #526cff;
-    color: #fff;
+  border: 4px solid #3a4fc4;
+  background: #526cff;
+  color: #fff;
 }
 
 .input-1-checkbox-7 input {
-    appearance: none;
-    -webkit-appearance: none;
-    border: 1px solid;
-    width: 95px;
-    height: 50px;
-    display: grid;
-    place-items: center;
-    cursor: pointer;
-    border-radius: 5px;
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid;
+  width: 95px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 .input-1-checkbox-7 input::before {
-    content: 'Gas Supply';
-    font-size: 16px;
+  content: "Gas Supply";
+  font-size: 16px;
 }
 
 .input-1-checkbox-7 input:checked {
-    border: 4px solid #3A4FC4;
-    background: #526cff;
-    color: #fff;
+  border: 4px solid #3a4fc4;
+  background: #526cff;
+  color: #fff;
 }
 
 .input-1-checkbox-8 input {
-    appearance: none;
-    -webkit-appearance: none;
-    border: 1px solid;
-    width: 120px;
-    height: 50px;
-    display: grid;
-    place-items: center;
-    cursor: pointer;
-    border-radius: 5px;
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid;
+  width: 120px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 .input-1-checkbox-8 input::before {
-    content: 'Boundary Wall';
-    font-size: 16px;
+  content: "Boundary Wall";
+  font-size: 16px;
 }
 
 .input-1-checkbox-8 input:checked {
-    border: 4px solid #3A4FC4;
-    background: #526cff;
-    color: #fff;
+  border: 4px solid #3a4fc4;
+  background: #526cff;
+  color: #fff;
 }
 
 /* Property For Sale end */
 /* Property For Rent start */
 .checkNine {
-    appearance: none;
-    -webkit-appearance: none;
-    border: 1px solid;
-    width: 100px;
-    height: 50px;
-    display: grid;
-    place-items: center;
-    cursor: pointer;
-    border-radius: 5px;
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid;
+  width: 100px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 .checkNine::before {
-    content: 'Unfurnished';
+  content: "Unfurnished";
 }
 
 .checkNine:checked {
-    border: 4px solid #3A4FC4;
-    background: #526cff;
-    color: #fff;
+  border: 4px solid #3a4fc4;
+  background: #526cff;
+  color: #fff;
 }
 
 .checkTen {
-    appearance: none;
-    -webkit-appearance: none;
-    border: 1px solid;
-    width: 100px;
-    height: 50px;
-    display: grid;
-    place-items: center;
-    cursor: pointer;
-    border-radius: 5px;
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid;
+  width: 100px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 .checkTen::before {
-    content: 'Furnished';
+  content: "Furnished";
 }
 
 .checkTen:checked {
-    border: 4px solid #3A4FC4;
-    background: #526cff;
-    color: #fff;
+  border: 4px solid #3a4fc4;
+  background: #526cff;
+  color: #fff;
 }
 
 .checkTwelve {
-    appearance: none;
-    -webkit-appearance: none;
-    border: 1px solid;
-    width: 80px;
-    height: 50px;
-    display: grid;
-    place-items: center;
-    cursor: pointer;
-    border-radius: 5px;
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid;
+  width: 80px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 .checkTwelve::before {
-    content: 'Finished';
+  content: "Finished";
 }
 
 .checkTwelve:checked {
-    border: 4px solid #3A4FC4;
-    background: #526cff;
-    color: #fff;
+  border: 4px solid #3a4fc4;
+  background: #526cff;
+  color: #fff;
 }
 
 .checkEleven {
-    appearance: none;
-    -webkit-appearance: none;
-    border: 1px solid;
-    width: 125px;
-    height: 50px;
-    display: grid;
-    place-items: center;
-    cursor: pointer;
-    border-radius: 5px;
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid;
+  width: 125px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 .checkEleven::before {
-    content: 'Grey Structure';
+  content: "Grey Structure";
 }
 
 .checkEleven:checked {
-    border: 4px solid #3A4FC4;
-    background: #526cff;
-    color: #fff;
+  border: 4px solid #3a4fc4;
+  background: #526cff;
+  color: #fff;
 }
 
 .input-1-checkbox_1 input {
-    appearance: none;
-    -webkit-appearance: none;
-    border: 1px solid;
-    width: 135px;
-    height: 50px;
-    display: grid;
-    place-items: center;
-    cursor: pointer;
-    border-radius: 5px;
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid;
+  width: 135px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 .input-1-checkbox_1 input::before {
-    content: 'Servant Quarters';
-    font-size: 16px;
+  content: "Servant Quarters";
+  font-size: 16px;
 }
 
 .input-1-checkbox_1 input:checked {
-    border: 4px solid #3A4FC4;
-    background: #526cff;
-    color: #fff;
+  border: 4px solid #3a4fc4;
+  background: #526cff;
+  color: #fff;
 }
 
 .input-1-checkbox_2 input {
-    appearance: none;
-    -webkit-appearance: none;
-    border: 1px solid;
-    width: 120px;
-    height: 50px;
-    display: grid;
-    place-items: center;
-    cursor: pointer;
-    border-radius: 5px;
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid;
+  width: 120px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 .input-1-checkbox_2 input::before {
-    content: 'Drawing Room';
-    font-size: 16px;
+  content: "Drawing Room";
+  font-size: 16px;
 }
 
 .input-1-checkbox_2 input:checked {
-    border: 4px solid #3A4FC4;
-    background: #526cff;
-    color: #fff;
+  border: 4px solid #3a4fc4;
+  background: #526cff;
+  color: #fff;
 }
 
 .input-1-checkbox_3 input {
-    appearance: none;
-    -webkit-appearance: none;
-    border: 1px solid;
-    width: 110px;
-    height: 50px;
-    display: grid;
-    place-items: center;
-    cursor: pointer;
-    border-radius: 5px;
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid;
+  width: 110px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 .input-1-checkbox_3 input::before {
-    content: 'Dining Room';
-    font-size: 16px;
+  content: "Dining Room";
+  font-size: 16px;
 }
 
 .input-1-checkbox_3 input:checked {
-    border: 4px solid #3A4FC4;
-    background: #526cff;
-    color: #fff;
+  border: 4px solid #3a4fc4;
+  background: #526cff;
+  color: #fff;
 }
 
 .input-1-checkbox_4 input {
-    appearance: none;
-    -webkit-appearance: none;
-    border: 1px solid;
-    width: 80px;
-    height: 50px;
-    display: grid;
-    place-items: center;
-    cursor: pointer;
-    border-radius: 5px;
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid;
+  width: 80px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 .input-1-checkbox_4 input::before {
-    content: 'Kitchen';
-    font-size: 16px;
+  content: "Kitchen";
+  font-size: 16px;
 }
 
 .input-1-checkbox_4 input:checked {
-    border: 4px solid #3A4FC4;
-    background: #526cff;
-    color: #fff;
+  border: 4px solid #3a4fc4;
+  background: #526cff;
+  color: #fff;
 }
 
 .input-1-checkbox_5 input {
-    appearance: none;
-    -webkit-appearance: none;
-    border: 1px solid;
-    width: 95px;
-    height: 50px;
-    display: grid;
-    place-items: center;
-    cursor: pointer;
-    border-radius: 5px;
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid;
+  width: 95px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 .input-1-checkbox_5 input::before {
-    content: 'Study Room';
-    font-size: 16px;
+  content: "Study Room";
+  font-size: 16px;
 }
 
 .input-1-checkbox_5 input:checked {
-    border: 4px solid #3A4FC4;
-    background: #526cff;
-    color: #fff;
+  border: 4px solid #3a4fc4;
+  background: #526cff;
+  color: #fff;
 }
 
 .input-1-checkbox_6 input {
-    appearance: none;
-    -webkit-appearance: none;
-    border: 1px solid;
-    width: 110px;
-    height: 50px;
-    display: grid;
-    place-items: center;
-    cursor: pointer;
-    border-radius: 5px;
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid;
+  width: 110px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 .input-1-checkbox_6 input::before {
-    content: 'Prayer Room';
-    font-size: 16px;
+  content: "Prayer Room";
+  font-size: 16px;
 }
 
 .input-1-checkbox_6 input:checked {
-    border: 4px solid #3A4FC4;
-    background: #526cff;
-    color: #fff;
+  border: 4px solid #3a4fc4;
+  background: #526cff;
+  color: #fff;
 }
 
 .input-1-checkbox_7 input {
-    appearance: none;
-    -webkit-appearance: none;
-    border: 1px solid;
-    width: 110px;
-    height: 50px;
-    display: grid;
-    place-items: center;
-    cursor: pointer;
-    border-radius: 5px;
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid;
+  width: 110px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 .input-1-checkbox_7 input::before {
-    content: 'Powder Room';
-    font-size: 16px;
+  content: "Powder Room";
+  font-size: 16px;
 }
 
 .input-1-checkbox_7 input:checked {
-    border: 4px solid #3A4FC4;
-    background: #526cff;
-    color: #fff;
+  border: 4px solid #3a4fc4;
+  background: #526cff;
+  color: #fff;
 }
 
 .input-1-checkbox_8 input {
-    appearance: none;
-    -webkit-appearance: none;
-    border: 1px solid;
-    width: 70px;
-    height: 50px;
-    display: grid;
-    place-items: center;
-    cursor: pointer;
-    border-radius: 5px;
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid;
+  width: 70px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 .input-1-checkbox_8 input::before {
-    content: 'Gym';
-    font-size: 16px;
+  content: "Gym";
+  font-size: 16px;
 }
 
 .input-1-checkbox_8 input:checked {
-    border: 4px solid #3A4FC4;
-    background: #526cff;
-    color: #fff;
+  border: 4px solid #3a4fc4;
+  background: #526cff;
+  color: #fff;
 }
 
 .input-1-checkbox_9 input {
-    appearance: none;
-    -webkit-appearance: none;
-    border: 1px solid;
-    width: 95px;
-    height: 50px;
-    display: grid;
-    place-items: center;
-    cursor: pointer;
-    border-radius: 5px;
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid;
+  width: 95px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 .input-1-checkbox_9 input::before {
-    content: 'Store Room';
-    font-size: 16px;
+  content: "Store Room";
+  font-size: 16px;
 }
 
 .input-1-checkbox_9 input:checked {
-    border: 4px solid #3A4FC4;
-    background: #526cff;
-    color: #fff;
+  border: 4px solid #3a4fc4;
+  background: #526cff;
+  color: #fff;
 }
 
 .input-1-checkbox_10 input {
-    appearance: none;
-    -webkit-appearance: none;
-    border: 1px solid;
-    width: 110px;
-    height: 50px;
-    display: grid;
-    place-items: center;
-    cursor: pointer;
-    border-radius: 5px;
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid;
+  width: 110px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 .input-1-checkbox_10 input::before {
-    content: 'Steam Room';
-    font-size: 16px;
+  content: "Steam Room";
+  font-size: 16px;
 }
 
 .input-1-checkbox_10 input:checked {
-    border: 4px solid #3A4FC4;
-    background: #526cff;
-    color: #fff;
+  border: 4px solid #3a4fc4;
+  background: #526cff;
+  color: #fff;
 }
 
 .input-1-checkbox_11 input {
-    appearance: none;
-    -webkit-appearance: none;
-    border: 1px solid;
-    width: 105px;
-    height: 50px;
-    display: grid;
-    place-items: center;
-    cursor: pointer;
-    border-radius: 5px;
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid;
+  width: 105px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 .input-1-checkbox_11 input::before {
-    content: 'Sitting Room';
-    font-size: 16px;
+  content: "Sitting Room";
+  font-size: 16px;
 }
 
 .input-1-checkbox_11 input:checked {
-    border: 4px solid #3A4FC4;
-    background: #526cff;
-    color: #fff;
+  border: 4px solid #3a4fc4;
+  background: #526cff;
+  color: #fff;
 }
 
 .input-1-checkbox_12 input {
-    appearance: none;
-    -webkit-appearance: none;
-    border: 1px solid;
-    width: 120px;
-    height: 50px;
-    display: grid;
-    place-items: center;
-    cursor: pointer;
-    border-radius: 5px;
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid;
+  width: 120px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 .input-1-checkbox_12 input::before {
-    content: 'Laundary Room';
-    font-size: 16px;
+  content: "Laundary Room";
+  font-size: 16px;
 }
 
 .input-1-checkbox_12 input:checked {
-    border: 4px solid #3A4FC4;
-    background: #526cff;
-    color: #fff;
+  border: 4px solid #3a4fc4;
+  background: #526cff;
+  color: #fff;
 }
 
 /* Property For Rent end */
 /* Electronics start */
 .checkThirteen {
-    appearance: none;
-    -webkit-appearance: none;
-    border: 1px solid;
-    width: 60px;
-    height: 50px;
-    display: grid;
-    place-items: center;
-    cursor: pointer;
-    border-radius: 5px;
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid;
+  width: 60px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 .checkThirteen::before {
-    content: 'New';
+  content: "New";
 }
 
 .checkThirteen:checked {
-    border: 4px solid #3A4FC4;
-    background: #526cff;
-    color: #fff;
+  border: 4px solid #3a4fc4;
+  background: #526cff;
+  color: #fff;
 }
 
 .checkFourteen {
-    appearance: none;
-    -webkit-appearance: none;
-    border: 1px solid;
-    width: 60px;
-    height: 50px;
-    display: grid;
-    place-items: center;
-    cursor: pointer;
-    border-radius: 5px;
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid;
+  width: 60px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 .checkFourteen::before {
-    content: 'Used';
+  content: "Used";
 }
 
 .checkFourteen:checked {
-    border: 4px solid #3A4FC4;
-    background: #526cff;
-    color: #fff;
+  border: 4px solid #3a4fc4;
+  background: #526cff;
+  color: #fff;
 }
 
 /* Electronics end */
 /* Bikes start */
 .checkFifteen {
-    appearance: none;
-    -webkit-appearance: none;
-    border: 1px solid;
-    width: 85px;
-    height: 50px;
-    display: grid;
-    place-items: center;
-    cursor: pointer;
-    border-radius: 5px;
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid;
+  width: 85px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 .checkFifteen::before {
-    content: '2 Stroke';
+  content: "2 Stroke";
 }
 
 .checkFifteen:checked {
-    border: 4px solid #3A4FC4;
-    background: #526cff;
-    color: #fff;
+  border: 4px solid #3a4fc4;
+  background: #526cff;
+  color: #fff;
 }
 
 .checkSixteen {
-    appearance: none;
-    -webkit-appearance: none;
-    border: 1px solid;
-    width: 85px;
-    height: 50px;
-    display: grid;
-    place-items: center;
-    cursor: pointer;
-    border-radius: 5px;
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid;
+  width: 85px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 .checkSixteen::before {
-    content: '4 Stroke';
+  content: "4 Stroke";
 }
 
 .checkSixteen:checked {
-    border: 4px solid #3A4FC4;
-    background: #526cff;
-    color: #fff;
+  border: 4px solid #3a4fc4;
+  background: #526cff;
+  color: #fff;
 }
 
 .checkSeventeen {
-    appearance: none;
-    -webkit-appearance: none;
-    border: 1px solid;
-    width: 85px;
-    height: 50px;
-    display: grid;
-    place-items: center;
-    cursor: pointer;
-    border-radius: 5px;
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid;
+  width: 85px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 .checkSeventeen::before {
-    content: 'Self Start';
+  content: "Self Start";
 }
 
 .checkSeventeen:checked {
-    border: 4px solid #3A4FC4;
-    background: #526cff;
-    color: #fff;
+  border: 4px solid #3a4fc4;
+  background: #526cff;
+  color: #fff;
 }
 
 .checkEighteen {
-    appearance: none;
-    -webkit-appearance: none;
-    border: 1px solid;
-    width: 105px;
-    height: 50px;
-    display: grid;
-    place-items: center;
-    cursor: pointer;
-    border-radius: 5px;
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid;
+  width: 105px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 .checkEighteen::before {
-    content: 'Kickstarter';
+  content: "Kickstarter";
 }
 
 .checkEighteen:checked {
-    border: 4px solid #3A4FC4;
-    background: #526cff;
-    color: #fff;
+  border: 4px solid #3a4fc4;
+  background: #526cff;
+  color: #fff;
 }
 
 .checkNinteen {
-    appearance: none;
-    -webkit-appearance: none;
-    border: 1px solid;
-    width: 85px;
-    height: 50px;
-    display: grid;
-    place-items: center;
-    cursor: pointer;
-    border-radius: 5px;
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid;
+  width: 85px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 .checkNinteen::before {
-    content: 'Local';
+  content: "Local";
 }
 
 .checkNinteen:checked {
-    border: 4px solid #3A4FC4;
-    background: #526cff;
-    color: #fff;
+  border: 4px solid #3a4fc4;
+  background: #526cff;
+  color: #fff;
 }
 
 .checkTwenty {
-    appearance: none;
-    -webkit-appearance: none;
-    border: 1px solid;
-    width: 85px;
-    height: 50px;
-    display: grid;
-    place-items: center;
-    cursor: pointer;
-    border-radius: 5px;
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid;
+  width: 85px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 .checkTwenty::before {
-    content: 'Chinese';
+  content: "Chinese";
 }
 
 .checkTwenty:checked {
-    border: 4px solid #3A4FC4;
-    background: #526cff;
-    color: #fff;
+  border: 4px solid #3a4fc4;
+  background: #526cff;
+  color: #fff;
 }
 
 .checkTwentyOne {
-    appearance: none;
-    -webkit-appearance: none;
-    border: 1px solid;
-    width: 85px;
-    height: 50px;
-    display: grid;
-    place-items: center;
-    cursor: pointer;
-    border-radius: 5px;
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid;
+  width: 85px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 .checkTwentyOne::before {
-    content: 'Imported';
+  content: "Imported";
 }
 
 .checkTwentyOne:checked {
-    border: 4px solid #3A4FC4;
-    background: #526cff;
-    color: #fff;
+  border: 4px solid #3a4fc4;
+  background: #526cff;
+  color: #fff;
 }
 
 .checkTwentyTwo {
-    appearance: none;
-    -webkit-appearance: none;
-    border: 1px solid;
-    width: 75px;
-    height: 50px;
-    display: grid;
-    place-items: center;
-    cursor: pointer;
-    border-radius: 5px;
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid;
+  width: 75px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 .checkTwentyTwo::before {
-    content: 'New';
+  content: "New";
 }
 
 .checkTwentyTwo:checked {
-    border: 4px solid #3A4FC4;
-    background: #526cff;
-    color: #fff;
+  border: 4px solid #3a4fc4;
+  background: #526cff;
+  color: #fff;
 }
 
 .checkTwentyThree {
-    appearance: none;
-    -webkit-appearance: none;
-    border: 1px solid;
-    width: 75px;
-    height: 50px;
-    display: grid;
-    place-items: center;
-    cursor: pointer;
-    border-radius: 5px;
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid;
+  width: 75px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 .checkTwentyThree::before {
-    content: 'Used';
+  content: "Used";
 }
 
 .checkTwentyThree:checked {
-    border: 4px solid #3A4FC4;
-    background: #526cff;
-    color: #fff;
+  border: 4px solid #3a4fc4;
+  background: #526cff;
+  color: #fff;
 }
 
 /* Bikes end */
 /* Jobs start */
 .checkTwentyFour {
-    appearance: none;
-    -webkit-appearance: none;
-    border: 1px solid;
-    width: 155px;
-    height: 50px;
-    display: grid;
-    place-items: center;
-    cursor: pointer;
-    border-radius: 5px;
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid;
+  width: 155px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 .checkTwentyFour::before {
-    content: 'Hiring as Company';
+  content: "Hiring as Company";
 }
 
 .checkTwentyFour:checked {
-    border: 4px solid #3A4FC4;
-    background: #526cff;
-    color: #fff;
+  border: 4px solid #3a4fc4;
+  background: #526cff;
+  color: #fff;
 }
 
 .checkTwentyFive {
-    appearance: none;
-    -webkit-appearance: none;
-    border: 1px solid;
-    width: 155px;
-    height: 50px;
-    display: grid;
-    place-items: center;
-    cursor: pointer;
-    border-radius: 5px;
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid;
+  width: 155px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 .checkTwentyFive::before {
-    content: 'Hiring as Individual';
+  content: "Hiring as Individual";
 }
 
 .checkTwentyFive:checked {
-    border: 4px solid #3A4FC4;
-    background: #526cff;
-    color: #fff;
+  border: 4px solid #3a4fc4;
+  background: #526cff;
+  color: #fff;
 }
 
 .checkTwentySix {
-    appearance: none;
-    -webkit-appearance: none;
-    border: 1px solid;
-    width: 155px;
-    height: 50px;
-    display: grid;
-    place-items: center;
-    cursor: pointer;
-    border-radius: 5px;
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid;
+  width: 155px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 .checkTwentySix::before {
-    content: 'Hiring as Third Party';
+  content: "Hiring as Third Party";
 }
 
 .checkTwentySix:checked {
-    border: 4px solid #3A4FC4;
-    background: #526cff;
-    color: #fff;
+  border: 4px solid #3a4fc4;
+  background: #526cff;
+  color: #fff;
 }
 
 .checkTwentySeven {
-    appearance: none;
-    -webkit-appearance: none;
-    border: 1px solid;
-    width: 105px;
-    height: 50px;
-    display: grid;
-    place-items: center;
-    cursor: pointer;
-    border-radius: 5px;
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid;
+  width: 105px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 .checkTwentySeven::before {
-    content: 'Job Wanted';
+  content: "Job Wanted";
 }
 
 .checkTwentySeven:checked {
-    border: 4px solid #3A4FC4;
-    background: #526cff;
-    color: #fff;
+  border: 4px solid #3a4fc4;
+  background: #526cff;
+  color: #fff;
 }
 
 .checkTwentyEight {
-    appearance: none;
-    -webkit-appearance: none;
-    border: 1px solid;
-    width: 105px;
-    height: 50px;
-    display: grid;
-    place-items: center;
-    cursor: pointer;
-    border-radius: 5px;
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid;
+  width: 105px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 .checkTwentyEight::before {
-    content: 'Job Offer';
+  content: "Job Offer";
 }
 
 .checkTwentyEight:checked {
-    border: 4px solid #3A4FC4;
-    background: #526cff;
-    color: #fff;
+  border: 4px solid #3a4fc4;
+  background: #526cff;
+  color: #fff;
 }
 
 /* Jobs end */
 /* Animals start */
 .checkTwentyNine {
-    appearance: none;
-    -webkit-appearance: none;
-    border: 1px solid;
-    width: 80px;
-    height: 50px;
-    display: grid;
-    place-items: center;
-    cursor: pointer;
-    border-radius: 5px;
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid;
+  width: 80px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 .checkTwentyNine::before {
-    content: 'Male';
+  content: "Male";
 }
 
 .checkTwentyNine:checked {
-    border: 4px solid #3A4FC4;
-    background: #526cff;
-    color: #fff;
+  border: 4px solid #3a4fc4;
+  background: #526cff;
+  color: #fff;
 }
 
 .checkThirty {
-    appearance: none;
-    -webkit-appearance: none;
-    border: 1px solid;
-    width: 80px;
-    height: 50px;
-    display: grid;
-    place-items: center;
-    cursor: pointer;
-    border-radius: 5px;
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid;
+  width: 80px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 .checkThirty::before {
-    content: 'Female';
+  content: "Female";
 }
 
 .checkThirty:checked {
-    border: 4px solid #3A4FC4;
-    background: #526cff;
-    color: #fff;
+  border: 4px solid #3a4fc4;
+  background: #526cff;
+  color: #fff;
 }
 
 .checkThirtyOne {
-    appearance: none;
-    -webkit-appearance: none;
-    border: 1px solid;
-    width: 80px;
-    height: 50px;
-    display: grid;
-    place-items: center;
-    cursor: pointer;
-    border-radius: 5px;
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid;
+  width: 80px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 .checkThirtyOne::before {
-    content: 'Pair';
+  content: "Pair";
 }
 
 .checkThirtyOne:checked {
-    border: 4px solid #3A4FC4;
-    background: #526cff;
-    color: #fff;
+  border: 4px solid #3a4fc4;
+  background: #526cff;
+  color: #fff;
 }
 
 /* Animals end */
 /* Furniture & Decor start */
 .checkThirtyTwo {
-    appearance: none;
-    -webkit-appearance: none;
-    border: 1px solid;
-    width: 80px;
-    height: 50px;
-    display: grid;
-    place-items: center;
-    cursor: pointer;
-    border-radius: 5px;
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid;
+  width: 80px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 .checkThirtyTwo::before {
-    content: 'New';
+  content: "New";
 }
 
 .checkThirtyTwo:checked {
-    border: 4px solid #3A4FC4;
-    background: #526cff;
-    color: #fff;
+  border: 4px solid #3a4fc4;
+  background: #526cff;
+  color: #fff;
 }
 
 .checkThirtyThree {
-    appearance: none;
-    -webkit-appearance: none;
-    border: 1px solid;
-    width: 80px;
-    height: 50px;
-    display: grid;
-    place-items: center;
-    cursor: pointer;
-    border-radius: 5px;
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid;
+  width: 80px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 .checkThirtyThree::before {
-    content: 'Used';
+  content: "Used";
 }
 
 .checkThirtyThree:checked {
-    border: 4px solid #3A4FC4;
-    background: #526cff;
-    color: #fff;
+  border: 4px solid #3a4fc4;
+  background: #526cff;
+  color: #fff;
 }
 
 /* Furniture & Decor end */

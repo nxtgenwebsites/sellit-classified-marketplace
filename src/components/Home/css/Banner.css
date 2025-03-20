@@ -1,22 +1,22 @@
 /* Banner start */
 /* Simpler Banner start */
 .swiper {
-    width: 100% !important;
-    margin-bottom: 2rem;
+  width: 100% !important;
+  margin-bottom: 2rem;
 }
 .banner-slider {
-    width: 100% !important;
+  width: 100% !important;
 }
 .banner-slider img {
-    width: 100% !important;
+  width: 100% !important;
 }
 
 /* Simpler Banner end */
 /* Google Banner start */
 .google-banner img {
-    width: 725px;
-    height: 93px;
-    min-height: 100%;
+  width: 725px;
+  height: 93px;
+  min-height: 100%;
 }
 
 /* Google Banner end */

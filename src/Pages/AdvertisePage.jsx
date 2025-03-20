@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import "./footer-css/footer-advertise-css.css";
 import ReCAPTCHA from "react-google-recaptcha";
 
@@ -13,9 +13,14 @@ export default function AdvertisePage() {
     <div>
       <section className="advertise-section">
         <div className="container">
-          <form action="mailto:sales@sellit.com.pk" className="advertise-form p-3 rounded-2">
+          <form
+            action="mailto:sales@sellit.com.pk"
+            className="advertise-form p-3 rounded-2"
+          >
             <div className="form-heading">
-              <h1 className="fw-semibold mb-3">Advertise with Sellit Pakistan</h1>
+              <h1 className="fw-semibold mb-3">
+                Advertise with Sellit Pakistan
+              </h1>
             </div>
             <div className="advertise-group gap-2 w-100 d-md-flex justify-content-center align-items-center">
               <div className="name w-100">
@@ -27,7 +32,11 @@ export default function AdvertisePage() {
             </div>
             <div className="advertise-group gap-2 w-100 d-md-flex justify-content-center align-items-center mt-2">
               <div className="name w-100">
-                <input type="email" placeholder="Buisness Email Address" required />
+                <input
+                  type="email"
+                  placeholder="Buisness Email Address"
+                  required
+                />
               </div>
               <div className="buisness-name w-100 mt-3 mt-md-0">
                 <input type="tel" placeholder="Phone Number" required />
@@ -41,7 +50,10 @@ export default function AdvertisePage() {
               </select>
             </div>
             <div className="advertise-group mt-2">
-              <textarea placeholder="Add more details here..." required></textarea>
+              <textarea
+                placeholder="Add more details here..."
+                required
+              ></textarea>
             </div>
             <div className="advertise-group mt-2 d-flex justify-content-center align-items-center">
               <ReCAPTCHA

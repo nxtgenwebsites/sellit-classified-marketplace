@@ -1,8 +1,8 @@
-import React from 'react'
-import Sidebar from '../components/Sidebar/sidebar'
-import GoogleBanner from '../components/Home/GoogleBanner'
-import Container from 'react-bootstrap/Container'
-import BuisnessContent from '../components/Categories/BuisnessContent'
+import React from "react";
+import Sidebar from "../components/Sidebar/sidebar";
+import GoogleBanner from "../components/Home/GoogleBanner";
+import Container from "react-bootstrap/Container";
+import BuisnessContent from "../components/Categories/BuisnessContent";
 
 function BuisnessCategory() {
   return (
@@ -15,7 +15,7 @@ function BuisnessCategory() {
         </div>
       </Container>
     </div>
-  )
+  );
 }
 
-export default BuisnessCategory
+export default BuisnessCategory;

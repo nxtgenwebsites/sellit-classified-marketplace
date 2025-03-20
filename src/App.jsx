@@ -6,21 +6,21 @@ import Header from "./components/Navbar/Header";
 import Categorydropdown from "./components/Dropdown/Categorydropdown";
 // homePages
 import HomePage from "./Pages/HomePage";
-import MobilesCategory from './Pages/MobilesCategory'
-import CarsCategory from './Pages/CarsCategory'
-import BuisnessCategory from './Pages/BuisnessCategory'
-import FindJobCategory from './Pages/FindJobCategory'
+import MobilesCategory from "./Pages/MobilesCategory";
+import CarsCategory from "./Pages/CarsCategory";
+import BuisnessCategory from "./Pages/BuisnessCategory";
+import FindJobCategory from "./Pages/FindJobCategory";
 import MotorcyclesCategory from "./Pages/MotorcyclesCategory";
-import PopertyForSaleCategory from './Pages/PopertyForSaleCategory'
-import ServiceProvidersCategory from './Pages/ServiceProvidersCategory';
+import PopertyForSaleCategory from "./Pages/PopertyForSaleCategory";
+import ServiceProvidersCategory from "./Pages/ServiceProvidersCategory";
 // footerPages
 
-import FooterGrowPage from './Pages/GrowPage'
-import FooterAdvertisePage from './Pages/AdvertisePage'
+import FooterGrowPage from "./Pages/GrowPage";
+import FooterAdvertisePage from "./Pages/AdvertisePage";
 
 import AddListingPage from "./Pages/AddListingPage";
 
-import './App.css'
+import "./App.css";
 
 function App() {
   return (
@@ -36,14 +36,20 @@ function App() {
         <Route path="/job-category" element={<FindJobCategory />} />
         <Route path="/property-rent" element={<PopertyForSaleCategory />} />
         <Route path="/property-sale" element={<PopertyForSaleCategory />} />
-        <Route path="/service-category" element={<ServiceProvidersCategory />} />
+        <Route
+          path="/service-category"
+          element={<ServiceProvidersCategory />}
+        />
         <Route path="/footer-grow-page" element={<FooterGrowPage />} />
-        <Route path="/footer-advertise-page" element={<FooterAdvertisePage />} />
+        <Route
+          path="/footer-advertise-page"
+          element={<FooterAdvertisePage />}
+        />
         <Route path="/add-listing" element={<AddListingPage />} />
       </Routes>
       <Footer />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

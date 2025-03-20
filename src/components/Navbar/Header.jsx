@@ -21,7 +21,7 @@ export default function Header() {
           </Link>
           <Navbar.Toggle aria-controls="Header" />
           <Navbar.Collapse id="Header" className="mt-3 mt-lg-0">
-            <div className="search-items d-lg-flex align-items-center mx-auto">
+            <div className="search-items d-lg-flex align-items-center justify-content-center">
               <div className="dropdown-section mt-3 rounded-2">
                 <div className="second-dropdown dropdown mt-3 w-100">
                   <button
@@ -156,7 +156,7 @@ export default function Header() {
                 </div>
               </div>
             </div>
-            <Nav className=" mb-2 mb-lg-0 gap-2 navbar-list align-items-lg-baseline">
+            <Nav className="mb-2 mb-lg-0 gap-2 navbar-list mx-lg-auto align-items-lg-baseline">
               <Nav.Link href="#">
                 <BsChatLeftTextFill className="nav-icon" />
               </Nav.Link>
@@ -166,12 +166,12 @@ export default function Header() {
               <Nav.Link href="#">
                 <BsFillPersonFill className="nav-icon" />
               </Nav.Link>
-              <Link to={"/add-listing"}>
-                <Button type="button" className="rounded-3 nav-btn py-2 px-3">
-                  Add Listings
-                </Button>
-              </Link>
             </Nav>
+            <Link to={"/add-listing"}>
+              <Button type="button" className="rounded-3 nav-btn">
+                Add Listings
+              </Button>
+            </Link>
           </Navbar.Collapse>
         </Container>
       </Navbar>

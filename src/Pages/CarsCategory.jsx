@@ -1,8 +1,8 @@
-import React from 'react'
-import Sidebar from '../components/Sidebar/sidebar'
-import GoogleBanner from '../components/Home/GoogleBanner'
-import Container from 'react-bootstrap/Container'
-import CarContent from '../components/Categories/CarContent'
+import React from "react";
+import Sidebar from "../components/Sidebar/sidebar";
+import GoogleBanner from "../components/Home/GoogleBanner";
+import Container from "react-bootstrap/Container";
+import CarContent from "../components/Categories/CarContent";
 
 export default function CarsCategory() {
   return (
@@ -15,5 +15,5 @@ export default function CarsCategory() {
         </div>
       </Container>
     </div>
-  )
+  );
 }

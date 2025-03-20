@@ -1,8 +1,8 @@
-import React from 'react'
-import Sidebar from '../components/Sidebar/sidebar'
-import GoogleBanner from '../components/Home/GoogleBanner'
-import Container from 'react-bootstrap/Container'
-import JobContent from '../components/Categories/JobContent'
+import React from "react";
+import Sidebar from "../components/Sidebar/sidebar";
+import GoogleBanner from "../components/Home/GoogleBanner";
+import Container from "react-bootstrap/Container";
+import JobContent from "../components/Categories/JobContent";
 
 export default function FindJobCategory() {
   return (
@@ -15,5 +15,5 @@ export default function FindJobCategory() {
         </div>
       </Container>
     </div>
-  )
+  );
 }

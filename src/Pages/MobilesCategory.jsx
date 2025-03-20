@@ -1,8 +1,8 @@
-import React from 'react'
-import Sidebar from '../components/Sidebar/sidebar'
-import GoogleBanner from '../components/Home/GoogleBanner'
-import Container from 'react-bootstrap/Container'
-import MobileContent from '../components/Categories/MobileContent'
+import React from "react";
+import Sidebar from "../components/Sidebar/sidebar";
+import GoogleBanner from "../components/Home/GoogleBanner";
+import Container from "react-bootstrap/Container";
+import MobileContent from "../components/Categories/MobileContent";
 
 export default function MobilesCategory() {
   return (
@@ -15,5 +15,5 @@ export default function MobilesCategory() {
         </div>
       </Container>
     </div>
-  )
+  );
 }

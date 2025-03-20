@@ -1,163 +1,167 @@
 /* Page heading start */
 .left-heading {
-    background: #C8F8F6;
-    padding: .2rem .5rem;
+  background: #c8f8f6;
+  padding: 0.2rem 0.5rem;
 }
 
 .right-menu {
-    border-radius: 4px;
-    box-shadow: 0 0 6px 0 rgba(0, 0, 0, .12), 0 6px 6px 0 rgba(0, 0, 0, .24);
-    border: 0 !important;
+  border-radius: 4px;
+  box-shadow:
+    0 0 6px 0 rgba(0, 0, 0, 0.12),
+    0 6px 6px 0 rgba(0, 0, 0, 0.24);
+  border: 0 !important;
 }
 
 .right-button:active {
-    border: 0 !important;
+  border: 0 !important;
 }
 
 .right-button:focus {
-    border: 0 !important;
+  border: 0 !important;
 }
 
 .sort-item {
-    margin-bottom: 5px;
+  margin-bottom: 5px;
 }
 
 .dropdown-link li {
-    transition: .1s linear;
+  transition: 0.1s linear;
 }
 
 .dropdown-link li:hover {
-    background: #c8f8f6 !important;
+  background: #c8f8f6 !important;
 }
 
 /* Page heading end */
 /* Sidebar start */
 .sidebar {
-    width: 26%;
+  width: 26%;
 }
 
 /* First Section start */
 .first-section {
-    background: #f2f4f5;
-    padding: 1.6rem;
+  background: #f2f4f5;
+  padding: 1.6rem;
 }
 
 .first-list-item {
-    color: #6586af;
-    font-size: 15px;
+  color: #6586af;
+  font-size: 15px;
 }
 
 .first-list-item:hover .hover-span {
-    color: #002F34;
+  color: #002f34;
 }
 
 /* First Section end */
 /* Second Section start */
 .second-section {
-    border: 1px solid #3A4FC4;
-    padding: 1.6rem !important;
+  border: 1px solid #3a4fc4;
+  padding: 1.6rem !important;
 }
 
 .dropdown-btn {
-    transform: scale(1.5);
-    color: #000 !important;
+  transform: scale(1.5);
+  color: #000 !important;
 }
 
 .dropdown-main-btn {
-border: 1px solid #3A4FC4;
-    color: #000 !important;
-    margin-top: 0 !important;
+  border: 1px solid #3a4fc4;
+  color: #000 !important;
+  margin-top: 0 !important;
 }
 
 .dropdown-main-btn:active {
-border: 1px solid #3A4FC4;
-    outline: none !important;
+  border: 1px solid #3a4fc4;
+  outline: none !important;
 }
 
 .dropdown-main-btn:focus {
-border: 1px solid #3A4FC4;
-    outline: none !important;
+  border: 1px solid #3a4fc4;
+  outline: none !important;
 }
 
 .second-menu {
-    width: 100% !important;
-    background-color: #fff;
-    border-radius: 4px;
-    box-shadow: 0 0 6px 0 rgba(0, 0, 0, .12), 0 6px 6px 0 rgba(0, 0, 0, .24);
-    border: 0 !important;
+  width: 100% !important;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow:
+    0 0 6px 0 rgba(0, 0, 0, 0.12),
+    0 6px 6px 0 rgba(0, 0, 0, 0.24);
+  border: 0 !important;
 }
 
 .region-heading p {
-    text-transform: uppercase;
-    font-size: 12px !important;
-    color: #ababab;
-    font-weight: 400 !important;
+  text-transform: uppercase;
+  font-size: 12px !important;
+  color: #ababab;
+  font-weight: 400 !important;
 }
 
 .location-s-icon i {
-    fill: #5c7a7d;
-    margin-right: .8rem;
-    font-size: 1.5rem;
+  fill: #5c7a7d;
+  margin-right: 0.8rem;
+  font-size: 1.5rem;
 }
 
 .location-content p {
-    font-size: 1.2rem;
-    margin-top: 4px;
+  font-size: 1.2rem;
+  margin-top: 4px;
 }
 
 .location-item li {
-    transition: .1s linear;
+  transition: 0.1s linear;
 }
 
 .location-item li:hover {
-    background: #c8f8f6 !important;
+  background: #c8f8f6 !important;
 }
 
 /* Second Section end */
 /* Third Section start */
 .third-section {
-border: 1px solid #3A4FC4;
-    padding: 1.6rem;
+  border: 1px solid #3a4fc4;
+  padding: 1.6rem;
 }
 
 .price-to select {
-border: 1px solid #3A4FC4;
-    outline: none;
-    border-radius: 4px;
+  border: 1px solid #3a4fc4;
+  outline: none;
+  border-radius: 4px;
 }
 
 .price-from select {
-border: 1px solid #3A4FC4;
-    outline: none;
-    border-radius: 4px;
+  border: 1px solid #3a4fc4;
+  outline: none;
+  border-radius: 4px;
 }
 .price-to select:focus {
-    box-shadow: 0 0 0 0 !important;
+  box-shadow: 0 0 0 0 !important;
 }
 .price-from select:focus {
-    box-shadow: 0 0 0 0 !important;
+  box-shadow: 0 0 0 0 !important;
 }
 
 /* Third Section end */
 /* Fouth Section start */
 .fourth-section {
-    padding: 1.6rem;
-    border: 1px solid #3A4FC4;
+  padding: 1.6rem;
+  border: 1px solid #3a4fc4;
 }
 .brands:focus {
-    box-shadow: 0 0 0 0 !important;
+  box-shadow: 0 0 0 0 !important;
 }
 .brands {
-    border: 1px solid #3A4FC4 !important;
-    outline: none;
-    border-radius: 4px;
+  border: 1px solid #3a4fc4 !important;
+  outline: none;
+  border-radius: 4px;
 }
 
 /* Fouth Section end */
 /* Fifth Section start */
 .fifth-section {
-    padding: 1.6rem;
-    border: 1px solid #3A4FC4;
+  padding: 1.6rem;
+  border: 1px solid #3a4fc4;
 }
 
 /* Fifth Section end */
