@@ -12,7 +12,7 @@ import { BsYoutube } from "react-icons/bs";
 export default function Footer() {
   return (
     <div>
-      <footer className="footer-section">
+      <footer className="footer-section mt-3">
         <Container>
           <Row className="footer-row row-gap-5">
             <Col lg={4} md={6}>

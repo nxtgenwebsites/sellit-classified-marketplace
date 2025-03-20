@@ -20,14 +20,6 @@ export default function PropertySale() {
   };
   return (
     <div>
-      <select className="form-select px-3 py-2">
-        <option value="" disabled selected>
-          Select Sub-Category
-        </option>
-        <option value="lands">Lands & Plots</option>
-        <option value="houses">Houses</option>
-        <option value="apartments">Apartments</option>
-      </select>
       <div
         ref={forms["property-sale"]}
         className="form-third-group w-100 p-3 my-3 rounded-2"

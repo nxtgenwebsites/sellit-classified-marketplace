@@ -88,7 +88,7 @@ export default function AddListstingContent() {
 
         {/* Form */}
         <form>
-          <div className="forms-group d-lg-flex gap-2">
+          <div className="forms-group">
             <div className="form-category">
               <select
                 ref={mainCategory}
@@ -242,12 +242,12 @@ export default function AddListstingContent() {
               <Kids_ />
             </div>
           </div>
-          <div className="btn text-center mx-auto w-100">
-            <button type="submit" className="submit-btn">
-              Post
-            </button>
-          </div>
-        </form>
+      <div className="btn text-center mx-auto w-100">
+        <button type="submit" className="rounded-3 nav-btn">
+          Add Listings
+        </button>
+        </div>
+      </form>
       </Container>
       {/* Form end */}
     </div>

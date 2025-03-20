@@ -59,15 +59,6 @@ export default function Motors() {
     });
   return (
     <div>
-      <select className="form-select px-3 py-2">
-        <option value="" disabled selected>
-          Select Sub-Category
-        </option>
-        <option value="cars">Cars</option>
-        <option value="installments">Cars on Installments</option>
-        <option value="accessories">Car Accessories</option>
-        <option value="spare-parts">Spare Parts</option>
-      </select>
       <div
         ref={forms.motors}
         className="form-second-group w-100 p-3 my-3 rounded-2"

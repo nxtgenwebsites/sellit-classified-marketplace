@@ -1,8 +1,9 @@
 import React, { useRef, useState } from "react";
 import { CiCamera } from "react-icons/ci";
+import { RxCross2 } from "react-icons/rx";
 
 export default function MainCategory() {
-  // Image handling
+  // <!-- Image handling start -->
   const [image, setImage] = useState();
   const handleImageChange = (event) => {
     const file = event.target.files[0];
@@ -16,9 +17,37 @@ export default function MainCategory() {
   const imageHandler = () => document.getElementById("IMG").click();
   const cameraIcon = () =>
     document.getElementById("cameraIcon").classList.add("z-n1");
+  // <!-- Image handling end -->
+  // <!-- Display Phone Card start -->
+  const firstInp = useRef();
+  const numberInp = useRef();
+  const cardMain = useRef();
+  function dBlockNumber(e) {
+    cardMain.current.classList.add("d-block");
+    cardMain.current.classList.remove("d-none");
+  }
+  function dNoneNumber(e) {
+    e.preventDefault();
+    cardMain.current.classList.add("d-none");
+    cardMain.current.classList.remove("d-block");
+  }
+  function valueInput(e) {
+    if (numberInp.current.value === "") {
+      e.preventDefault();
+      alert("Fill the field please 😊");
+    } else {
+      cardMain.current.classList.add("d-none");
+      cardMain.current.classList.remove("d-block");
+    }
+  }
+  function handleSubmit(e) {
+    e.preventDefault();
+  }
+  // <!-- Display Phone Card end -->
+
   return (
-    <div>
-      <div className="form-first-group w-100 p-3 my-3 rounded-2">
+    <div className="position-relative">
+      <form className="form-first-group w-100 p-3 my-3 rounded-2">
         <div
           className="img-div"
           style={{
@@ -132,14 +161,52 @@ export default function MainCategory() {
           </div>
           <div className="input number-input w-100">
             <input
-              type="number"
+              type="tel"
               placeholder="Enter Mobile Number"
               className="px-3 py-2 rounded-2 w-100 input-number"
               required
+              readOnly
+              ref={firstInp}
+              onClick={dBlockNumber}
             />
           </div>
         </div>
+      </form>
+      {/* <!-- D-None-Card start --> */}
+      <div className="card-message d-none" ref={cardMain}>
+        <div className="number-card p-2 rounded-1">
+          <div className="cross-icon text-end">
+            <RxCross2 onClick={dNoneNumber} className="cross-icon-main" />
+          </div>
+          <div className="logo text-center">
+            <img
+              src="/assets/icons/sellit-transparent-logo.png"
+              alt=""
+              className="mx-auto"
+            />
+          </div>
+          <form className="content text-center mt-3">
+            <h5 className="fw-bold">Enter your phone to verify your account</h5>
+            <small>We will send a confirmation code to your number</small>
+            <br />
+            <input
+              type="tel"
+              placeholder="Phone Number"
+              className="w-75 py-2 px-3 input-text rounded-2 my-2"
+              ref={numberInp}
+            />
+            <br />
+            <p className="mx-auto description-para">
+              The phone number you provide here is only used to verify your
+              account. It will not be made public.
+            </p>
+            <button type="submit" className="submit-btn" onClick={valueInput}>
+              Next
+            </button>
+          </form>
+        </div>
       </div>
+      {/* <!-- D-None-Card end --> */}
     </div>
   );
 }

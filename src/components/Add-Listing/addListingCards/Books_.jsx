@@ -92,20 +92,6 @@ export default function Books_() {
   }
   return (
     <div>
-      <select
-        className="form-select px-3 py-2"
-        ref={booksMainCategory}
-        onChange={booksCategoriesHandler}
-      >
-        <option value="select-subcategory" selected disabled>
-          Select Sub-Category
-        </option>
-        <option value="Books">Books & Magazines</option>
-        <option value="Music">Musical Instruments</option>
-        <option value="Sports">Sports Equipment</option>
-        <option value="Gym">Gym & Fitness</option>
-        <option value="Other Hobbies">Other Hobbies</option>
-      </select>
       <div
         ref={forms.books}
         className="form-tenth-group w-100 p-3 my-3 rounded-2"

@@ -30,22 +30,6 @@ export default function Fashion() {
   };
   return (
     <div>
-      <select className="form-select px-3 py-2">
-        <option value="select-subcategory" selected disabled>
-          Select Sub-Category
-        </option>
-        <option value="1">Fashion Accessories</option>
-        <option value="2">Clothes</option>
-        <option value="3">Footwear</option>
-        <option value="4">Bags</option>
-        <option value="5">Jewellery</option>
-        <option value="6">Makeup</option>
-        <option value="7">Skin & Hair</option>
-        <option value="8">Watches</option>
-        <option value="9">Fragrance</option>
-        <option value="10">Wedding</option>
-        <option value="11">Other Fashion</option>
-      </select>
       <div
         ref={forms.fashion}
         className="form-nineth-group w-100 p-3 my-3 rounded-2"
