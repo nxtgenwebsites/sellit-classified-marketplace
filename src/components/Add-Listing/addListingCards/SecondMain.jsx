@@ -143,7 +143,6 @@ export default function SecondMain() {
               value={IsChanged.phone}
               name="phone"
               onChange={handleInp}
-              name="Temperory Contact Number"
             />
             <br />
             <p className="mx-auto description-para">
