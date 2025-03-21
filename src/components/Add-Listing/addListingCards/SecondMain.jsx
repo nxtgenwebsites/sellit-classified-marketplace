@@ -29,7 +29,9 @@ export default function SecondMain() {
   }
   // <!-- Display Phone Card end -->
   // <!-- Value Adding Function start -->
-  const [IsChanged, setIsChanged] = useState({ value: '' })
+  const [IsChanged, setIsChanged] = useState({ phone: '' })
+
+
 
   const handleInp = (e) => {
     setIsChanged((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -107,6 +109,7 @@ export default function SecondMain() {
             className="px-3 py-2 rounded-2 w-100 input-number"
             required
             readOnly
+            value={IsChanged.phone}
             ref={firstInp}
             onClick={dBlockNumber}
             name="Original Contact Number"
@@ -135,7 +138,7 @@ export default function SecondMain() {
               placeholder="Phone Number"
               className="w-75 py-2 px-3 input-text rounded-2 my-2"
               ref={numberInp}
-              value={IsChanged.value}
+              value={IsChanged.phone}
               name="Temperory Contact Number"
             />
             <br />
