@@ -149,7 +149,17 @@
   .advertise-form {
     width: 100% !important;
   }
-
+  .number-card {
+    width: 100%;
+    top: 10%;
+    left: 0;
+  }
+  .description-para {
+    width: 100%;
+  }
+  .submit-btn {
+    margin-top: 1rem;
+  }
   .marquee {
     height: 100px;
     width: 100%;

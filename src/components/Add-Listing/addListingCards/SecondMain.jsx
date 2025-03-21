@@ -121,14 +121,14 @@ export default function SecondMain() {
           <div className="cross-icon text-end">
             <RxCross2 onClick={dNoneNumber} className="cross-icon-main" />
           </div>
-          <div className="logo text-center">
+          <div className="logo text-md-center">
             <img
-              src="/assets/icons/sellit-transparent-logo.png"
+              src="/assets/icons/Footer-logo.png"
               alt=""
-              className="mx-auto"
+              className="mx-md-auto"
             />
           </div>
-          <form className="content_ text-center mt-3">
+          <form className="content_ text-md-center mt-3">
             <h5 className="fw-bold text-black">
               Enter your phone to verify your account
             </h5>
@@ -137,14 +137,14 @@ export default function SecondMain() {
             <input
               type="tel"
               placeholder="Phone Number"
-              className="w-75 py-2 px-3 input-text rounded-2 my-2"
+              className="w-md-75 py-2 px-3 input-text rounded-2 my-2"
               ref={numberInp}
               value={IsChanged.phone}
               name="phone"
               onChange={handleInp}
             />
             <br />
-            <p className="mx-auto description-para">
+            <p className="mx-md-auto description-para">
               The phone number you provide here is only used to verify your
               account. It will not be made public.
             </p>
