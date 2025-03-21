@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { RxCross2 } from "react-icons/rx";
 
 export default function SecondMain() {
@@ -6,6 +6,7 @@ export default function SecondMain() {
   const firstInp = useRef();
   const numberInp = useRef();
   const cardMain = useRef();
+  
   function dBlockNumber(e) {
     e.preventDefault();
     cardMain.current.classList.add("d-block");
@@ -21,11 +22,20 @@ export default function SecondMain() {
       e.preventDefault();
       alert("Fill the field please 😊");
     } else {
+      e.preventDefault();
       cardMain.current.classList.add("d-none");
       cardMain.current.classList.remove("d-block");
     }
   }
   // <!-- Display Phone Card end -->
+  // <!-- Value Adding Function start -->
+  const [IsChanged, setIsChanged] = useState({ value: '' })
+
+  const handleInp = (e) => {
+    setIsChanged((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+  // <!-- Value Adding Function end -->
+
   return (
     <div>
       <div className="heading-form">
@@ -99,7 +109,8 @@ export default function SecondMain() {
             readOnly
             ref={firstInp}
             onClick={dBlockNumber}
-          />
+            name="Original Contact Number"
+            />
         </div>
       </div>
       {/* <!-- D-None-Card start --> */}
@@ -113,10 +124,10 @@ export default function SecondMain() {
               src="/assets/icons/sellit-transparent-logo.png"
               alt=""
               className="mx-auto"
-            />
+              />
           </div>
-          <form className="content text-center mt-3">
-            <h5 className="fw-bold">Enter your phone to verify your account</h5>
+          <form className="content_ text-center mt-3">
+            <h5 className="fw-bold text-black">Enter your phone to verify your account</h5>
             <small>We will send a confirmation code to your number</small>
             <br />
             <input
@@ -124,6 +135,8 @@ export default function SecondMain() {
               placeholder="Phone Number"
               className="w-75 py-2 px-3 input-text rounded-2 my-2"
               ref={numberInp}
+              value={IsChanged.value}
+              name="Temperory Contact Number"
             />
             <br />
             <p className="mx-auto description-para">
