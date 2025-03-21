@@ -296,7 +296,7 @@ export default function AddListstingContent() {
           <div className="forms_third-group p-4 my-3 rounded-2 bg-white">
             <ThirdMain />
           </div>
-          <div className="btn text-center mx-auto w-100 mt-3">
+          <div className="listing_btn text-center mx-auto w-100 mt-3">
             <button type="submit" className="rounded-3 nav-btn">
               Add Listings
             </button>
