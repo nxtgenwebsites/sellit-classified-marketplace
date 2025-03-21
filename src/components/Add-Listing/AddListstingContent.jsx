@@ -26,6 +26,8 @@ import MobileDropdown from "./Add-Listing-Dropdowns/MobileDropdown";
 import MotorsDropdown from "./Add-Listing-Dropdowns/MotorsDropdown";
 import PropertyRentDropdown from "./Add-Listing-Dropdowns/PropertyRentDropdown";
 import PropertySaleDropdown from "./Add-Listing-Dropdowns/PropertySaleDropdown";
+import SecondMain from "./addListingCards/SecondMain";
+import ThirdMain from "./addListingCards/ThirdMain";
 
 export default function AddListstingContent() {
   // Category references
@@ -90,7 +92,7 @@ export default function AddListstingContent() {
     }
   }
   return (
-    <div>
+    <div className="main-listing-div py-3">
       <Container>
         {/* Form Heading */}
         <div className="listing-heading">
@@ -100,8 +102,9 @@ export default function AddListstingContent() {
 
         {/* Form */}
         <form>
-          <div className="forms-group">
+          <div className="forms-group p-4 my-3 rounded-2">
             <div className="form-category">
+              <MainCategory />
               <div className="main-div d-lg-flex gap-2 w-100">
                 <div className="main w-100">
                   <select
@@ -163,6 +166,12 @@ export default function AddListstingContent() {
                   <FashionDropdown />
                 </div>
                 <div
+                  ref={categories.furniture}
+                  className="sub-categories mt-md-0 w-100 d-none"
+                >
+                  <FurnitureDropdown />
+                </div>
+                <div
                   ref={categories["find-job"]}
                   className="sub-categories mt-md-0 w-100 d-none"
                 >
@@ -199,7 +208,6 @@ export default function AddListstingContent() {
                   <PropertyRentDropdown />
                 </div>
               </div>
-              <MainCategory />
             </div>
             <div ref={forms.mobiles} className="w-100 d-none">
               <Mobiles />
@@ -282,7 +290,13 @@ export default function AddListstingContent() {
               <Kids_ />
             </div>
           </div>
-          <div className="btn text-center mx-auto w-100">
+          <div className="forms_second-group p-4 my-3 rounded-2 bg-white">
+            <SecondMain />
+          </div>
+          <div className="forms_third-group p-4 my-3 rounded-2 bg-white">
+            <ThirdMain />
+          </div>
+          <div className="btn text-center mx-auto w-100 mt-3">
             <button type="submit" className="rounded-3 nav-btn">
               Add Listings
             </button>

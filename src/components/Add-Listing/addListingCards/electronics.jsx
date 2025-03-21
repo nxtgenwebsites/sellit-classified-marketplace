@@ -32,7 +32,7 @@ export default function Electronics() {
     <div>
       <div
         ref={forms.electronics}
-        className="form-fifth-group w-100 p-3 my-3 rounded-2"
+        className="form-fifth-group w-100 py-3 my-3 rounded-2"
       >
         <div className="first-form-dropdown d-lg-flex justify-content-between w-100 my-3">
           <div className="label">

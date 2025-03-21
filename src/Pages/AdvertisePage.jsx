@@ -60,7 +60,6 @@ export default function AdvertisePage() {
                 sitekey="6LeAwskqAAAAACR4EhOoo6i4z2SflKyZvEFYQaC0"
                 onChange={handleCaptchaChange}
               />
-              {captchaValue && <p>Captcha Verified</p>}
             </div>
             <div className="advertise-group mt-2">
               <button type="submit">Submit</button>

@@ -32,7 +32,9 @@
   box-shadow: 0 2px 10px #00000036;
   border-radius: 50% !important;
 }
-
+.btn:disabled {
+  border: 0 !important;
+}
 .arrow-active {
   color: #3a4fc4 !important;
   scale: 1.5;
@@ -41,6 +43,20 @@
 .arrow-disabled {
   color: #000 !important;
   opacity: 100% !important;
+  scale: 1.5;
+}
+
+.arrow-disabled:focus {
+  color: #000 !important;
+  opacity: 100% !important;
+  border: 0 !important;
+  scale: 1.5;
+}
+
+.arrow-active:focus {
+  color: #000 !important;
+  opacity: 100% !important;
+  border: 0 !important;
   scale: 1.5;
 }
 

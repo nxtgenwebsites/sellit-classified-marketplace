@@ -32,7 +32,7 @@ export default function Furniture() {
     <div>
       <div
         ref={forms.furniture}
-        className="form-eighth-group w-100 p-3 my-3 rounded-2"
+        className="form-eighth-group w-100 py-3 my-3 rounded-2"
       >
         <div className="first-form-dropdown d-lg-flex w-100 justify-content-between">
           <div className="label">

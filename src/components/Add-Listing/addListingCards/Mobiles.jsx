@@ -22,7 +22,7 @@ export default function Mobiles() {
     <div>
       <div
         ref={forms.mobiles}
-        className="form-first-group w-100 p-3 my-3 rounded-2"
+        className="form-first-group w-100 py-3 my-3 rounded-2"
       >
         <div className="first-form-dropdown d-lg-flex align-items-center justify-content-between w-100">
           <div className="label">

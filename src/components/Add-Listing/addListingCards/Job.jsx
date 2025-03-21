@@ -42,7 +42,7 @@ export default function Job() {
     <div>
       <div
         ref={forms["find-job"]}
-        className="form-sixth-group w-100 p-3 my-3 rounded-2"
+        className="form-sixth-group w-100 py-3 my-3 rounded-2"
       >
         <div className="first-form-dropdown d-lg-flex justify-content-between w-100">
           <div className="label w-100">

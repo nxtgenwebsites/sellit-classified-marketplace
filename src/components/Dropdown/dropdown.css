@@ -73,6 +73,7 @@
 .dropdown-heading {
   font-weight: 700;
   font-size: 16px;
+  color: #3a4fc4;
 }
 
 .dropdown-link {
@@ -81,11 +82,11 @@
   transition: 0.2s;
   margin-bottom: 10px;
   font-size: 16px;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 .dropdown-link:hover {
-  color: #00a49f;
+    color: #3a4fc4;
 }
 
 .dropdown-icon {

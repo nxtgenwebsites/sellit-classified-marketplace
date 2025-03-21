@@ -32,7 +32,7 @@ export default function Kids_() {
     <div>
       <div
         ref={forms.kids}
-        className="form-eleventh-group w-100 p-3 my-3 rounded-2"
+        className="form-eleventh-group w-100 py-3 my-3 rounded-2"
       >
         <div className="first-form-dropdown d-lg-flex justify-content-between w-100 my-3">
           <div className="label">

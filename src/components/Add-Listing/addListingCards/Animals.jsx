@@ -34,7 +34,7 @@ export default function Animals() {
     <div>
       <div
         ref={forms.animals}
-        className="form-seventh-group w-100 p-3 my-3 rounded-2"
+        className="form-seventh-group w-100 py-3 my-3 rounded-2"
       >
         <div className="first-form-dropdown d-lg-flex justify-content-between w-100">
           <div className="label">

@@ -61,7 +61,7 @@ export default function Motors() {
     <div>
       <div
         ref={forms.motors}
-        className="form-second-group w-100 p-3 my-3 rounded-2"
+        className="form-second-group w-100 py-3 my-3 rounded-2"
       >
         <div className="first-form-dropdown d-lg-flex justify-content-between w-100">
           <div className="label">
