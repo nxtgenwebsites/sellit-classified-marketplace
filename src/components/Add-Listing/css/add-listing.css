@@ -1499,6 +1499,7 @@
 
 /* Card end */
 /* Third Main start */
+/* Images start */
 .upload-div {
   width: 200px;
   height: 200px;
@@ -1508,8 +1509,22 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  font-size: 20px;
   cursor: pointer;
 }
 
+.logo {
+  font-size: 30px !important;
+  color: #3a4fc4;
+}
+
+.content {
+  margin: 0;
+  font-weight: 500;
+  color: #3a4fc4;
+  font-size: 20px;
+}
+
+/* Images end */
 /* Third Main end */
+/* Attachments start */
+/* Attachments end */
