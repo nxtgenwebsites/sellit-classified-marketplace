@@ -6,7 +6,7 @@ export default function SecondMain() {
   const firstInp = useRef();
   const numberInp = useRef();
   const cardMain = useRef();
-  
+
   function dBlockNumber(e) {
     e.preventDefault();
     cardMain.current.classList.add("d-block");
@@ -29,14 +29,10 @@ export default function SecondMain() {
   }
   // <!-- Display Phone Card end -->
   // <!-- Value Adding Function start -->
-  const [IsChanged, setIsChanged] = useState({ phone: '' })
-
-
+  const [IsChanged, setIsChanged] = useState({ phone: "" });
 
   const handleInp = (e) => {
     setIsChanged((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-    
-    
   };
   // <!-- Value Adding Function end -->
 
@@ -83,7 +79,8 @@ export default function SecondMain() {
             placeholder="Enter Price"
             class="px-3"
             required
-            step={+10}
+            step={+100}
+            min={0}
           />
         </div>
       </div>
@@ -115,7 +112,7 @@ export default function SecondMain() {
             ref={firstInp}
             onClick={dBlockNumber}
             name="Original Contact Number"
-            />
+          />
         </div>
       </div>
       {/* <!-- D-None-Card start --> */}
@@ -129,10 +126,12 @@ export default function SecondMain() {
               src="/assets/icons/sellit-transparent-logo.png"
               alt=""
               className="mx-auto"
-              />
+            />
           </div>
           <form className="content_ text-center mt-3">
-            <h5 className="fw-bold text-black">Enter your phone to verify your account</h5>
+            <h5 className="fw-bold text-black">
+              Enter your phone to verify your account
+            </h5>
             <small>We will send a confirmation code to your number</small>
             <br />
             <input

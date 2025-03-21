@@ -98,7 +98,10 @@ export default function ThirdMain() {
           </div>
         ))}
         {/* Upload Div */}
-        <div className="upload-div text-center mx-lg-0 mx-auto" onClick={handleUploadClick}>
+        <div
+          className="upload-div text-center mx-lg-0 mx-auto"
+          onClick={handleUploadClick}
+        >
           <div className="logo">
             <RiFileUploadLine />
           </div>
@@ -112,7 +115,7 @@ export default function ThirdMain() {
         />
       </div>
       {/* <!-- Images end --> */}
-      <hr className="my-3"/>
+      <hr className="my-3" />
       {/* <!-- Attachments start --> */}
       <div className="head">
         <h3 className="fw-bold mb-3">Attachements</h3>
