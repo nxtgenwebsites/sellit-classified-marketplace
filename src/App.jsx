@@ -20,6 +20,7 @@ import FooterAdvertisePage from "./Pages/AdvertisePage";
 // Add Listing Pages
 import AddListingPage from "./Pages/AddListingPage";
 import Succesful_listing_page from "./components/Add-Listing/Succesful_listing_page"
+import Example from "./components/Add-Listing/Example"
 import "./App.css";
 
 function App() {
@@ -47,6 +48,7 @@ function App() {
         />
         <Route path="/add-listing" element={<AddListingPage />} />
         <Route path="/successful" element={<Succesful_listing_page />} />
+        <Route path="/example" element={<Example />} />
       </Routes>
       <Footer />
     </>

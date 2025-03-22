@@ -95,7 +95,9 @@
     background: #ededed;
     margin: 2% auto;
   }
-
+.success-content {
+  padding-left: 0 ;
+}
   .page-img {
     width: 100%;
   }

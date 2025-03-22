@@ -1526,4 +1526,41 @@
 /* Images end */
 /* Third Main end */
 /* Successful Page start */
+.first-successful-section {
+  border: 1px solid #3a4fc4;
+}
+.success-content {
+  padding-left: 5rem;
+}
+.success-content h5 {
+  font-size: 24px;
+}
+.success-content p {
+  color: #4e5455;
+  font-size: 20px;
+}
+.success-content span {
+  color: #4e5455;
+}
+.second-successful-content h5 {
+  font-size: 23px;
+}
+.second-successful-btn button {
+  background: none;
+  border: 1px solid #3a4fc4;
+  color: #3a4fc4;
+  font-weight: 500;
+  transition: .2s linear;
+}
+.second-successful-btn button:hover {
+  background: #3a4fc4;
+  border: 1px solid transparent;
+  color: #fff;
+}
+.question {
+  font-size: 20px !important;
+}
+._content {
+  color: #959595;
+}
 /* Successful Page end */

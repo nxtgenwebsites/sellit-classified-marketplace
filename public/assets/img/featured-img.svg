@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 325.91 196.68" class="_1fa165b4">
+    <defs>
+        <filter id="a" width="227.64" height="196.68" x="98.27" y="0" filterUnits="userSpaceOnUse">
+            <feOffset dy="1"></feOffset>
+            <feGaussianBlur result="blur" stdDeviation="3"></feGaussianBlur>
+            <feFlood flood-opacity=".16"></feFlood>
+            <feComposite in2="blur" operator="in"></feComposite>
+            <feComposite in="SourceGraphic"></feComposite>
+        </filter>
+        <filter id="b" width="162.26" height="96.91" x="0" y="60.64" filterUnits="userSpaceOnUse">
+            <feOffset dy="1"></feOffset>
+            <feGaussianBlur result="blur-2" stdDeviation="3"></feGaussianBlur>
+            <feFlood flood-opacity=".16"></feFlood>
+            <feComposite in2="blur-2" operator="in"></feComposite>
+            <feComposite in="SourceGraphic"></feComposite>
+        </filter>
+    </defs>
+    <g fill="#fff" stroke="#969fa0" filter="url(#a)">
+        <path d="M107.27 8H316.9v178.68H107.28z" stroke="none"></path>
+        <path fill="none" d="M107.77 8.5H316.4v177.68H107.78z"></path>
+    </g>
+    <path fill="#eaeeef" d="M112.58 13.3H311.6v113.23H112.58zm0 119.42h156.57v7.96H112.58zm0 14.16h156.57v8.85H112.58zm0 15.03h116.76v8.85H112.58z"></path>
+    <g fill="#ffce32" stroke="#ffce32">
+        <path d="M115.23 13.3h92v24.78h-92z" stroke="none"></path>
+        <path fill="none" d="M115.73 13.8h91v23.78h-91z"></path>
+    </g>
+    <text fill="#012f34" font-family="Roboto-Bold, Roboto" font-size="14" font-weight="700" transform="translate(127.61 31.61)">
+        <tspan x="0" y="0">FEATURED</tspan>
+    </text>
+    <path fill="none" stroke="#012f34" stroke-dasharray="5" stroke-linecap="round" stroke-width="2" d="M10.18 142.9s138.04 28.32 142.04-73.22" filter="url(#b)"></path>
+    <path fill="#012f34" d="M160.11 69.68l-7.82-8.1-8.1 7.82z"></path>
+</svg>
