@@ -28,6 +28,9 @@ import PropertyRentDropdown from "./Add-Listing-Dropdowns/PropertyRentDropdown";
 import PropertySaleDropdown from "./Add-Listing-Dropdowns/PropertySaleDropdown";
 import SecondMain from "./addListingCards/SecondMain";
 import ThirdMain from "./addListingCards/ThirdMain";
+import { Link } from "react-router-dom";
+import BuisnessDropdown from "./Add-Listing-Dropdowns/BuisnessDropdown";
+import ServiceDropdown from "./Add-Listing-Dropdowns/ServiceDropdown";
 
 export default function AddListstingContent() {
   // Category references
@@ -92,7 +95,7 @@ export default function AddListstingContent() {
     }
   }
   return (
-    <div className="main-listing-div py-3">
+    <div className="py-3">
       <Container>
         {/* Form Heading */}
         <div className="listing-heading">
@@ -137,75 +140,93 @@ export default function AddListstingContent() {
                 </div>
                 <div
                   ref={categories.animals}
-                  className="sub-categories mt-md-0 w-100 d-none"
+                  className="sub-categories mt-md-0 w-100 d-none mt-3"
                 >
                   <AnimalDropdown />
                 </div>
                 <div
                   ref={categories.bikes}
-                  className="sub-categories mt-md-0 w-100 d-none"
+                  className="sub-categories mt-md-0 w-100 d-none mt-3"
                 >
                   <BikesDropdown />
                 </div>
                 <div
                   ref={categories.books}
-                  className="sub-categories mt-md-0 w-100 d-none"
+                  className="sub-categories mt-md-0 w-100 d-none mt-3"
                 >
                   <BooksDropdown />
                 </div>
                 <div
                   ref={categories.electronics}
-                  className="sub-categories mt-md-0 w-100 d-none"
+                  className="sub-categories mt-md-0 w-100 d-none mt-3"
                 >
                   <ElectronicsDropdown />
                 </div>
                 <div
                   ref={categories.fashion}
-                  className="sub-categories mt-md-0 w-100 d-none"
+                  className="sub-categories mt-md-0 w-100 d-none mt-3"
                 >
                   <FashionDropdown />
                 </div>
                 <div
                   ref={categories.furniture}
-                  className="sub-categories mt-md-0 w-100 d-none"
+                  className="sub-categories mt-md-0 w-100 d-none mt-3"
                 >
                   <FurnitureDropdown />
                 </div>
                 <div
                   ref={categories["find-job"]}
-                  className="sub-categories mt-md-0 w-100 d-none"
+                  className="sub-categories mt-md-0 w-100 d-none mt-3"
                 >
                   <JobDropdown />
                 </div>
                 <div
                   ref={categories.kids}
-                  className="sub-categories mt-md-0 w-100 d-none"
+                  className="sub-categories mt-md-0 w-100 d-none mt-3"
                 >
                   <KidsDropdown />
                 </div>
                 <div
                   ref={categories.mobiles}
-                  className="sub-categories mt-md-0 w-100 d-none"
+                  className="sub-categories mt-md-0 w-100 d-none mt-3"
                 >
                   <MobileDropdown />
                 </div>
                 <div
                   ref={categories.motors}
-                  className="sub-categories mt-md-0 w-100 d-none"
+                  className="sub-categories mt-md-0 w-100 d-none mt-3"
                 >
                   <MotorsDropdown />
                 </div>
                 <div
                   ref={categories["property-sale"]}
-                  className="sub-categories mt-md-0 w-100 d-none"
+                  className="sub-categories mt-md-0 w-100 d-none mt-3"
                 >
                   <PropertySaleDropdown />
                 </div>
                 <div
-                  className="sub-categories mt-md-0 w-100 d-none"
-                  ref={forms["property-rent"]}
+                  className="sub-categories mt-md-0 w-100 d-none mt-3"
+                  ref={categories["property-rent"]}
                 >
                   <PropertyRentDropdown />
+                </div>
+                <div
+                  className="sub-categories mt-md-0 w-100 d-none mt-3"
+                  ref={categories["property-sale"]}
+                >
+                  <PropertySaleDropdown />
+                </div>
+                <div
+                  className="sub-categories mt-md-0 w-100 d-none mt-3"
+                  ref={categories["find-business"]}
+                >
+                  <BuisnessDropdown />
+                </div>
+                <div
+                  className="sub-categories mt-md-0 w-100 d-none mt-3"
+                  ref={categories["find-service"]}
+                >
+                  <ServiceDropdown />
                 </div>
               </div>
             </div>
@@ -227,50 +248,10 @@ export default function AddListstingContent() {
             <div ref={forms.bikes} className="w-100 d-none">
               <Bikes />
             </div>
-            <div ref={forms["find-business"]} className="w-100 d-none">
-              <select className="form-select px-3 py-2">
-                <option value="select-subcategory" selected disabled>
-                  Select Sub-Category
-                </option>
-                <option value="1">Buisness For Sale</option>
-                <option value="2">Food & Restraunt</option>
-                <option value="3">Construction & Heavy Machinery</option>
-                <option value="4">Agriculture</option>
-                <option value="5">Medical & Pharma</option>
-                <option value="6">Trade & Industrial Machinery</option>
-                <option value="7">Other Buisness & Industry</option>
-              </select>
-            </div>
-            <div ref={forms["find-service"]} className="w-100 d-none">
-              <select className="form-select px-3 py-2">
-                <option value="select-subcategory" selected disabled>
-                  Select Sub-Category
-                </option>
-                <option value="1">Agriculture & Interior Design</option>
-                <option value="2">Camera Installments</option>
-                <option value="3">Car Rental</option>
-                <option value="4">Car Services</option>
-                <option value="5">Catering & Restraunt</option>
-                <option value="6">Contruction Services</option>
-                <option value="7">Consultancy Services</option>
-                <option value="8">Domestic Help</option>
-                <option value="9">Drivers & Taxi</option>
-                <option value="10">Tuitions & Academics</option>
-                <option value="11">Electronics & Computer Repair</option>
-                <option value="12">Event Services</option>
-                <option value="13">Farm & Fresh Food</option>
-                <option value="14">Health & Beauty</option>
-                <option value="15">Home & Office Repair</option>
-                <option value="16">Insurance Service</option>
-                <option value="17">Movers & Packers</option>
-                <option value="18">Renting Services</option>
-                <option value="19">Tailor Services</option>
-                <option value="20">Travel & Visa</option>
-                <option value="21">Video & Photography</option>
-                <option value="22">Web Development</option>
-                <option value="23">Other Services</option>
-              </select>
-            </div>
+            {/* <div ref={forms["find-business"]} className="w-100 d-none">
+            </div> */}
+            {/* <div ref={forms["find-service"]} className="w-100 d-none">
+            </div> */}
             <div ref={forms["find-job"]} className="w-100 d-none">
               <Job />
             </div>
@@ -297,13 +278,15 @@ export default function AddListstingContent() {
             <ThirdMain />
           </div>
           <div className="listing_btn text-center mx-auto w-100 mt-3">
-            <button type="submit" className="rounded-3 nav-btn">
-              Add Listings
-            </button>
+            <Link to={"/successful"} className="">
+              <button type="submit" className="rounded-3 nav-btn text-decoration-none">
+                Add Listings
+              </button>
+            </Link>
           </div>
         </form>
       </Container>
       {/* Form end */}
-    </div>
+    </div >
   );
 }

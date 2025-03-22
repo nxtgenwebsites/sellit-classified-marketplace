@@ -3,7 +3,7 @@ import AddListstingContent from "../components/Add-Listing/AddListstingContent";
 
 export default function AddListingPage() {
   return (
-    <div>
+    <div className="main-listing-div">
       <AddListstingContent />
     </div>
   );

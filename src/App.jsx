@@ -17,9 +17,9 @@ import ServiceProvidersCategory from "./Pages/ServiceProvidersCategory";
 
 import FooterGrowPage from "./Pages/GrowPage";
 import FooterAdvertisePage from "./Pages/AdvertisePage";
-
+// Add Listing Pages
 import AddListingPage from "./Pages/AddListingPage";
-
+import Succesful_listing_page from "./components/Add-Listing/Succesful_listing_page"
 import "./App.css";
 
 function App() {
@@ -46,6 +46,7 @@ function App() {
           element={<FooterAdvertisePage />}
         />
         <Route path="/add-listing" element={<AddListingPage />} />
+        <Route path="/successful" element={<Succesful_listing_page />} />
       </Routes>
       <Footer />
     </>
