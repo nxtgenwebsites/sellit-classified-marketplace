@@ -42,7 +42,7 @@ export default function sidebar() {
               className="text-decoration-none text-black location-item"
             >
               <li className="dropdown-item d-flex w-100 px-3 py-2">
-                <div className="location-s-icon">
+                <div className="location-s-icon d-xl-block d-none">
                   <i className="bi bi-geo-alt"></i>
                 </div>
                 <div className="location-content">
@@ -59,7 +59,7 @@ export default function sidebar() {
               className="text-decoration-none text-black location-item"
             >
               <li className="dropdown-item d-flex w-100 px-3 py-2">
-                <div className="location-s-icon">
+                <div className="location-s-icon d-xl-block d-none d-xl-block d-none">
                   <i className="bi bi-geo-alt"></i>
                 </div>
                 <div className="location-content">
@@ -72,7 +72,7 @@ export default function sidebar() {
               className="text-decoration-none text-black location-item"
             >
               <li className="dropdown-item d-flex w-100 px-3 py-2">
-                <div className="location-s-icon">
+                <div className="location-s-icon d-xl-block d-none">
                   <i className="bi bi-geo-alt"></i>
                 </div>
                 <div className="location-content">
@@ -85,7 +85,7 @@ export default function sidebar() {
               className="text-decoration-none text-black location-item"
             >
               <li className="dropdown-item d-flex w-100 px-3 py-2">
-                <div className="location-s-icon">
+                <div className="location-s-icon d-xl-block d-none">
                   <i className="bi bi-geo-alt"></i>
                 </div>
                 <div className="location-content">
@@ -98,16 +98,11 @@ export default function sidebar() {
               className="text-decoration-none text-black location-item"
             >
               <li className="dropdown-item d-flex w-100 px-3 py-2">
-                <div className="location-s-icon">
+                <div className="location-s-icon d-xl-block d-none">
                   <i className="bi bi-geo-alt"></i>
                 </div>
                 <div className="location-content">
-                  <p className="d-md-block d-none">
-                    Kyber Pakhtunkhwa,
-                    <br />
-                    Pakistan
-                  </p>
-                  <p className="d-md-none d-block">
+                  <p>
                     Kyber Pakhtunkhwa, Pakistan
                   </p>
                 </div>
@@ -118,7 +113,7 @@ export default function sidebar() {
               className="text-decoration-none text-black location-item"
             >
               <li className="dropdown-item d-flex w-100 px-3 py-2">
-                <div className="location-s-icon">
+                <div className="location-s-icon d-xl-block d-none">
                   <i className="bi bi-geo-alt"></i>
                 </div>
                 <div className="location-content">
@@ -131,7 +126,7 @@ export default function sidebar() {
               className="text-decoration-none text-black location-item"
             >
               <li className="dropdown-item d-flex w-100 px-3 py-2">
-                <div className="location-s-icon">
+                <div className="location-s-icon d-xl-block d-none">
                   <i className="bi bi-geo-alt"></i>
                 </div>
                 <div className="location-content">

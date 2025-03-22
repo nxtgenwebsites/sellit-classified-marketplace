@@ -57,10 +57,12 @@
   .tabs {
     width: 80% !important;
   }
+
   .nav-btn {
     font-size: 16px !important;
     padding: 0.5rem !important;
   }
+
   .dropdown-section {
     width: 100%;
     padding: 1.6rem 0 !important;
@@ -96,6 +98,10 @@
 
   .page-img {
     width: 100%;
+  }
+
+  .second-menu {
+    width: 100% !important;
   }
 
   .page-1-sect {
@@ -149,17 +155,21 @@
   .advertise-form {
     width: 100% !important;
   }
+
   .number-card {
     width: 100%;
     top: 10%;
     left: 0;
   }
+
   .description-para {
     width: 100%;
   }
+
   .submit-btn {
     margin-top: 1rem;
   }
+
   .marquee {
     height: 100px;
     width: 100%;
