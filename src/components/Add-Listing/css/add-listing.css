@@ -1496,6 +1496,7 @@
   color: #fff;
   border-radius: 20px;
 }
+
 /* Card end */
 /* Third Main start */
 /* Images start */
@@ -1529,38 +1530,115 @@
 .first-successful-section {
   border: 1px solid #3a4fc4;
 }
+
 .success-content {
   padding-left: 5rem;
 }
+
 .success-content h5 {
   font-size: 24px;
 }
+
 .success-content p {
   color: #4e5455;
   font-size: 20px;
 }
+
 .success-content span {
   color: #4e5455;
 }
+
 .second-successful-content h5 {
   font-size: 23px;
 }
+
 .second-successful-btn button {
   background: none;
   border: 1px solid #3a4fc4;
   color: #3a4fc4;
   font-weight: 500;
-  transition: .2s linear;
+  transition: 0.2s linear;
 }
+
 .second-successful-btn button:hover {
   background: #3a4fc4;
   border: 1px solid transparent;
   color: #fff;
 }
+
 .question {
   font-size: 20px !important;
 }
+
 ._content {
   color: #959595;
 }
+
+.radio-div {
+  border: .1rem solid #eaeaea;
+  border-radius: 4px;
+}
+
+.desc {
+  color: #979fa0;
+  font-weight: normal !important;
+}
+
+.radio-content input[type="radio"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #3a4fc4;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.radio-content input[type="radio"]:checked {
+  background: #526cff;
+  border: 1px solid #000;
+}
+
+.radio-div:has(input[type="radio"]:checked) {
+  background: linear-gradient(#c7dcff, #fff) !important;
+  border: 1px solid #4879f6;
+}
+.price h5 {
+  color: #000;
+}
+
+.radio-content h5 {
+  color: #000;
+}
+
+.radio-content p {
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.discount-banner h6 {
+  font-size: 12px;
+  left: 6%;
+  color: #3a4fc4;
+}
+
+.original-price {
+  color: #8c8d8e !important;
+}
+
+.discount-price {
+  color: #3a4fc4 !important;
+}
+
+.description-span {
+  width: 150px !important;
+  height: 30px;
+  background: #ffce32;
+  border-radius: 5px;
+  text-align: center;
+  line-height: 30px;
+  color: #4e5455;
+  font-weight: 600 !important;
+}
+
 /* Successful Page end */

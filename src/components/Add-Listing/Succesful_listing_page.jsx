@@ -63,35 +63,35 @@ export default function Succesful_listing_page() {
                 </div>
                 <div className="second-sub-section mt-4">
                   <h5 className="fw-bold mb-5">FEATURE YOUR AD</h5>
+                  <ul className="second-sub-successful-list list-unstyled">
+                    <li className="second-successful-item d-flex gap-3">
+                      <div className="check">
+                        <img
+                          src="/assets/icons/orange_tick.svg"
+                          alt=""
+                          width={20}
+                        />
+                      </div>
+                      <div className="_content">
+                        Get noticed with{" "}
+                        <span className="fw-bold">"FEATURED"</span> tag in a top
+                        position
+                      </div>
+                    </li>
+                    <li className="second-successful-item d-flex gap-3 mt-2">
+                      <div className="check">
+                        <img
+                          src="/assets/icons/orange_tick.svg"
+                          alt=""
+                          width={20}
+                        />
+                      </div>
+                      <div className="_content">
+                        Ad will be highlighted to top position
+                      </div>
+                    </li>
+                  </ul>
                 </div>
-                <ul className="second-sub-successful-list list-unstyled">
-                  <li className="second-successful-item d-flex gap-3">
-                    <div className="check">
-                      <img
-                        src="/assets/icons/orange_tick.svg"
-                        alt=""
-                        width={20}
-                      />
-                    </div>
-                    <div className="_content">
-                      Get noticed with{" "}
-                      <span className="fw-bold">"FEATURED"</span> tag in a
-                      top position
-                    </div>
-                  </li>
-                  <li className="second-successful-item d-flex gap-3 mt-2">
-                    <div className="check">
-                      <img
-                        src="/assets/icons/orange_tick.svg"
-                        alt=""
-                        width={20}
-                      />
-                    </div>
-                    <div className="_content">
-                      Ad will be highlighted to top position
-                    </div>
-                  </li>
-                </ul>
               </div>
             </Col>
             <Col lg={5}>
@@ -109,6 +109,97 @@ export default function Succesful_listing_page() {
               </div>
             </Col>
           </Row>
+          <div className="third-sub-section mt-2">
+            <div className="radio-div py-4 px-3">
+              <div className="d-flex justify-content-between">
+                <div className="radio-content d-flex gap-3 align-items-center">
+                  <input type="radio" name="a" id="a" />
+                  <div className="description">
+                    <h5 className="fw-bold">Feature 1 Ad for 7 days</h5>
+                    <p className="desc">Reach up to 4 times more buyers</p>
+                  </div>
+                </div>
+                <div className="price">
+                  <h5 className="fw-medium discount-price">PKR 1,714</h5>
+                </div>
+              </div>
+            </div>
+            <div className="radio-div py-4 px-3 mt-2">
+              <div className="d-flex justify-content-between">
+                <div className="radio-content d-flex gap-3 align-items-center">
+                  <input type="radio" id="a" name="a" />
+                  <div className="description">
+                    <div className="d-flex gap-2">
+                      <h5 className="fw-bold">Feature 1 Ad for 7 days </h5>
+                      <p className="description-span">Recommended</p>
+                    </div>
+                    <p className="desc">Reach up to 4 times more buyers</p>
+                  </div>
+                </div>
+                <div className="price">
+                  <div className="discount-banner position-relative">
+                    <img src="/assets/icons/Discount_icon.webp" alt="" />
+                    <h6 className="fw-bold position-absolute top-0">-38%</h6>
+                  </div>
+                  <div className="price-content">
+                    <h5 className="fw-medium original-price text-decoration-line-through">
+                      PKR 1,714
+                    </h5>
+                    <h5 className="fw-medium discount-price">PKR 1,714</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="radio-div py-4 px-3 mt-2">
+              <div className="d-flex justify-content-between">
+                <div className="radio-content d-flex gap-3 align-items-center">
+                  <input type="radio" id="a" name="a" />
+                  <div className="description">
+                    <div className="d-flex gap-2">
+                      <h5 className="fw-bold">Feature 1 Ad for 7 days </h5>
+                      <p className="description-span">Recommended</p>
+                    </div>
+                    <p className="desc">Reach up to 4 times more buyers</p>
+                  </div>
+                </div>
+                <div className="price">
+                  <div className="discount-banner position-relative">
+                    <img src="/assets/icons/Discount_icon.webp" alt="" />
+                    <h6 className="fw-bold position-absolute top-0">-38%</h6>
+                  </div>
+                  <div className="price-content">
+                    <h5 className="fw-medium original-price text-decoration-line-through">
+                      PKR 1,714
+                    </h5>
+                    <h5 className="fw-medium discount-price">PKR 1,714</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="radio-div py-4 px-3 mt-2">
+              <div className="d-flex justify-content-between">
+                <div className="radio-content d-flex gap-3 align-items-center">
+                  <input type="radio" id="a" name="a" />
+                  <div className="description">
+                    <h5 className="fw-bold">Feature 1 Ad for 7 days</h5>
+                    <p className="desc">Reach up to 4 times more buyers</p>
+                  </div>
+                </div>
+                <div className="price">
+                  <div className="discount-banner position-relative">
+                    <img src="/assets/icons/Discount_icon.webp" alt="" />
+                    <h6 className="fw-bold position-absolute top-0">-38%</h6>
+                  </div>
+                  <div className="price-content">
+                    <h5 className="fw-medium original-price text-decoration-line-through">
+                      PKR 1,714
+                    </h5>
+                    <h5 className="fw-medium discount-price">PKR 1,714</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </Container>
     </div>
