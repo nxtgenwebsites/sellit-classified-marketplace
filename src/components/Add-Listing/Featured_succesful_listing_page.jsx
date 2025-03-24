@@ -2,7 +2,7 @@ import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-export default function Succesful_listing_page() {
+export default function Featured_succesful_listing_page() {
   return (
     <div>
       <Container>
