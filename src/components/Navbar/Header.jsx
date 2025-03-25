@@ -17,22 +17,22 @@ export default function Header() {
       <Navbar expand="lg">
         <Container>
           <Link to={"/"}>
-            <img src="/assets/icons/Navbar-logo.png" alt="IMG" width={150} />
+            <img src="/assets/icons/Navbar-logo.png" alt="IMG" width={120} />
           </Link>
           <Navbar.Toggle aria-controls="Header" />
           <Navbar.Collapse id="Header" className="mt-3 mt-lg-0">
-            <div className="search-items d-lg-flex align-items-center justify-content-center">
+            <div className="search-items location-drop-drown d-lg-flex align-items-center justify-content-center">
               <div className="dropdown-section mt-3 rounded-2">
                 <div className="second-dropdown dropdown mt-3 w-100">
                   <button
                     type="button"
-                    className="rounded-3 bg-transparent d-flex justify-content-between align-items-center dropdown-nav-btn"
+                    className="rounded-3 location-select bg-transparent d-flex justify-content-between align-items-center dropdown-nav-btn"
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                   >
                     <h5 className="fw-normal mb-0">Pakistan</h5>
                     <p className="nav-dropdown-btn mb-0">
-                      <BsChevronDown />
+                      <BsChevronDown size={12} />
                     </p>
                   </button>
                   <div className="dropdown-menu nav-menu">
@@ -110,8 +110,7 @@ export default function Header() {
                             Kyber Pakhtunkhwa, Pakistan
                           </p>
                           <p className="d-sm-none d-block">
-                            Kyber Pakhtunkhwa,
-                            <br /> Pakistan
+                            Kyber Pakhtunkhwa, Pakistan
                           </p>
                         </div>
                       </li>
