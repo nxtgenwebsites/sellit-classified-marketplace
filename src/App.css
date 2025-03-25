@@ -1,9 +1,3 @@
-@media (max-width > 1600px) { 
-  .category-menu {
-    width: 209vh !important;
-    left: -38% !important;
-  }
-}
 @media (max-width: 1600px) {
   .featured-ads {
     height: 550px !important;
@@ -12,11 +6,6 @@
   .tabs {
     width: 600px !important;
   }
-  
-  .category-menu {
-    width: 209vh !important;
-    left: -38% !important;
-  }
 }
 
 @media (max-width: 1400px) {
@@ -24,12 +13,9 @@
     margin-left: 10px;
   }
 
-  .category-menu {
-    width: 200vh !important;
+  .sub-category {
+    font-size: 14px;
   }
-    .sub-category {
-      font-size: 14px;
-    }
 }
 
 @media (max-width: 1200px) {

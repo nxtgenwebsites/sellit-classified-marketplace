@@ -46,8 +46,8 @@
   padding: 20px !important;
   display: flex;
   margin: 0.5rem 0 0 3rem !important;
-  width: 180vh;
-  left: -68% !important;
+  width: 1308px;
+  left: -28% !important;
 }
 
 .mt-n1 {
@@ -128,7 +128,7 @@
 }
 
 .popular-category-content-height {
-  height: 37vh;
+  height: 100%;
 }
 
 /* All Category dropdown end */

@@ -16,6 +16,7 @@ import BikesCard from "./Cards/BikesCard";
 import JobCard from "./Cards/JobCard";
 import FurnitureCard from "./Cards/FurnitureCard";
 import VehiclesCard from "./Cards/VehiclesCard";
+import BuisnessCard from "./Cards/BuisnessCard";
 
 export default function Categorydropdown() {
   const [show, setShow] = useState(false);
@@ -46,6 +47,7 @@ export default function Categorydropdown() {
                   <JobCard />
                   <FurnitureCard />
                   <VehiclesCard />
+                  <BuisnessCard />
                 </Row>
               </Dropdown.Menu>
             </Dropdown>
@@ -206,10 +208,6 @@ export default function Categorydropdown() {
                   </Offcanvas.Title>
                 </Offcanvas.Header>
                 <Offcanvas.Body>
-                  <div className="wrapper">
-                    <div className="categories-menu">
-                    </div>
-                  </div>
                 </Offcanvas.Body>
               </Offcanvas>
             </div>
