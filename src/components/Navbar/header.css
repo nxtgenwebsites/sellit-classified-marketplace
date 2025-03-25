@@ -31,7 +31,7 @@
   border: 1px solid #bdbebf !important;
   color: #fff;
   margin-top: -33px !important;
-  width: 100% !important;
+  width: 120px !important;
   height: 48px;
   padding: 13px 15px;
 }
@@ -49,9 +49,7 @@
 .nav-menu {
   background-color: #fff;
   border-radius: 4px;
-  box-shadow:
-    0 0 6px 0 rgba(0, 0, 0, 0.12),
-    0 6px 6px 0 rgba(0, 0, 0, 0.24);
+  box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.12), 0 6px 6px 0 rgba(0, 0, 0, 0.24);
   border: 0 !important;
 }
 
@@ -85,17 +83,25 @@
   width: 70% !important;
 }
 
+.location-select h5 {
+  font-size: 16px;
+}
+.location-select {
+  padding: 0 10px !important;
+  height: 44px !important;
+}
+
 .search-bar {
   width: 65% !important;
   margin: auto;
 }
 
 .search-bar input {
-  height: 48px;
+  height: 44px;
   border: 0;
   outline: 0;
   padding: 10px 10px;
-  font-size: 18px;
+  font-size: 16px;
   width: 100% !important;
 }
 
@@ -106,19 +112,39 @@
   display: grid;
   place-items: center;
   background: #324a9f;
-  height: 48px;
-  width: 58px;
+  height: 44px;
+  width: 44px;
   cursor: pointer;
+}
+.location-drop-drown {
+  display: none !important;
+}
+
+.location-drop-drown .dropdown-menu p {
+  font-size: 16px;
+  width: 200px !important;
+  margin: 0 0 !important;
+  font-family: "Roboto", sans-serif;
+}
+.location-drop-drown .dropdown-menu i {
+  font-size: 18px;
+}
+.location-drop-drown .dropdown-menu .location-content {
+  display: flex;
+  align-items: center;
+}
+.location-drop-drown .dropdown-menu .location-s-icon {
+  margin-right: 3px;
 }
 
 .search-icon {
-  font-size: 25px;
+  font-size: 20px;
   color: #fff;
 }
 
 .nav-icon {
   color: #fff;
-  font-size: 22px;
+  font-size: 20px;
   transition: 0.2s;
 }
 
