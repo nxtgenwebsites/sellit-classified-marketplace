@@ -110,8 +110,7 @@ export default function Header() {
                             Kyber Pakhtunkhwa, Pakistan
                           </p>
                           <p className="d-sm-none d-block">
-                            Kyber Pakhtunkhwa,
-                            <br /> Pakistan
+                            Kyber Pakhtunkhwa, Pakistan
                           </p>
                         </div>
                       </li>
