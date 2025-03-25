@@ -10,14 +10,11 @@ import { FaMotorcycle } from "react-icons/fa6";
 import { BsHouseDoor } from "react-icons/bs";
 import { IoBriefcaseOutline } from "react-icons/io5";
 import { FaHeadset } from "react-icons/fa6";
-import CategoryDropdownData from "./CategoryDropdownData.json"
+import CategoryDropdownData from "./CategoryDropdownData.json";
 import { Row } from "react-bootstrap";
 import MobileCard from "./Cards/MobileCard";
 
 export default function Categorydropdown() {
-  function Toggle() {
-    document.querySelector(".dropdown-btn img").classList.toggle("rotate");
-  }
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -36,11 +33,7 @@ export default function Categorydropdown() {
               >
                 ALL CATEGORIES{" "}
                 <span className="ms-1 dropdown-btn">
-                  <img
-                    src="assets/icons/chevron.svg"
-                    alt="IMG"
-                    onClick={Toggle}
-                  />
+                  <img src="assets/icons/chevron.svg" alt="IMG" />
                 </span>
               </Dropdown.Toggle>
               <Dropdown.Menu className="category-menu rounded-4">

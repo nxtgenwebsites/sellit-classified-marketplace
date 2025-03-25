@@ -101,7 +101,10 @@ export default function Featured_succesful_listing_page() {
                 </div>
                 <div className="second-successful-btn me-3">
                   <Link to={"/example"}>
-                    <button type="button" className="px-3 py-2 rounded-1 primary-button">
+                    <button
+                      type="button"
+                      className="px-3 py-2 rounded-1 secondary-button"
+                    >
                       See Example
                     </button>
                   </Link>

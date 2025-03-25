@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 export default function ServiceDropdown() {
   return (
@@ -32,5 +32,5 @@ export default function ServiceDropdown() {
         <option value="23">Other Services</option>
       </select>
     </div>
-  )
+  );
 }

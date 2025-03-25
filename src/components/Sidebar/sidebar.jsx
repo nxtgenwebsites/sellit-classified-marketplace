@@ -102,9 +102,7 @@ export default function sidebar() {
                   <i className="bi bi-geo-alt"></i>
                 </div>
                 <div className="location-content">
-                  <p>
-                    Kyber Pakhtunkhwa, Pakistan
-                  </p>
+                  <p>Kyber Pakhtunkhwa, Pakistan</p>
                 </div>
               </li>
             </a>

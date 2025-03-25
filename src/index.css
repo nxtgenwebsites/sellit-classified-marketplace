@@ -59,3 +59,20 @@ footer {
   background: #3a4fc4 !important;
   border-radius: 40px !important;
 }
+
+.secondary-button {
+  border: 1px solid #3a4fc4 !important;
+  background: #fff !important;
+  font-weight: 500 !important;
+  padding: 0.7rem 1.5rem !important;
+  font-size: 16px !important;
+  transition: 0.2s !important;
+  color: #000 !important;
+}
+
+.secondary-button:hover {
+  border: 1px solid transparent;
+  color: #fff !important;
+  background: #3a4fc4 !important;
+  border-radius: 40px !important;
+}

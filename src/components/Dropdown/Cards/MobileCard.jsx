@@ -1,5 +1,5 @@
-import React from 'react'
-import { Col } from 'react-bootstrap'
+import React from "react";
+import { Col } from "react-bootstrap";
 
 export default function MobileCard({ mobiles }) {
   return (
@@ -48,5 +48,5 @@ export default function MobileCard({ mobiles }) {
         </div>
       </Col>
     </div>
-  )
+  );
 }

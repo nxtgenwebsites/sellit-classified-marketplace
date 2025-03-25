@@ -279,7 +279,10 @@ export default function AddListstingContent() {
           </div>
           <div className="text-center mx-auto w-100 mt-3">
             <Link to={"/successful"} className="">
-              <button type="submit" className="rounded-3 nav-btn text-decoration-none primary-button">
+              <button
+                type="submit"
+                className="rounded-3 nav-btn text-decoration-none secondary-button"
+              >
                 Add Listings
               </button>
             </Link>
@@ -287,6 +290,6 @@ export default function AddListstingContent() {
         </form>
       </Container>
       {/* Form end */}
-    </div >
+    </div>
   );
 }

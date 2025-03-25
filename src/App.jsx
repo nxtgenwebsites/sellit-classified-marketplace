@@ -19,8 +19,8 @@ import FooterGrowPage from "./Pages/GrowPage";
 import FooterAdvertisePage from "./Pages/AdvertisePage";
 // Add Listing Pages
 import AddListingPage from "./Pages/AddListingPage";
-import Featured_succesful_listing_page from "./components/Add-Listing/Featured_succesful_listing_page"
-import Example from "./components/Add-Listing/Example"
+import Featured_succesful_listing_page from "./components/Add-Listing/Featured_succesful_listing_page";
+import Example from "./components/Add-Listing/Example";
 import "./App.css";
 
 function App() {
@@ -47,7 +47,10 @@ function App() {
           element={<FooterAdvertisePage />}
         />
         <Route path="/add-listing" element={<AddListingPage />} />
-        <Route path="/successful" element={<Featured_succesful_listing_page />} />
+        <Route
+          path="/successful"
+          element={<Featured_succesful_listing_page />}
+        />
         <Route path="/example" element={<Example />} />
       </Routes>
       <Footer />
