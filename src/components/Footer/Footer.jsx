@@ -42,49 +42,49 @@ export default function Footer() {
               <div className="footer-list">
                 <ul className="navbar-nav">
                   <li className="nav-item footer-item">
-                    <a href="#" className="nav-link footer-link footer-hover">
+                    <Link to={"/"} className="nav-link footer-link footer-hover">
                       Properties for Sale
-                    </a>
+                    </Link>
                   </li>
                   <li className="nav-item footer-item">
-                    <a href="#" className="nav-link footer-link footer-hover">
+                    <Link to={"/"} className="nav-link footer-link footer-hover">
                       Properties for Rent
-                    </a>
+                    </Link>
                   </li>
                   <li className="nav-item footer-item">
-                    <a href="#" className="nav-link footer-link footer-hover">
+                    <Link to={"/"} className="nav-link footer-link footer-hover">
                       New Cars for Sale
-                    </a>
+                    </Link>
                   </li>
                   <li className="nav-item footer-item">
-                    <a href="#" className="nav-link footer-link footer-hover">
+                    <Link to={"/"} className="nav-link footer-link footer-hover">
                       Used Cars for Sale
-                    </a>
+                    </Link>
                   </li>
                   <li className="nav-item footer-item">
-                    <a href="#" className="nav-link footer-link footer-hover">
+                    <Link to={"/"} className="nav-link footer-link footer-hover">
                       Mobile Phones
-                    </a>
+                    </Link>
                   </li>
                   <li className="nav-item footer-item">
-                    <a href="#" className="nav-link footer-link footer-hover">
+                    <Link to={"/"} className="nav-link footer-link footer-hover">
                       Electronics
-                    </a>
+                    </Link>
                   </li>
                   <li className="nav-item footer-item">
-                    <a href="#" className="nav-link footer-link footer-hover">
+                    <Link to={"/"} className="nav-link footer-link footer-hover">
                       Fashion / Clothing
-                    </a>
+                    </Link>
                   </li>
                   <li className="nav-item footer-item">
-                    <a href="#" className="nav-link footer-link footer-hover">
+                    <Link to={"/"} className="nav-link footer-link footer-hover">
                       Travel & Tours Deals
-                    </a>
+                    </Link>
                   </li>
                   <li className="nav-item footer-item">
-                    <a href="#" className="nav-link footer-link footer-hover">
+                    <Link to={"/"} className="nav-link footer-link footer-hover">
                       Fitness / Gym
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div>
@@ -96,9 +96,9 @@ export default function Footer() {
               <div className="footer-list">
                 <ul className="navbar-nav">
                   <li className="nav-item footer-item">
-                    <a href="#" className="nav-link footer-link footer-hover">
+                    <Link to={"/"} className="nav-link footer-link footer-hover">
                       Post a Free Classified Ad
-                    </a>
+                    </Link>
                   </li>
                   <li className="nav-item footer-item">
                     <Link
@@ -117,34 +117,34 @@ export default function Footer() {
                     </Link>
                   </li>
                   <li className="nav-item footer-item">
-                    <a href="#" className="nav-link footer-link footer-hover">
+                    <Link to={"/"} className="nav-link footer-link footer-hover">
                       Sellit Support Center
-                    </a>
+                    </Link>
                   </li>
                   <li className="nav-item footer-item">
-                    <a href="#" className="nav-link footer-link footer-hover">
+                    <Link to={"/"} className="nav-link footer-link footer-hover">
                       Latest News from Sellit
-                    </a>
+                    </Link>
                   </li>
                   <li className="nav-item footer-item">
-                    <a href="#" className="nav-link footer-link footer-hover">
+                    <Link to={"/"} className="nav-link footer-link footer-hover">
                       Website Analytics
-                    </a>
+                    </Link>
                   </li>
                   <li className="nav-item footer-item">
-                    <a href="#" className="nav-link footer-link footer-hover">
+                    <Link to={"/"} className="nav-link footer-link footer-hover">
                       Sitemap
-                    </a>
+                    </Link>
                   </li>
                   <li className="nav-item footer-item">
-                    <a href="#" className="nav-link footer-link footer-hover">
+                    <Link to={"/"} className="nav-link footer-link footer-hover">
                       Terms of Use
-                    </a>
+                    </Link>
                   </li>
                   <li className="nav-item footer-item">
-                    <a href="#" className="nav-link footer-link footer-hover">
+                    <Link to={"/"} className="nav-link footer-link footer-hover">
                       Privacy Policy
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div>
@@ -177,40 +177,40 @@ export default function Footer() {
               <div className="footer-list">
                 <ul className="d-flex gap-4 list-unstyled">
                   <li className="nav-item footer-item">
-                    <a
-                      href="https://www.facebook.com/SellitPakistan"
+                    <Link
+                      to={"https://www.facebook.com/SellitPakistan"}
                       target="_blank"
                       className="nav-link footer-link social-icons facebook"
                     >
                       <BsFacebook />
-                    </a>
+                    </Link>
                   </li>
                   <li className="nav-item footer-item">
-                    <a
-                      href="#"
+                    <Link
+                      to={"#"}
                       target="_blank"
                       className="nav-link footer-link social-icons instagram"
                     >
                       <BsInstagram />
-                    </a>
+                    </Link>
                   </li>
                   <li className="nav-item footer-item">
-                    <a
-                      href="https://www.linkedin.com/company/sellit-pakistan/"
+                    <Link
+                      to={"https://www.linkedin.com/company/sellit-pakistan/"}
                       target="_blank"
                       className="nav-link footer-link social-icons linkedin"
                     >
                       <BsLinkedin />
-                    </a>
+                    </Link>
                   </li>
                   <li className="nav-item footer-item">
-                    <a
-                      href="https://www.youtube.com/@SellitPakistan"
+                    <Link
+                      to={"https://www.youtube.com/@SellitPakistan"}
                       target="_blank"
                       className="nav-link footer-link social-icons youtube"
                     >
                       <BsYoutube />
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div>

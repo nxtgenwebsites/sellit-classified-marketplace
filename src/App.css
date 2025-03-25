@@ -6,9 +6,10 @@
   .tabs {
     width: 50% !important;
   }
-
+  
   .category-menu {
-    width: 190vh !important;
+    width: 209vh !important;
+    left: -38% !important;
   }
 }
 
@@ -22,8 +23,11 @@
   }
 
   .category-menu {
-    width: 180vh !important;
+    width: 200vh !important;
   }
+    .sub-category {
+      font-size: 14px;
+    }
 }
 
 @media (max-width: 1200px) {

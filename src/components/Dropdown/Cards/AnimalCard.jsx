@@ -1,5 +1,9 @@
 import React from "react";
 
 export default function AnimalCard() {
-  return <div></div>;
+  return (
+    <div>
+      
+    </div>
+  );
 }
