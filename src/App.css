@@ -13,8 +13,18 @@
     margin-left: 10px;
   }
 
+  .category-menu {
+      width: 1208px;
+  }
+
   .sub-category {
     font-size: 14px;
+  }
+}
+
+@media (max-width: 1300px) {
+  .category-menu {
+      width: 1150px;
   }
 }
 

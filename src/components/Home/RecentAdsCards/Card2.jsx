@@ -4,7 +4,7 @@ import Col from "react-bootstrap/Col";
 function Card2({ advertise }) {
   return (
     <Col lg={3} md={6}>
-      <div className="tab-card p-2 rounded-3">
+      <div className="tab-card p-2 rounded-3 shadow">
         <div className="tab-img">
           <img
             src={advertise.img}

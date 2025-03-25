@@ -12,7 +12,7 @@ function Card1({ ads }) {
 
   return (
     <Col lg={3} md={6}>
-      <div className="tab-card p-2 rounded-3">
+      <div className="tab-card p-2 rounded-3 shadow">
         <div className="tab-img">
           <img src={ads.img} alt="IMG" className="w-100 rounded-3" />
         </div>
@@ -34,7 +34,7 @@ function Card1({ ads }) {
                   <i className="bi bi-geo-alt"></i>
                 </div>
                 <div className="location-content">
-                  <h6 className="fw-medium">New York, USA</h6>
+                  <h6 className="fw-medium mb-0">New York, USA</h6>
                 </div>
               </div>
               <div className="rating d-flex gap-2 align-items-center">
@@ -42,7 +42,7 @@ function Card1({ ads }) {
                   <IoTimeOutline />
                 </div>
                 <div className="rating-content">
-                  <h6 className="fw-medium">5 days ago</h6>
+                  <h6 className="fw-medium mb-0">5 days ago</h6>
                 </div>
               </div>
             </div>

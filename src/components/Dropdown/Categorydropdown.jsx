@@ -17,6 +17,7 @@ import JobCard from "./Cards/JobCard";
 import FurnitureCard from "./Cards/FurnitureCard";
 import VehiclesCard from "./Cards/VehiclesCard";
 import BuisnessCard from "./Cards/BuisnessCard";
+import PropertySaleCard from "./Cards/PropertySaleCard";
 
 export default function Categorydropdown() {
   const [show, setShow] = useState(false);
@@ -48,6 +49,7 @@ export default function Categorydropdown() {
                   <FurnitureCard />
                   <VehiclesCard />
                   <BuisnessCard />
+                  <PropertySaleCard />
                 </Row>
               </Dropdown.Menu>
             </Dropdown>

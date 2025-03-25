@@ -1,11 +1,11 @@
 /* Start Buisness start */
 .buisness-second-card {
-  border: 1px solid #cecece;
+  border: 1px solid transparent;
+  background: #fff;
   transition: 0.2s linear !important;
 }
 .buisness-second-card:hover {
   box-shadow: 0 5px 5px #dcdcdc;
-  border: 1px solid transparent;
 }
 
 .buisness-second-card p {

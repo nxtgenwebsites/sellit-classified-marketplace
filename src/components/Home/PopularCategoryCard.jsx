@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 function PopularCategoryCard({ category }) {
   return (
     <Col lg={3} md={6}>
-      <div className="popular-category-card p-3 rounded-4">
+      <div className="popular-category-card p-3 rounded-4 shadow">
         <div className="popular-category-heading d-flex gap-3 align-items-center">
           <div className="title-icon">
             <i className={category.icon}></i>

@@ -28,7 +28,8 @@
 /* Nav Tabs end */
 /* Tab  content start */
 .tab-card {
-  border: 1px solid #3a4fc4;
+  background: #fff;
+  
   position: relative;
 }
 

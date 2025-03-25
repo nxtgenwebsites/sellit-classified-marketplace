@@ -7,6 +7,10 @@
   font-family: "Roboto", sans-serif;
 }
 
+body {
+  background: #f8f8f8 !important;
+}
+
 section,
 footer {
   padding: 3rem 0;
@@ -63,7 +67,7 @@ footer {
 }
 
 .secondary-button {
-  border: 1px solid #3a4fc4 !important;
+  border: 0 !important;
   background: #fff !important;
   font-weight: 500 !important;
   padding: 0.7rem 1.5rem !important;
@@ -71,6 +75,7 @@ footer {
   transition: 0.2s linear !important;
   color: #000 !important;
   border-radius: 10px;
+  box-shadow: var(--bs-box-shadow) !important;
 }
 
 .secondary-button:hover {

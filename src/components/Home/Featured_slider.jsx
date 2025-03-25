@@ -87,7 +87,7 @@ export default function Featured_slider() {
                       <BsGeoAlt className="location-icon" />
                     </div>
                     <div className="location-content">
-                      <h6 className="fw-medium">New York, USA</h6>
+                      <h6 className="fw-medium mb-0">New York, USA</h6>
                     </div>
                   </div>
                   <div className="rating d-flex gap-2 align-items-center w-100">
@@ -95,7 +95,7 @@ export default function Featured_slider() {
                       <IoTimeOutline />
                     </div>
                     <div className="rating-content">
-                      <h6 className="fw-medium">5 days ago</h6>
+                      <h6 className="fw-medium mb-0">5 days ago</h6>
                     </div>
                   </div>
                 </div>

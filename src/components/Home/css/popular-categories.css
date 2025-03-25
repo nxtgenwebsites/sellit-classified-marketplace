@@ -1,6 +1,5 @@
 /* Popular Category start */
 .popular-category-card {
-  border: 1px solid #ecedee;
   transition: 0.2s linear !important;
 }
 
@@ -48,10 +47,6 @@
 
 .sub-category-divider {
   font-weight: 500;
-}
-
-.popular-category-card:hover {
-  box-shadow: 0 5px 5px #dcdcdc;
 }
 
 .menu_link {
