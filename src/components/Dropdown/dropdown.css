@@ -46,6 +46,8 @@
   padding: 20px !important;
   display: flex;
   margin: 0.5rem 0 0 3rem !important;
+  width: 180vh;
+  left: -68% !important;
 }
 
 .mt-n1 {
@@ -124,9 +126,11 @@
 .popular-category-card:hover {
   box-shadow: 0 5px 5px #dcdcdc;
 }
+
 .popular-category-content-height {
   height: 37vh;
 }
+
 /* All Category dropdown end */
 /* Other Category Dropdown start */
 .category_link {

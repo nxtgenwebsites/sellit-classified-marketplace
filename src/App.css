@@ -1,3 +1,9 @@
+@media (max-width > 1600px) { 
+  .category-menu {
+    width: 209vh !important;
+    left: -38% !important;
+  }
+}
 @media (max-width: 1600px) {
   .featured-ads {
     height: 550px !important;
