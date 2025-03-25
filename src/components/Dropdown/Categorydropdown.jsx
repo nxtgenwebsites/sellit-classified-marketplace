@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import "./dropdown.css";
 import Dropdown from "react-bootstrap/Dropdown";
 import { Link } from "react-router-dom";
-import Offcanvas from "react-bootstrap/Offcanvas";
-import Button from "react-bootstrap/Button";
 import { CiMobile3 } from "react-icons/ci";
 import { IoCarSportOutline } from "react-icons/io5";
 import { FaMotorcycle } from "react-icons/fa6";
@@ -18,12 +16,11 @@ import FurnitureCard from "./Cards/FurnitureCard";
 import VehiclesCard from "./Cards/VehiclesCard";
 import BuisnessCard from "./Cards/BuisnessCard";
 import PropertySaleCard from "./Cards/PropertySaleCard";
+import PropertyRentCard from "./Cards/PropertyRentCard";
+import ServicesCard from "./Cards/ServicesCard";
+import KidsCard from "./Cards/KidsCard";
 
 export default function Categorydropdown() {
-  const [show, setShow] = useState(false);
-
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
   return (
     <div>
       <div className="d-block-dropdown mt-3">
@@ -41,7 +38,7 @@ export default function Categorydropdown() {
                   <img src="assets/icons/chevron.svg" alt="IMG" />
                 </span>
               </Dropdown.Toggle>
-              <Dropdown.Menu className="category-menu rounded-4">
+              <Dropdown.Menu className="category-menu rounded-4 shadow bg-white border-0">
                 <Row className="row-gap-3 text-center">
                   <MobileCard />
                   <BikesCard />
@@ -50,6 +47,9 @@ export default function Categorydropdown() {
                   <VehiclesCard />
                   <BuisnessCard />
                   <PropertySaleCard />
+                  <PropertyRentCard />
+                  <ServicesCard />
+                  <KidsCard />
                 </Row>
               </Dropdown.Menu>
             </Dropdown>
@@ -187,31 +187,6 @@ export default function Categorydropdown() {
                   </Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
-              <Button
-                onClick={handleShow}
-                className="bg-transparent border-0 d-xl-none offcanvas-btn ps-2"
-              >
-                <span>See All</span>
-              </Button>
-              <Offcanvas
-                show={show}
-                onHide={handleClose}
-                className="p-2 header-offcanvas d-xl-none"
-              >
-                <Offcanvas.Header closeButton>
-                  <Offcanvas.Title>
-                    <h1 className="offcanvas-title">
-                      <img
-                        src="/assets/icons/Offcanvas-logo.png"
-                        alt="IMG"
-                        width={200}
-                      />
-                    </h1>
-                  </Offcanvas.Title>
-                </Offcanvas.Header>
-                <Offcanvas.Body>
-                </Offcanvas.Body>
-              </Offcanvas>
             </div>
           </div>
         </div>

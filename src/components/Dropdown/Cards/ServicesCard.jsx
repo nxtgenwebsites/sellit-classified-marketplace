@@ -1,24 +1,24 @@
 import React from "react";
 import { Col } from "react-bootstrap";
+import { IoHardwareChipOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
-import { HiOutlineHome } from "react-icons/hi2";
 
-export default function PropertyRentCard() {
+export default function ServicesCard() {
   return (
     <Col lg={3} md={6}>
       <div className="popular-category-card p-3 rounded-4 popular-category-content-height">
         <div className="popular-category-heading d-flex gap-3 align-items-center">
           <div className="title-icon">
-            <HiOutlineHome />
+            <IoHardwareChipOutline />
           </div>
           <div className="title-content">
-            <h5>Property For Rent</h5>
+            <h5>Electronics</h5>
           </div>
         </div>
         <div className="popular-category-content d-flex flex-wrap gap-1 mt-3 w-100">
           <div className="sub-item">
             <Link to={"/"} className="text-decoration-none sub-category">
-              Houses
+              Generators & Power Solutions
             </Link>
           </div>
           <div className="seperator">
@@ -26,7 +26,7 @@ export default function PropertyRentCard() {
           </div>
           <div className="sub-item">
             <Link to={"/"} className="text-decoration-none sub-category">
-              Portions & Floors
+              Ac & Coolers
             </Link>
           </div>
           <div className="seperator">
@@ -34,7 +34,7 @@ export default function PropertyRentCard() {
           </div>
           <div className="sub-item">
             <Link to={"/"} className="text-decoration-none sub-category">
-              Apartements & Flats
+              Kitchen Appliances
             </Link>
           </div>
           <div className="seperator">
@@ -42,7 +42,7 @@ export default function PropertyRentCard() {
           </div>
           <div className="sub-item">
             <Link to={"/"} className="text-decoration-none sub-category">
-              Shops - Offices - Commercial Space
+              Washing Machines & Dryers
             </Link>
           </div>
           <div className="seperator">
@@ -50,7 +50,7 @@ export default function PropertyRentCard() {
           </div>
           <div className="sub-item">
             <Link to={"/"} className="text-decoration-none sub-category">
-              Rooms
+              Fans
             </Link>
           </div>
           <div className="seperator">
@@ -58,7 +58,7 @@ export default function PropertyRentCard() {
           </div>
           <div className="sub-item">
             <Link to={"/"} className="text-decoration-none sub-category">
-              Roomates & Paying Guests
+              Heaters & Geysers
             </Link>
           </div>
           <div className="seperator">
@@ -66,12 +66,39 @@ export default function PropertyRentCard() {
           </div>
           <div className="sub-item">
             <Link to={"/"} className="text-decoration-none sub-category">
-              Vacation Rentals - Guest Houses
+              Microwaves
             </Link>
+          </div>
+          <div className="seperator">
+            /
           </div>
           <div className="sub-item">
             <Link to={"/"} className="text-decoration-none sub-category">
-              Land & Plots
+              Sewing Machines
+            </Link>
+          </div>
+          <div className="seperator">
+            /
+          </div>
+          <div className="sub-item">
+            <Link to={"/"} className="text-decoration-none sub-category">
+              Irons & Steamers
+            </Link>
+          </div>
+          <div className="seperator">
+            /
+          </div>
+          <div className="sub-item">
+            <Link to={"/"} className="text-decoration-none sub-category">
+              Water Dispensers
+            </Link>
+          </div>
+          <div className="seperator">
+            /
+          </div>
+          <div className="sub-item">
+            <Link to={"/"} className="text-decoration-none sub-category">
+              Air Purifiers & Humidifiers
             </Link>
           </div>
         </div>
