@@ -59,6 +59,7 @@
 
 .product-name {
   color: #4c4d52;
+  font-size: 18px;
 }
 
 .locate {
@@ -131,7 +132,7 @@
 
 .user-content h2 {
   color: #3a4fc4;
-  font-size: 28px;
+  font-size: 22px;
 }
 
 .swiper-pagination-bullet {

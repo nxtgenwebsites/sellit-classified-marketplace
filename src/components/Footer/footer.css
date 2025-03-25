@@ -14,7 +14,8 @@
 
 .footer-link {
   padding: 3px 0 !important;
-  font-size: 15.5px !important;
+  font-size: 14px !important;
+  letter-spacing: .5px;
 }
 
 .footer-row {
@@ -22,7 +23,7 @@
 }
 
 .footer-hover:hover {
-  color: #00a49f !important;
+  color: #c2c2c2 !important;
 }
 
 .form-group input {
@@ -53,7 +54,7 @@
 }
 
 .footer-content {
-  font-size: 18px !important;
+  font-size: 16px !important;
   font-weight: 400;
 }
 

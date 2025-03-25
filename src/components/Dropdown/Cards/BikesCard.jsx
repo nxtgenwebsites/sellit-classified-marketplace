@@ -4,8 +4,8 @@ import { RiMotorbikeFill } from "react-icons/ri";
 import { Link } from "react-router-dom";
 export default function BikesCard() {
   return (
-    <Col lg={4} md={6}>
-      <div className="popular-category-card p-3 rounded-4">
+    <Col lg={3} md={6}>
+      <div className="popular-category-card p-3 rounded-4 popular-category-content-height">
         <div className="popular-category-heading d-flex gap-3 align-items-center">
           <div className="title-icon">
             <RiMotorbikeFill />
@@ -14,7 +14,7 @@ export default function BikesCard() {
             <h5>Motorcycles</h5>
           </div>
         </div>
-        <div className="popular-category-content d-flex gap-1 mt-3 w-100">
+        <div className="popular-category-content d-flex flex-wrap gap-1 mt-3 w-100">
           <div className="sub-item">
             <Link to={"/"} className="text-decoration-none sub-category">
               Motorcycles
@@ -47,8 +47,6 @@ export default function BikesCard() {
           <div className="seperator">
             /
           </div>
-        </div>
-        <div className="popular-category-content d-flex gap-1 mt-1 w-100">
           <div className="sub-item">
             <Link to={"/"} className="text-decoration-none sub-category">
               ATVs & Quads

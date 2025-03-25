@@ -28,11 +28,13 @@
 .title-content h6 {
   color: #b6b9be;
   font-weight: 500;
+  font-size: 14px;
 }
 
 .title-content h5 {
   font-weight: 500;
   color: #4a4d54;
+  font-size: 18px;
 }
 
 .sub-category {
@@ -58,7 +60,7 @@
   position: relative;
   padding-right: 4px;
   text-decoration: none !important;
-  font-size: 20px;
+  font-size: 14px;
 }
 
 .popular-category-card:hover .arrow {

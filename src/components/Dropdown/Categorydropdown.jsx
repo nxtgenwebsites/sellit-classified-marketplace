@@ -15,6 +15,7 @@ import MobileCard from "./Cards/MobileCard";
 import BikesCard from "./Cards/BikesCard";
 import JobCard from "./Cards/JobCard";
 import FurnitureCard from "./Cards/FurnitureCard";
+import VehiclesCard from "./Cards/VehiclesCard";
 
 export default function Categorydropdown() {
   const [show, setShow] = useState(false);
@@ -39,11 +40,12 @@ export default function Categorydropdown() {
                 </span>
               </Dropdown.Toggle>
               <Dropdown.Menu className="category-menu rounded-4">
-                <Row className="row-gap-3">
+                <Row className="row-gap-3 text-center">
                   <MobileCard />
                   <BikesCard />
                   <JobCard />
                   <FurnitureCard />
+                  <VehiclesCard />
                 </Row>
               </Dropdown.Menu>
             </Dropdown>

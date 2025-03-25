@@ -80,7 +80,7 @@ export default function Featured_slider() {
               </div>
               <div className="featured-content mt-3 px-3">
                 <h6 className="fw-medium my-2 category">{card.tag}</h6>
-                <h5 className="fw-semibold product-name">{card.name}</h5>
+                <h5 className="fw-medium product-name">{card.name}</h5>
                 <div className="rating-and-icons gap-2 text-center d-flex mt-3 align-items-center">
                   <div className="location d-flex gap-2 align-items-center w-100">
                     <div className="locate rounded-circle">

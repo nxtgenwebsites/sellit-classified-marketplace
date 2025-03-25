@@ -4,7 +4,7 @@
   }
 
   .tabs {
-    width: 100% !important;
+    width: 600px !important;
   }
   
   .category-menu {
@@ -14,10 +14,6 @@
 }
 
 @media (max-width: 1400px) {
-  .tabs {
-    width: 60% !important;
-  }
-
   .navbar-list {
     margin-left: 10px;
   }
@@ -38,10 +34,6 @@
 
   .category-menu {
     display: none !important;
-  }
-
-  .tabs {
-    width: 70% !important;
   }
 
   .dropdown-section {
@@ -66,10 +58,6 @@
 }
 
 @media (max-width: 992px) {
-  .tabs {
-    width: 80% !important;
-  }
-
   .nav-btn {
     font-size: 16px !important;
     padding: 0.5rem !important;
@@ -201,7 +189,6 @@
 
   .tabs {
     width: 100% !important;
-    margin: 0 !important;
   }
 
   .buy-tabs button {

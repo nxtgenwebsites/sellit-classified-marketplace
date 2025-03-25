@@ -230,8 +230,8 @@ function RecentlyAds() {
               </Row>
             </div>
           </div>
-          <div className="load-more-btn text-center">
-            <button type="button">Load More</button>
+          <div className="text-center">
+            <button type="button" className="secondary-button">Load More</button>
           </div>
         </Container>
       </section>

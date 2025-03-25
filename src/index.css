@@ -51,8 +51,9 @@ footer {
   font-weight: 500 !important;
   padding: 0.7rem 1.5rem !important;
   font-size: 16px !important;
-  transition: 0.2s !important;
+  transition: 0.2s linear !important;
   color: #000 !important;
+  border-radius: 10px;
 }
 
 .primary-button:hover {
@@ -67,8 +68,9 @@ footer {
   font-weight: 500 !important;
   padding: 0.7rem 1.5rem !important;
   font-size: 16px !important;
-  transition: 0.2s !important;
+  transition: 0.2s linear !important;
   color: #000 !important;
+  border-radius: 10px;
 }
 
 .secondary-button:hover {
