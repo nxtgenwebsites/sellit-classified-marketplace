@@ -20,7 +20,7 @@
 
 .infinte-carousel img {
   float: left;
-  width: 100%;
+  width: 80%;
 }
 
 @keyframes marquee {
@@ -34,11 +34,11 @@
 }
 
 .marquee-heading {
-  margin-bottom: 6rem;
+  margin-bottom: 3.5rem;
 }
 
 .marquee-heading h1 {
-  font-size: 60px;
+  font-size: 50px;
   text-decoration: underline;
   font-family: "Montserrat", serif;
   font-weight: 900 !important;

@@ -104,8 +104,13 @@
   border-radius: 50%;
   transition: 0.2s linear;
 }
+
 .heart:hover {
   background: #3a4fc4 !important;
+}
+
+.buy-tabs button{
+  font-size: 16px !important;
 }
 
 .bg-change {
