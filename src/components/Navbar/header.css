@@ -126,22 +126,6 @@
   color: #324a9f;
 }
 
-.nav-btn {
-  border: 0 !important;
-  background: #fff !important;
-  font-weight: 500 !important;
-  padding: 0.7rem 1rem !important;
-  font-size: 16px !important;
-  transition: 0.2s !important;
-  color: #000 !important;
-}
-
-.nav-btn:hover {
-  color: #fff !important;
-  background: #3a4fc4 !important;
-  border-radius: 40px !important;
-}
-
 .navbar-toggler {
   border: 0 !important;
   outline: 0 !important;

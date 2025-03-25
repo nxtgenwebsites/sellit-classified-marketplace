@@ -109,7 +109,7 @@ function RecentlyAds() {
               role="tabpanel"
               aria-labelledby="raw-tab"
             >
-              <Row className="row-gap-3">
+              <Row className="row-gap-3 gx-3">
                 {RecentCardData.recentAds.map((ads, i) => (
                   <Card1 ads={ads} key={i} />
                 ))}
@@ -130,7 +130,7 @@ function RecentlyAds() {
               role="tabpanel"
               aria-labelledby="isl-tab"
             >
-              <Row className="row-gap-3">
+              <Row className="row-gap-3 gx-3">
                 {RecentCardData.recentAds.map((ads, i) => (
                   <Card1 ads={ads} key={i} />
                 ))}
@@ -151,7 +151,7 @@ function RecentlyAds() {
               role="tabpanel"
               aria-labelledby="lah-tab"
             >
-              <Row className="row-gap-3">
+              <Row className="row-gap-3 gx-3">
                 {RecentCardData.recentAds.map((ads, i) => (
                   <Card1 ads={ads} key={i} />
                 ))}
@@ -172,7 +172,7 @@ function RecentlyAds() {
               role="tabpanel"
               aria-labelledby="mul-tab"
             >
-              <Row className="row-gap-3">
+              <Row className="row-gap-3 gx-3">
                 {RecentCardData.recentAds.map((ads, i) => (
                   <Card1 ads={ads} key={i} />
                 ))}
@@ -193,7 +193,7 @@ function RecentlyAds() {
               role="tabpanel"
               aria-labelledby="kar-tab"
             >
-              <Row className="row-gap-3">
+              <Row className="row-gap-3 gx-3">
                 {RecentCardData.recentAds.map((ads, i) => (
                   <Card1 ads={ads} key={i} />
                 ))}
@@ -214,7 +214,7 @@ function RecentlyAds() {
               role="tabpanel"
               aria-labelledby="kpk-tab"
             >
-              <Row className="row-gap-3">
+              <Row className="row-gap-3 gx-3">
                 {RecentCardData.recentAds.map((ads, i) => (
                   <Card1 ads={ads} key={i} />
                 ))}

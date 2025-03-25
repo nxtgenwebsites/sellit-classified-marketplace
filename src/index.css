@@ -43,3 +43,19 @@ footer {
   outline: 0;
   border: 1px solid #3a4fc4;
 }
+
+.primary-button {
+  border: 0 !important;
+  background: #fff !important;
+  font-weight: 500 !important;
+  padding: 0.7rem 1.5rem !important;
+  font-size: 16px !important;
+  transition: 0.2s !important;
+  color: #000 !important;
+}
+
+.primary-button:hover {
+  color: #fff !important;
+  background: #3a4fc4 !important;
+  border-radius: 40px !important;
+}

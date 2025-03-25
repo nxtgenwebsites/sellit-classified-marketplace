@@ -168,7 +168,7 @@ export default function Header() {
               </Nav.Link>
             </Nav>
             <Link to={"/add-listing"}>
-              <Button type="button" className="rounded-3 nav-btn">
+              <Button type="button" className="rounded-3 primary-button">
                 Add Listings
               </Button>
             </Link>

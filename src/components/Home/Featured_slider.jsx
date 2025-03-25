@@ -57,7 +57,7 @@ export default function Featured_slider() {
       >
         {FeaturedAdsData.map((card, i) => (
           <SwiperSlide className="featured-slide" key={i}>
-            <div className="featured-card position-relative p-2 rounded-3 w-100">
+            <div className="featured-card shadow position-relative p-2 rounded-3 w-100">
               <div className="featured-label px-2 py-1 rounded-2">
                 <h6 className="fw-bold text-white">
                   <MdOutlineStarPurple500 className="featured-icon" />
@@ -78,11 +78,11 @@ export default function Featured_slider() {
                   className="img-fluid w-100 rounded-3"
                 />
               </div>
-              <div className="featured-content mt-3">
+              <div className="featured-content mt-3 px-3">
                 <h6 className="fw-medium my-2 category">{card.tag}</h6>
                 <h5 className="fw-semibold product-name">{card.name}</h5>
-                <div className="rating-and-icons gap-4 text-center d-flex mt-3 align-items-center">
-                  <div className="location d-flex gap-3 align-items-center">
+                <div className="rating-and-icons gap-2 text-center d-flex mt-3 align-items-center">
+                  <div className="location d-flex gap-2 align-items-center w-100">
                     <div className="locate rounded-circle">
                       <BsGeoAlt className="location-icon" />
                     </div>
@@ -90,7 +90,7 @@ export default function Featured_slider() {
                       <h6 className="fw-medium">New York, USA</h6>
                     </div>
                   </div>
-                  <div className="rating d-flex gap-3 align-items-center">
+                  <div className="rating d-flex gap-2 align-items-center w-100">
                     <div className="rating-icon rounded-circle">
                       <IoTimeOutline />
                     </div>

@@ -6,6 +6,11 @@
   .tabs {
     width: 50% !important;
   }
+
+  .category-menu {
+    width: 190vh !important;
+  }
+
 }
 
 @media (max-width: 1400px) {
@@ -15,6 +20,10 @@
 
   .navbar-list {
     margin-left: 10px;
+  }
+
+  .category-menu {
+    width: 180vh !important;
   }
 }
 
@@ -95,9 +104,11 @@
     background: #ededed;
     margin: 2% auto;
   }
-.success-content {
-  padding-left: 0 ;
-}
+
+  .success-content {
+    padding-left: 0;
+  }
+
   .page-img {
     width: 100%;
   }

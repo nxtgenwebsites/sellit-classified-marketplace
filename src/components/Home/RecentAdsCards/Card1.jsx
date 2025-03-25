@@ -25,7 +25,7 @@ function Card1({ ads }) {
               <BsHeart />
             </div>
           </div>
-          <div className="buy-sell-content mt-3">
+          <div className="buy-sell-content mt-3 px-3">
             <h6 className="fw-medium my-2 category">{ads.tag}</h6>
             <h5 className="fw-semibold product-name">{ads.name}</h5>
             <div className="rating-and-icons gap-3 text-center d-flex mt-3 align-items-center">
