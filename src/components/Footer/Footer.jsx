@@ -159,7 +159,7 @@ export default function Footer() {
                     type="email"
                     required
                     placeholder="Enter your email address"
-                    className="w-100"
+                    className="w-100 email-input"
                   />
                 </div>
                 <div className="form-group">

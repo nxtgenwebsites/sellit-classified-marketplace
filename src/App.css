@@ -326,4 +326,7 @@
   .featured-ads {
     height: 500px !important;
   }
+  .email-input {
+    font-size: 14px;
+  }
 }
