@@ -83,8 +83,8 @@ export default function Featured_slider() {
                 <h5 className="fw-medium product-name">{card.name}</h5>
                 <div className="rating-and-icons gap-2 text-center d-flex mt-3 align-items-center">
                   <div className="location d-flex gap-2 align-items-center w-100">
-                    <div className="locate rounded-circle">
-                      <BsGeoAlt className="location-icon" />
+                    <div className="location-icon rounded-circle">
+                      <BsGeoAlt className="locate-icon" />
                     </div>
                     <div className="location-content">
                       <h6 className="fw-medium mb-0">New York, USA</h6>

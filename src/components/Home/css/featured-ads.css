@@ -79,6 +79,14 @@
   font-size: 12px;
 }
 
+.location-icon {
+  width: 35px;
+  height: 35px;
+  background: #faf5f2;
+  display: grid;
+  place-items: center;
+}
+
 .rating-icon {
   width: 35px;
   height: 35px;
@@ -110,13 +118,14 @@
   background: #3a4fc4 !important;
 }
 
-.buy-tabs button{
+.buy-tabs button {
   font-size: 16px !important;
 }
 
 .bg-change {
   background: #3a4fc4 !important;
 }
+
 .fav-and-watch {
   position: absolute;
   z-index: 3;
