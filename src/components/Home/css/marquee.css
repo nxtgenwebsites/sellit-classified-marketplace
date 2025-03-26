@@ -17,10 +17,12 @@
   overflow: hidden;
   animation: marquee 15000ms linear infinite;
 }
-
+.infinte-carousel-item {
+  width: 70% !important;
+}
 .infinte-carousel img {
   float: left;
-  width: 80%;
+  width: 100%;
 }
 
 @keyframes marquee {

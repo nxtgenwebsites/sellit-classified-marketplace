@@ -1,6 +1,6 @@
 import React from "react";
 import { Col } from "react-bootstrap";
-import { IoHardwareChipOutline } from "react-icons/io5";
+import { MdOutlineHeadsetMic } from "react-icons/md";
 import { Link } from "react-router-dom";
 
 export default function ServicesCard() {
@@ -9,16 +9,16 @@ export default function ServicesCard() {
       <div className="popular-category-card p-3 rounded-4 popular-category-content-height">
         <div className="popular-category-heading d-flex gap-3 align-items-center">
           <div className="title-icon">
-            <IoHardwareChipOutline />
+            <MdOutlineHeadsetMic />
           </div>
           <div className="title-content">
-            <h5>Electronics</h5>
+            <h5>Services</h5>
           </div>
         </div>
         <div className="popular-category-content d-flex flex-wrap gap-1 mt-3 w-100">
           <div className="sub-item">
             <Link to={"/"} className="text-decoration-none sub-category">
-              Generators & Power Solutions
+              Home & Office Repair
             </Link>
           </div>
           <div className="seperator">
@@ -26,7 +26,7 @@ export default function ServicesCard() {
           </div>
           <div className="sub-item">
             <Link to={"/"} className="text-decoration-none sub-category">
-              Ac & Coolers
+              Electronics & Computer Repair
             </Link>
           </div>
           <div className="seperator">
@@ -34,7 +34,7 @@ export default function ServicesCard() {
           </div>
           <div className="sub-item">
             <Link to={"/"} className="text-decoration-none sub-category">
-              Kitchen Appliances
+              Car Rental
             </Link>
           </div>
           <div className="seperator">
@@ -42,7 +42,7 @@ export default function ServicesCard() {
           </div>
           <div className="sub-item">
             <Link to={"/"} className="text-decoration-none sub-category">
-              Washing Machines & Dryers
+              Domestics Help
             </Link>
           </div>
           <div className="seperator">
@@ -50,7 +50,7 @@ export default function ServicesCard() {
           </div>
           <div className="sub-item">
             <Link to={"/"} className="text-decoration-none sub-category">
-              Fans
+              Web Development
             </Link>
           </div>
           <div className="seperator">
@@ -58,7 +58,7 @@ export default function ServicesCard() {
           </div>
           <div className="sub-item">
             <Link to={"/"} className="text-decoration-none sub-category">
-              Heaters & Geysers
+              Construction Services
             </Link>
           </div>
           <div className="seperator">
@@ -66,7 +66,7 @@ export default function ServicesCard() {
           </div>
           <div className="sub-item">
             <Link to={"/"} className="text-decoration-none sub-category">
-              Microwaves
+              Health & Beauty
             </Link>
           </div>
           <div className="seperator">
@@ -74,7 +74,7 @@ export default function ServicesCard() {
           </div>
           <div className="sub-item">
             <Link to={"/"} className="text-decoration-none sub-category">
-              Sewing Machines
+              Consultancy Services
             </Link>
           </div>
           <div className="seperator">
@@ -82,23 +82,7 @@ export default function ServicesCard() {
           </div>
           <div className="sub-item">
             <Link to={"/"} className="text-decoration-none sub-category">
-              Irons & Steamers
-            </Link>
-          </div>
-          <div className="seperator">
-            /
-          </div>
-          <div className="sub-item">
-            <Link to={"/"} className="text-decoration-none sub-category">
-              Water Dispensers
-            </Link>
-          </div>
-          <div className="seperator">
-            /
-          </div>
-          <div className="sub-item">
-            <Link to={"/"} className="text-decoration-none sub-category">
-              Air Purifiers & Humidifiers
+              Insurance Services
             </Link>
           </div>
         </div>
