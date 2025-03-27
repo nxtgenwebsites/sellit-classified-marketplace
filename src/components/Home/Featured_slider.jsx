@@ -4,7 +4,7 @@ import { A11y, Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import "../Home/css/featured-ads.css";
+import "./css/home.css";
 import FeaturedAdsData from "./data/FeaturedAdsData.json";
 import { MdOutlineStarPurple500 } from "react-icons/md";
 import { IoTimeOutline } from "react-icons/io5";

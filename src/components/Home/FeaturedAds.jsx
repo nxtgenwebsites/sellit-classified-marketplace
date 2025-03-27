@@ -1,5 +1,5 @@
 import React from "react";
-import "../Home/css/featured-ads.css";
+import "./css/home.css";
 import Featured_slider from "./Featured_slider";
 
 export default function FeaturedAds() {
