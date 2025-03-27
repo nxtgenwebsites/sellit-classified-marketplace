@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../Home/css/mobile-css.css";
+import "../Home/css/home.css";
 import { Col, Row } from "react-bootstrap";
 import Card from "./CategoryCards/Property/Card";
 import CategoryContentData from "./data/CategoryContentData.json";
