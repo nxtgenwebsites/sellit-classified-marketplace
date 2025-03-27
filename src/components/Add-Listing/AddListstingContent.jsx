@@ -105,9 +105,9 @@ export default function AddListstingContent() {
 
         {/* Form */}
         <form>
-          <div className="forms-group p-4 my-3 rounded-2">
+          <div className="forms-group p-4 my-3 rounded-3 shadow">
             <div className="form-category">
-              <div className="main-div d-lg-flex gap-2 w-100 mb-4">
+              <div className="main-div  d-lg-flex gap-2 w-100 mb-4">
                 <div className="main w-100">
                   <select
                     ref={mainCategory}
@@ -271,10 +271,10 @@ export default function AddListstingContent() {
               <Kids_ />
             </div>
           </div>
-          <div className="forms_second-group p-4 my-3 rounded-2 bg-white">
+          <div className="forms_second-group p-4 my-3 rounded-3 bg-white shadow">
             <SecondMain />
           </div>
-          <div className="forms_third-group p-4 my-3 rounded-2 bg-white">
+          <div className="forms_third-group p-4 my-3 rounded-3 bg-white shadow">
             <ThirdMain />
           </div>
           <div className="text-center mx-auto w-100 mt-3">
