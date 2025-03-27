@@ -55,7 +55,7 @@ export default function AdvertisePage() {
                 required
               ></textarea>
             </div>
-            <div className="advertise-group mt-2 d-flex justify-content-center align-items-center">
+            <div className="advertise-group mt-2 d-flex justify-content-center align-items-center flex-wrap recaptcha">
               <ReCAPTCHA
                 sitekey="6LeAwskqAAAAACR4EhOoo6i4z2SflKyZvEFYQaC0"
                 onChange={handleCaptchaChange}

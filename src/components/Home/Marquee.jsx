@@ -1,5 +1,5 @@
 import React from "react";
-import "../Home/css/marquee.css";
+import "./css/home.css";
 
 const Marquee = () => {
   return (
@@ -18,7 +18,7 @@ const Marquee = () => {
                 <img src="assets/icons/Nike.png" alt="IMG" />
               </div>
               <div className="infinte-carousel-item">
-                <img src="assets/icons/Spotify.jpg" alt="IMG" />
+                <img src="assets/icons/Spotify.png" alt="IMG" />
               </div>
               <div className="infinte-carousel-item">
                 <img src="assets/icons/Vevo.png" alt="IMG" />
@@ -30,7 +30,7 @@ const Marquee = () => {
                 <img src="assets/icons/Nike.png" alt="IMG" />
               </div>
               <div className="infinte-carousel-item">
-                <img src="assets/icons/Spotify.jpg" alt="IMG" />
+                <img src="assets/icons/Spotify.png" alt="IMG" />
               </div>
               <div className="infinte-carousel-item">
                 <img src="assets/icons/Vevo.png" alt="IMG" />

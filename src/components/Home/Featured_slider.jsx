@@ -4,7 +4,7 @@ import { A11y, Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import "../Home/css/featured-ads.css";
+import "./css/home.css";
 import FeaturedAdsData from "./data/FeaturedAdsData.json";
 import { MdOutlineStarPurple500 } from "react-icons/md";
 import { IoTimeOutline } from "react-icons/io5";
@@ -50,7 +50,7 @@ export default function Featured_slider() {
           },
           0: {
             slidesPerView: 1,
-            spaceBetween: 0,
+            spaceBetween: 10,
           },
         }}
         className="featured-ads"
@@ -83,8 +83,8 @@ export default function Featured_slider() {
                 <h5 className="fw-medium product-name">{card.name}</h5>
                 <div className="rating-and-icons gap-2 text-center d-flex mt-3 align-items-center">
                   <div className="location d-flex gap-2 align-items-center w-100">
-                    <div className="locate rounded-circle">
-                      <BsGeoAlt className="location-icon" />
+                    <div className="location-icon rounded-circle">
+                      <BsGeoAlt className="locate-icon" />
                     </div>
                     <div className="location-content">
                       <h6 className="fw-medium mb-0">New York, USA</h6>

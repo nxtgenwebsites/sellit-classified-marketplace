@@ -1,5 +1,5 @@
 import React from "react";
-import "../Home/css/Buy-and-sell.css";
+import "./css/home.css";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Card1 from "./RecentAdsCards/Card1";
@@ -231,7 +231,9 @@ function RecentlyAds() {
             </div>
           </div>
           <div className="text-center">
-            <button type="button" className="secondary-button mt-4">Load More</button>
+            <button type="button" className="secondary-button mt-4">
+              Load More
+            </button>
           </div>
         </Container>
       </section>

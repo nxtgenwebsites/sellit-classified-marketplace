@@ -42,47 +42,74 @@ export default function Footer() {
               <div className="footer-list">
                 <ul className="navbar-nav">
                   <li className="nav-item footer-item">
-                    <Link to={"/"} className="nav-link footer-link footer-hover">
+                    <Link
+                      to={"/"}
+                      className="nav-link footer-link footer-hover"
+                    >
                       Properties for Sale
                     </Link>
                   </li>
                   <li className="nav-item footer-item">
-                    <Link to={"/"} className="nav-link footer-link footer-hover">
+                    <Link
+                      to={"/"}
+                      className="nav-link footer-link footer-hover"
+                    >
                       Properties for Rent
                     </Link>
                   </li>
                   <li className="nav-item footer-item">
-                    <Link to={"/"} className="nav-link footer-link footer-hover">
+                    <Link
+                      to={"/"}
+                      className="nav-link footer-link footer-hover"
+                    >
                       New Cars for Sale
                     </Link>
                   </li>
                   <li className="nav-item footer-item">
-                    <Link to={"/"} className="nav-link footer-link footer-hover">
+                    <Link
+                      to={"/"}
+                      className="nav-link footer-link footer-hover"
+                    >
                       Used Cars for Sale
                     </Link>
                   </li>
                   <li className="nav-item footer-item">
-                    <Link to={"/"} className="nav-link footer-link footer-hover">
+                    <Link
+                      to={"/"}
+                      className="nav-link footer-link footer-hover"
+                    >
                       Mobile Phones
                     </Link>
                   </li>
                   <li className="nav-item footer-item">
-                    <Link to={"/"} className="nav-link footer-link footer-hover">
+                    <Link
+                      to={"/"}
+                      className="nav-link footer-link footer-hover"
+                    >
                       Electronics
                     </Link>
                   </li>
                   <li className="nav-item footer-item">
-                    <Link to={"/"} className="nav-link footer-link footer-hover">
+                    <Link
+                      to={"/"}
+                      className="nav-link footer-link footer-hover"
+                    >
                       Fashion / Clothing
                     </Link>
                   </li>
                   <li className="nav-item footer-item">
-                    <Link to={"/"} className="nav-link footer-link footer-hover">
+                    <Link
+                      to={"/"}
+                      className="nav-link footer-link footer-hover"
+                    >
                       Travel & Tours Deals
                     </Link>
                   </li>
                   <li className="nav-item footer-item">
-                    <Link to={"/"} className="nav-link footer-link footer-hover">
+                    <Link
+                      to={"/"}
+                      className="nav-link footer-link footer-hover"
+                    >
                       Fitness / Gym
                     </Link>
                   </li>
@@ -96,7 +123,10 @@ export default function Footer() {
               <div className="footer-list">
                 <ul className="navbar-nav">
                   <li className="nav-item footer-item">
-                    <Link to={"/"} className="nav-link footer-link footer-hover">
+                    <Link
+                      to={"/"}
+                      className="nav-link footer-link footer-hover"
+                    >
                       Post a Free Classified Ad
                     </Link>
                   </li>
@@ -117,32 +147,50 @@ export default function Footer() {
                     </Link>
                   </li>
                   <li className="nav-item footer-item">
-                    <Link to={"/"} className="nav-link footer-link footer-hover">
+                    <Link
+                      to={"/"}
+                      className="nav-link footer-link footer-hover"
+                    >
                       Sellit Support Center
                     </Link>
                   </li>
                   <li className="nav-item footer-item">
-                    <Link to={"/"} className="nav-link footer-link footer-hover">
+                    <Link
+                      to={"/"}
+                      className="nav-link footer-link footer-hover"
+                    >
                       Latest News from Sellit
                     </Link>
                   </li>
                   <li className="nav-item footer-item">
-                    <Link to={"/"} className="nav-link footer-link footer-hover">
+                    <Link
+                      to={"/"}
+                      className="nav-link footer-link footer-hover"
+                    >
                       Website Analytics
                     </Link>
                   </li>
                   <li className="nav-item footer-item">
-                    <Link to={"/"} className="nav-link footer-link footer-hover">
+                    <Link
+                      to={"/"}
+                      className="nav-link footer-link footer-hover"
+                    >
                       Sitemap
                     </Link>
                   </li>
                   <li className="nav-item footer-item">
-                    <Link to={"/"} className="nav-link footer-link footer-hover">
+                    <Link
+                      to={"/"}
+                      className="nav-link footer-link footer-hover"
+                    >
                       Terms of Use
                     </Link>
                   </li>
                   <li className="nav-item footer-item">
-                    <Link to={"/"} className="nav-link footer-link footer-hover">
+                    <Link
+                      to={"/"}
+                      className="nav-link footer-link footer-hover"
+                    >
                       Privacy Policy
                     </Link>
                   </li>
@@ -159,7 +207,7 @@ export default function Footer() {
                     type="email"
                     required
                     placeholder="Enter your email address"
-                    className="w-100"
+                    className="w-100 email-input"
                   />
                 </div>
                 <div className="form-group">

@@ -40,8 +40,9 @@
 
 /* First Section start */
 .first-section {
-  background: #f2f4f5;
   padding: 1.6rem;
+  background: #fff;
+  box-shadow: var(--bs-box-shadow) !important;
 }
 
 .first-list-item {
@@ -56,8 +57,9 @@
 /* First Section end */
 /* Second Section start */
 .second-section {
-  border: 1px solid #3a4fc4;
   padding: 1.6rem !important;
+  background: #fff;
+  box-shadow: var(--bs-box-shadow) !important;
 }
 
 .dropdown-btn {
@@ -120,7 +122,8 @@
 /* Second Section end */
 /* Third Section start */
 .third-section {
-  border: 1px solid #3a4fc4;
+  background: #fff;
+  box-shadow: var(--bs-box-shadow) !important;
   padding: 1.6rem;
 }
 
@@ -135,9 +138,11 @@
   outline: none;
   border-radius: 4px;
 }
+
 .price-to select:focus {
   box-shadow: 0 0 0 0 !important;
 }
+
 .price-from select:focus {
   box-shadow: 0 0 0 0 !important;
 }
@@ -146,13 +151,15 @@
 /* Fouth Section start */
 .fourth-section {
   padding: 1.6rem;
-  border: 1px solid #3a4fc4;
+  background: #fff;
+  box-shadow: var(--bs-box-shadow) !important;
 }
+
 .brands:focus {
   box-shadow: 0 0 0 0 !important;
 }
+
 .brands {
-  border: 1px solid #3a4fc4 !important;
   outline: none;
   border-radius: 4px;
 }
@@ -161,7 +168,8 @@
 /* Fifth Section start */
 .fifth-section {
   padding: 1.6rem;
-  border: 1px solid #3a4fc4;
+  background: #fff;
+  box-shadow: var(--bs-box-shadow) !important;
 }
 
 /* Fifth Section end */

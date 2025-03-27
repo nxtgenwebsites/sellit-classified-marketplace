@@ -1,6 +1,6 @@
 import React from "react";
 import { Col } from "react-bootstrap";
-import { IoBriefcaseOutline } from "react-icons/io5";
+import { HiOutlineHome } from "react-icons/hi2";
 import { Link } from "react-router-dom";
 
 export default function PropertySaleCard() {
@@ -9,7 +9,7 @@ export default function PropertySaleCard() {
       <div className="popular-category-card p-3 rounded-4 popular-category-content-height">
         <div className="popular-category-heading d-flex gap-3 align-items-center">
           <div className="title-icon">
-            <IoBriefcaseOutline />
+            <HiOutlineHome />
           </div>
           <div className="title-content">
             <h5>Property For Sale</h5>
@@ -21,33 +21,25 @@ export default function PropertySaleCard() {
               Land & Plots
             </Link>
           </div>
-          <div className="seperator">
-            /
-          </div>
+          <div className="seperator">/</div>
           <div className="sub-item">
             <Link to={"/"} className="text-decoration-none sub-category">
               Houses
             </Link>
           </div>
-          <div className="seperator">
-            /
-          </div>
+          <div className="seperator">/</div>
           <div className="sub-item">
             <Link to={"/"} className="text-decoration-none sub-category">
               Apartements & Flats
             </Link>
           </div>
-          <div className="seperator">
-            /
-          </div>
+          <div className="seperator">/</div>
           <div className="sub-item">
             <Link to={"/"} className="text-decoration-none sub-category">
               Shops - Offices - Commercial Space
             </Link>
           </div>
-          <div className="seperator">
-            /
-          </div>
+          <div className="seperator">/</div>
           <div className="sub-item">
             <Link to={"/"} className="text-decoration-none sub-category">
               Portions & Floors

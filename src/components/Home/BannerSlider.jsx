@@ -1,5 +1,5 @@
 import React from "react";
-import "../Home/css/Banner.css";
+import "./css/home.css";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/autoplay";

@@ -14,7 +14,7 @@
   }
 
   .category-menu {
-      width: 1208px;
+    width: 1208px;
   }
 
   .sub-category {
@@ -24,7 +24,7 @@
 
 @media (max-width: 1300px) {
   .category-menu {
-      width: 1150px;
+    width: 1150px;
   }
 }
 
@@ -151,11 +151,6 @@
 
   .footer-divider {
     margin: 1rem 0 !important;
-  }
-
-  .featured-slide {
-    width: 100% !important;
-    margin: 0 !important;
   }
 
   .advertise-form {
@@ -330,5 +325,8 @@
 @media (max-width: 335px) {
   .featured-ads {
     height: 500px !important;
+  }
+  .email-input {
+    font-size: 14px;
   }
 }

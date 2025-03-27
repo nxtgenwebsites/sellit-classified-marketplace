@@ -1,47 +1,48 @@
 import React from "react";
 import { Col } from "react-bootstrap";
-import { RiMotorbikeFill } from "react-icons/ri";
 import { Link } from "react-router-dom";
-export default function BikesCard() {
+import { IoShirtOutline } from "react-icons/io5";
+
+export default function BooksCard() {
   return (
     <Col lg={3} md={6}>
       <div className="popular-category-card p-3 rounded-4 popular-category-content-height">
         <div className="popular-category-heading d-flex gap-3 align-items-center">
           <div className="title-icon">
-            <RiMotorbikeFill />
+            <IoShirtOutline />
           </div>
           <div className="title-content">
-            <h5>Motorcycles</h5>
+            <h5>Books & Sports</h5>
           </div>
         </div>
         <div className="popular-category-content d-flex flex-wrap gap-1 mt-3 w-100">
           <div className="sub-item">
             <Link to={"/"} className="text-decoration-none sub-category">
-              Motorcycles
+              Gym & Fitness
             </Link>
           </div>
           <div className="seperator">/</div>
           <div className="sub-item">
             <Link to={"/"} className="text-decoration-none sub-category">
-              Bicycles
+              Other Hobbies
             </Link>
           </div>
           <div className="seperator">/</div>
           <div className="sub-item">
             <Link to={"/"} className="text-decoration-none sub-category">
-              Accessories
+              Sports Equipments
             </Link>
           </div>
           <div className="seperator">/</div>
           <div className="sub-item">
             <Link to={"/"} className="text-decoration-none sub-category">
-              Scooters
+              Books & Magazines
             </Link>
           </div>
           <div className="seperator">/</div>
           <div className="sub-item">
             <Link to={"/"} className="text-decoration-none sub-category">
-              ATVs & Quads
+              Musical Instruments
             </Link>
           </div>
         </div>
