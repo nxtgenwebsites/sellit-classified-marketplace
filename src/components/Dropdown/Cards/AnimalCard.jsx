@@ -21,121 +21,91 @@ export default function AnimalCard() {
               Hens
             </Link>
           </div>
-          <div className="seperator">
-            /
-          </div>
+          <div className="seperator">/</div>
           <div className="sub-item">
             <Link to={"/"} className="text-decoration-none sub-category">
               Cats
             </Link>
           </div>
-          <div className="seperator">
-            /
-          </div>
+          <div className="seperator">/</div>
           <div className="sub-item">
             <Link to={"/"} className="text-decoration-none sub-category">
               Parrots
             </Link>
           </div>
-          <div className="seperator">
-            /
-          </div>
+          <div className="seperator">/</div>
           <div className="sub-item">
             <Link to={"/"} className="text-decoration-none sub-category">
               Pet Food & Accessories
             </Link>
           </div>
-          <div className="seperator">
-            /
-          </div>
+          <div className="seperator">/</div>
           <div className="sub-item">
             <Link to={"/"} className="text-decoration-none sub-category">
               Livestock
             </Link>
           </div>
-          <div className="seperator">
-            /
-          </div>
+          <div className="seperator">/</div>
           <div className="sub-item">
             <Link to={"/"} className="text-decoration-none sub-category">
               Pigeons
             </Link>
           </div>
-          <div className="seperator">
-            /
-          </div>
+          <div className="seperator">/</div>
           <div className="sub-item">
             <Link to={"/"} className="text-decoration-none sub-category">
               Rabbits
             </Link>
           </div>
-          <div className="seperator">
-            /
-          </div>
+          <div className="seperator">/</div>
           <div className="sub-item">
             <Link to={"/"} className="text-decoration-none sub-category">
               Finches
             </Link>
           </div>
-          <div className="seperator">
-            /
-          </div>
+          <div className="seperator">/</div>
           <div className="sub-item">
             <Link to={"/"} className="text-decoration-none sub-category">
               Fish
             </Link>
           </div>
-          <div className="seperator">
-            /
-          </div>
+          <div className="seperator">/</div>
           <div className="sub-item">
             <Link to={"/"} className="text-decoration-none sub-category">
               Fertile Eggs
             </Link>
           </div>
-          <div className="seperator">
-            /
-          </div>
+          <div className="seperator">/</div>
           <div className="sub-item">
             <Link to={"/"} className="text-decoration-none sub-category">
               Other Birds
             </Link>
           </div>
-          <div className="seperator">
-            /
-          </div>
+          <div className="seperator">/</div>
           <div className="sub-item">
             <Link to={"/"} className="text-decoration-none sub-category">
               Ducks
             </Link>
           </div>
-          <div className="seperator">
-            /
-          </div>
+          <div className="seperator">/</div>
           <div className="sub-item">
             <Link to={"/"} className="text-decoration-none sub-category">
               Other Animals
             </Link>
           </div>
-          <div className="seperator">
-            /
-          </div>
+          <div className="seperator">/</div>
           <div className="sub-item">
             <Link to={"/"} className="text-decoration-none sub-category">
               Doves
             </Link>
           </div>
-          <div className="seperator">
-            /
-          </div>
+          <div className="seperator">/</div>
           <div className="sub-item">
             <Link to={"/"} className="text-decoration-none sub-category">
               Peacocks
             </Link>
           </div>
-          <div className="seperator">
-            /
-          </div>
+          <div className="seperator">/</div>
           <div className="sub-item">
             <Link to={"/"} className="text-decoration-none sub-category">
               Horses

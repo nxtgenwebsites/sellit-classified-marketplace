@@ -21,81 +21,61 @@ export default function FashionCard() {
               Clothes
             </Link>
           </div>
-          <div className="seperator">
-            /
-          </div>
+          <div className="seperator">/</div>
           <div className="sub-item">
             <Link to={"/"} className="text-decoration-none sub-category">
               Watches
             </Link>
           </div>
-          <div className="seperator">
-            /
-          </div>
+          <div className="seperator">/</div>
           <div className="sub-item">
             <Link to={"/"} className="text-decoration-none sub-category">
               Wedding
             </Link>
           </div>
-          <div className="seperator">
-            /
-          </div>
+          <div className="seperator">/</div>
           <div className="sub-item">
             <Link to={"/"} className="text-decoration-none sub-category">
               Footwear
             </Link>
           </div>
-          <div className="seperator">
-            /
-          </div>
+          <div className="seperator">/</div>
           <div className="sub-item">
             <Link to={"/"} className="text-decoration-none sub-category">
               Skin & Hair
             </Link>
           </div>
-          <div className="seperator">
-            /
-          </div>
+          <div className="seperator">/</div>
           <div className="sub-item">
             <Link to={"/"} className="text-decoration-none sub-category">
               Jewellery
             </Link>
           </div>
-          <div className="seperator">
-            /
-          </div>
+          <div className="seperator">/</div>
           <div className="sub-item">
             <Link to={"/"} className="text-decoration-none sub-category">
               Bags
             </Link>
           </div>
-          <div className="seperator">
-            /
-          </div>
+          <div className="seperator">/</div>
           <div className="sub-item">
             <Link to={"/"} className="text-decoration-none sub-category">
               Fragnance
             </Link>
           </div>
-          <div className="seperator">
-            /
-          </div>
+          <div className="seperator">/</div>
           <div className="sub-item">
             <Link to={"/"} className="text-decoration-none sub-category">
               Fashion Accessories
             </Link>
           </div>
-          <div className="seperator">
-            /
-          </div>
+          <div className="seperator">/</div>
           <div className="sub-item">
             <Link to={"/"} className="text-decoration-none sub-category">
               Makeup
             </Link>
           </div>
-          <div className="seperator">
-            /
-          </div>
+          <div className="seperator">/</div>
           <div className="sub-item">
             <Link to={"/"} className="text-decoration-none sub-category">
               Other Fashion

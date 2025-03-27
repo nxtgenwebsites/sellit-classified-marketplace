@@ -43,8 +43,6 @@ export default function Categorydropdown() {
               <Dropdown.Menu className="category-menu rounded-4 shadow bg-white border-0">
                 <Row className="row-gap-3 text-center">
                   {/* Category Cards start */}
-                  <MobileCard />
-                  <BikesCard />
                   <JobCard />
                   <FurnitureCard />
                   <VehiclesCard />
@@ -57,6 +55,8 @@ export default function Categorydropdown() {
                   <FashionCard />
                   <BooksCard />
                   <KidsCard />
+                  <MobileCard />
+                  <BikesCard />
                   {/* Category Cards end */}
                 </Row>
               </Dropdown.Menu>

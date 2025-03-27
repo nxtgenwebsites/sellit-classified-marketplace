@@ -21,81 +21,61 @@ export default function ElectronicsCard() {
               Generators & Power Solutions
             </Link>
           </div>
-          <div className="seperator">
-            /
-          </div>
+          <div className="seperator">/</div>
           <div className="sub-item">
             <Link to={"/"} className="text-decoration-none sub-category">
               Ac & Coolers
             </Link>
           </div>
-          <div className="seperator">
-            /
-          </div>
+          <div className="seperator">/</div>
           <div className="sub-item">
             <Link to={"/"} className="text-decoration-none sub-category">
               Kitchen Appliances
             </Link>
           </div>
-          <div className="seperator">
-            /
-          </div>
+          <div className="seperator">/</div>
           <div className="sub-item">
             <Link to={"/"} className="text-decoration-none sub-category">
               Washing Machines & Dryers
             </Link>
           </div>
-          <div className="seperator">
-            /
-          </div>
+          <div className="seperator">/</div>
           <div className="sub-item">
             <Link to={"/"} className="text-decoration-none sub-category">
               Fans
             </Link>
           </div>
-          <div className="seperator">
-            /
-          </div>
+          <div className="seperator">/</div>
           <div className="sub-item">
             <Link to={"/"} className="text-decoration-none sub-category">
               Heaters & Geysers
             </Link>
           </div>
-          <div className="seperator">
-            /
-          </div>
+          <div className="seperator">/</div>
           <div className="sub-item">
             <Link to={"/"} className="text-decoration-none sub-category">
               Microwaves
             </Link>
           </div>
-          <div className="seperator">
-            /
-          </div>
+          <div className="seperator">/</div>
           <div className="sub-item">
             <Link to={"/"} className="text-decoration-none sub-category">
               Sewing Machines
             </Link>
           </div>
-          <div className="seperator">
-            /
-          </div>
+          <div className="seperator">/</div>
           <div className="sub-item">
             <Link to={"/"} className="text-decoration-none sub-category">
               Irons & Steamers
             </Link>
           </div>
-          <div className="seperator">
-            /
-          </div>
+          <div className="seperator">/</div>
           <div className="sub-item">
             <Link to={"/"} className="text-decoration-none sub-category">
               Water Dispensers
             </Link>
           </div>
-          <div className="seperator">
-            /
-          </div>
+          <div className="seperator">/</div>
           <div className="sub-item">
             <Link to={"/"} className="text-decoration-none sub-category">
               Air Purifiers & Humidifiers

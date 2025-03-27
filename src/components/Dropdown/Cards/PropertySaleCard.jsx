@@ -21,33 +21,25 @@ export default function PropertySaleCard() {
               Land & Plots
             </Link>
           </div>
-          <div className="seperator">
-            /
-          </div>
+          <div className="seperator">/</div>
           <div className="sub-item">
             <Link to={"/"} className="text-decoration-none sub-category">
               Houses
             </Link>
           </div>
-          <div className="seperator">
-            /
-          </div>
+          <div className="seperator">/</div>
           <div className="sub-item">
             <Link to={"/"} className="text-decoration-none sub-category">
               Apartements & Flats
             </Link>
           </div>
-          <div className="seperator">
-            /
-          </div>
+          <div className="seperator">/</div>
           <div className="sub-item">
             <Link to={"/"} className="text-decoration-none sub-category">
               Shops - Offices - Commercial Space
             </Link>
           </div>
-          <div className="seperator">
-            /
-          </div>
+          <div className="seperator">/</div>
           <div className="sub-item">
             <Link to={"/"} className="text-decoration-none sub-category">
               Portions & Floors

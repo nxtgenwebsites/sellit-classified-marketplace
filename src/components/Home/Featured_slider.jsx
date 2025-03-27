@@ -51,7 +51,7 @@ export default function Featured_slider() {
           0: {
             slidesPerView: 1,
             spaceBetween: 10,
-          }
+          },
         }}
         className="featured-ads"
       >

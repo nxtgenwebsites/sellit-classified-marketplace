@@ -21,57 +21,43 @@ export default function KidsCard() {
               Toys
             </Link>
           </div>
-          <div className="seperator">
-            /
-          </div>
+          <div className="seperator">/</div>
           <div className="sub-item">
             <Link to={"/"} className="text-decoration-none sub-category">
               Baby Gear
             </Link>
           </div>
-          <div className="seperator">
-            /
-          </div>
+          <div className="seperator">/</div>
           <div className="sub-item">
             <Link to={"/"} className="text-decoration-none sub-category">
               Kids Vehicles
             </Link>
           </div>
-          <div className="seperator">
-            /
-          </div>
+          <div className="seperator">/</div>
           <div className="sub-item">
             <Link to={"/"} className="text-decoration-none sub-category">
               Swings & Slides
             </Link>
           </div>
-          <div className="seperator">
-            /
-          </div>
+          <div className="seperator">/</div>
           <div className="sub-item">
             <Link to={"/"} className="text-decoration-none sub-category">
               Furniture
             </Link>
           </div>
-          <div className="seperator">
-            /
-          </div>
+          <div className="seperator">/</div>
           <div className="sub-item">
             <Link to={"/"} className="text-decoration-none sub-category">
               Clothing
             </Link>
           </div>
-          <div className="seperator">
-            /
-          </div>
+          <div className="seperator">/</div>
           <div className="sub-item">
             <Link to={"/"} className="text-decoration-none sub-category">
               Accessories
             </Link>
           </div>
-          <div className="seperator">
-            /
-          </div>
+          <div className="seperator">/</div>
           <div className="sub-item">
             <Link to={"/"} className="text-decoration-none sub-category">
               Bath & Diapers

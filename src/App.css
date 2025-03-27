@@ -14,7 +14,7 @@
   }
 
   .category-menu {
-      width: 1208px;
+    width: 1208px;
   }
 
   .sub-category {
@@ -24,7 +24,7 @@
 
 @media (max-width: 1300px) {
   .category-menu {
-      width: 1150px;
+    width: 1150px;
   }
 }
 
@@ -328,4 +328,5 @@
   }
   .email-input {
     font-size: 14px;
-  }}
+  }
+}

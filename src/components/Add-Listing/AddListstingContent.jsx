@@ -1,39 +1,39 @@
-import React, { useRef } from "react";
+import React, { useRef, lazy, Suspense } from "react";
 import Container from "react-bootstrap/Container";
 import "./css/add-listing.css";
-import Mobiles from "./addListingCards/Mobiles";
-import Motors from "./addListingCards/Motors";
-import PropertyRent from "./addListingCards/PropertyRent";
-import PropertySale from "./addListingCards/PropertySale";
-import Electronics from "./addListingCards/electronics";
-import Bikes from "./addListingCards/Bikes";
-import Job from "./addListingCards/Job";
-import Animals from "./addListingCards/Animals";
-import Furniture from "./addListingCards/Furniture";
-import Fashion from "./addListingCards/Fashion";
-import Books_ from "./addListingCards/Books_";
-import Kids_ from "./addListingCards/Kids_";
-import MainCategory from "./addListingCards/MainCategory";
-import AnimalDropdown from "./Add-Listing-Dropdowns/AnimalDropdown";
-import BikesDropdown from "./Add-Listing-Dropdowns/BikesDropdown";
-import BooksDropdown from "./Add-Listing-Dropdowns/BooksDropdown";
-import ElectronicsDropdown from "./Add-Listing-Dropdowns/ElectronicsDropdown";
-import FashionDropdown from "./Add-Listing-Dropdowns/FashionDropdown";
-import FurnitureDropdown from "./Add-Listing-Dropdowns/FurnitureDropdown";
-import JobDropdown from "./Add-Listing-Dropdowns/JobDropdown";
-import KidsDropdown from "./Add-Listing-Dropdowns/KidsDropdown";
-import MobileDropdown from "./Add-Listing-Dropdowns/MobileDropdown";
-import MotorsDropdown from "./Add-Listing-Dropdowns/MotorsDropdown";
-import PropertyRentDropdown from "./Add-Listing-Dropdowns/PropertyRentDropdown";
-import PropertySaleDropdown from "./Add-Listing-Dropdowns/PropertySaleDropdown";
-import SecondMain from "./addListingCards/SecondMain";
-import ThirdMain from "./addListingCards/ThirdMain";
+import { MainCategory, SecondMain, ThirdMain } from "./addListingCards";
 import { Link } from "react-router-dom";
-import BuisnessDropdown from "./Add-Listing-Dropdowns/BuisnessDropdown";
-import ServiceDropdown from "./Add-Listing-Dropdowns/ServiceDropdown";
+import {
+  AnimalDropdown,
+  BikesDropdown,
+  BooksDropdown,
+  ElectronicsDropdown,
+  FashionDropdown,
+  FurnitureDropdown,
+  JobDropdown,
+  KidsDropdown,
+  MobileDropdown,
+  MotorsDropdown,
+  PropertyRentDropdown,
+  PropertySaleDropdown,
+  BuisnessDropdown,
+  ServiceDropdown,
+} from "./Add-Listing-Dropdowns";
 
-export default function AddListstingContent() {
-  // Category references
+const Mobiles = lazy(() => import("./addListingCards/Mobiles"));
+const Motors = lazy(() => import("./addListingCards/Motors"));
+const PropertyRent = lazy(() => import("./addListingCards/PropertyRent"));
+const PropertySale = lazy(() => import("./addListingCards/PropertySale"));
+const Electronics = lazy(() => import("./addListingCards/electronics"));
+const Bikes = lazy(() => import("./addListingCards/Bikes"));
+const Job = lazy(() => import("./addListingCards/Job"));
+const Animals = lazy(() => import("./addListingCards/Animals"));
+const Furniture = lazy(() => import("./addListingCards/Furniture"));
+const Fashion = lazy(() => import("./addListingCards/Fashion"));
+const Books_ = lazy(() => import("./addListingCards/Books_"));
+const Kids_ = lazy(() => import("./addListingCards/Kids_"));
+
+export default function AddListingContent() {
   const mainCategory = useRef();
   const categories = {
     mobiles: useRef(),
@@ -51,26 +51,11 @@ export default function AddListstingContent() {
     books: useRef(),
     kids: useRef(),
   };
-  // Form section references
-  const forms = {
-    mobiles: useRef(),
-    motors: useRef(),
-    "property-sale": useRef(),
-    "property-rent": useRef(),
-    "find-business": useRef(),
-    "find-service": useRef(),
-    "find-job": useRef(),
-    electronics: useRef(),
-    bikes: useRef(),
-    animals: useRef(),
-    furniture: useRef(),
-    fashion: useRef(),
-    books: useRef(),
-    kids: useRef(),
-  };
+
+  const forms = { ...categories };
+
   function handleCategory() {
     const selectedCategory = mainCategory.current?.value;
-    // Hide all categories and forms
     Object.values(categories).forEach((categoryRef) => {
       if (categoryRef.current) {
         categoryRef.current.classList.remove("d-block");
@@ -78,13 +63,12 @@ export default function AddListstingContent() {
       }
     });
 
-    Object.values(forms).forEach((headingRef) => {
-      if (headingRef.current) {
-        headingRef.current.classList.add("d-none");
+    Object.values(forms).forEach((formRef) => {
+      if (formRef.current) {
+        formRef.current.classList.add("d-none");
       }
     });
 
-    // Show selected category and form
     if (categories[selectedCategory]?.current) {
       categories[selectedCategory].current.classList.add("d-block");
       categories[selectedCategory].current.classList.remove("d-none");
@@ -94,16 +78,15 @@ export default function AddListstingContent() {
       forms[selectedCategory].current.classList.remove("d-none");
     }
   }
+
   return (
     <div className="py-3">
       <Container>
-        {/* Form Heading */}
         <div className="listing-heading">
           <h1 className="fw-semibold">Post New Ads</h1>
           <p>Lorem ipsum dolor sit amet consectetur.</p>
         </div>
 
-        {/* Form */}
         <form>
           <div className="forms-group p-4 my-3 rounded-2">
             <div className="form-category">
@@ -118,158 +101,56 @@ export default function AddListstingContent() {
                     <option value="" disabled selected>
                       Select Category
                     </option>
-                    <option value="mobiles">Mobiles</option>
-                    <option value="motors">Motors</option>
-                    <option value="property-sale">Property for Sale</option>
-                    <option value="property-rent">Property for Rent</option>
-                    <option value="electronics">
-                      Electronics & Home Appliances
-                    </option>
-                    <option value="bikes">Bikes</option>
-                    <option value="find-business">
-                      Business, Industrial & Agriculture
-                    </option>
-                    <option value="find-service">Services</option>
-                    <option value="find-job">Jobs</option>
-                    <option value="animals">Animals</option>
-                    <option value="furniture">Furniture & Home Decor</option>
-                    <option value="fashion">Fashion & Beauty</option>
-                    <option value="books">Books, Sports & Hobbies</option>
-                    <option value="kids">Kids</option>
+                    {Object.keys(categories).map((key) => (
+                      <option key={key} value={key}>
+                        {key.replace(/-/g, " ").toUpperCase()}
+                      </option>
+                    ))}
                   </select>
                 </div>
-                <div
-                  ref={categories.animals}
-                  className="sub-categories mt-md-0 w-100 d-none mt-3"
-                >
-                  <AnimalDropdown />
-                </div>
-                <div
-                  ref={categories.bikes}
-                  className="sub-categories mt-md-0 w-100 d-none mt-3"
-                >
-                  <BikesDropdown />
-                </div>
-                <div
-                  ref={categories.books}
-                  className="sub-categories mt-md-0 w-100 d-none mt-3"
-                >
-                  <BooksDropdown />
-                </div>
-                <div
-                  ref={categories.electronics}
-                  className="sub-categories mt-md-0 w-100 d-none mt-3"
-                >
-                  <ElectronicsDropdown />
-                </div>
-                <div
-                  ref={categories.fashion}
-                  className="sub-categories mt-md-0 w-100 d-none mt-3"
-                >
-                  <FashionDropdown />
-                </div>
-                <div
-                  ref={categories.furniture}
-                  className="sub-categories mt-md-0 w-100 d-none mt-3"
-                >
-                  <FurnitureDropdown />
-                </div>
-                <div
-                  ref={categories["find-job"]}
-                  className="sub-categories mt-md-0 w-100 d-none mt-3"
-                >
-                  <JobDropdown />
-                </div>
-                <div
-                  ref={categories.kids}
-                  className="sub-categories mt-md-0 w-100 d-none mt-3"
-                >
-                  <KidsDropdown />
-                </div>
-                <div
-                  ref={categories.mobiles}
-                  className="sub-categories mt-md-0 w-100 d-none mt-3"
-                >
-                  <MobileDropdown />
-                </div>
-                <div
-                  ref={categories.motors}
-                  className="sub-categories mt-md-0 w-100 d-none mt-3"
-                >
-                  <MotorsDropdown />
-                </div>
-                <div
-                  ref={categories["property-sale"]}
-                  className="sub-categories mt-md-0 w-100 d-none mt-3"
-                >
-                  <PropertySaleDropdown />
-                </div>
-                <div
-                  className="sub-categories mt-md-0 w-100 d-none mt-3"
-                  ref={categories["property-rent"]}
-                >
-                  <PropertyRentDropdown />
-                </div>
-                <div
-                  className="sub-categories mt-md-0 w-100 d-none mt-3"
-                  ref={categories["property-sale"]}
-                >
-                  <PropertySaleDropdown />
-                </div>
-                <div
-                  className="sub-categories mt-md-0 w-100 d-none mt-3"
-                  ref={categories["find-business"]}
-                >
-                  <BuisnessDropdown />
-                </div>
-                <div
-                  className="sub-categories mt-md-0 w-100 d-none mt-3"
-                  ref={categories["find-service"]}
-                >
-                  <ServiceDropdown />
-                </div>
+
+                {Object.entries(categories).map(([key, ref]) => (
+                  <div
+                    key={key}
+                    ref={ref}
+                    className="sub-categories mt-md-0 w-100 d-none mt-3"
+                  >
+                    {key === "animals" && <AnimalDropdown />}
+                    {key === "bikes" && <BikesDropdown />}
+                    {key === "books" && <BooksDropdown />}
+                    {key === "electronics" && <ElectronicsDropdown />}
+                    {key === "fashion" && <FashionDropdown />}
+                    {key === "furniture" && <FurnitureDropdown />}
+                    {key === "find-job" && <JobDropdown />}
+                    {key === "kids" && <KidsDropdown />}
+                    {key === "mobiles" && <MobileDropdown />}
+                    {key === "motors" && <MotorsDropdown />}
+                    {key === "property-sale" && <PropertySaleDropdown />}
+                    {key === "property-rent" && <PropertyRentDropdown />}
+                    {key === "find-business" && <BuisnessDropdown />}
+                    {key === "find-service" && <ServiceDropdown />}
+                  </div>
+                ))}
               </div>
             </div>
-            <div ref={forms.mobiles} className="w-100 d-none">
-              <Mobiles />
-            </div>
-            <div ref={forms.motors} className="w-100 d-none">
-              <Motors />
-            </div>
-            <div ref={forms["property-sale"]} className="w-100 d-none">
-              <PropertySale />
-            </div>
-            <div ref={forms["property-rent"]} className="w-100 d-none">
-              <PropertyRent />
-            </div>
-            <div ref={forms.electronics} className="w-100 d-none">
-              <Electronics />
-            </div>
-            <div ref={forms.bikes} className="w-100 d-none">
-              <Bikes />
-            </div>
-            {/* <div ref={forms["find-business"]} className="w-100 d-none">
-            </div> */}
-            {/* <div ref={forms["find-service"]} className="w-100 d-none">
-            </div> */}
-            <div ref={forms["find-job"]} className="w-100 d-none">
-              <Job />
-            </div>
-            <div ref={forms.animals} className="w-100 d-none">
-              <Animals />
-            </div>
-            <div ref={forms.furniture} className="w-100 d-none">
-              <Furniture />
-            </div>
-            <div ref={forms.fashion} className="w-100 d-none">
-              <Fashion />
-            </div>
-            <div ref={forms.books} className="w-100 d-none">
-              <Books_ />
-            </div>
-            <div ref={forms.kids} className="w-100 d-none">
-              <Kids_ />
-            </div>
+            <Suspense fallback={<div>Loading...</div>}>
+              {Object.entries(forms).map(([key, ref]) => (
+                <div key={key} ref={ref} className="w-100 d-none">
+                  {key === "mobiles" && <Mobiles />}
+                  {key === "motors" && <Motors />}
+                  {key === "property-sale" && <PropertySale />}
+                  {key === "property-rent" && <PropertyRent />}
+                  {key === "electronics" && <Electronics />}
+                  {key === "bikes" && <Bikes />}
+                  {key === "find-job" && <Job />}
+                  {key === "animals" && <Animals />}
+                  {key === "furniture" && <Furniture />}
+                  {key === "fashion" && <Fashion />}
+                  {key === "books" && <Books_ />}
+                  {key === "kids" && <Kids_ />}
+                </div>
+              ))}
+            </Suspense>
           </div>
           <div className="forms_second-group p-4 my-3 rounded-2 bg-white">
             <SecondMain />
@@ -278,7 +159,7 @@ export default function AddListstingContent() {
             <ThirdMain />
           </div>
           <div className="text-center mx-auto w-100 mt-3">
-            <Link to={"/successful"} className="">
+            <Link to={"/successful"}>
               <button
                 type="submit"
                 className="rounded-3 nav-btn text-decoration-none secondary-button"
@@ -289,7 +170,6 @@ export default function AddListstingContent() {
           </div>
         </form>
       </Container>
-      {/* Form end */}
     </div>
   );
 }

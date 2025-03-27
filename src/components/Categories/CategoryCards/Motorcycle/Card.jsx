@@ -28,8 +28,8 @@ export default function Card({ motorcycle }) {
             <h5 className="fw-medium heading">{motorcycle.heading}</h5>
             <div className="rating-and-icons gap-4 text-center d-flex my-3 align-items-center">
               <div className="location d-flex gap-3 align-items-center">
-                <div className="locate rounded-circle">
-                  <BsGeoAlt className="location-icon" />
+                <div className="location-icon rounded-circle">
+                  <BsGeoAlt />
                 </div>
                 <div className="location-content">
                   <h6 className="fw-medium">{motorcycle.location}</h6>
