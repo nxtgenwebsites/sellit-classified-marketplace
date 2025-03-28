@@ -4,7 +4,7 @@ export default function ElectronicsDropdown() {
   return (
     <div>
       <select className="form-select px-3 py-2 w-100">
-        <option value="select-subcategory" selected disabled>
+        <option value="select-subcategory" defaultValue disabled>
           Select Sub-Category
         </option>
         <option value="1">Computer & Accessories</option>

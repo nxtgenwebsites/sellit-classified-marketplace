@@ -4,7 +4,7 @@ export default function MobileDropdown() {
   return (
     <div>
       <select className="form-select px-3 py-2 w-100">
-        <option value="" disabled selected>
+        <option value="" disabled defaultValue>
           Select Sub-Category
         </option>
         <option value="tablets">Tablets</option>

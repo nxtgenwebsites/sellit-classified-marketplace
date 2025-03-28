@@ -4,7 +4,7 @@ export default function ServiceDropdown() {
   return (
     <div>
       <select className="form-select px-3 py-2">
-        <option value="select-subcategory" selected disabled>
+        <option value="select-subcategory" defaultValue disabled>
           Select Sub-Category
         </option>
         <option value="1">Agriculture & Interior Design</option>

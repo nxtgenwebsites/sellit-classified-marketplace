@@ -40,7 +40,7 @@ export default function Fashion() {
           </div>
           <div className="select w-100">
             <select name="Sex" id="Sex" className="form-select py-2 px-3">
-              <option value="" disabled selected>
+              <option value="" disabled defaultValue>
                 Select Sex
               </option>
               <option value="1">Male</option>

@@ -69,7 +69,7 @@ export default function AddListstingContent() {
     kids: useRef(),
   };
   function handleCategory() {
-    const selectedCategory = mainCategory.current?.value;
+    const defaultValueCategory = mainCategory.current?.value;
     // Hide all categories and forms
     Object.values(categories).forEach((categoryRef) => {
       if (categoryRef.current) {
@@ -84,7 +84,7 @@ export default function AddListstingContent() {
       }
     });
 
-    // Show selected category and form
+    // Show defaultValue category and form
     if (categories[selectedCategory]?.current) {
       categories[selectedCategory].current.classList.add("d-block");
       categories[selectedCategory].current.classList.remove("d-none");
@@ -115,7 +115,7 @@ export default function AddListstingContent() {
                     onChange={handleCategory}
                     className="form-select px-3 py-2"
                   >
-                    <option value="" disabled selected>
+                    <option value="" disabled defaultValue>
                       Select Category
                     </option>
                     <option value="mobiles">Mobiles</option>

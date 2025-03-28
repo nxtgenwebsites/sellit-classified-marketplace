@@ -72,7 +72,7 @@ export default function Bikes() {
               id="Make"
               className="px-3 py-2 form-select w-100"
             >
-              <option value="" disabled selected>
+              <option value="" disabled defaultValue>
                 Select Make
               </option>
               <option value="" disabled className="disabled">
@@ -180,7 +180,7 @@ export default function Bikes() {
               id="Engine Capacity"
               className="form-select py-2 px-3"
             >
-              <option value="" disabled selected>
+              <option value="" disabled defaultValue>
                 Select Engine Capacity
               </option>
               <option value="" className="disabled">
@@ -302,7 +302,7 @@ export default function Bikes() {
               id="Registration City"
               className="form-select py-2 px-3"
             >
-              <option value="" selected disabled>
+              <option value="" defaultValue disabled>
                 Select Registration City
               </option>
               <option value="" className="disabled">

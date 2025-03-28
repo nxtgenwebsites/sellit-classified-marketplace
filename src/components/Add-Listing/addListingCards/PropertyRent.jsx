@@ -208,7 +208,7 @@ export default function PropertyRent() {
               id="Area Unit"
               className="px-3 py-2 form-select w-100"
             >
-              <option value="" selected disabled>
+              <option value="" defaultValue disabled>
                 Select Area Unit
               </option>
               <option value="1">Kanal</option>

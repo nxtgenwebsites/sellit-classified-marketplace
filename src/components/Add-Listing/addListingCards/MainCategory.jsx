@@ -6,7 +6,7 @@ export default function MainCategory() {
       <div className="heading-form">
         <h3 className="fw-bold mb-5">General Details</h3>
       </div>
-      <form className="form-first-group w-100">
+      <div className="form-first-group w-100">
         <div className="first-form_group w-100 my-3">
           <div className="label mb-1">
             <label htmlFor="Ad Title">Ad Title</label>
@@ -33,14 +33,14 @@ export default function MainCategory() {
           <div className="w-100 form-floating">
             <textarea
               name="Description"
-              class="form-control" placeholder="Description" id="floatingTextarea"
+              className="form-control" placeholder="Description" id="floatingTextarea"
               required
             ></textarea>
             <label htmlFor="Description">Description</label>
             <small>Include condition, features and reason for selling</small>
           </div>
         </div>
-      </form>
+      </div>
     </div>
   );
 }

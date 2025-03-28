@@ -57,7 +57,7 @@ export default function SecondMain() {
                 className="form-select px-3 py-2"
                 required
               >
-                <option value="" disabled selected>
+                <option value="" disabled defaultValue>
                   Select Location
                 </option>
                 <option value="" disabled className="disabled-heading">
@@ -72,18 +72,18 @@ export default function SecondMain() {
               </select>
             </div>
           </div>
-          <div class="fourth-form_group w-100 my-3">
-            <div class="label mb-1">
-              <label for="Price">Price</label>
+          <div className="fourth-form_group w-100 my-3">
+            <div className="label mb-1">
+              <label htmlFor="Price">Price</label>
             </div>
-            <div class="input price-input w-100 d-flex rounded-2">
-              <span class="price-currency">PKR</span>
+            <div className="input price-input w-100 d-flex rounded-2">
+              <span className="price-currency">PKR</span>
               <hr className="input-divider" />
               <input
                 type="number"
                 id="Price"
                 placeholder="Enter Price"
-                class="px-3"
+                className="px-3"
                 required
                 step={+100}
                 min={0}
@@ -137,7 +137,7 @@ export default function SecondMain() {
                 className="mx-md-auto"
               />
             </div>
-            <form className="content_ text-md-center mt-3">
+            <div className="content_ text-md-center mt-3">
               <h5 className="fw-bold text-black">
                 Enter your phone to verify your account
               </h5>
@@ -160,7 +160,7 @@ export default function SecondMain() {
               <button type="submit" className="submit-btn" onClick={valueInput}>
                 Next
               </button>
-            </form>
+            </div>
           </div>
         </div>
         {/* <!-- D-None-Card end --> */}
