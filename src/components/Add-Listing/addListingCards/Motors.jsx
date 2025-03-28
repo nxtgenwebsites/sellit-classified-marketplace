@@ -271,12 +271,7 @@ export default function Motors() {
             <label htmlFor="Color">Color</label>
           </div>
           <div className="input w-100 gap-2 p-2 text-end">
-            <input
-              type="color"
-              name="Color"
-              id="Color"
-              className="color-inp"
-            />
+            <input type="color" name="Color" id="Color" className="color-inp" />
           </div>
         </div>
         <div className="eighth-form-dropdown d-lg-flex justify-content-between w-100 my-3">

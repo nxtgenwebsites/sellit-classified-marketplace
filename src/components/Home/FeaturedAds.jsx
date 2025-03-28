@@ -4,7 +4,7 @@ import Featured_slider from "./Featured_slider";
 
 export default function FeaturedAds() {
   return (
-    <section className="featured-ads-section">
+    <section className="featured-ads-section py-5">
       <div className="container">
         <div className="featured-heading">
           <div className="heading">

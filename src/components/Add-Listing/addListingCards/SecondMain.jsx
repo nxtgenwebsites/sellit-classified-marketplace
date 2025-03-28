@@ -1,10 +1,9 @@
-import React, { useEffect, useRef, useState } from "react";
-import { ToastContainer } from "react-bootstrap";
+import React, { useRef, useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { RxCross2 } from "react-icons/rx";
-import { toast } from "react-toastify";
 
 export default function SecondMain() {
-  // <!-- Display Phone Card start -->
   const firstInp = useRef();
   const numberInp = useRef();
   const cardMain = useRef();
@@ -14,68 +13,59 @@ export default function SecondMain() {
     cardMain.current.classList.add("d-block");
     cardMain.current.classList.remove("d-none");
   }
+
   function dNoneNumber(e) {
     e.preventDefault();
     cardMain.current.classList.add("d-none");
     cardMain.current.classList.remove("d-block");
   }
+
   function valueInput(e) {
-    if (numberInp.current.value === "") {
-      e.preventDefault();
+    e.preventDefault();
+    if (!numberInp.current.value.trim()) {
       toast.warn("Fill the field please 😊");
-    } else {
-      e.preventDefault();
-      cardMain.current.classList.add("d-none");
-      cardMain.current.classList.remove("d-block");
+      return;
     }
+    cardMain.current.classList.add("d-none");
+    cardMain.current.classList.remove("d-block");
+    toast.success("Phone number verified successfully!");
   }
-  // <!-- Display Phone Card end -->
-  // <!-- Value Adding Function start -->
+
   const [IsChanged, setIsChanged] = useState({ phone: "" });
 
   const handleInp = (e) => {
     setIsChanged((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
-  // <!-- Value Adding Function end -->
 
   return (
     <>
-      <ToastContainer position="top-right" />
+      <ToastContainer position="top-right" autoClose={3000} />
       <div>
         <div className="heading-form">
           <h3 className="fw-bold mb-5">Extra Details</h3>
         </div>
         <div className="d-lg-flex gap-2">
           <div className="third-form_group w-100 my-3">
-            <div className="label mb-1">
-              <label htmlFor="Location">Location</label>
-            </div>
-            <div className="select location-input w-100">
-              <select
-                name="Location"
-                id="Location"
-                className="form-select px-3 py-2"
-                required
-              >
-                <option value="" disabled selected>
-                  Select Location
-                </option>
-                <option value="" disabled className="disabled-heading">
-                  Choose Region
-                </option>
-                <option value="1">Azad Kashmir, Pakistan</option>
-                <option value="2">Balochistan, Pakistan</option>
-                <option value="3">Islamabad, Pakistan</option>
-                <option value="4">Kyber Pakhtunkhwa, Pakistan</option>
-                <option value="5">Punjab, Pakistan</option>
-                <option value="6">Sindh, Pakistan</option>
-              </select>
-            </div>
+            <label htmlFor="Location">Location</label>
+            <select
+              name="Location"
+              id="Location"
+              className="form-select px-3 py-2"
+              required
+            >
+              <option value="" disabled selected>
+                Select Location
+              </option>
+              <option value="1">Azad Kashmir, Pakistan</option>
+              <option value="2">Balochistan, Pakistan</option>
+              <option value="3">Islamabad, Pakistan</option>
+              <option value="4">Kyber Pakhtunkhwa, Pakistan</option>
+              <option value="5">Punjab, Pakistan</option>
+              <option value="6">Sindh, Pakistan</option>
+            </select>
           </div>
           <div className="fourth-form_group w-100 my-3">
-            <div className="label mb-1">
-              <label htmlFor="Price">Price</label>
-            </div>
+            <label htmlFor="Price">Price</label>
             <div className="input price-input w-100 d-flex rounded-2">
               <span className="price-currency">PKR</span>
               <hr className="input-divider" />
@@ -86,45 +76,36 @@ export default function SecondMain() {
                 placeholder="Enter Price"
                 className="px-3"
                 required
-                step={+100}
+                step={100}
               />
             </div>
           </div>
         </div>
         <div className="d-lg-flex gap-2">
           <div className="fifth-form_group w-100 my-3">
-            <div className="label">
-              <label htmlFor="name">Name</label>
-            </div>
-            <div className="w-100 form-floating">
-              <input
-                type="text"
-                className="px-3 py-2 rounded-2 w-100 input-number mt-1"
-                placeholder="Enter Name"
-                required
-              />
-            </div>
+            <label htmlFor="name">Name</label>
+            <input
+              type="text"
+              className="px-3 py-2 rounded-2 w-100 input-number mt-1"
+              placeholder="Enter Name"
+              required
+            />
           </div>
           <div className="fourth-form_group w-100 my-3">
-            <div className="label mb-1">
-              <label htmlFor="Mobile Number">Mobile Number</label>
-            </div>
-            <div className="input number-input w-100">
-              <input
-                type="tel"
-                placeholder="Enter Mobile Number"
-                className="px-3 py-2 rounded-2 w-100 input-number"
-                required
-                readOnly
-                value={IsChanged.phone}
-                ref={firstInp}
-                onClick={dBlockNumber}
-                name="Original Contact Number"
-              />
-            </div>
+            <label htmlFor="Mobile Number">Mobile Number</label>
+            <input
+              type="tel"
+              placeholder="Enter Mobile Number"
+              className="px-3 py-2 rounded-2 w-100 input-number"
+              required
+              readOnly
+              value={IsChanged.phone}
+              ref={firstInp}
+              onClick={dBlockNumber}
+              name="Original Contact Number"
+            />
           </div>
         </div>
-        {/* <!-- D-None-Card start --> */}
         <div className="card-message d-none" ref={cardMain}>
           <div className="number-card p-2 rounded-1">
             <div className="cross-icon text-end">
@@ -163,7 +144,6 @@ export default function SecondMain() {
             </div>
           </div>
         </div>
-        {/* <!-- D-None-Card end --> */}
       </div>
     </>
   );

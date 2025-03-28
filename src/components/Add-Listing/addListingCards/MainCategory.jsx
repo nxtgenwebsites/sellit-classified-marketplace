@@ -22,7 +22,8 @@ export default function MainCategory() {
             />
             <label htmlFor="floatingInput">Ad Title</label>
             <small className="title-input">
-              Mention the key features of your item (e.g. brand, model, age, type)
+              Mention the key features of your item (e.g. brand, model, age,
+              type)
             </small>
           </div>
         </div>
@@ -33,7 +34,9 @@ export default function MainCategory() {
           <div className="w-100 form-floating">
             <textarea
               name="Description"
-              className="form-control" placeholder="Description" id="floatingTextarea"
+              className="form-control"
+              placeholder="Description"
+              id="floatingTextarea"
               required
             ></textarea>
             <label htmlFor="Description">Description</label>

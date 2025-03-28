@@ -4,7 +4,7 @@ import "./css/home.css";
 const Marquee = () => {
   return (
     <div>
-      <section className="carousel-section">
+      <section className="carousel-section py-5">
         <div className="container">
           <div className="marquee-heading text-center">
             <h1 className="fw-semibold mb-0">Trusted by Sellit Pakistan</h1>

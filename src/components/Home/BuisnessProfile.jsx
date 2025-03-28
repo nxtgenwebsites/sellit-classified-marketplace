@@ -7,7 +7,7 @@ import "./css/home.css";
 function BuisnessProfile() {
   return (
     <div>
-      <section className="start-buisness-section">
+      <section className="start-buisness-section py-5">
         <Container>
           <Row className="row-gap-3">
             <Col lg={6}>

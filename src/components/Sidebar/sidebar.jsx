@@ -3,7 +3,7 @@ import "./sidebar.css";
 
 export default function sidebar() {
   return (
-    <section className="sidebar">
+    <section className="sidebar py-5">
       <div className="first-section rounded-2">
         <div className="first-heading">
           <h6 className="fw-semibold first-title">Categories</h6>

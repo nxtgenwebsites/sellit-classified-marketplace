@@ -10,7 +10,7 @@ import Container from "react-bootstrap/Container";
 function BannerSlider() {
   return (
     <div>
-      <section className="banner-section">
+      <section className="banner-section py-5">
         <Container>
           <Swiper
             spaceBetween={0}

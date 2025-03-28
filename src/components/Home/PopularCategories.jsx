@@ -7,7 +7,7 @@ import PopularCategory from "./data/PopularCardData.json";
 function PopularCategories() {
   return (
     <div>
-      <section className="popular-category-section">
+      <section className="popular-category-section py-5">
         <Container>
           <div className="left-title mb-4">
             <h1 className="fw-semibold">Popular Categories</h1>
