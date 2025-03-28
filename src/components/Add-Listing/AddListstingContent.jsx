@@ -105,7 +105,7 @@ export default function AddListstingContent() {
 
         {/* Form */}
         <form>
-          <div className="forms-group p-4 my-3 rounded-2">
+          <div className="forms-group p-4 my-3 rounded-2 bg-white shadow">
             <div className="form-category">
               <MainCategory />
               <div className="main-div d-lg-flex gap-2 w-100">
@@ -229,7 +229,6 @@ export default function AddListstingContent() {
                   <ServiceDropdown />
                 </div>
               </div>
-              <MainCategory />
             </div>
             <div ref={forms.mobiles} className="w-100 d-none">
               <Mobiles />
