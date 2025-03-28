@@ -270,12 +270,12 @@ export default function Motors() {
           <div className="label">
             <label htmlFor="Color">Color</label>
           </div>
-          <div className="input w-100 gap-2 p-2">
+          <div className="input w-100 gap-2 p-2 text-end">
             <input
               type="color"
               name="Color"
               id="Color"
-              className="w-100"
+              className="color-inp"
             />
           </div>
         </div>
@@ -303,7 +303,7 @@ export default function Motors() {
             <div className="checkbox-main w-100">
               <div className="check-1">
                 <div className="row align-items-center row-gap-2">
-                  <div className="col-md-6">
+                  <div className="col-md-6 mt-2">
                     <div className="checkboxes w-100">
                       <div className="checkbox-1 d-flex align-items-center w-100 gap-1">
                         <input
@@ -315,7 +315,7 @@ export default function Motors() {
                       </div>
                     </div>
                   </div>
-                  <div className="col-md-6">
+                  <div className="col-md-6 mt-2">
                     <div className="checkboxes">
                       <div className="checkbox-2 d-flex align-items-center w-100 gap-1">
                         <input
@@ -327,7 +327,7 @@ export default function Motors() {
                       </div>
                     </div>
                   </div>
-                  <div className="col-md-6">
+                  <div className="col-md-6 mt-2">
                     <div className="checkboxes">
                       <div className="checkbox-1 d-flex align-items-center w-100 gap-1">
                         <input
@@ -339,7 +339,7 @@ export default function Motors() {
                       </div>
                     </div>
                   </div>
-                  <div className="col-md-6">
+                  <div className="col-md-6 mt-2">
                     <div className="checkboxes">
                       <div className="checkbox-2 d-flex align-items-center w-100 gap-1">
                         <input

@@ -1629,4 +1629,10 @@
   font-weight: 600 !important;
 }
 
+.color-inp {
+  width: 80px;
+  
+  margin: auto;
+}
+
 /* Successful Page end */
