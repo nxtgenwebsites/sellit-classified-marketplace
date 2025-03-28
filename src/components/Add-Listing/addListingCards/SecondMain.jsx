@@ -23,7 +23,7 @@ export default function SecondMain() {
   function valueInput(e) {
     e.preventDefault();
     if (!numberInp.current.value.trim()) {
-      toast.warn("Fill the field please 😊");
+      toast.warn("Fill the field please");
       return;
     }
     cardMain.current.classList.add("d-none");
@@ -46,7 +46,7 @@ export default function SecondMain() {
         </div>
         <div className="d-lg-flex gap-2">
           <div className="third-form_group w-100 my-3">
-            <label htmlFor="Location">Location</label>
+            <label htmlFor="Location" className="label">Location</label>
             <select
               name="Location"
               id="Location"
@@ -65,7 +65,7 @@ export default function SecondMain() {
             </select>
           </div>
           <div className="fourth-form_group w-100 my-3">
-            <label htmlFor="Price">Price</label>
+            <label htmlFor="Price" className="label">Price</label>
             <div className="input price-input w-100 d-flex rounded-2">
               <span className="price-currency">PKR</span>
               <hr className="input-divider" />
@@ -83,7 +83,7 @@ export default function SecondMain() {
         </div>
         <div className="d-lg-flex gap-2">
           <div className="fifth-form_group w-100 my-3">
-            <label htmlFor="name">Name</label>
+            <label htmlFor="name" className="label">Name</label>
             <input
               type="text"
               className="px-3 py-2 rounded-2 w-100 input-number mt-1"
@@ -92,7 +92,7 @@ export default function SecondMain() {
             />
           </div>
           <div className="fourth-form_group w-100 my-3">
-            <label htmlFor="Mobile Number">Mobile Number</label>
+            <label htmlFor="Mobile Number" className="label mb-1">Mobile Number</label>
             <input
               type="tel"
               placeholder="Enter Mobile Number"
@@ -106,6 +106,7 @@ export default function SecondMain() {
             />
           </div>
         </div>
+        {/* Card start */}
         <div className="card-message d-none" ref={cardMain}>
           <div className="number-card p-2 rounded-1">
             <div className="cross-icon text-end">
@@ -116,7 +117,7 @@ export default function SecondMain() {
                 src="/assets/icons/Footer-logo.png"
                 alt=""
                 className="mx-md-auto"
-              />
+                />
             </div>
             <div className="content_ text-md-center mt-3">
               <h5 className="fw-bold text-black">
@@ -144,6 +145,7 @@ export default function SecondMain() {
             </div>
           </div>
         </div>
+      {/* Card end */}
       </div>
     </>
   );

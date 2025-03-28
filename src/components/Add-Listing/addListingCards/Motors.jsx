@@ -270,7 +270,7 @@ export default function Motors() {
           <div className="label">
             <label htmlFor="Color">Color</label>
           </div>
-          <div className="input w-100 gap-2 p-2 text-end">
+          <div className="input w-100 text-end">
             <input type="color" name="Color" id="Color" className="color-inp" />
           </div>
         </div>
