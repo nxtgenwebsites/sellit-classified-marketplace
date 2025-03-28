@@ -3,10 +3,16 @@
 }
 
 .price-currency {
-  padding: 10px;
-  border-right: 1px solid #ccc;
+  margin: 9px 10px 0 10px;
 }
-
+.input-divider {
+  width: 1px;
+  height: 40px !important;
+  margin: auto;
+  background: #000;
+  color: #000;
+  border: 1px solid #000;
+}
 .price-input {
   border: 1px solid #bdbebf;
 }
@@ -16,10 +22,6 @@
   border: 0;
   box-shadow: 0 0 0 0 !important;
   width: 100%;
-}
-
-.forms-group {
-  background: #fff;
 }
 
 .listing-heading h1 {
@@ -108,7 +110,7 @@
 }
 
 /* Stuck Form start */
-.title-input small {
+.title-input {
   font-size: 12px;
 }
 
@@ -143,7 +145,7 @@
   display: block !important;
 }
 
-.description-input textarea {
+#floatingTextarea {
   resize: none;
   height: 150px;
 }

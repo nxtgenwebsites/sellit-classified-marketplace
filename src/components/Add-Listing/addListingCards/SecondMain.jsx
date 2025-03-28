@@ -41,15 +41,16 @@ export default function SecondMain() {
       <div className="heading-form">
         <h3 className="fw-bold mb-5">Extra Details</h3>
       </div>
-      <div className="third-form_group d-lg-flex justify-content-between w-100 my-3">
-        <div className="label">
+      <div className="d-lg-flex gap-2">
+      <div className="third-form_group w-100 my-3">
+        <div className="label mb-1">
           <label htmlFor="Location">Location</label>
         </div>
         <div className="select location-input w-100">
           <select
             name="Location"
             id="Location"
-            className="form-select"
+            className="form-select px-3 py-2"
             required
           >
             <option value="" disabled selected>
@@ -67,12 +68,13 @@ export default function SecondMain() {
           </select>
         </div>
       </div>
-      <div class="fourth-form_group d-lg-flex justify-content-between w-100 my-3">
-        <div class="label">
+      <div class="fourth-form_group w-100 my-3">
+        <div class="label mb-1">
           <label for="Price">Price</label>
         </div>
-        <div class="input price-input w-100 d-flex p-2 rounded-2">
+        <div class="input price-input w-100 d-flex rounded-2">
           <span class="price-currency">PKR</span>
+          <hr className="input-divider" />
           <input
             type="number"
             id="Price"
@@ -84,21 +86,25 @@ export default function SecondMain() {
           />
         </div>
       </div>
-      <div className="fifth-form_group d-lg-flex justify-content-between w-100 my-3">
+      </div>
+      <div className="d-lg-flex gap-2">
+      <div className="fifth-form_group w-100 my-3">
         <div className="label">
-          <label htmlFor="Name">Name</label>
+          <label htmlFor="name">Name</label>
         </div>
-        <div className="input name-input w-100">
-          <input
-            type="text"
-            placeholder="Enter Name"
-            className="px-3 py-2 rounded-2 w-100 input-text"
-            required
-          />
+        <div className="w-100 form-floating">
+        <input
+          type="text"
+          className="form-control h-auto rounded-2 w-100 input-text"
+          id="floatingInput"
+          placeholder="Enter Name"
+          required
+        />
+        <label htmlFor="floatingInput" className="mb-3">Name</label>
         </div>
       </div>
-      <div className="fourth-form_group d-lg-flex justify-content-between w-100 my-3">
-        <div className="label">
+      <div className="fourth-form_group w-100 my-3">
+        <div className="label mb-1">
           <label htmlFor="Mobile Number">Mobile Number</label>
         </div>
         <div className="input number-input w-100">
@@ -114,6 +120,7 @@ export default function SecondMain() {
             name="Original Contact Number"
           />
         </div>
+      </div>
       </div>
       {/* <!-- D-None-Card start --> */}
       <div className="card-message d-none" ref={cardMain}>
@@ -155,6 +162,6 @@ export default function SecondMain() {
         </div>
       </div>
       {/* <!-- D-None-Card end --> */}
-    </div>
+    </div >
   );
 }

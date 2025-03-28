@@ -7,35 +7,36 @@ export default function MainCategory() {
         <h3 className="fw-bold mb-5">General Details</h3>
       </div>
       <form className="form-first-group w-100">
-        <div className="first-form_group d-lg-flex justify-content-between w-100 my-3">
-          <div className="label">
+        <div className="first-form_group w-100 my-3">
+          <div className="label mb-1">
             <label htmlFor="Ad Title">Ad Title</label>
           </div>
-          <div className="input title-input w-100">
+          <div className="w-100 form-floating">
             <input
               type="text"
               name="Ad Title"
-              id="Ad Title"
-              className="w-100 px-3 py-2 rounded-2 year-input"
+              className="form-control w-100 h-auto rounded-2 year-input"
+              id="floatingInput"
+              placeholder="Enter Ad Title"
               required
             />
-            <small>
-              Mention the key features of your item (e.g. brand, model, age,
-              type)
+            <label htmlFor="floatingInput">Ad Title</label>
+            <small className="title-input">
+              Mention the key features of your item (e.g. brand, model, age, type)
             </small>
           </div>
         </div>
-        <div className="second-form_group d-lg-flex justify-content-between w-100 my-3">
-          <div className="label">
+        <div className="second-form_group w-100 my-3">
+          <div className="label mb-1">
             <label htmlFor="Description">Description</label>
           </div>
-          <div className="input description-input w-100">
+          <div className="w-100 form-floating">
             <textarea
               name="Description"
-              id="Description"
-              className="w-100 px-3 py-2 rounded-2 year-input"
+              class="form-control" placeholder="Description" id="floatingTextarea"
               required
             ></textarea>
+            <label htmlFor="Description">Description</label>
             <small>Include condition, features and reason for selling</small>
           </div>
         </div>
