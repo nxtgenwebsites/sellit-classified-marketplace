@@ -36,7 +36,7 @@ export default function Mobiles() {
               id="brand"
               className="py-2 px-3 form-select w-100"
             >
-              <option value="" defaultValue disabled>
+              <option value="" selected disabled>
                 Select Brands
               </option>
               <option value="" disabled className="disabled">
@@ -82,7 +82,7 @@ export default function Mobiles() {
               id="brand"
               className="py-2 px-3 form-select w-100"
             >
-              <option value="" defaultValue disabled>
+              <option value="" selected disabled>
                 Select Condition
               </option>
               <option value="1">New</option>

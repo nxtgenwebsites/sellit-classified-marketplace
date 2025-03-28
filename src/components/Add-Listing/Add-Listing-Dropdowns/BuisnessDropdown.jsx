@@ -4,7 +4,7 @@ export default function BuisnessDropdown() {
   return (
     <div>
       <select className="form-select px-3 py-2">
-        <option value="select-subcategory" defaultValue disabled>
+        <option value="select-subcategory" selected disabled>
           Select Sub-Category
         </option>
         <option value="1">Buisness For Sale</option>

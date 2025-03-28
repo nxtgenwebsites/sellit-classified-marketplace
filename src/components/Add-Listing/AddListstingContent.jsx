@@ -85,13 +85,13 @@ export default function AddListstingContent() {
     });
 
     // Show defaultValue category and form
-    if (categories[selectedCategory]?.current) {
-      categories[selectedCategory].current.classList.add("d-block");
-      categories[selectedCategory].current.classList.remove("d-none");
+    if (categories[defaultValueCategory]?.current) {
+      categories[defaultValueCategory].current.classList.add("d-block");
+      categories[defaultValueCategory].current.classList.remove("d-none");
     }
 
-    if (forms[selectedCategory]?.current) {
-      forms[selectedCategory].current.classList.remove("d-none");
+    if (forms[defaultValueCategory]?.current) {
+      forms[defaultValueCategory].current.classList.remove("d-none");
     }
   }
   return (
@@ -115,7 +115,7 @@ export default function AddListstingContent() {
                     onChange={handleCategory}
                     className="form-select px-3 py-2"
                   >
-                    <option value="" disabled defaultValue>
+                    <option value="" disabled selected>
                       Select Category
                     </option>
                     <option value="mobiles">Mobiles</option>

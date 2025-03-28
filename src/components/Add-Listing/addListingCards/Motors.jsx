@@ -75,7 +75,7 @@ export default function Motors() {
               id="make"
               className="py-2 px-3 form-select w-100"
             >
-              <option value="" defaultValue disabled>
+              <option value="" selected disabled>
                 Select make
               </option>
               <option value="" disabled className="disabled">
@@ -191,7 +191,7 @@ export default function Motors() {
           </div>
           <div className="select w-100">
             <select name="Fuel" id="Fuel" className="form-select px-3 py-2">
-              <option value="" defaultValue disabled>
+              <option value="" selected disabled>
                 Select Fuel
               </option>
               <option value="1">Patrol</option>
@@ -238,7 +238,7 @@ export default function Motors() {
               id="Body Type"
               className="form-select px-3 py-2"
             >
-              <option value="" defaultValue disabled>
+              <option value="" selected disabled>
                 Select Body Type
               </option>
               <option value="" disabled className="disabled">

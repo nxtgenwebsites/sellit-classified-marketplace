@@ -70,7 +70,7 @@ export default function BooksDropdown() {
         ref={booksMainCategory}
         onChange={booksCategoriesHandler}
       >
-        <option value="select-subcategory" defaultValue disabled>
+        <option value="select-subcategory" selected disabled>
           Select Sub-Category
         </option>
         <option value="Books">Books & Magazines</option>
@@ -88,7 +88,7 @@ export default function BooksDropdown() {
         </div>
         <div className="select w-100">
           <select name="Type" id="Type" className="form-select py-2 px-3">
-            <option value="" defaultValue disabled>
+            <option value="" selected disabled>
               Select Type
             </option>
             <option value="" className="disabled" disabled>
@@ -118,7 +118,7 @@ export default function BooksDropdown() {
         </div>
         <div className="select w-100">
           <select name="Type" id="Type" className="form-select py-2 px-3">
-            <option value="" defaultValue disabled>
+            <option value="" selected disabled>
               Select Type
             </option>
             <option value="" className="disabled" disabled>
@@ -157,7 +157,7 @@ export default function BooksDropdown() {
         </div>
         <div className="select w-100">
           <select name="Type" id="Type" className="form-select py-2 px-3">
-            <option value="" defaultValue disabled>
+            <option value="" selected disabled>
               Select Type
             </option>
             <option value="" className="disabled" disabled>
@@ -212,7 +212,7 @@ export default function BooksDropdown() {
         </div>
         <div className="select w-100">
           <select name="Type" id="Type" className="form-select py-2 px-3">
-            <option value="" defaultValue disabled>
+            <option value="" selected disabled>
               Select Type
             </option>
             <option value="" className="disabled" disabled>

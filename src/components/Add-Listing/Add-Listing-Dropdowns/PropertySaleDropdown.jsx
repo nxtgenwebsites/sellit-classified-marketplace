@@ -4,7 +4,7 @@ export default function PropertySaleDropdown() {
   return (
     <div>
       <select className="form-select px-3 py-2 w-100">
-        <option value="" disabled defaultValue>
+        <option value="" disabled selected>
           Select Sub-Category
         </option>
         <option value="lands">Lands & Plots</option>

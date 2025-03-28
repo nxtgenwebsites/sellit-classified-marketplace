@@ -36,7 +36,7 @@ export default function PropertySale() {
               id="Type"
               className="py-2 px-3 form-select w-100"
             >
-              <option value="" defaultValue disabled>
+              <option value="" selected disabled>
                 Select Type
               </option>
               <option value="1">Agricultural Land</option>
@@ -97,7 +97,7 @@ export default function PropertySale() {
               id="Area Unit"
               className="px-3 py-2 form-select w-100"
             >
-              <option value="" defaultValue disabled>
+              <option value="" selected disabled>
                 Select Area Unit
               </option>
               <option value="1">Kanal</option>

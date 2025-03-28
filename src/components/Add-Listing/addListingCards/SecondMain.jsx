@@ -37,7 +37,7 @@ export default function SecondMain() {
     setIsChanged((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
   // <!-- Value Adding Function end -->
-  
+
   return (
     <>
       <ToastContainer position="top-right" />
@@ -57,7 +57,7 @@ export default function SecondMain() {
                 className="form-select px-3 py-2"
                 required
               >
-                <option value="" disabled defaultValue>
+                <option value="" disabled selected>
                   Select Location
                 </option>
                 <option value="" disabled className="disabled-heading">
@@ -81,12 +81,12 @@ export default function SecondMain() {
               <hr className="input-divider" />
               <input
                 type="number"
+                min={0}
                 id="Price"
                 placeholder="Enter Price"
                 className="px-3"
                 required
                 step={+100}
-                min={0}
               />
             </div>
           </div>

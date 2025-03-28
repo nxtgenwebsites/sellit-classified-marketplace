@@ -145,7 +145,7 @@ export default function Job() {
               id="Career Level"
               className="w-100 form-select py-2 px-3"
             >
-              <option value="" disabled defaultValue>
+              <option value="" disabled selected>
                 Select Career Level
               </option>
               <option value="1">Entry Level</option>
@@ -166,7 +166,7 @@ export default function Job() {
               id="Salary Period"
               className="w-100 form-select py-2 px-3"
             >
-              <option value="" disabled defaultValue>
+              <option value="" disabled selected>
                 Select Salary Period
               </option>
               <option value="1">Monthly</option>
@@ -186,7 +186,7 @@ export default function Job() {
               id="Position Type"
               className="w-100 form-select py-2 px-3"
             >
-              <option value="" disabled defaultValue>
+              <option value="" disabled selected>
                 Select Position Type
               </option>
               <option value="1">Full-time</option>

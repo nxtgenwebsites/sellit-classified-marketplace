@@ -4,7 +4,7 @@ export default function PropertyRentDropdown() {
   return (
     <div>
       <select className="form-select px-3 py-2 w-100">
-        <option value="select-subcategory" defaultValue disabled>
+        <option value="select-subcategory" selected disabled>
           Select Sub-Category
         </option>
         <option value="1">Houses</option>
