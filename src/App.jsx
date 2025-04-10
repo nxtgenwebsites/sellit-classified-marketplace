@@ -22,6 +22,8 @@ import AddListingPage from "./Pages/AddListingPage";
 import Featured_succesful_listing_page from "./components/Add-Listing/Featured_succesful_listing_page";
 import Example from "./components/Add-Listing/Example";
 import "./App.css";
+import PaymentPage from "./Pages/PaymentPage";
+import Preview from "./Pages/Preview";
 
 function App() {
   return (
@@ -50,6 +52,14 @@ function App() {
         <Route
           path="/successful"
           element={<Featured_succesful_listing_page />}
+        />
+        <Route
+          path="/payment"
+          element={<PaymentPage />}
+        />
+        <Route
+          path="/preview"
+          element={<Preview />}
         />
         <Route path="/example" element={<Example />} />
       </Routes>
