@@ -58,14 +58,14 @@ export default function Featured_slider() {
         {FeaturedAdsData.map((card, i) => (
           <SwiperSlide className="featured-slide" key={i}>
             <div className="featured-card shadow position-relative p-2 rounded-3 w-100">
-              <div className="featured-label px-2 py-1 rounded-2">
-                <h6 className="fw-bold text-white">
-                  <MdOutlineStarPurple500 className="featured-icon" />
-                </h6>
-              </div>
+                  <div className="featured-label mx-3 my-2">
+                    <span>Featured</span>
+                  </div>
               <div className="fav-and-watch d-flex gap-3">
                 <div
-                  className={`fav-icon heart ${favStates[i] ? "bg-change" : ""}`}
+                  className={`fav-icon heart ${
+                    favStates[i] ? "bg-change" : ""
+                  }`}
                   onClick={() => toggleFav(i)}
                 >
                   <BsHeart />
@@ -90,20 +90,12 @@ export default function Featured_slider() {
                       <h6 className="fw-medium mb-0">New York, USA</h6>
                     </div>
                   </div>
-                  <div className="rating d-flex gap-2 align-items-center w-100">
-                    <div className="rating-icon rounded-circle">
-                      <IoTimeOutline />
-                    </div>
-                    <div className="rating-content">
-                      <h6 className="fw-medium mb-0">5 days ago</h6>
-                    </div>
-                  </div>
                 </div>
               </div>
               <div className="featured-ad-details mt-3 border-top px-2">
                 <div className="account-card mt-3 text-center">
                   <div className="user-content">
-                    <h2>PKR 10 Lacs</h2>
+                    <h2>100,000 PKR</h2>
                   </div>
                 </div>
               </div>

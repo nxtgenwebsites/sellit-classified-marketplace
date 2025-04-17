@@ -5,6 +5,7 @@ import Row from "react-bootstrap/Row";
 import Card1 from "./RecentAdsCards/Card1";
 import Card2 from "./RecentAdsCards/Card2";
 import RecentCardData from "./data/RecentCardData.json";
+import { FaArrowRight } from "react-icons/fa6";
 
 function RecentlyAds() {
   return (
@@ -16,92 +17,102 @@ function RecentlyAds() {
               <h1 className="fw-semibold">Recently Posted Ads</h1>
             </div>
           </div>
-          <ul className="nav nav-tabs tabs" id="myTab" role="tablist">
-            <li className="nav-item buy-tabs" role="presentation">
-              <button
-                className="nav-link active tab-btn"
-                id="raw-tab"
-                data-bs-toggle="tab"
-                data-bs-target="#Raw"
-                type="button"
-                role="tab"
-                aria-controls="home"
-                aria-selected="true"
-              >
-                Rawalpindi
-              </button>
-            </li>
-            <li className="nav-item buy-tabs" role="presentation">
-              <button
-                className="nav-link tab-btn"
-                id="isl-tab"
-                data-bs-toggle="tab"
-                data-bs-target="#Isl"
-                type="button"
-                role="tab"
-                aria-controls="profile"
-                aria-selected="false"
-              >
-                Islamabad
-              </button>
-            </li>
-            <li className="nav-item buy-tabs" role="presentation">
-              <button
-                className="nav-link tab-btn"
-                id="lah-tab"
-                data-bs-toggle="tab"
-                data-bs-target="#Lah"
-                type="button"
-                role="tab"
-                aria-controls="contact"
-                aria-selected="false"
-              >
-                Lahore
-              </button>
-            </li>
-            <li className="nav-item buy-tabs" role="presentation">
-              <button
-                className="nav-link tab-btn"
-                id="mul-tab"
-                data-bs-toggle="tab"
-                data-bs-target="#Mul"
-                type="button"
-                role="tab"
-                aria-controls="contact"
-                aria-selected="false"
-              >
-                Multan
-              </button>
-            </li>
-            <li className="nav-item buy-tabs" role="presentation">
-              <button
-                className="nav-link tab-btn"
-                id="kar-tab"
-                data-bs-toggle="tab"
-                data-bs-target="#Kar"
-                type="button"
-                role="tab"
-                aria-controls="contact"
-                aria-selected="false"
-              >
-                Karachi
-              </button>
-            </li>
-            <li className="nav-item buy-tabs" role="presentation">
-              <button
-                className="nav-link tab-btn"
-                id="kpk-tab"
-                data-bs-toggle="tab"
-                data-bs-target="#KPK"
-                type="button"
-                role="tab"
-                aria-controls="contact"
-                aria-selected="false"
-              >
-                Peshawar
-              </button>
-            </li>
-          </ul>
+          <div className="d-flex w-100 justify-content-between align-items-center">
+            <ul
+              className="nav nav-tabs tabs w-50 mx-0 "
+              id="myTab"
+              role="tablist"
+            >
+              <li className="nav-item buy-tabs" role="presentation">
+                <button
+                  className="nav-link active tab-btn"
+                  id="pindi-tab"
+                  data-bs-toggle="tab"
+                  data-bs-target="#Rawalpindi"
+                  type="button"
+                  role="tab"
+                  aria-controls="home"
+                  aria-selected="true"
+                >
+                  Rawalpindi
+                </button>
+              </li>
+              <li className="nav-item buy-tabs" role="presentation">
+                <button
+                  className="nav-link tab-btn"
+                  id="islamabad-tab"
+                  data-bs-toggle="tab"
+                  data-bs-target="#Islamabad"
+                  type="button"
+                  role="tab"
+                  aria-controls="profile"
+                  aria-selected="false"
+                >
+                  Islamabad
+                </button>
+              </li>
+              <li className="nav-item buy-tabs" role="presentation">
+                <button
+                  className="nav-link tab-btn"
+                  id="lahore-tab"
+                  data-bs-toggle="tab"
+                  data-bs-target="#Lahore"
+                  type="button"
+                  role="tab"
+                  aria-controls="contact"
+                  aria-selected="false"
+                >
+                  Lahore
+                </button>
+              </li>
+              <li className="nav-item buy-tabs" role="presentation">
+                <button
+                  className="nav-link tab-btn"
+                  id="multan-tab"
+                  data-bs-toggle="tab"
+                  data-bs-target="#Multan"
+                  type="button"
+                  role="tab"
+                  aria-controls="contact"
+                  aria-selected="false"
+                >
+                  Multan
+                </button>
+              </li>
+              <li className="nav-item buy-tabs" role="presentation">
+                <button
+                  className="nav-link tab-btn"
+                  id="karachi-tab"
+                  data-bs-toggle="tab"
+                  data-bs-target="#Karachi"
+                  type="button"
+                  role="tab"
+                  aria-controls="contact"
+                  aria-selected="false"
+                >
+                  Karachi
+                </button>
+              </li>
+              <li className="nav-item buy-tabs" role="presentation">
+                <button
+                  className="nav-link tab-btn"
+                  id="Peshawar-tab"
+                  data-bs-toggle="tab"
+                  data-bs-target="#Peshawar"
+                  type="button"
+                  role="tab"
+                  aria-controls="contact"
+                  aria-selected="false"
+                >
+                  Peshawar
+                </button>
+              </li>
+            </ul>
+            <button className="d-flex align-items-center gap-2 view-all-btn">
+              <span>View All</span>
+              <FaArrowRight />
+            </button>
+          </div>
           <div className="tab-content mt-4" id="myTabContent">
             <div
               className="tab-pane fade show active"

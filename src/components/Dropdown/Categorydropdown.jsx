@@ -20,6 +20,7 @@ import BooksCard from "./Cards/BooksCard";
 // Category Cards end
 // Other Categories start
 import SubCategoryDropdowns from "./SubCategoryDropdowns";
+import { CgOptions } from "react-icons/cg";
 // Other Categories end
 
 export default function Categorydropdown() {
@@ -31,13 +32,16 @@ export default function Categorydropdown() {
             <Dropdown className="category-dropdown">
               <Dropdown.Toggle
                 type="button"
-                className="btn main-heading bg-transparent text-black border-0 w-100 d-xl-block d-none"
+                className="btn main-heading bg-transparent text-black border-0 w-100 d-xl-flex d-none"
                 aria-expanded="false"
                 data-bs-toggle="dropdown"
               >
+                <div className="me-1">
+                <CgOptions size={18}/>
+                </div>
                 ALL CATEGORIES{" "}
-                <span className="ms-1 dropdown-btn">
-                  <img src="assets/icons/chevron.svg" alt="IMG" />
+                <span className="ms-2 dropdown-btn">
+                  <img src="assets/icons/chevron.svg" width={12} alt="IMG" />
                 </span>
               </Dropdown.Toggle>
               <Dropdown.Menu className="category-menu rounded-4 shadow bg-white border-0">

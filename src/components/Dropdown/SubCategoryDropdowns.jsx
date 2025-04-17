@@ -1,12 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { CiMobile3 } from "react-icons/ci";
-import { IoCarSportOutline } from "react-icons/io5";
+import { IoCarSportOutline, IoHomeOutline } from "react-icons/io5";
 import { FaMotorcycle } from "react-icons/fa6";
 import { BsHouseDoor } from "react-icons/bs";
 import { IoBriefcaseOutline } from "react-icons/io5";
 import { FaHeadset } from "react-icons/fa6";
 import Dropdown from "react-bootstrap/Dropdown";
+import { LuCar } from "react-icons/lu";
+import { MdComputer } from "react-icons/md";
 
 export default function SubCategoryDropdowns() {
   return (
@@ -14,13 +16,17 @@ export default function SubCategoryDropdowns() {
       <div className="category-wrapper d-lg-flex align-items-center gap-3">
         <Dropdown className="category-item">
           <Dropdown.Toggle className="bg-transparent border-0">
-            <h6 className="fw-medium text-black">
+            <h6 className="fw-medium text-black d-flex">
+              <div className="me-2">
+                <LuCar size={20} />
+              </div>
               Motors
               <span>
                 <img
-                  src="/assets/icons/chevron.svg"
-                  alt="IMG"
                   className="ms-2"
+                  src="assets/icons/chevron.svg"
+                  width={18}
+                  alt="IMG"
                 />
               </span>
             </h6>
@@ -46,7 +52,10 @@ export default function SubCategoryDropdowns() {
         </Dropdown>
         <Dropdown className="category-item">
           <Dropdown.Toggle className="bg-transparent border-0">
-            <h6 className="fw-medium text-black">
+            <h6 className="fw-medium text-black d-flex">
+              <div className="me-2">
+                <IoHomeOutline size={16} />
+              </div>
               Property
               <span>
                 <img
@@ -78,7 +87,10 @@ export default function SubCategoryDropdowns() {
         </Dropdown>
         <Dropdown className="category-item">
           <Dropdown.Toggle className="bg-transparent border-0">
-            <h6 className="fw-medium text-black">
+            <h6 className="fw-medium text-black d-flex">
+              <div className="me-2">
+                <IoBriefcaseOutline size={17} />
+              </div>
               Buisnesses
               <span>
                 <img
@@ -118,7 +130,10 @@ export default function SubCategoryDropdowns() {
         </Dropdown>
         <Dropdown className="category-item">
           <Dropdown.Toggle className="bg-transparent border-0">
-            <h6 className="fw-medium text-black">
+            <h6 className="fw-medium d-flex text-black">
+              <div className="me-2">
+              <MdComputer size={19}/>
+              </div>
               Electronics
               <span>
                 <img

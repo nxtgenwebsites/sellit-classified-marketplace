@@ -79,6 +79,7 @@
 .tab-btn {
   color: #000 !important;
   font-weight: 500 !important;
+  border-radius: 20px !important;
   font-size: 18px !important;
 }
 
@@ -86,6 +87,45 @@
   background: #3a4fc4 !important;
   border-radius: 20px !important;
   color: #fff !important;
+}
+
+.view-all-btn{
+  background: #faf5f2 ;
+  color: #505050;
+  padding: 6px 16px;
+  border: none;
+  border-radius: 20px;
+  transition: 0.2s linear;
+}
+
+.view-all-btn:hover{
+  background: #3a4fc4 ;
+  color: white;
+}
+
+.swiper-pagination  {
+ position: static;
+ bottom: 10px !important;
+}
+
+.featured-ads{
+  height: auto;
+  min-height: 500px;
+}
+
+
+
+.featured-label {
+    background: #3a4fc4 ;
+    padding: 4px 10px;
+    border-radius: 5px;
+}
+
+.featured-label span{
+    font-weight: 400;
+    font-size: 13px;
+    color: white;
+font-family: Montserrat, serif;
 }
 
 /* Nav Tabs end */

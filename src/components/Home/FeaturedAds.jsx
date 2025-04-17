@@ -1,6 +1,7 @@
 import React from "react";
 import "./css/home.css";
 import Featured_slider from "./Featured_slider";
+import { FaArrowRight } from "react-icons/fa6";
 
 export default function FeaturedAds() {
   return (
@@ -11,7 +12,8 @@ export default function FeaturedAds() {
             <div className="left-title">
               <h1 className="fw-semibold">Featured Ads</h1>
             </div>
-            <ul className="nav nav-tabs tabs" id="myTab" role="tablist">
+            <div className="d-flex w-100 justify-content-between align-items-center">
+            <ul className="nav nav-tabs tabs w-50 mx-0 " id="myTab" role="tablist">
               <li className="nav-item buy-tabs" role="presentation">
                 <button
                   className="nav-link active tab-btn"
@@ -97,6 +99,11 @@ export default function FeaturedAds() {
                 </button>
               </li>
             </ul>
+            <button className="d-flex align-items-center gap-2 view-all-btn">
+              <span>View All</span>
+              <FaArrowRight />
+            </button>
+            </div>
           </div>
         </div>
         <div className="tab-content mt-4" id="myTabContent">

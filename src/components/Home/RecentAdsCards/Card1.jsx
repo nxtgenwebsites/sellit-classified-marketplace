@@ -37,20 +37,12 @@ function Card1({ ads }) {
                   <h6 className="fw-medium mb-0">New York, USA</h6>
                 </div>
               </div>
-              <div className="rating d-flex gap-2 align-items-center">
-                <div className="rating-icon rounded-circle">
-                  <IoTimeOutline />
-                </div>
-                <div className="rating-content">
-                  <h6 className="fw-medium mb-0">5 days ago</h6>
-                </div>
-              </div>
             </div>
           </div>
           <div className="buy-sell-ad-details mt-3 border-top px-2">
             <div className="account-card mt-3 text-center">
               <div className="user-content">
-                <h2>PKR 10 Lacs</h2>
+                <h2>100, 000 PKR</h2>
               </div>
             </div>
           </div>
