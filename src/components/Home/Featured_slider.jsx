@@ -10,6 +10,7 @@ import { MdOutlineStarPurple500 } from "react-icons/md";
 import { IoTimeOutline } from "react-icons/io5";
 import { BsGeoAlt } from "react-icons/bs";
 import { BsHeart } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
 export default function Featured_slider() {
   const [favStates, setFavStates] = useState(FeaturedAdsData.map(() => false));
