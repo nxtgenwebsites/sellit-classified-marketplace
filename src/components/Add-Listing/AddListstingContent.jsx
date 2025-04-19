@@ -286,6 +286,14 @@ export default function AddListstingContent() {
                 Add Listings
               </button>
             </Link>
+            <Link to={"/preview"} className="">
+              <button
+                type="submit"
+                className="rounded-3 ms-4 nav-btn text-decoration-none secondary-button"
+              >
+                Preview
+              </button>
+            </Link>
           </div>
         </form>
       </Container>

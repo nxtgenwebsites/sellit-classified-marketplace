@@ -1,11 +1,30 @@
 import { useState } from "react";
 // import "./App.css";
 
-function Preview() {
-  const [activeTab, setActiveTab] = useState("product");
+function AddPage() {
+  const [activeTab, setActiveTab] = useState("product"); // "product" or "review"
 
   return (
     <div className="app-container">
+      {/* Simple Navigation */}
+      <div className="simple-nav">
+        <div className="logo">BoatMarketplace</div>
+        <div className="nav-buttons">
+          <button
+            className={`nav-btn ${activeTab === "product" ? "active" : ""}`}
+            onClick={() => setActiveTab("product")}
+          >
+            Product
+          </button>
+          <button
+            className={`nav-btn ${activeTab === "review" ? "active" : ""}`}
+            onClick={() => setActiveTab("review")}
+          >
+            Reviews
+          </button>
+        </div>
+      </div>
+
       {/* Main Content */}
       <div className="main-content">
         {activeTab === "product" ? <ProductPage /> : <ReviewPage />}
@@ -235,4 +254,165 @@ function ProductPage() {
   );
 }
 
-export default Preview;
+// Review Page Component
+function ReviewPage() {
+  return (
+    <div className="review-page">
+      <div className="review-content">
+        <div className="review-main">
+          <h2>Customer Reviews</h2>
+
+          {/* Review Item */}
+          <div className="review-card">
+            <div className="review-header">
+              <img
+                src="https://images.ctfassets.net/4cd45et68cgf/564owNzMKj6UGjvTEZkKSJ/c853cf640796fcd532d60c23fc57f6b6/Rowan_Atkinson_credit__Alastair_Muir.jpg?w=2000"
+                alt="Reviewer"
+                className="reviewer-avatar"
+              />
+              <div className="reviewer-info">
+                <h4>Ali Tufan</h4>
+                <p>April 08, 2024</p>
+              </div>
+            </div>
+            <div className="review-rating">★★★★★</div>
+            <p className="review-text">
+              Duis aute irure dolor in reprehenderit in voluptate velit esse
+              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+              cupidatat non proident, sunt in culpa qui officia deserunt mollit
+              anim id est laborum.
+            </p>
+            <div className="review-actions">
+              <button className="action-btn">Helpful</button>
+              <button className="action-btn">Not helpful</button>
+            </div>
+          </div>
+
+          {/* Review Item */}
+          <div className="review-card">
+            <div className="review-header">
+              <img
+                src="https://images.ctfassets.net/4cd45et68cgf/564owNzMKj6UGjvTEZkKSJ/c853cf640796fcd532d60c23fc57f6b6/Rowan_Atkinson_credit__Alastair_Muir.jpg?w=2000"
+                alt="Reviewer"
+                className="reviewer-avatar"
+              />
+              <div className="reviewer-info">
+                <h4>John Smith</h4>
+                <p>April 05, 2024</p>
+              </div>
+            </div>
+            <div className="review-rating">★★★★☆</div>
+            <p className="review-text">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+            <div className="review-actions">
+              <button className="action-btn">Helpful</button>
+              <button className="action-btn">Not helpful</button>
+            </div>
+          </div>
+
+          <div className="show-all">
+            <button className="btn outline-btn">Show All Reviews →</button>
+          </div>
+
+          {/* Review Form */}
+          <div className="review-form-container">
+            <h3>Leave a Reply</h3>
+            <p className="form-note">
+              Your email address will not be published. Required fields are
+              marked *
+            </p>
+
+            <form className="review-form">
+              <div className="form-group">
+                <label htmlFor="name">Name</label>
+                <input type="text" id="name" className="form-input" />
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="email">Email</label>
+                <input type="email" id="email" className="form-input" />
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="comment">Comment</label>
+                <textarea
+                  id="comment"
+                  className="form-textarea"
+                  rows="5"
+                ></textarea>
+              </div>
+
+              <button
+                type="submit"
+                className="btn primary-btn bg-primary text-white"
+              >
+                Submit a Review →
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <div className="review-sidebar">
+          <div className="sidebar-card">
+            <h3>Review Summary</h3>
+            <div className="rating-summary">
+              <div className="overall-rating">
+                <span className="rating-number">4.8</span>
+                <span className="rating-stars">★★★★★</span>
+              </div>
+              <p>Based on 3 reviews</p>
+            </div>
+
+            <div className="rating-bars">
+              <div className="rating-bar-item">
+                <span>5 ★</span>
+                <div className="progress-bar">
+                  <div className="progress" style={{ width: "80%" }}></div>
+                </div>
+                <span>80%</span>
+              </div>
+              <div className="rating-bar-item">
+                <span>4 ★</span>
+                <div className="progress-bar">
+                  <div className="progress" style={{ width: "20%" }}></div>
+                </div>
+                <span>20%</span>
+              </div>
+              <div className="rating-bar-item">
+                <span>3 ★</span>
+                <div className="progress-bar">
+                  <div className="progress" style={{ width: "0%" }}></div>
+                </div>
+                <span>0%</span>
+              </div>
+              <div className="rating-bar-item">
+                <span>2 ★</span>
+                <div className="progress-bar">
+                  <div className="progress" style={{ width: "0%" }}></div>
+                </div>
+                <span>0%</span>
+              </div>
+              <div className="rating-bar-item">
+                <span>1 ★</span>
+                <div className="progress-bar">
+                  <div className="progress" style={{ width: "0%" }}></div>
+                </div>
+                <span>0%</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="sidebar-card">
+            <h3>Write a Review</h3>
+            <p>Share your experience to help others make better decisions.</p>
+            <button className="btn primary-btn">Write a Review ✏️</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default AddPage;

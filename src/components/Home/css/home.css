@@ -113,7 +113,10 @@
   min-height: 500px;
 }
 
-
+.nav-tabs{
+  /* display: none !; */
+  border: 1px solid #3a4fc4 !important;
+}
 
 .featured-label {
     background: #3a4fc4 ;

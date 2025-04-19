@@ -36,18 +36,8 @@ const PaymentPage = () => {
             </Form.Group>
 
             <h2 className="mb-4">Billing</h2>
-            <Form.Group className="mb-3">
-              <Form.Select required>
-                <option value="">Select Country</option>
-                <option value="uk">United Kingdom</option>
-                <option value="us">United States</option>
-                <option value="ca">Canada</option>
-                <option value="au">Australia</option>
-                <option value="other">Other</option>
-              </Form.Select>
-            </Form.Group>
 
-            <Row className="mb-3">
+            <Row className="mb-3 row-gap-3">
               <Col md={6}>
                 <Form.Group>
                   <Form.Control type="text" placeholder="First Name" required />
@@ -66,8 +56,30 @@ const PaymentPage = () => {
               </Col>
             </Row>
 
-            <Row className="mb-4">
-              <Col md={4}>
+            <Row className="mb-4 row-gap-3">
+              <Col md={6}>
+                <Form.Group>
+                  <Form.Select required>
+                    <option value="">Select Country</option>
+                    <option value="uk">United Kingdom</option>
+                    <option value="us">United States</option>
+                    <option value="ca">Canada</option>
+                    <option value="au">Australia</option>
+                    <option value="other">Other</option>
+                  </Form.Select>
+                </Form.Group>
+              </Col>
+              <Col md={6}>
+                <Form.Group>
+                  <Form.Select required>
+                    <option value="">Select State</option>
+                    <option value="state1">State 1</option>
+                    <option value="state2">State 2</option>
+                    <option value="state3">State 3</option>
+                  </Form.Select>
+                </Form.Group>
+              </Col>
+              <Col md={6}>
                 <Form.Group>
                   <Form.Select required>
                     <option value="">City</option>
@@ -78,19 +90,13 @@ const PaymentPage = () => {
                   </Form.Select>
                 </Form.Group>
               </Col>
-              <Col md={4}>
+              <Col md={6}>
                 <Form.Group>
-                  <Form.Select required>
-                    <option value="">Select State</option>
-                    <option value="state1">State 1</option>
-                    <option value="state2">State 2</option>
-                    <option value="state3">State 3</option>
-                  </Form.Select>
-                </Form.Group>
-              </Col>
-              <Col md={4}>
-                <Form.Group>
-                  <Form.Control type="text" placeholder="Zipcode" required />
+                  <Form.Control
+                    type="text"
+                    placeholder="Zipcode or Postal Code"
+                    required
+                  />
                 </Form.Group>
               </Col>
             </Row>
@@ -104,6 +110,12 @@ const PaymentPage = () => {
                   <FaCreditCard className="me-2" />
                   <Form.Label className="mb-0">Card Number</Form.Label>
                 </div>
+                <Form.Control
+                  type="text"
+                  className="mb-3"
+                  placeholder="Name on Card"
+                  required
+                />
                 <Form.Control type="text" placeholder="Card Number" required />
               </Form.Group>
 
@@ -119,18 +131,10 @@ const PaymentPage = () => {
                 </Col>
                 <Col md={6}>
                   <Form.Group className="mb-3">
-                    <Form.Control
-                      type="text"
-                      placeholder="Security Code"
-                      required
-                    />
+                    <Form.Control type="text" placeholder="CVV Code" required />
                   </Form.Group>
                 </Col>
               </Row>
-
-              <Form.Group>
-                <Form.Control type="text" placeholder="Name on Card" required />
-              </Form.Group>
 
               <Form.Group className="mt-3">
                 <Form.Check
@@ -160,7 +164,7 @@ const PaymentPage = () => {
             <Card.Body className="bg-light rounded">
               <div className="d-flex align-items-center">
                 <div className="premium-icon me-3">
-                  <MdOutlineWorkspacePremium size={35} color="#636363"/>
+                  <MdOutlineWorkspacePremium size={35} color="#636363" />
                 </div>
                 <div className="flex-grow-1">
                   <h5 className="mb-0">

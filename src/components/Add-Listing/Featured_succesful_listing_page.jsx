@@ -203,6 +203,16 @@ export default function Featured_succesful_listing_page() {
               </div>
             </div>
           </div>
+          <Link to={'/payment'}>
+          <button
+            type="button"
+            class="rounded-3 primary-button btn btn-primary mt-3 pay-now-btn text-white"
+          >
+            Pay Now
+          </button>
+          </Link>
+          <Link to={'/payment'}>
+          </Link>
         </div>
       </Container>
     </div>

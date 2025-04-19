@@ -95,8 +95,15 @@ img {
   border-color: var(--primary-color);
 }
 
+.pay-now-btn{
+    background-color: var(--primary-color) !important;
+}
 .nav-btn:hover:not(.active) {
   background-color: var(--light-bg);
+}
+
+.add-card-link {
+  text-decoration: none !important;
 }
 
 /* Buttons */
