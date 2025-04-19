@@ -57,6 +57,7 @@ export default function Featured_slider() {
       >
         {FeaturedAdsData.map((card, i) => (
           <SwiperSlide className="featured-slide" key={i}>
+                  <Link to={"/add"} className="add-card-link">
             <div className="featured-card shadow position-relative p-2 rounded-3 w-100">
                   <div className="featured-label mx-3 my-2">
                     <span>Featured</span>
@@ -99,7 +100,8 @@ export default function Featured_slider() {
                   </div>
                 </div>
               </div>
-            </div>
+            </div>  
+                  </Link>
           </SwiperSlide>
         ))}
       </Swiper>
