@@ -1,9 +1,8 @@
-import { Route, Routes } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 // universalPages
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Navbar/Header";
-import Categorydropdown from "./components/Dropdown/Categorydropdown";
 // homePages
 import HomePage from "./Pages/HomePage";
 import MobilesCategory from "./Pages/MobilesCategory";
@@ -14,24 +13,48 @@ import MotorcyclesCategory from "./Pages/MotorcyclesCategory";
 import PopertyForSaleCategory from "./Pages/PopertyForSaleCategory";
 import ServiceProvidersCategory from "./Pages/ServiceProvidersCategory";
 // footerPages
-
 import FooterGrowPage from "./Pages/GrowPage";
 import FooterAdvertisePage from "./Pages/AdvertisePage";
 // Add Listing Pages
 import AddListingPage from "./Pages/AddListingPage";
 import Featured_succesful_listing_page from "./components/Add-Listing/Featured_succesful_listing_page";
 import Example from "./components/Add-Listing/Example";
-import "./App.css";
 import PaymentPage from "./Pages/PaymentPage";
 import Preview from "./Pages/Preview";
 import AddPage from "./Pages/Add";
+// Dashboard Pages
+import Sidebar from "./components/user-dashboard/sidebar/Sidebar";
+import TopNavbar from "./Pages/user-dashboard/top-navbar/TopNavbar";
+import AdsManagement from "./Pages/user-dashboard/manage-ads/AdsManagement";
+// Layouts
+import { Outlet } from "react-router-dom";
+import "./App.css";
+
+// Layout for general user pages (with Header + Footer)
+const UserLayout = () => (
+  <>
+    <Header />
+    <Outlet />
+    <Footer />
+  </>
+);
+
+// Layout for user dashboard (with Sidebar + TopNavbar)
+const DashboardLayout = () => (
+  <div className="d-flex">
+    <Sidebar />
+    <div className="w-100">
+      <TopNavbar />
+      <Outlet />
+    </div>
+  </div>
+);
 
 function App() {
   return (
-    <>
-      <Header />
-      <Categorydropdown />
-      <Routes>
+    <Routes>
+      {/* General User Layout */}
+      <Route element={<UserLayout />}>
         <Route path="/" element={<HomePage />} />
         <Route path="/mobiles-category" element={<MobilesCategory />} />
         <Route path="/motorcycle-category" element={<MotorcyclesCategory />} />
@@ -58,9 +81,14 @@ function App() {
         <Route path="/preview" element={<Preview />} />
         <Route path="/add" element={<AddPage />} />
         <Route path="/example" element={<Example />} />
-      </Routes>
-      <Footer />
-    </>
+      </Route>
+
+      {/* Dashboard Layout */}
+      <Route element={<DashboardLayout />}>
+        <Route path="/dashboard/ads-management" element={<AdsManagement />} />
+        {/* Add more dashboard routes here if needed */}
+      </Route>
+    </Routes>
   );
 }
 
