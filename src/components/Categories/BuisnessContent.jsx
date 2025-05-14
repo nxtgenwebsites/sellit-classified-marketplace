@@ -24,7 +24,7 @@ export default function BusinessContent() {
     <div className="page-wrapper">
       <div className="mobile-heading mb-3 d-flex w-100 justify-content-between">
         <div className="left-heading rounded-1">
-          <h6 className="left-title m-0 mt-1">10,000 ads</h6>
+          <h6 className="left-title m-0 mt-1 mb-0">10,000 ads</h6>
         </div>
         <div className="right-heading d-flex align-items-center gap-3">
           <div className="second-mobile-heading">

@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import "./css/home.css";
+import { Link } from "react-router-dom";
+import PartnersCards from "./PartnersCards";
 
 const Marquee = () => {
   return (
@@ -7,33 +9,33 @@ const Marquee = () => {
       <section className="carousel-section py-5">
         <div className="container">
           <div className="marquee-heading text-center">
-            <h1 className="fw-semibold mb-0">Trusted by Sellit Pakistan</h1>
+            <h1 className="fw-semibold mb-0">Trusted Sellit Partners</h1>
           </div>
-          <div className="marquee">
-            <div className="infinte-carousel d-flex gap-5 align-items-center">
-              <div className="infinte-carousel-item">
-                <img src="assets/icons/Amazon.png" alt="IMG" />
+          <div className="container">
+            <div className="row row-gap-4">
+              <div className="col-3">
+                <PartnersCards />
               </div>
-              <div className="infinte-carousel-item">
-                <img src="assets/icons/Nike.png" alt="IMG" />
+              <div className="col-3">
+                <PartnersCards />
               </div>
-              <div className="infinte-carousel-item">
-                <img src="assets/icons/Spotify.png" alt="IMG" />
+              <div className="col-3">
+                <PartnersCards />
               </div>
-              <div className="infinte-carousel-item">
-                <img src="assets/icons/Vevo.png" alt="IMG" />
+              <div className="col-3">
+                <PartnersCards />
               </div>
-              <div className="infinte-carousel-item">
-                <img src="assets/icons/Amazon.png" alt="IMG" />
+              <div className="col-3">
+                <PartnersCards />
               </div>
-              <div className="infinte-carousel-item">
-                <img src="assets/icons/Nike.png" alt="IMG" />
+              <div className="col-3">
+                <PartnersCards />
               </div>
-              <div className="infinte-carousel-item">
-                <img src="assets/icons/Spotify.png" alt="IMG" />
+              <div className="col-3">
+                <PartnersCards />
               </div>
-              <div className="infinte-carousel-item">
-                <img src="assets/icons/Vevo.png" alt="IMG" />
+              <div className="col-3">
+                <PartnersCards />
               </div>
             </div>
           </div>

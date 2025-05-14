@@ -16,7 +16,7 @@ function BannerSlider() {
             spaceBetween={0}
             slidesPerView={1}
             loop={true}
-            autoplay={{ delay: 5000 }}
+            autoplay={{ delay: 3000 }}
             modules={[Autoplay]}
             onSlideChange={() => console.log("slide change")}
             onSwiper={(swiper) => console.log(swiper)}

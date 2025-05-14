@@ -1,170 +1,197 @@
 import { useState } from "react";
-// import "./App.css";
+import { CiLocationOn } from "react-icons/ci";
+import { MdGrid3X3, MdOutlineDateRange } from "react-icons/md";
+import { GrView } from "react-icons/gr";
+import { FaMapMarkerAlt, FaPhone } from "react-icons/fa";
+import { IoDocumentTextOutline } from "react-icons/io5";
+import { Play } from "lucide-react";
+import InspectionReport from "../components/Home/InspectionReport";
 
 function AddPage() {
-  const [activeTab, setActiveTab] = useState("product"); // "product" or "review"
+  const [showNumber, setShowNumber] = useState(false);
+
+  const handleShowNumber = () => {
+    setShowNumber(true);
+  };
 
   return (
-    <div className="app-container">
+    <div className="app-container max-w-7xl mx-auto px-4 py-6">
       {/* Simple Navigation */}
-      <div className="simple-nav">
-        <div className="logo">BoatMarketplace</div>
-        <div className="nav-buttons">
-          <button
-            className={`nav-btn ${activeTab === "product" ? "active" : ""}`}
-            onClick={() => setActiveTab("product")}
-          >
-            Product
-          </button>
-          <button
-            className={`nav-btn ${activeTab === "review" ? "active" : ""}`}
-            onClick={() => setActiveTab("review")}
-          >
-            Reviews
-          </button>
-        </div>
+      <div className="simple-nav text-sm text-gray-500 mb-4">
+        <p>Home / Search Result / Motors / Boat</p>
       </div>
 
       {/* Main Content */}
       <div className="main-content">
-        {activeTab === "product" ? <ProductPage /> : <ReviewPage />}
+        <ProductPage
+          showNumber={showNumber}
+          handleShowNumber={handleShowNumber}
+        />
       </div>
     </div>
   );
 }
 
 // Product Page Component
-function ProductPage() {
+function ProductPage({ showNumber, handleShowNumber }) {
   return (
     <div className="product-page">
-      <div className="product-header">
+      <div className="product-header flex flex-col md:flex-row justify-between items-start mb-6 gap-4">
         <div className="product-title">
-          <h1>Selling Sun Odyssey 380</h1>
-          <div className="product-tags">
-            <span className="tag">Yacht</span>
-            <span className="tag">Sailboat</span>
-            <span className="tag">Luxury</span>
+          <h1 className="text-2xl md:text-3xl font-bold">
+            Selling Sun Odyssey 380
+          </h1>
+          <div className="product-tags flex flex-wrap gap-3 mt-2 text-sm text-gray-600">
+            <span className="tag flex items-center">
+              <CiLocationOn className="text-gray-500" />
+              <span className="mx-2">Islamabad</span>
+            </span>
+            <span className="tag flex items-center">
+              <MdOutlineDateRange className="text-gray-500" />
+              <span className="mx-2">June 12, 2024</span>
+            </span>
+            <span className="tag flex items-center">
+              <GrView className="text-gray-500" />
+              <span className="mx-2">June 12, 2024</span>
+            </span>
+            <span className="tag flex items-center">
+              <MdGrid3X3 className="text-gray-500" />
+              <span className="mx-2">26122024</span>
+            </span>
           </div>
         </div>
-        <div className="product-price">
-          <h2>$45,900</h2>
-          <span className="price-tag">Fixed</span>
+        <div className="product-price text-right">
+          <h2 className="text-2xl md:text-3xl font-bold text-orange-500">
+            $45,900
+          </h2>
+          <span className="price-tag inline-block bg-orange-100 text-orange-600 px-2 py-1 rounded text-sm">
+            Fixed
+          </span>
         </div>
       </div>
 
-      <div className="product-content">
-        <div className="product-main">
+      <div className="product-content flex flex-col lg:flex-row gap-6">
+        <div className="product-main lg:w-2/3">
           {/* Product Gallery */}
-          <div className="product-gallery">
-            <div className="main-image">
+          <div className="product-gallery mb-8 border rounded-lg overflow-hidden">
+            <div className="main-image w-full h-[300px] md:h-[400px] overflow-hidden">
               <img
                 src="https://media.fraseryachts.com/Yachts/Y280_NF_MC/images/website/01_KHALILAH_Main+running+shot_LR-BD6fccJ1.jpg?vh=b362d5&w=1440&h=900&p=yacht-thumbnail"
                 alt="Main boat view"
+                className="w-full h-full object-cover"
               />
             </div>
-            <div className="thumbnail-container">
-              <div className="thumbnail">
+            <div className="thumbnail-container grid grid-cols-4 gap-2 p-2">
+              <div className="thumbnail h-20 overflow-hidden rounded cursor-pointer">
                 <img
                   src="https://siyachts.imgix.net/photos/pages/correct/used-sunseeker-yachts-for-sale-header1.jpg?auto=format&w=1050&fit=clip&lossless=1"
                   alt="Thumbnail 1"
+                  className="w-full h-full object-cover"
                 />
               </div>
-              <div className="thumbnail">
+              <div className="thumbnail h-20 overflow-hidden rounded cursor-pointer">
                 <img
                   src="https://cdn.yachtbroker.org/images/highdef/2827225_5420f842_40.jpg"
                   alt="Thumbnail 2"
+                  className="w-full h-full object-cover"
                 />
               </div>
-              <div className="thumbnail">
+              <div className="thumbnail h-20 overflow-hidden rounded cursor-pointer">
                 <img
                   src="https://cdn.yachtbroker.org/images/highdef/2827225_5420f842_40.jpg"
                   alt="Thumbnail 3"
+                  className="w-full h-full object-cover"
                 />
               </div>
-              <div className="thumbnail">
+              <div className="thumbnail h-20 overflow-hidden rounded cursor-pointer">
                 <img
                   src="https://cdn.yachtbroker.org/images/highdef/2827225_5420f842_40.jpg"
                   alt="Thumbnail 4"
+                  className="w-full h-full object-cover"
                 />
               </div>
             </div>
           </div>
 
           {/* Product Overview */}
-          <div className="product-section">
-            <h3>Overview</h3>
-            <div className="specs-grid">
+          <div className="product-section mb-8 p-6 border rounded-lg">
+            <h3 className="text-xl font-semibold mb-4">Overview</h3>
+            <div className="specs-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               <div className="spec-item">
-                <span className="spec-label">Condition:</span>
-                <span className="spec-value">Used</span>
+                <span className="spec-label text-gray-500">Condition:</span>
+                <span className="spec-value font-medium ml-2">Used</span>
               </div>
               <div className="spec-item">
-                <span className="spec-label">Make:</span>
-                <span className="spec-value">Used</span>
+                <span className="spec-label text-gray-500">Make:</span>
+                <span className="spec-value font-medium ml-2">Used</span>
               </div>
               <div className="spec-item">
-                <span className="spec-label">Length:</span>
-                <span className="spec-value">18.45</span>
+                <span className="spec-label text-gray-500">Length:</span>
+                <span className="spec-value font-medium ml-2">18.45</span>
               </div>
               <div className="spec-item">
-                <span className="spec-label">Width:</span>
-                <span className="spec-value">4.78</span>
+                <span className="spec-label text-gray-500">Width:</span>
+                <span className="spec-value font-medium ml-2">4.78</span>
               </div>
               <div className="spec-item">
-                <span className="spec-label">Weight:</span>
-                <span className="spec-value">9420</span>
+                <span className="spec-label text-gray-500">Weight:</span>
+                <span className="spec-value font-medium ml-2">9420</span>
               </div>
               <div className="spec-item">
-                <span className="spec-label">Depth:</span>
-                <span className="spec-value">99</span>
+                <span className="spec-label text-gray-500">Depth:</span>
+                <span className="spec-value font-medium ml-2">99</span>
               </div>
               <div className="spec-item">
-                <span className="spec-label">Engine Performance:</span>
-                <span className="spec-value">430</span>
+                <span className="spec-label text-gray-500">
+                  Engine Performance:
+                </span>
+                <span className="spec-value font-medium ml-2">430</span>
               </div>
               <div className="spec-item">
-                <span className="spec-label">Year Built:</span>
-                <span className="spec-value">2024</span>
+                <span className="spec-label text-gray-500">Year Built:</span>
+                <span className="spec-value font-medium ml-2">2024</span>
               </div>
               <div className="spec-item">
-                <span className="spec-label">Certified nr. of persons:</span>
-                <span className="spec-value">7</span>
+                <span className="spec-label text-gray-500">
+                  Certified nr. of persons:
+                </span>
+                <span className="spec-value font-medium ml-2">7</span>
               </div>
               <div className="spec-item">
-                <span className="spec-label">Material:</span>
-                <span className="spec-value">GRP</span>
+                <span className="spec-label text-gray-500">Material:</span>
+                <span className="spec-value font-medium ml-2">GRP</span>
               </div>
               <div className="spec-item">
-                <span className="spec-label">Propulsion:</span>
-                <span className="spec-value">Sterndrive</span>
+                <span className="spec-label text-gray-500">Propulsion:</span>
+                <span className="spec-value font-medium ml-2">Sterndrive</span>
               </div>
               <div className="spec-item">
-                <span className="spec-label">Fuel Type:</span>
-                <span className="spec-value">Diesel</span>
+                <span className="spec-label text-gray-500">Fuel Type:</span>
+                <span className="spec-value font-medium ml-2">Diesel</span>
               </div>
               <div className="spec-item">
-                <span className="spec-label">Fuel Capacity:</span>
-                <span className="spec-value">746</span>
+                <span className="spec-label text-gray-500">Fuel Capacity:</span>
+                <span className="spec-value font-medium ml-2">746</span>
               </div>
               <div className="spec-item">
-                <span className="spec-label">Keel Type:</span>
-                <span className="spec-value">Any</span>
+                <span className="spec-label text-gray-500">Keel Type:</span>
+                <span className="spec-value font-medium ml-2">Any</span>
               </div>
               <div className="spec-item">
-                <span className="spec-label">Steering:</span>
-                <span className="spec-value">Any</span>
+                <span className="spec-label text-gray-500">Steering:</span>
+                <span className="spec-value font-medium ml-2">Any</span>
               </div>
               <div className="spec-item">
-                <span className="spec-label">Beds:</span>
-                <span className="spec-value">6</span>
+                <span className="spec-label text-gray-500">Beds:</span>
+                <span className="spec-value font-medium ml-2">6</span>
               </div>
             </div>
           </div>
 
           {/* Product Description */}
-          <div className="product-section">
-            <h3>Description</h3>
-            <p>
+          <div className="product-section mb-8 p-6 border rounded-lg">
+            <h3 className="text-xl font-semibold mb-4">Description</h3>
+            <p className="text-gray-700 leading-relaxed">
               Lorem ipsum is simply dummy text of the printing and typesetting
               industry. Lorem Ipsum has been the industry's standard dummy text
               ever since the 1500s, when an unknown printer took a galley of
@@ -179,235 +206,110 @@ function ProductPage() {
           </div>
 
           {/* Product Features */}
-          <div className="product-section">
-            <h3>Features</h3>
-            <div className="features-grid">
+          <div className="product-section mb-8 p-6 border rounded-lg">
+            <h3 className="text-xl font-semibold mb-4">Features</h3>
+            <div className="features-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               <div className="feature-item">
-                <span>✓ Air Conditioning</span>
+                <span className="features-check-icon mx-2">✓</span>
+                <span className="text-green-600">Air Conditioning</span>
               </div>
               <div className="feature-item">
-                <span>✓ Refrigerator</span>
+                <span className="features-check-icon mx-2">✓</span>
+                <span className="text-green-600">Refrigerator</span>
               </div>
               <div className="feature-item">
-                <span>✓ Shower</span>
+                <span className="features-check-icon mx-2">✓</span>
+                <span className="text-green-600">Shower</span>
               </div>
               <div className="feature-item">
-                <span>✓ Navigation System</span>
+                <span className="features-check-icon mx-2">✓</span>
+                <span className="text-green-600">Navigation System</span>
               </div>
               <div className="feature-item">
-                <span>✓ Autopilot</span>
+                <span className="features-check-icon mx-2">✓</span>
+                <span className="text-green-600">Autopilot</span>
               </div>
               <div className="feature-item">
-                <span>✓ Radar</span>
+                <span className="features-check-icon mx-2">✓</span>
+                <span className="text-green-600">Radar</span>
               </div>
               <div className="feature-item">
-                <span>✓ Solar Panels</span>
+                <span className="features-check-icon mx-2">✓</span>
+                <span className="text-green-600">Solar Panels</span>
               </div>
               <div className="feature-item">
-                <span>✓ Satellite Phone</span>
+                <span className="features-check-icon mx-2">✓</span>
+                <span className="text-green-600">Satellite Phone</span>
               </div>
+            </div>
+          </div>
+
+          {/* Attachments Section */}
+              <InspectionReport/>
+
+          {/* Video Section */}
+          <div className="product-section mb-8 p-6 border rounded-lg">
+            <h3 className="text-xl font-semibold mb-4">Video</h3>
+            <div className="video-container aspect-video bg-gray-100 rounded-lg flex items-center justify-center">
+              <img
+                src="https://media.istockphoto.com/id/1505840199/video/luxury-black-car-on-highway-very-fast-driving.jpg?b=1&s=640x640&k=20&c=ev1MqpUNWTWPbGU4qFvysfjQdln41FBaIHvszdi9WXY="
+                alt="Video thumbnail"
+                className="w-full h-full object-cover rounded-lg"
+              />
+              <div className="video-play-icon">
+                <Play />
+              </div>
+            </div>
+          </div>
+
+          {/* Location Section */}
+          <div className="product-section mb-8 p-6 border rounded-lg">
+            <h3 className="text-xl font-semibold mb-4">Location</h3>
+            <div className="map-container aspect-video bg-gray-100 rounded-lg">
+              <iframe
+                src="https://www.google.com/maps?q=Lahore,Pakistan&output=embed"
+                className="w-full h-full border-0 rounded-lg"
+                loading="lazy"
+                allowFullScreen
+              ></iframe>
             </div>
           </div>
         </div>
 
-        <div className="product-sidebar">
+        <div className="product-sidebar lg:w-1/3">
           {/* Seller Info */}
-          <div className="sidebar-card">
-            <div className="seller-info">
+          <div className="sidebar-card p-6 border rounded-lg sticky top-4">
+            <div className="seller-info flex items-center gap-4 mb-4">
               <img
                 src="https://images.ctfassets.net/4cd45et68cgf/564owNzMKj6UGjvTEZkKSJ/c853cf640796fcd532d60c23fc57f6b6/Rowan_Atkinson_credit__Alastair_Muir.jpg?w=2000"
                 alt="Seller"
-                className="seller-avatar"
+                className="seller-avatar w-14 h-14 rounded-full object-cover"
               />
               <div className="seller-details">
-                <h4>Ali Tufan</h4>
-                <p>Member since Nov 24, 2024</p>
+                <h4 className="font-semibold">Ali Tufan</h4>
+                <p className="text-sm text-gray-500">
+                  Member since Nov 24, 2024
+                </p>
               </div>
             </div>
-            <div className="seller-location">
-              <p>
-                <span className="icon"></span> New York, NY, USA
+            <div className="seller-location space-y-3 mb-4">
+              <p className="flex items-center gap-2 text-gray-700">
+                <FaMapMarkerAlt className="text-gray-500" /> New York, NY, USA
               </p>
-              <p>
-                <span className="icon">📞</span> +90 5743 84 xxxx
+              <p className="flex items-center gap-2 text-gray-700">
+                <FaPhone className="text-gray-500" />
+                {showNumber ? "+90 5743 845825" : "************"}
               </p>
+              <button
+                className="btn show-number-btn w-full py-2 bg-gray-100 hover:bg-gray-200 rounded-md transition"
+                onClick={handleShowNumber}
+              >
+                Show Number
+              </button>
             </div>
             <div className="seller-buttons">
-              <button className="btn primary-btn bg-primary text-white">
-                Let's Chat →
-              </button>
-              <button className="btn bg-primary text-white">
-                Send Email →
-              </button>
+              <button className="btn chat-btn">Let's Chat →</button>
             </div>
-            <div className="safety-tips">
-              <h5>Safety Tips</h5>
-              <p>Always meet in public places!</p>
-              <a href="#" className="safety-link">
-                Read our Safety Tips →
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-// Review Page Component
-function ReviewPage() {
-  return (
-    <div className="review-page">
-      <div className="review-content">
-        <div className="review-main">
-          <h2>Customer Reviews</h2>
-
-          {/* Review Item */}
-          <div className="review-card">
-            <div className="review-header">
-              <img
-                src="https://images.ctfassets.net/4cd45et68cgf/564owNzMKj6UGjvTEZkKSJ/c853cf640796fcd532d60c23fc57f6b6/Rowan_Atkinson_credit__Alastair_Muir.jpg?w=2000"
-                alt="Reviewer"
-                className="reviewer-avatar"
-              />
-              <div className="reviewer-info">
-                <h4>Ali Tufan</h4>
-                <p>April 08, 2024</p>
-              </div>
-            </div>
-            <div className="review-rating">★★★★★</div>
-            <p className="review-text">
-              Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-              cupidatat non proident, sunt in culpa qui officia deserunt mollit
-              anim id est laborum.
-            </p>
-            <div className="review-actions">
-              <button className="action-btn">Helpful</button>
-              <button className="action-btn">Not helpful</button>
-            </div>
-          </div>
-
-          {/* Review Item */}
-          <div className="review-card">
-            <div className="review-header">
-              <img
-                src="https://images.ctfassets.net/4cd45et68cgf/564owNzMKj6UGjvTEZkKSJ/c853cf640796fcd532d60c23fc57f6b6/Rowan_Atkinson_credit__Alastair_Muir.jpg?w=2000"
-                alt="Reviewer"
-                className="reviewer-avatar"
-              />
-              <div className="reviewer-info">
-                <h4>John Smith</h4>
-                <p>April 05, 2024</p>
-              </div>
-            </div>
-            <div className="review-rating">★★★★☆</div>
-            <p className="review-text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </p>
-            <div className="review-actions">
-              <button className="action-btn">Helpful</button>
-              <button className="action-btn">Not helpful</button>
-            </div>
-          </div>
-
-          <div className="show-all">
-            <button className="btn outline-btn">Show All Reviews →</button>
-          </div>
-
-          {/* Review Form */}
-          <div className="review-form-container">
-            <h3>Leave a Reply</h3>
-            <p className="form-note">
-              Your email address will not be published. Required fields are
-              marked *
-            </p>
-
-            <form className="review-form">
-              <div className="form-group">
-                <label htmlFor="name">Name</label>
-                <input type="text" id="name" className="form-input" />
-              </div>
-
-              <div className="form-group">
-                <label htmlFor="email">Email</label>
-                <input type="email" id="email" className="form-input" />
-              </div>
-
-              <div className="form-group">
-                <label htmlFor="comment">Comment</label>
-                <textarea
-                  id="comment"
-                  className="form-textarea"
-                  rows="5"
-                ></textarea>
-              </div>
-
-              <button
-                type="submit"
-                className="btn primary-btn bg-primary text-white"
-              >
-                Submit a Review →
-              </button>
-            </form>
-          </div>
-        </div>
-
-        <div className="review-sidebar">
-          <div className="sidebar-card">
-            <h3>Review Summary</h3>
-            <div className="rating-summary">
-              <div className="overall-rating">
-                <span className="rating-number">4.8</span>
-                <span className="rating-stars">★★★★★</span>
-              </div>
-              <p>Based on 3 reviews</p>
-            </div>
-
-            <div className="rating-bars">
-              <div className="rating-bar-item">
-                <span>5 ★</span>
-                <div className="progress-bar">
-                  <div className="progress" style={{ width: "80%" }}></div>
-                </div>
-                <span>80%</span>
-              </div>
-              <div className="rating-bar-item">
-                <span>4 ★</span>
-                <div className="progress-bar">
-                  <div className="progress" style={{ width: "20%" }}></div>
-                </div>
-                <span>20%</span>
-              </div>
-              <div className="rating-bar-item">
-                <span>3 ★</span>
-                <div className="progress-bar">
-                  <div className="progress" style={{ width: "0%" }}></div>
-                </div>
-                <span>0%</span>
-              </div>
-              <div className="rating-bar-item">
-                <span>2 ★</span>
-                <div className="progress-bar">
-                  <div className="progress" style={{ width: "0%" }}></div>
-                </div>
-                <span>0%</span>
-              </div>
-              <div className="rating-bar-item">
-                <span>1 ★</span>
-                <div className="progress-bar">
-                  <div className="progress" style={{ width: "0%" }}></div>
-                </div>
-                <span>0%</span>
-              </div>
-            </div>
-          </div>
-
-          <div className="sidebar-card">
-            <h3>Write a Review</h3>
-            <p>Share your experience to help others make better decisions.</p>
-            <button className="btn primary-btn">Write a Review ✏️</button>
           </div>
         </div>
       </div>
@@ -416,3 +318,5 @@ function ReviewPage() {
 }
 
 export default AddPage;
+
+

@@ -36,7 +36,7 @@ function Card1({ ads }) {
                     <i className="bi bi-geo-alt"></i>
                   </div>
                   <div className="location-content">
-                    <h6 className="fw-medium mb-0">New York, USA</h6>
+                    <h6 className="fw-medium mb-0">Pakistan, Punjab, Lahore</h6>
                   </div>
                 </div>
               </div>

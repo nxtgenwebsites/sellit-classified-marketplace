@@ -4,8 +4,15 @@ import "./css/home.css";
 function GoogleBanner() {
   return (
     <div>
-      <section className="google-banner text-center py-5">
-        <img src="assets/img/Google Banner dummy.png" alt="IMG" />
+      <section className="google-banner  py-3">
+        <div className="">
+          <p>Home/Listing</p>
+          <div className="w-100">
+            <h2>
+            Find Your Dream Ads
+            </h2>
+          </div>
+        </div>
       </section>
     </div>
   );

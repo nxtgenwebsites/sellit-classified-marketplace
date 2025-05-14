@@ -1,9 +1,12 @@
 /* Banner start */
 /* Simpler Banner start */
-.swiper {
+
+
+.banner-section  .swiper {
+  max-width: 1000px;
   width: 100% !important;
   margin-bottom: 2rem;
-}
+} 
 
 .banner-slider {
   width: 100% !important;
@@ -15,10 +18,9 @@
 
 /* Simpler Banner end */
 /* Google Banner start */
-.google-banner img {
-  width: 725px;
-  height: 93px;
-  min-height: 100%;
+.google-banner h2 {
+  font-size: 30px;
+  color: #101010;
 }
 
 /* Google Banner end */
@@ -89,46 +91,59 @@
   color: #fff !important;
 }
 
-.view-all-btn{
-  background: #faf5f2 ;
+.view-all-btn {
+  background: #fff;
   color: #505050;
   padding: 6px 16px;
   border: none;
   border-radius: 20px;
+  border: 2px solid #384bc3;
   transition: 0.2s linear;
 }
 
-.view-all-btn:hover{
-  background: #3a4fc4 ;
+.view-all-btn:hover {
+  background: #3a4fc4;
   color: white;
 }
 
-.swiper-pagination  {
- position: static;
- bottom: 10px !important;
+.featured-card {
+  border: 2px solid #384bc3 !important;
+}
+.tab-card {
+  border: 2px solid #384bc3 !important;
 }
 
-.featured-ads{
+.patners-card {
+  /* display: none !important; */
+  border: 2px solid #384bc3 !important;
+}
+
+.swiper-pagination {
+  position: static;
+  bottom: 10px !important;
+}
+
+.featured-ads {
   height: auto;
   min-height: 500px;
 }
 
-.nav-tabs{
+.nav-tabs {
   /* display: none !; */
   border: 1px solid #3a4fc4 !important;
 }
 
 .featured-label {
-    background: #3a4fc4 ;
-    padding: 4px 10px;
-    border-radius: 5px;
+  background: #3a4fc4;
+  padding: 4px 10px;
+  border-radius: 5px;
 }
 
-.featured-label span{
-    font-weight: 400;
-    font-size: 13px;
-    color: white;
-font-family: Montserrat, serif;
+.featured-label span {
+  font-weight: 400;
+  font-size: 13px;
+  color: white;
+  font-family: Montserrat, serif;
 }
 
 /* Nav Tabs end */
@@ -261,10 +276,10 @@ font-family: Montserrat, serif;
 }
 
 .marquee-heading h1 {
-  font-size: 50px;
+  font-size: 40px;
   text-decoration: underline;
   font-family: "Montserrat", serif;
-  font-weight: 900 !important;
+  font-weight: 700 !important;
 }
 /* Page start */
 .page-wrapper {
@@ -463,6 +478,7 @@ font-family: Montserrat, serif;
 /* Page end */
 /* Popular Category start */
 .popular-category-card {
+  border: 2px solid #384bc3 !important;
   transition: 0.2s linear !important;
 }
 
@@ -472,6 +488,39 @@ font-family: Montserrat, serif;
 
 .popular-category-card:hover .title-icon {
   color: #fff;
+}
+
+.sell-card-content {
+  background-color: #4a4a9e;
+  background-image: radial-gradient(#1c2ea5 20%, #546af8) !important;
+  min-height: 300px;
+  transition: all 0.3s ease;
+}
+.sell-card-content h2 {
+  font-size: 2rem;
+  color: white;
+  margin-bottom: 30px !important;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.btn-outline-light {
+  font-size: 18px !important;
+  width: 100% !important;
+  border: 2px solid white !important;
+  border-width: 2px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-light:hover {
+  background-color: white;
+  color: #4a4a9e;
+}
+
+.text-main-heading {
+  font-weight: 100 !important;
+  font-family: "Poppins", sans-serif !important;
+  /* display: n; */
 }
 
 .title-icon {
@@ -536,8 +585,8 @@ font-family: Montserrat, serif;
 }
 
 .left-title h1 {
-  font-family: "Montserrat", serif;
-  font-weight: 900 !important;
+  font-family: "Poppins", sans-serif !important;
+  font-weight: 700 !important;
 }
 
 .left-title p {

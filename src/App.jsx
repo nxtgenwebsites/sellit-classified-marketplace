@@ -22,6 +22,7 @@ import Example from "./components/Add-Listing/Example";
 import PaymentPage from "./Pages/PaymentPage";
 import Preview from "./Pages/Preview";
 import AddPage from "./Pages/Add";
+import Categorydropdown from "./components/Dropdown/Categorydropdown";
 // Dashboard Pages
 import Sidebar from "./components/user-dashboard/sidebar/Sidebar";
 import TopNavbar from "./Pages/user-dashboard/top-navbar/TopNavbar";
@@ -34,6 +35,7 @@ import "./App.css";
 const UserLayout = () => (
   <>
     <Header />
+<Categorydropdown />
     <Outlet />
     <Footer />
   </>
@@ -52,43 +54,48 @@ const DashboardLayout = () => (
 
 function App() {
   return (
-    <Routes>
-      {/* General User Layout */}
-      <Route element={<UserLayout />}>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/mobiles-category" element={<MobilesCategory />} />
-        <Route path="/motorcycle-category" element={<MotorcyclesCategory />} />
-        <Route path="/cars-category" element={<CarsCategory />} />
-        <Route path="/buisness-category" element={<BuisnessCategory />} />
-        <Route path="/job-category" element={<FindJobCategory />} />
-        <Route path="/property-rent" element={<PopertyForSaleCategory />} />
-        <Route path="/property-sale" element={<PopertyForSaleCategory />} />
-        <Route
-          path="/service-category"
-          element={<ServiceProvidersCategory />}
-        />
-        <Route path="/footer-grow-page" element={<FooterGrowPage />} />
-        <Route
-          path="/footer-advertise-page"
-          element={<FooterAdvertisePage />}
-        />
-        <Route path="/add-listing" element={<AddListingPage />} />
-        <Route
-          path="/successful"
-          element={<Featured_succesful_listing_page />}
-        />
-        <Route path="/payment" element={<PaymentPage />} />
-        <Route path="/preview" element={<Preview />} />
-        <Route path="/add" element={<AddPage />} />
-        <Route path="/example" element={<Example />} />
-      </Route>
+    <>
+      <Routes>
+        {/* General User Layout */}
+        <Route element={<UserLayout />}>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/mobiles-category" element={<MobilesCategory />} />
+          <Route
+            path="/motorcycle-category"
+            element={<MotorcyclesCategory />}
+          />
+          <Route path="/cars-category" element={<CarsCategory />} />
+          <Route path="/buisness-category" element={<BuisnessCategory />} />
+          <Route path="/job-category" element={<FindJobCategory />} />
+          <Route path="/property-rent" element={<PopertyForSaleCategory />} />
+          <Route path="/property-sale" element={<PopertyForSaleCategory />} />
+          <Route
+            path="/service-category"
+            element={<ServiceProvidersCategory />}
+          />
+          <Route path="/footer-grow-page" element={<FooterGrowPage />} />
+          <Route
+            path="/footer-advertise-page"
+            element={<FooterAdvertisePage />}
+          />
+          <Route path="/add-listing" element={<AddListingPage />} />
+          <Route
+            path="/successful"
+            element={<Featured_succesful_listing_page />}
+          />
+          <Route path="/payment" element={<PaymentPage />} />
+          <Route path="/preview" element={<Preview />} />
+          <Route path="/add" element={<AddPage />} />
+          <Route path="/example" element={<Example />} />
+        </Route>
 
-      {/* Dashboard Layout */}
-      <Route element={<DashboardLayout />}>
-        <Route path="/dashboard/ads-management" element={<AdsManagement />} />
-        {/* Add more dashboard routes here if needed */}
-      </Route>
-    </Routes>
+        {/* Dashboard Layout */}
+        <Route element={<DashboardLayout />}>
+          <Route path=" " element={<AdsManagement />} />
+          {/* Add more dashboard routes here if needed */}
+        </Route>
+      </Routes>
+    </>
   );
 }
 
