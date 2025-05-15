@@ -809,3 +809,11 @@ body {
   background: #1d4ed8 !important;
  color: white !important;
 }
+
+.category-item .dropdown-toggle::after {
+  display: none;
+}
+
+.category-item h6{
+  margin-bottom: 0 !important;
+}

@@ -168,6 +168,30 @@
   transform: rotate(180deg) !important;
 }
 
+.search-box {
+  width: 100%;
+  max-width: 600px !important;
+  margin-left: 150px !important;
+  /* display: none; */
+}
+
+.search-box .form-select{
+  width: 150px;
+}
+
+.search-btn {
+  position: absolute;
+  margin-right: -20px !important;
+  left: 1px;
+}
+.search-box .form-select:focus{
+  border: 0 !important;
+}
+.search-box .form-control:focus{
+  border: 0 !important;
+}
+
+
 
 
 /* Header end */
