@@ -5,8 +5,6 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
-import { BsChevronDown } from "react-icons/bs";
-import { FaSearch } from "react-icons/fa";
 import { BsChatLeftTextFill } from "react-icons/bs";
 import { BsHeartFill } from "react-icons/bs";
 import { BsFillPersonFill } from "react-icons/bs";
@@ -123,7 +121,7 @@ export default function Header() {
               <Nav.Link href="#">
                 <BsHeartFill className="nav-icon" />
               </Nav.Link>
-              <Nav.Link href="#">
+              <Nav.Link href="/login">
                 <BsFillPersonFill className="nav-icon" />
               </Nav.Link>
             </Nav>

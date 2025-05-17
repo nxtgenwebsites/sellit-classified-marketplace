@@ -30,6 +30,8 @@ import AdsManagement from "./Pages/user-dashboard/manage-ads/AdsManagement";
 // Layouts
 import { Outlet } from "react-router-dom";
 import "./App.css";
+import SignInPage from "./Pages/SignIn";
+import SignUpPage from "./Pages/SignUp";
 
 // Layout for general user pages (with Header + Footer)
 const UserLayout = () => (
@@ -87,6 +89,8 @@ function App() {
           <Route path="/preview" element={<Preview />} />
           <Route path="/add" element={<AddPage />} />
           <Route path="/example" element={<Example />} />
+          <Route path="/login" element={<SignInPage />} />
+          <Route path="/signup" element={<SignUpPage />} />
         </Route>
 
         {/* Dashboard Layout */}
