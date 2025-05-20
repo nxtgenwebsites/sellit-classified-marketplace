@@ -29,9 +29,9 @@ const Sidebar = () => {
             <span>Dashboard</span>
           </a>
         </li>
-        <li className="nav-item mt-2">
+        <li className="nav-item mt-2 active">
           <a
-            className="nav-link text-white d-flex align-items-center py-2 bg-primary bg-opacity-25"
+            className="nav-link text-white d-flex align-items-center py-2 bg-opacity-25"
             href="#"
           >
             <BsMegaphone className="me-3" />

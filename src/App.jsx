@@ -95,7 +95,7 @@ function App() {
 
         {/* Dashboard Layout */}
         <Route element={<DashboardLayout />}>
-          <Route path=" " element={<AdsManagement />} />
+          <Route path="/dashboard/ads-management" element={<AdsManagement />} />
           {/* Add more dashboard routes here if needed */}
         </Route>
       </Routes>
