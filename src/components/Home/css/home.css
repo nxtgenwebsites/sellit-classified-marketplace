@@ -276,10 +276,12 @@
 }
 
 .marquee-heading h1 {
-  font-size: 40px;
+  font-size: 30px;
   text-decoration: underline;
   font-family: "Montserrat", serif;
-  font-weight: 700 !important;
+  color: #1c2ea5;
+  text-align: left !important;
+  font-weight: 500 !important;
 }
 /* Page start */
 .page-wrapper {

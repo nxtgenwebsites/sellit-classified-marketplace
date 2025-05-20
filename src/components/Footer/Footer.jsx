@@ -266,6 +266,11 @@ export default function Footer() {
           </Row>
         </Container>
       </footer>
+        <div className="copyright-section">
+          <p className="mb-0">
+            © Copyright 2025 Sellit Pakistan. All rights reserved
+          </p>
+        </div>
     </div>
   );
 }
