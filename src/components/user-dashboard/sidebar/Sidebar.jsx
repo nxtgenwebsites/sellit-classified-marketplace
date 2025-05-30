@@ -1,3 +1,4 @@
+import { NavLink, useLocation } from "react-router-dom";
 import {
   BsGrid1X2,
   BsMegaphone,
@@ -5,94 +6,100 @@ import {
   BsHeart,
   BsCreditCard,
   BsChat,
-  BsGear,
+  BsPerson,
   BsBoxArrowRight,
 } from "react-icons/bs";
+import "./sidebar.css";
 
 const Sidebar = () => {
+  const location = useLocation();
+
+  const menuItems = [
+    {
+      path: "/dashboard/overview",
+      icon: BsGrid1X2,
+      label: "Dashboard",
+    },
+    {
+      path: "/dashboard/ads-management",
+      icon: BsMegaphone,
+      label: "My Ads",
+    },
+    {
+      path: "/add-new-ads",
+      icon: BsPlusSquare,
+      label: "Add New Ads",
+    },
+    {
+      path: "/dashboard/favorites",
+      icon: BsHeart,
+      label: "My Favorites",
+    },
+    {
+      path: "/dashboard/payments",
+      icon: BsCreditCard,
+      label: "Payments",
+    },
+    {
+      path: "/messages",
+      icon: BsChat,
+      label: "Messages",
+    },
+    {
+      path: "/profile-settings",
+      icon: BsPerson,
+      label: "Profile Settings",
+    },
+  ];
+
   return (
-    <div
-      className="sidebar bg-dark text-white"
-      style={{ minHeight: "100vh", width: "250px" }}
-    >
-      <div className="d-flex align-items-center p-3 pt-4 mb-3">
-        <img src="/assets/icons/Navbar-logo.png" className="w-75 mx-auto" alt="" />
+    <div className="professional-sidebar">
+      {/* Logo Section */}
+      <div className="sidebar-header">
+        <div className="logo-container">
+          <div className="logo-wrapper">
+            <img src="/assets/icons/Navbar-logo.png" alt="" />
+          </div>
+        </div>
       </div>
 
-      <ul className="nav flex-column">
-        <li className="nav-item mt-2">
-          <a
-            className="nav-link text-white d-flex align-items-center py-2"
-            href="#"
-          >
-            <BsGrid1X2 className="me-3" />
-            <span>Dashboard</span>
-          </a>
-        </li>
-        <li className="nav-item mt-2 active">
-          <a
-            className="nav-link text-white d-flex align-items-center py-2 bg-opacity-25"
-            href="#"
-          >
-            <BsMegaphone className="me-3" />
-            <span>My Ads</span>
-          </a>
-        </li>
-        <li className="nav-item mt-2">
-          <a
-            className="nav-link text-white d-flex align-items-center py-2"
-            href="#"
-          >
-            <BsPlusSquare className="me-3" />
-            <span>Add New Ads</span>
-          </a>
-        </li>
-        <li className="nav-item mt-2">
-          <a
-            className="nav-link text-white d-flex align-items-center py-2"
-            href="#"
-          >
-            <BsHeart className="me-3" />
-            <span>My Favorites</span>
-          </a>
-        </li>
-        <li className="nav-item mt-2">
-          <a
-            className="nav-link text-white d-flex align-items-center py-2"
-            href="#"
-          >
-            <BsCreditCard className="me-3" />
-            <span>Payments</span>
-          </a>
-        </li>
-        <li className="nav-item mt-2">
-          <a
-            className="nav-link text-white d-flex align-items-center py-2"
-            href="#"
-          >
-            <BsChat className="me-3" />
-            <span>Messages</span>
-          </a>
-        </li>
-        <li className="nav-item mt-2">
-          <a
-            className="nav-link text-white d-flex align-items-center py-2"
-            href="#"
-          >
-            <BsGear className="me-3" />
-            <span>Profile Settings</span>
-          </a>
-        </li>
-        <li className="nav-item mt-2">
-          <a
-            className="nav-link text-white d-flex align-items-center py-2"
-            href="#"
-          >
-            <BsBoxArrowRight className="me-3" />
-            <span>Logout</span>
-          </a>
-        </li>
-      </ul>
+      {/* Navigation Menu */}
+      <nav className="sidebar-nav">
+        <div className="nav-section">
+          <ul className="nav-list">
+            {menuItems.map((item, index) => {
+              const IconComponent = item.icon;
+              const isActive = location.pathname === item.path;
+
+              return (
+                <li key={index} className="nav-item">
+                  <NavLink
+                    to={item.path}
+                    className={`nav-link ${isActive ? "active" : ""}`}
+                  >
+                    <div className="nav-content">
+                      <div className="icon-container">
+                        <IconComponent className="nav-icon" />
+                      </div>
+                      <span className="nav-label">{item.label}</span>
+
+                    </div>
+                  </NavLink>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      </nav>
+
+      {/* User Section */}
+      <div className="sidebar-footer">
+
+        <button className="logout-btn">
+          <BsBoxArrowRight className="logout-icon" />
+          <span>Logout</span>
+        </button>
+      </div>
     </div>
   );
 };

@@ -31,7 +31,7 @@ export default function SubCategoryDropdowns() {
               </span>
             </h6>
           </Dropdown.Toggle>
-          <Dropdown.Menu className="mt-n1 p-0 menu-ca">
+          <Dropdown.Menu className="mt-1 p-0 menu-ca">
             <Dropdown.Item className="dropdown-item category_item p-2 rounded-top-2">
               <Link
                 to={"/cars-category"}
@@ -66,7 +66,7 @@ export default function SubCategoryDropdowns() {
               </span>
             </h6>
           </Dropdown.Toggle>
-          <Dropdown.Menu className="mt-n1 p-0 menu-ca">
+          <Dropdown.Menu className="mt-1 p-0 menu-ca">
             <Dropdown.Item className="dropdown-item category_item p-2 rounded-top-2">
               <Link
                 to={"/property-sale"}
@@ -101,7 +101,7 @@ export default function SubCategoryDropdowns() {
               </span>
             </h6>
           </Dropdown.Toggle>
-          <Dropdown.Menu className="mt-n1 p-0 menu-ca">
+          <Dropdown.Menu className="mt-1 p-0 menu-ca">
             <Dropdown.Item className="dropdown-item category_item p-2 rounded-top-2">
               <Link
                 to={"/buisness-category"}
@@ -144,7 +144,7 @@ export default function SubCategoryDropdowns() {
               </span>
             </h6>
           </Dropdown.Toggle>
-          <Dropdown.Menu className="mt-n1 p-0">
+          <Dropdown.Menu className="mt-1 p-0">
             <Dropdown.Item className="dropdown-item category_item p-2 rounded-2">
               <Link
                 to={"/mobiles-category"}

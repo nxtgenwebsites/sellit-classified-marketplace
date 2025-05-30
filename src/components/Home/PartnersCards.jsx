@@ -1,86 +1,80 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom';
+"use client";
 
-const PartnersCards = () => {
-        const [isHovered, setIsHovered] = useState(false);
+import { useState } from "react";
+import { Link } from "react-router-dom";
 
-        const handleMouseEnter = () => setIsHovered(true);
-        const handleMouseLeave = () => setIsHovered(false);
+const PartnersCards = ({ data }) => {
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleMouseEnter = () => setIsHovered(true);
+  const handleMouseLeave = () => setIsHovered(false);
+
   return (
     <Link
-      href="https://www.google.com"
+      href="https://www.google.co.uk/"
       target="_blank"
       rel="noopener noreferrer"
       className="text-decoration-none"
     >
       <div
-        className="card h-100 shadow-sm transition patners-card"
+        className="card h-100 shadow-sm partners-card"
         style={{
           cursor: "pointer",
-          transition: "all 0.3s ease",
-          transform: isHovered ? "translateY(-3px)" : "none",
+          transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
+          transform: isHovered ? "translateY(-8px)" : "none",
           boxShadow: isHovered
-            ? "0 10px 20px rgba(0,0,0,0.1)"
+            ? "0 20px 40px rgba(0,0,0,0.12), 0 8px 16px rgba(0,0,0,0.08)"
             : "0 4px 6px rgba(0,0,0,0.05)",
+          border: "none",
+          borderRadius: "20px",
+          minHeight: "200px",
+          maxHeight: "200px",
         }}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
-        <div className="card-body p-3">
-          <div className="d-flex align-items-center">
-            <div className="me-3">
-              <div
-                className="position-relative border rounded d-flex align-items-center justify-content-center bg-white"
-                style={{ width: "50px", height: "50px" }}
-              >
-                <div className="d-flex align-items-center justify-content-center">
-                  <div
-                    className="position-relative"
-                    style={{ width: "30px", height: "30px" }}
-                  >
-                    <div
-                      className="position-absolute bottom-0 bg-primary"
-                      style={{ width: "5px", height: "24px", left: "0px" }}
-                    ></div>
-                    <div
-                      className="position-absolute bottom-0 bg-danger"
-                      style={{ width: "5px", height: "18px", left: "6px" }}
-                    ></div>
-                    <div
-                      className="position-absolute bottom-0 bg-success"
-                      style={{ width: "5px", height: "28px", left: "12px" }}
-                    ></div>
-                    <div
-                      className="position-absolute bottom-0 bg-warning"
-                      style={{ width: "5px", height: "20px", left: "18px" }}
-                    ></div>
-                    <div
-                      className="position-absolute bottom-0 bg-info"
-                      style={{ width: "5px", height: "25px", left: "24px" }}
-                    ></div>
-                  </div>
-                </div>
-                <div
-                  className="position-absolute bottom-0 start-0 end-0 text-center fw-bold pb-1"
-                  style={{ fontSize: "4px" }}
-                >
-                  CURRENTAGE ASSOCIATES
-                </div>
-              </div>
-            </div>
+        <div className="card-body p-4 text-center d-flex flex-column justify-content-between h-100">
+          {/* Logo Circle */}
+          <div className="position-relative mb-3 d-inline-block align-self-center">
+            <div
+              className="logo-circle d-flex align-items-center justify-content-center bg-white border position-relative overflow-hidden"
+              style={{
+                width: "85px",
+                height: "85px",
+                borderRadius: "50%",
+                transition: "all 0.4s ease",
+                boxShadow: isHovered
+                  ? "0 8px 25px rgba(0,123,255,0.15)"
+                  : "0 4px 15px rgba(0,0,0,0.08)",
+                borderColor: isHovered ? "#007bff" : "#e9ecef",
+                borderWidth: "2px",
+              }}
+            >
+              {/* Chart Icon */}
+              <img src={data.logo} alt="LOGO" />
 
-            <div>
-              <h6 className="mb-1 fw-medium">Currentage Associates</h6>
-              {isHovered ? (
-                <div className="d-flex align-items-center text-primary small">
-                  Visit Profile
+              {/* Color Overlay on Hover */}
+              {isHovered && (
+                <div
+                  className="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center"
+                  style={{
+                    backgroundColor: "rgba(0,123,255,0.5)",
+                    borderRadius: "50%",
+                    animation: "fadeInOverlay 0.3s ease",
+                    zIndex: 1,
+                  }}
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    width="12"
-                    height="12"
-                    fill="currentColor"
-                    className="bi bi-box-arrow-up-right ms-1"
+                    width="28"
+                    height="28"
+                    fill="white"
+                    className="bi bi-box-arrow-up-right"
                     viewBox="0 0 16 16"
+                    style={{
+                      filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.2))",
+                      animation: "bounceIn 0.4s ease",
+                    }}
                   >
                     <path
                       fillRule="evenodd"
@@ -92,19 +86,73 @@ const PartnersCards = () => {
                     />
                   </svg>
                 </div>
-              ) : (
-                <div className="d-flex align-items-center text-muted small">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="12"
-                    height="12"
-                    fill="currentColor"
-                    className="bi bi-geo-alt-fill me-1 text-success"
-                    viewBox="0 0 16 16"
+              )}
+            </div>
+          </div>
+
+          {/* Company Info - Fixed Height */}
+          <div className="company-info flex-grow-1 d-flex flex-column justify-content-center">
+            <div
+              style={{ minHeight: "70px", maxHeight: "70px" }}
+              className="d-flex flex-column justify-content-center"
+            >
+              {!isHovered ? (
+                <div className="default-content">
+                  <h6
+                    className="mb-2 fw-bold text-dark"
+                    style={{ fontSize: "16px", lineHeight: "1.3" }}
                   >
-                    <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />
-                  </svg>
-                  Islamabad
+                    {data.name}
+                  </h6>
+                  <div className="d-flex align-items-center justify-content-center text-muted">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="14"
+                      height="14"
+                      fill="currentColor"
+                      className="bi bi-geo-alt-fill me-2 text-success"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />
+                    </svg>
+                    <span style={{ fontSize: "14px" }}>{data.location}</span>
+                  </div>
+                </div>
+              ) : (
+                <div
+                  className="hover-content"
+                  style={{ animation: "slideUpContent 0.4s ease" }}
+                >
+                  <div className="d-flex align-items-center justify-content-center text-muted mb-2">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      className="bi bi-geo-alt-fill me-2 text-success"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />
+                    </svg>
+                    <span className="fw-semibold" style={{ fontSize: "14px" }}>
+                      {data.location}, Pakistan
+                    </span>
+                  </div>
+                  <div
+                    className="btn btn-primary btn-sm px-4 py-2"
+                    style={{
+                      background:
+                        "linear-gradient(135deg, #3a4fc4 0%, #3a4fc4 100%)",
+                      border: "none",
+                      borderRadius: "12px",
+                      fontSize: "13px",
+                      fontWeight: "600",
+                      boxShadow: "0 4px 12px rgba(0,123,255,0.25)",
+                      transition: "all 0.3s ease",
+                    }}
+                  >
+                    View Company Profile
+                  </div>
                 </div>
               )}
             </div>
@@ -113,6 +161,6 @@ const PartnersCards = () => {
       </div>
     </Link>
   );
-}
+};
 
-export default PartnersCards
+export default PartnersCards;

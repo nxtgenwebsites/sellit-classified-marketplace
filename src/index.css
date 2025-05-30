@@ -827,15 +827,16 @@ body {
   margin-bottom: 0 !important;
 }
 
-.sidebar {
-  width: 300px !important;
+
+.popular-category-content .sub-item a{
+  font-size: 14px;
+  /* display: none !important; */
 }
 
-.sidebar li {
-  margin: 0 10px;
-}
-
-.sidebar li.active {
-  background: red !important;
-  border-radius: 20px;
+.mega-menu {
+    padding: 20px !important;
+    margin: 0.5rem 0 0 3rem !important;
+    width: 1008px  !important;
+    max-width: 1280px !important;
+    left: 1% !important;
 }

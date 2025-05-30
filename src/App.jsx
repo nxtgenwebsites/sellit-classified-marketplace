@@ -32,6 +32,9 @@ import { Outlet } from "react-router-dom";
 import "./App.css";
 import SignInPage from "./Pages/SignIn";
 import SignUpPage from "./Pages/SignUp";
+import Overview from "./Pages/user-dashboard/overview/Overview";
+import UserPayments from "./Pages/user-dashboard/payments/UserPayments";
+import Favorites from "./Pages/user-dashboard/favorites/Favorites";
 
 // Layout for general user pages (with Header + Footer)
 const UserLayout = () => (
@@ -96,6 +99,9 @@ function App() {
         {/* Dashboard Layout */}
         <Route element={<DashboardLayout />}>
           <Route path="/dashboard/ads-management" element={<AdsManagement />} />
+          <Route path="/dashboard/overview" element={<Overview />} />
+          <Route path="/dashboard/payments" element={<UserPayments />} />
+          <Route path="/dashboard/favorites" element={<Favorites />} />
           {/* Add more dashboard routes here if needed */}
         </Route>
       </Routes>

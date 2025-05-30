@@ -40,3 +40,42 @@ h2 {
     font-size: 1.3rem;
   }
 }
+
+   .partners-card {
+          max-width: 280px;
+          margin: 0 auto;
+          background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+        }
+
+        .partners-card:hover {
+          background: linear-gradient(145deg, #ffffff 0%, #f0f8ff 100%);
+        }
+
+        .btn-primary:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 6px 20px rgba(0, 123, 255, 0.35) !important;
+        }
+
+        .logo-circle::before {
+          content: "";
+          position: absolute;
+          top: -2px;
+          left: -2px;
+          right: -2px;
+          bottom: -2px;
+          background: linear-gradient(
+            45deg,
+            #007bff,
+            #28a745,
+            #ffc107,
+            #dc3545
+          );
+          border-radius: 50%;
+          opacity: 0;
+          transition: opacity 0.3s ease;
+          z-index: -1;
+        }
+
+        .partners-card:hover .logo-circle::before {
+          opacity: 0.1;
+        }

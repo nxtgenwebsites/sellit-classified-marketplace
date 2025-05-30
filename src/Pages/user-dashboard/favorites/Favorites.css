@@ -1,0 +1,279 @@
+/* Import Bootstrap Icons */
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css");
+
+.favorites-container {
+  min-height: 100vh;
+  background-color: #f8f9fa;
+}
+
+/* Header Styles */
+.navbar {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.brand-icon {
+  font-size: 1.2rem;
+}
+
+.profile-avatar img {
+  width: 32px;
+  height: 32px;
+  object-fit: cover;
+}
+
+/* Main Content */
+.favorites-content {
+  padding: 2rem;
+  background: white;
+  margin: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.page-title {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.page-subtitle {
+  font-size: 1rem;
+  margin-bottom: 0;
+}
+
+/* Search and Filter Section */
+.filters-section {
+  padding: 1.5rem 0;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.search-box {
+  position: relative;
+}
+
+.search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #6c757d;
+  z-index: 10;
+}
+
+.search-input {
+  padding-left: 40px;
+  border: 1px solid #e9ecef;
+  border-radius: 6px;
+  height: 45px;
+}
+
+.search-input:focus {
+  border-color: #0d6efd;
+  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+
+.sort-select {
+  width: auto;
+  min-width: 150px;
+  border: 1px solid #e9ecef;
+  border-radius: 6px;
+  height: 45px;
+}
+
+/* Table Styles */
+.favorites-table-container {
+  margin-top: 2rem;
+}
+
+.favorites-table {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.favorites-table thead th {
+  background-color: #f8f9fa;
+  border-bottom: 2px solid #e9ecef;
+  font-weight: 600;
+  color: #495057;
+  padding: 1rem;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.favorites-table tbody td {
+  padding: 1.25rem 1rem;
+  border-bottom: 1px solid #f1f3f4;
+  vertical-align: middle;
+}
+
+.favorites-table tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+/* Table Cell Specific Styles */
+.id-cell {
+  font-weight: 600;
+  color: #6c757d;
+  font-size: 0.9rem;
+}
+
+.item-thumbnail {
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+  object-fit: cover;
+  border: 1px solid #e9ecef;
+}
+
+.item-title {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.25rem;
+  font-size: 0.95rem;
+}
+
+.item-location {
+  font-size: 0.85rem;
+  color: #6c757d;
+}
+
+.category-cell {
+  color: #495057;
+  font-size: 0.9rem;
+}
+
+.price-cell {
+  font-weight: 600;
+  color: #333;
+  font-size: 1rem;
+}
+
+.action-cell .btn {
+  border-radius: 6px;
+  padding: 0.375rem 0.75rem;
+}
+
+.action-cell .btn-outline-secondary {
+  border-color: #e9ecef;
+  color: #6c757d;
+}
+
+.action-cell .btn-outline-secondary:hover {
+  background-color: #6c757d;
+  border-color: #6c757d;
+  color: white;
+}
+
+.action-cell .btn-outline-danger {
+  border-color: #dc3545;
+  color: #dc3545;
+}
+
+.action-cell .btn-outline-danger:hover {
+  background-color: #dc3545;
+  border-color: #dc3545;
+  color: white;
+}
+
+/* Pagination */
+.pagination-nav {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.pagination .page-link {
+  border: 1px solid #e9ecef;
+  color: #6c757d;
+  padding: 0.75rem 1rem;
+  margin: 0 2px;
+  border-radius: 6px;
+  text-decoration: none;
+  background: white;
+}
+
+.pagination .page-item.active .page-link {
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+  color: white;
+}
+
+.pagination .page-link:hover {
+  background-color: #f8f9fa;
+  border-color: #dee2e6;
+  color: #0d6efd;
+}
+
+.pagination .page-item.disabled .page-link {
+  color: #6c757d;
+  background-color: white;
+  border-color: #e9ecef;
+}
+
+/* Footer */
+.footer {
+  border-top: 1px solid #e9ecef;
+  margin-top: auto;
+}
+
+.footer a {
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .favorites-content {
+    margin: 1rem;
+    padding: 1rem;
+  }
+
+  .page-title {
+    font-size: 1.5rem;
+  }
+
+  .filters-section .row > div {
+    margin-bottom: 1rem;
+  }
+
+  .filters-section .text-end {
+    text-align: left !important;
+  }
+
+  .item-thumbnail {
+    width: 50px;
+    height: 50px;
+  }
+
+  .item-title {
+    font-size: 0.9rem;
+  }
+
+  .favorites-table {
+    font-size: 0.85rem;
+  }
+
+  .favorites-table thead th,
+  .favorites-table tbody td {
+    padding: 0.75rem 0.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .action-cell .btn {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.8rem;
+  }
+
+  .pagination .page-link {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.85rem;
+  }
+}
