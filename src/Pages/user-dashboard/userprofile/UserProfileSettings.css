@@ -1,0 +1,348 @@
+/* Custom CSS for User Profile Settings */
+:root {
+  --primary-color: #3a4fc4;
+  --primary-light: #5a6fd8;
+  --primary-dark: #2a3f94;
+  --success-color: #28a745;
+  --warning-color: #ffc107;
+  --danger-color: #dc3545;
+  --info-color: #17a2b8;
+  --light-bg: #f8f9fa;
+  --border-color: #e9ecef;
+  --text-muted: #6c757d;
+  --shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  --shadow-lg: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+}
+
+.profile-settings-container {
+  background-color: #f5f6fa;
+  min-height: 100vh;
+  padding: 20px 0;
+}
+
+/* Profile Card */
+.profile-card {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  text-align: center;
+  margin-bottom: 20px;
+  border: 1px solid var(--border-color);
+}
+
+.profile-avatar {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+.avatar-img2{
+  width: 100px !important;
+  height: 100px !important;
+  border-radius: 50%;
+  border: 4px solid var(--primary-color);
+  object-fit: cover;
+}
+
+.avatar-overlay {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 35px;
+  height: 35px;
+  background: var(--primary-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 3px solid white;
+}
+
+.avatar-overlay:hover {
+  background: var(--primary-dark);
+  transform: scale(1.1);
+}
+
+.profile-name {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 5px;
+}
+
+.profile-email {
+  color: var(--text-muted);
+  margin-bottom: 15px;
+  font-size: 0.95rem;
+}
+
+.profile-badge .badge {
+  font-size: 0.8rem;
+  padding: 6px 12px;
+  border-radius: 20px;
+}
+
+/* Navigation Tabs */
+.settings-nav {
+  background: white;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  padding: 15px;
+  border: 1px solid var(--border-color);
+}
+
+.settings-nav .nav-pills .nav-link {
+  background: none;
+  border: none;
+  color: #495057;
+  padding: 12px 15px;
+  margin-bottom: 5px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  text-align: left;
+  width: 100%;
+  font-weight: 500;
+}
+
+.settings-nav .nav-pills .nav-link:hover {
+  background: rgba(58, 79, 196, 0.1);
+  color: var(--primary-color);
+}
+
+.settings-nav .nav-pills .nav-link.active {
+  background: var(--primary-color);
+  color: white;
+  box-shadow: 0 4px 12px rgba(58, 79, 196, 0.3);
+}
+
+/* Settings Content */
+.settings-content {
+  background: white;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  padding: 30px;
+  border: 1px solid var(--border-color);
+}
+
+.content-header {
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid var(--border-color);
+}
+
+.content-header h3 {
+  color: #2c3e50;
+  font-weight: 700;
+  margin-bottom: 8px;
+  font-size: 1.5rem;
+}
+
+.content-header p {
+  color: var(--text-muted);
+  margin-bottom: 0;
+  font-size: 1rem;
+}
+
+/* Form Styles */
+.form-label {
+  font-weight: 600;
+  color: #495057;
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+}
+
+.form-control,
+.form-select {
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  padding: 12px 15px;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.2rem rgba(58, 79, 196, 0.25);
+}
+
+.form-control::placeholder {
+  color: #adb5bd;
+}
+
+/* Notification Groups */
+.notification-group {
+  margin-bottom: 30px;
+  padding: 20px;
+  background: var(--light-bg);
+  border-radius: 8px;
+  border-left: 4px solid var(--primary-color);
+}
+
+.notification-group h5 {
+  color: #2c3e50;
+  font-weight: 600;
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+}
+
+.form-check {
+  padding-left: 1.8rem;
+}
+
+.form-check-input {
+  width: 1.2rem;
+  height: 1.2rem;
+  margin-top: 0.1rem;
+  border: 2px solid var(--border-color);
+}
+
+.form-check-input:checked {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.form-check-input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.2rem rgba(58, 79, 196, 0.25);
+}
+
+.form-check-label {
+  font-weight: 500;
+  color: #495057;
+  cursor: pointer;
+}
+
+/* Security Options */
+.security-options {
+  background: var(--light-bg);
+  padding: 20px;
+  border-radius: 8px;
+  border-left: 4px solid var(--success-color);
+}
+
+/* Form Actions */
+.form-actions {
+  margin-top: 40px;
+  padding-top: 25px;
+  border-top: 2px solid var(--border-color);
+}
+
+.btn-primary {
+  background: var(--primary-color);
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(58, 79, 196, 0.3);
+}
+
+.btn-outline-secondary {
+  border: 2px solid var(--border-color);
+  color: #6c757d;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-secondary:hover {
+  background: #6c757d;
+  border-color: #6c757d;
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .profile-settings-container {
+    padding: 10px 0;
+  }
+
+  .profile-header {
+    padding: 20px;
+    text-align: center;
+  }
+
+  .page-title {
+    font-size: 1.5rem;
+  }
+
+  .stat-card {
+    margin-bottom: 15px;
+  }
+
+  .settings-content {
+    padding: 20px;
+  }
+
+  .content-header h3 {
+    font-size: 1.3rem;
+  }
+
+  .form-actions {
+    text-align: center;
+  }
+
+  .form-actions .btn {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 576px) {
+  .stat-card {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+
+  .stat-content h3 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Animation for tab transitions */
+.tab-content {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Custom scrollbar for better UX */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-dark);
+}

@@ -35,6 +35,8 @@ import SignUpPage from "./Pages/SignUp";
 import Overview from "./Pages/user-dashboard/overview/Overview";
 import UserPayments from "./Pages/user-dashboard/payments/UserPayments";
 import Favorites from "./Pages/user-dashboard/favorites/Favorites";
+import UserProfileSettings from "./Pages/user-dashboard/userprofile/UserProfileSettings";
+import MessagesPage from "./Pages/user-dashboard/messages/MessagesPage";
 
 // Layout for general user pages (with Header + Footer)
 const UserLayout = () => (
@@ -101,7 +103,13 @@ function App() {
           <Route path="/dashboard/ads-management" element={<AdsManagement />} />
           <Route path="/dashboard/overview" element={<Overview />} />
           <Route path="/dashboard/payments" element={<UserPayments />} />
+          <Route
+            path="/dashboard/profile-setting"
+            element={<UserProfileSettings />}
+          />
+          <Route path="/dashboard/messages" element={<MessagesPage />} />
           <Route path="/dashboard/favorites" element={<Favorites />} />
+          <Route path="/dashboard/add-listing" element={<AddListingPage />} />
           {/* Add more dashboard routes here if needed */}
         </Route>
       </Routes>

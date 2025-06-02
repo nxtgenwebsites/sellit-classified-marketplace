@@ -28,11 +28,7 @@ const SignInPage = () => {
                 <label htmlFor="username" className="form-label">
                   Username
                 </label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="username"
-                />
+                <input type="text" className="form-control" id="username" />
               </div>
 
               <div className="mb-3">
@@ -57,13 +53,14 @@ const SignInPage = () => {
                   Lost your password?
                 </a>
               </div>
-
-              <button
-                type="submit"
-                className="btn btn-primary w-100 sign-in-btn"
-              >
-                Login <FaArrowRight className="ms-2" />
-              </button>
+              <Link to={"/dashboard/overview"}>
+                <button
+                  type="button"
+                  className="btn btn-primary w-100 sign-in-btn"
+                >
+                  Login <FaArrowRight className="ms-2" />
+                </button>
+              </Link>
             </form>
 
             <div className="text-center mt-3">

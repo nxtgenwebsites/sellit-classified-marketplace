@@ -1,4 +1,4 @@
-import { NavLink, useLocation } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import {
   BsGrid1X2,
   BsMegaphone,
@@ -26,7 +26,7 @@ const Sidebar = () => {
       label: "My Ads",
     },
     {
-      path: "/add-new-ads",
+      path: "/dashboard/add-listing",
       icon: BsPlusSquare,
       label: "Add New Ads",
     },
@@ -41,12 +41,12 @@ const Sidebar = () => {
       label: "Payments",
     },
     {
-      path: "/messages",
+      path: "/dashboard/messages",
       icon: BsChat,
       label: "Messages",
     },
     {
-      path: "/profile-settings",
+      path: "/dashboard/profile-setting",
       icon: BsPerson,
       label: "Profile Settings",
     },
@@ -58,7 +58,9 @@ const Sidebar = () => {
       <div className="sidebar-header">
         <div className="logo-container">
           <div className="logo-wrapper">
+            <Link to={'/'}>
             <img src="/assets/icons/Navbar-logo.png" alt="" />
+            </Link>
           </div>
         </div>
       </div>
