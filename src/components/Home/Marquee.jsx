@@ -47,12 +47,6 @@ const data = [
     profileLink: "https://www.nestle.pk/",
     location: "Lahore",
   },
-  {
-    name: "Rozee.pk",
-    logo: "https://media.licdn.com/dms/image/v2/D4D0BAQEU081Bi_F_Dw/company-logo_200_200/company-logo_200_200/0/1697025163656/rozee_pk_logo?e=2147483647&v=beta&t=jGh97vWFaxl9C9qyxYNi2keMhZzLcxxCMx4AQxH6hXc",
-    profileLink: "https://www.rozee.pk/",
-    location: "Lahore",
-  },
 ];
 
   return (
@@ -63,14 +57,17 @@ const data = [
             <h1 className="fw-semibold mb-0">Trusted Sellit Partners</h1>
           </div>
           <div className="container">
-            <div className="row row-gap-4">
-              {data.map((item , i) => {
-                return (
-              <div className="col-3" key={i}>
-                <PartnersCards  data={item}/>
-              </div>
-                )
-              })}
+            <div
+              className="d-grid gap-3"
+              style={{
+                gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))",
+              }}
+            >
+              {data.map((item, i) => (
+                <div key={i}>
+                  <PartnersCards data={item} />
+                </div>
+              ))}
             </div>
           </div>
         </div>

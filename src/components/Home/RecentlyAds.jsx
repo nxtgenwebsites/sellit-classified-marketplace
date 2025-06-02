@@ -13,8 +13,8 @@ function RecentlyAds() {
       <section className="buy-ans-sell-section py-5">
         <Container>
           <div className="buy-sell-heading">
-            <div className="left-title">
-              <h1 className="fw-semibold">Recently Posted Ads</h1>
+            <div className="">
+              <h1 className="text-main-heading">Recently Posted Ads</h1>
             </div>
           </div>
           <div className="d-flex w-100 justify-content-between align-items-center">

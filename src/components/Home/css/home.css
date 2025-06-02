@@ -134,7 +134,7 @@
 }
 
 .featured-label {
-  background: rgb(49, 223, 63);
+  background: #3a4fc4;
   padding: 4px 10px;
   border-radius: 5px;
 }
@@ -520,9 +520,13 @@
 }
 
 .text-main-heading {
-  font-weight: 100 !important;
   font-family: "Poppins", sans-serif !important;
-  /* display: n; */
+    font-size: 30px;
+    text-decoration: underline;
+    font-family: "Montserrat", serif;
+    color: #1c2ea5;
+    font-weight: 500 !important;
+    text-align: left !important;
 }
 
 .title-icon {

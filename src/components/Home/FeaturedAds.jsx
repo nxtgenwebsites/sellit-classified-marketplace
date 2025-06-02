@@ -9,8 +9,8 @@ export default function FeaturedAds() {
       <div className="container">
         <div className="featured-heading">
           <div className="heading">
-            <div className="left-title">
-              <h1 className="fw-semibold text-main-heading">Featured Ads</h1>
+            <div className="">
+              <h1 className="text-main-heading">Featured Ads</h1>
             </div>
             <div className="d-flex w-100 justify-content-between align-items-center">
             <ul className="nav nav-tabs tabs w-50 mx-0 " id="myTab" role="tablist">

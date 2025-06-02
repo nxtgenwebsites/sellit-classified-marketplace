@@ -17,23 +17,26 @@ const PartnersCards = ({ data }) => {
       className="text-decoration-none"
     >
       <div
-        className="card h-100 shadow-sm partners-card"
+        // className="card h-100 shadow-sm partners-card"
         style={{
           cursor: "pointer",
           transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
-          transform: isHovered ? "translateY(-8px)" : "none",
-          boxShadow: isHovered
-            ? "0 20px 40px rgba(0,0,0,0.12), 0 8px 16px rgba(0,0,0,0.08)"
-            : "0 4px 6px rgba(0,0,0,0.05)",
-          border: "none",
-          borderRadius: "20px",
+          // transform: isHovered ? "translateY(-8px)" : "none",
+          // boxShadow: isHovered
+          //   ? "0 20px 40px rgba(0,0,0,0.12), 0 8px 16px rgba(0,0,0,0.08)"
+          //   : "0 4px 6px rgba(0,0,0,0.05)",
+          // border: "none",
+          // borderRadius: "20px",
+          maxWidth: "200px",
           minHeight: "200px",
           maxHeight: "200px",
         }}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
       >
-        <div className="card-body p-4 text-center d-flex flex-column justify-content-between h-100">
+        <div
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+          className="card-body text-center d-flex flex-column justify-content-between h-100"
+        >
           {/* Logo Circle */}
           <div className="position-relative mb-3 d-inline-block align-self-center">
             <div
@@ -124,31 +127,17 @@ const PartnersCards = ({ data }) => {
                   style={{ animation: "slideUpContent 0.4s ease" }}
                 >
                   <div className="d-flex align-items-center justify-content-center text-muted mb-2">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                      className="bi bi-geo-alt-fill me-2 text-success"
-                      viewBox="0 0 16 16"
+                    <h6
+                      className="fw-bold text-dark"
+                      style={{ fontSize: "16px", lineHeight: "1.3" }}
                     >
-                      <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />
-                    </svg>
-                    <span className="fw-semibold" style={{ fontSize: "14px" }}>
-                      {data.location}, Pakistan
-                    </span>
+                      {data.name}
+                    </h6>
                   </div>
                   <div
-                    className="btn btn-primary btn-sm px-4 py-2"
                     style={{
-                      background:
-                        "linear-gradient(135deg, #3a4fc4 0%, #3a4fc4 100%)",
-                      border: "none",
-                      borderRadius: "12px",
-                      fontSize: "13px",
-                      fontWeight: "600",
-                      boxShadow: "0 4px 12px rgba(0,123,255,0.25)",
-                      transition: "all 0.3s ease",
+                      fontSize: "14px",
+                      marginTop: '-10px'
                     }}
                   >
                     View Company Profile

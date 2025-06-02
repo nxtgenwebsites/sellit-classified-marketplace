@@ -99,7 +99,7 @@ export default function Featured_slider() {
                 <div className="featured-ad-details mt-3 border-top px-2">
                   <div className="account-card mt-3 text-center">
                     <div className="user-content">
-                      <h2>100,000 PKR</h2>
+                      <h2>PKR 100,000</h2>
                     </div>
                   </div>
                 </div>

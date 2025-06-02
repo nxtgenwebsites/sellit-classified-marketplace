@@ -9,8 +9,8 @@ function PopularCategories() {
     <div>
       <section className="popular-category-section py-5">
         <Container>
-          <div className="left-title mb-4">
-            <h1 className="fw-semibold">Popular Categories</h1>
+          <div className=" mb-4">
+            <h1 className="text-main-heading">Popular Categories</h1>
           </div>
           <Row className="row-gap-3">
             {PopularCategory.map((category, i) => (

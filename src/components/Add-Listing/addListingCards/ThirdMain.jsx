@@ -54,7 +54,7 @@ export default function ThirdMain() {
       </div>
       {/* <!-- Images start --> */}
       <div className="head">
-        <h3 className="fw-bold mb-3">Gallery</h3>
+        <h3 className="mb-3 secondary-heading-text">Gallery</h3>
       </div>
       <div className="images w-100 d-lg-flex gap-3">
         {imgSrcs.map((src, index) => (
@@ -118,7 +118,7 @@ export default function ThirdMain() {
       <hr className="my-3" />
       {/* <!-- Attachments start --> */}
       <div className="head">
-        <h3 className="fw-bold mb-3">Attachements</h3>
+        <h3 className="secondary-heading-text mb-3">Attachements</h3>
       </div>
       <div className="documents w-100 d-lg-flex gap-3">
         {documents.map((doc, ind) => (

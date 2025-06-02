@@ -3,9 +3,6 @@ import React from "react";
 export default function MainCategory() {
   return (
     <div className="position-relative w-100 mt-3">
-      <div className="heading-form">
-        <h3 className="fw-bold mb-5">General Details</h3>
-      </div>
       <div className="form-first-group w-100">
         <div className="first-form_group w-100 my-3">
           <div className="label mb-1">
