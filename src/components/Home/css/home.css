@@ -279,7 +279,7 @@
   font-size: 30px;
   text-decoration: underline;
   font-family: "Montserrat", serif;
-  color: #1c2ea5;
+  color: #202020;
   text-align: left !important;
   font-weight: 500 !important;
 }
@@ -524,7 +524,8 @@
     font-size: 30px;
     text-decoration: underline;
     font-family: "Montserrat", serif;
-    color: #1c2ea5;
+    color: #202020;
+    margin-bottom: 20px;
     font-weight: 500 !important;
     text-align: left !important;
 }
