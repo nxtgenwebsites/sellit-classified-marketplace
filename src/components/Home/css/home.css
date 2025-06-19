@@ -280,8 +280,9 @@
   text-decoration: underline;
   font-family: "Montserrat", serif;
   color: #202020;
-  text-align: left !important;
-  font-weight: 500 !important;
+  text-align: center !important;
+  font-weight: 700 !important;
+  text-decoration: ;
 }
 /* Page start */
 .page-wrapper {

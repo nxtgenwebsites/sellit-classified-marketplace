@@ -6,6 +6,7 @@ import { FaMapMarkerAlt, FaPhone } from "react-icons/fa";
 import { IoDocumentTextOutline } from "react-icons/io5";
 import { Play } from "lucide-react";
 import InspectionReport from "../components/Home/InspectionReport";
+import { Link } from "react-router-dom";
 
 function AddPage() {
   const [showNumber, setShowNumber] = useState(false);
@@ -245,7 +246,7 @@ function ProductPage({ showNumber, handleShowNumber }) {
           </div>
 
           {/* Attachments Section */}
-              <InspectionReport/>
+          <InspectionReport />
 
           {/* Video Section */}
           <div className="product-section mb-8 p-6 border rounded-lg">
@@ -308,7 +309,9 @@ function ProductPage({ showNumber, handleShowNumber }) {
               </button>
             </div>
             <div className="seller-buttons">
+              <Link to="/dashboard/messages">
               <button className="btn chat-btn">Let's Chat →</button>
+              </Link>
             </div>
           </div>
         </div>

@@ -213,7 +213,7 @@ const UserPayments = () => {
         <div className="row">
           <div className="col-md-6">
             <p className="footer-text mb-0">
-              © 2024 Polygon Theme. All Right Reserved.
+              © 2025 Sellit Pakistan. All Right Reserved.
             </p>
           </div>
           <div className="col-md-6 text-md-end">

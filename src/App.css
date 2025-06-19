@@ -575,6 +575,7 @@ img {
     width: 100%;
   }
 
+
   .thumbnail-container {
     grid-template-columns: repeat(2, 1fr);
   }

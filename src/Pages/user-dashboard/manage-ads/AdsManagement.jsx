@@ -216,7 +216,7 @@ const AdsManagement = () => {
 
       <footer className="footer">
         <div className="copyright">
-          © 2024 Polygon Theme. All Right Reserved.
+          © 2025 Sellit Pakistan. All Right Reserved.
         </div>
         <div className="footer-links">
           <a href="#" className="footer-link">

@@ -13,96 +13,114 @@ export default function FeaturedAds() {
               <h1 className="text-main-heading">Featured Ads</h1>
             </div>
             <div className="d-flex w-100 justify-content-between align-items-center">
-            <ul className="nav nav-tabs tabs w-50 mx-0 " id="myTab" role="tablist">
-              <li className="nav-item buy-tabs" role="presentation">
-                <button
-                  className="nav-link active tab-btn"
-                  id="pindi-tab"
-                  data-bs-toggle="tab"
-                  data-bs-target="#Rawalpindi"
-                  type="button"
-                  role="tab"
-                  aria-controls="home"
-                  aria-selected="true"
-                >
-                  Rawalpindi
-                </button>
-              </li>
-              <li className="nav-item buy-tabs" role="presentation">
-                <button
-                  className="nav-link tab-btn"
-                  id="islamabad-tab"
-                  data-bs-toggle="tab"
-                  data-bs-target="#Islamabad"
-                  type="button"
-                  role="tab"
-                  aria-controls="profile"
-                  aria-selected="false"
-                >
-                  Islamabad
-                </button>
-              </li>
-              <li className="nav-item buy-tabs" role="presentation">
-                <button
-                  className="nav-link tab-btn"
-                  id="lahore-tab"
-                  data-bs-toggle="tab"
-                  data-bs-target="#Lahore"
-                  type="button"
-                  role="tab"
-                  aria-controls="contact"
-                  aria-selected="false"
-                >
-                  Lahore
-                </button>
-              </li>
-              <li className="nav-item buy-tabs" role="presentation">
-                <button
-                  className="nav-link tab-btn"
-                  id="multan-tab"
-                  data-bs-toggle="tab"
-                  data-bs-target="#Multan"
-                  type="button"
-                  role="tab"
-                  aria-controls="contact"
-                  aria-selected="false"
-                >
-                  Multan
-                </button>
-              </li>
-              <li className="nav-item buy-tabs" role="presentation">
-                <button
-                  className="nav-link tab-btn"
-                  id="karachi-tab"
-                  data-bs-toggle="tab"
-                  data-bs-target="#Karachi"
-                  type="button"
-                  role="tab"
-                  aria-controls="contact"
-                  aria-selected="false"
-                >
-                  Karachi
-                </button>
-              </li>
-              <li className="nav-item buy-tabs" role="presentation">
-                <button
-                  className="nav-link tab-btn"
-                  id="Peshawar-tab"
-                  data-bs-toggle="tab"
-                  data-bs-target="#Peshawar"
-                  type="button"
-                  role="tab"
-                  aria-controls="contact"
-                  aria-selected="false"
-                >
-                  Peshawar
-                </button>
-              </li>
-            </ul>
-            <button className="d-flex align-items-center gap-2 view-all-btn">
-              <span>View All</span>
-              <FaArrowRight />
-            </button>
+              <ul
+                className="nav nav-tabs tabs w-auto mx-0 "
+                id="myTab"
+                role="tablist"
+              >
+                <li className="nav-item buy-tabs mx-1" role="presentation">
+                  <button
+                    className="nav-link active tab-btn"
+                    id="all-tab"
+                    data-bs-toggle="tab"
+                    data-bs-target="#all"
+                    type="button"
+                    role="tab"
+                    aria-controls="profile"
+                    aria-selected="false"
+                  >
+                    All
+                  </button>
+                </li>
+                <li className="nav-item buy-tabs ms-1" role="presentation">
+                  <button
+                    className="nav-link tab-btn"
+                    id="pindi-tab"
+                    data-bs-toggle="tab"
+                    data-bs-target="#Rawalpindi"
+                    type="button"
+                    role="tab"
+                    aria-controls="home"
+                    aria-selected="true"
+                  >
+                    Rawalpindi
+                  </button>
+                </li>
+                <li className="nav-item buy-tabs ms-1" role="presentation">
+                  <button
+                    className="nav-link tab-btn"
+                    id="islamabad-tab"
+                    data-bs-toggle="tab"
+                    data-bs-target="#Islamabad"
+                    type="button"
+                    role="tab"
+                    aria-controls="profile"
+                    aria-selected="false"
+                  >
+                    Islamabad
+                  </button>
+                </li>
+                <li className="nav-item buy-tabs ms-1" role="presentation">
+                  <button
+                    className="nav-link tab-btn"
+                    id="lahore-tab"
+                    data-bs-toggle="tab"
+                    data-bs-target="#Lahore"
+                    type="button"
+                    role="tab"
+                    aria-controls="contact"
+                    aria-selected="false"
+                  >
+                    Lahore
+                  </button>
+                </li>
+                <li className="nav-item buy-tabs ms-1" role="presentation">
+                  <button
+                    className="nav-link tab-btn"
+                    id="multan-tab"
+                    data-bs-toggle="tab"
+                    data-bs-target="#Multan"
+                    type="button"
+                    role="tab"
+                    aria-controls="contact"
+                    aria-selected="false"
+                  >
+                    Multan
+                  </button>
+                </li>
+                <li className="nav-item buy-tabs ms-1" role="presentation">
+                  <button
+                    className="nav-link tab-btn"
+                    id="karachi-tab"
+                    data-bs-toggle="tab"
+                    data-bs-target="#Karachi"
+                    type="button"
+                    role="tab"
+                    aria-controls="contact"
+                    aria-selected="false"
+                  >
+                    Karachi
+                  </button>
+                </li>
+                <li className="nav-item buy-tabs mx-1" role="presentation">
+                  <button
+                    className="nav-link tab-btn"
+                    id="Peshawar-tab"
+                    data-bs-toggle="tab"
+                    data-bs-target="#Peshawar"
+                    type="button"
+                    role="tab"
+                    aria-controls="contact"
+                    aria-selected="false"
+                  >
+                    Peshawar
+                  </button>
+                </li>
+              </ul>
+              <button className="d-flex align-items-center gap-2 view-all-btn">
+                <span>View All</span>
+                <FaArrowRight />
+              </button>
             </div>
           </div>
         </div>

@@ -19,13 +19,27 @@ function RecentlyAds() {
           </div>
           <div className="d-flex w-100 justify-content-between align-items-center">
             <ul
-              className="nav nav-tabs tabs w-50 mx-0 "
+              className="nav nav-tabs tabs w-auto mx-0 "
               id="myTab"
               role="tablist"
             >
-              <li className="nav-item buy-tabs" role="presentation">
+              <li className="nav-item buy-tabs mx-1" role="presentation">
                 <button
                   className="nav-link active tab-btn"
+                  id="all-tab"
+                  data-bs-toggle="tab"
+                  data-bs-target="#all"
+                  type="button"
+                  role="tab"
+                  aria-controls="profile"
+                  aria-selected="false"
+                >
+                  All
+                </button>
+              </li>
+              <li className="nav-item buy-tabs ms-1" role="presentation">
+                <button
+                  className="nav-link tab-btn"
                   id="pindi-tab"
                   data-bs-toggle="tab"
                   data-bs-target="#Rawalpindi"
@@ -37,7 +51,7 @@ function RecentlyAds() {
                   Rawalpindi
                 </button>
               </li>
-              <li className="nav-item buy-tabs" role="presentation">
+              <li className="nav-item buy-tabs ms-1" role="presentation">
                 <button
                   className="nav-link tab-btn"
                   id="islamabad-tab"
@@ -51,7 +65,7 @@ function RecentlyAds() {
                   Islamabad
                 </button>
               </li>
-              <li className="nav-item buy-tabs" role="presentation">
+              <li className="nav-item buy-tabs ms-1" role="presentation">
                 <button
                   className="nav-link tab-btn"
                   id="lahore-tab"
@@ -65,7 +79,7 @@ function RecentlyAds() {
                   Lahore
                 </button>
               </li>
-              <li className="nav-item buy-tabs" role="presentation">
+              <li className="nav-item buy-tabs ms-1" role="presentation">
                 <button
                   className="nav-link tab-btn"
                   id="multan-tab"
@@ -79,7 +93,7 @@ function RecentlyAds() {
                   Multan
                 </button>
               </li>
-              <li className="nav-item buy-tabs" role="presentation">
+              <li className="nav-item buy-tabs ms-1" role="presentation">
                 <button
                   className="nav-link tab-btn"
                   id="karachi-tab"
@@ -93,7 +107,7 @@ function RecentlyAds() {
                   Karachi
                 </button>
               </li>
-              <li className="nav-item buy-tabs" role="presentation">
+              <li className="nav-item buy-tabs mx-1" role="presentation">
                 <button
                   className="nav-link tab-btn"
                   id="Peshawar-tab"

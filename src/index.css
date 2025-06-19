@@ -419,6 +419,18 @@ body {
   padding: 1.5rem;
 }
 
+.dropdown-first .category-dropdown button{
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+  .pagination-section button{
+    /* display: none !important; */
+    width: 40px !important;
+    height: 40px !important;
+    padding: 0 !important;
+  }
+
 .header-content {
   display: flex;
   align-items: center;
