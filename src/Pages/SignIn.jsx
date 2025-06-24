@@ -1,9 +1,37 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { FaFacebookF, FaGoogle, FaArrowRight } from "react-icons/fa";
 import "./Signin.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import axios from "axios";
 
 const SignInPage = () => {
+  const navigate = useNavigate();
+
+  const [identifier, setIdentifier] = useState("");
+  const [password, setPassword] = useState("");
+  const [errorMsg, setErrorMsg] = useState("");
+
+  const handleLogin = async () => {
+    try {
+      const res = await axios.post("https://sellit-classified-marketplace-backe.vercel.app/api/auth/signin", {
+        identifier,
+        password,
+      });
+
+      if (res.data.token) {
+        // Optionally save token
+        localStorage.setItem("token", res.data.token);
+        // Redirect to home or dashboard
+        navigate("/");
+      }
+    } catch (error) {
+      const msg =
+        error.response?.data?.message || "Something went wrong. Try again.";
+      setErrorMsg(msg);
+    }
+  };
+
   return (
     <div className="container-fluid py-5 sign-in-container">
       <div className="row py-5">
@@ -16,26 +44,45 @@ const SignInPage = () => {
             />
           </div>
         </div>
+
         <div className="col-md-6 d-flex justify-content-center align-items-center">
           <div className="form-container">
             <h2 className="text-center mb-2">Login</h2>
             <p className="text-center text-muted small mb-4">
-              Sign in with this access the following sites.
+              Sign in to access your account.
             </p>
 
-            <form>
+            {errorMsg && (
+              <div className="alert alert-danger text-center py-2">
+                {errorMsg}
+              </div>
+            )}
+
+            <form onSubmit={(e) => e.preventDefault()}>
               <div className="mb-3">
-                <label htmlFor="username" className="form-label">
-                  Username
+                <label htmlFor="identifier" className="form-label">
+                  Email or Phone
                 </label>
-                <input type="text" className="form-control" id="username" />
+                <input
+                  type="text"
+                  className="form-control"
+                  id="identifier"
+                  value={identifier}
+                  onChange={(e) => setIdentifier(e.target.value)}
+                />
               </div>
 
               <div className="mb-3">
                 <label htmlFor="password" className="form-label">
                   Password
                 </label>
-                <input type="password" className="form-control" id="password" />
+                <input
+                  type="password"
+                  className="form-control"
+                  id="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
               </div>
 
               <div className="d-flex justify-content-between mb-4">
@@ -49,18 +96,18 @@ const SignInPage = () => {
                     Remember me
                   </label>
                 </div>
-                <a href="#" className="forgot-password">
-                  Lost your password?
-                </a>
+                <Link to="/forgot-password" className="forgot-password">
+                  Forgot password?
+                </Link>
               </div>
-              <Link to={"/dashboard/overview"}>
-                <button
-                  type="button"
-                  className="btn btn-primary w-100 sign-in-btn"
-                >
-                  Login <FaArrowRight className="ms-2" />
-                </button>
-              </Link>
+
+              <button
+                type="submit"
+                className="btn btn-primary w-100 sign-in-btn"
+                onClick={handleLogin}
+              >
+                Login <FaArrowRight className="ms-2" />
+              </button>
             </form>
 
             <div className="text-center mt-3">

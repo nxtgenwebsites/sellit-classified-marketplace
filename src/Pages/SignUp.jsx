@@ -1,9 +1,75 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { FaFacebookF, FaGoogle, FaArrowRight } from "react-icons/fa";
 import "./Signin.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import axios from "axios";
 
 const SignUpPage = () => {
+  const navigate = useNavigate();
+
+  const [formData, setFormData] = useState({
+    username: "",
+    identifier: "",
+    password: "",
+    confirmPassword: "",
+  });
+
+  const [errorMsg, setErrorMsg] = useState("");
+
+  const handleChange = (e) => {
+    setFormData((prev) => ({
+      ...prev,
+      [e.target.id]: e.target.value,
+    }));
+  };
+
+const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  const { username, identifier, password, confirmPassword } = formData;
+
+  // Check all fields filled
+  if (!username || !identifier || !password || !confirmPassword) {
+    return setErrorMsg("Please fill in all fields.");
+  }
+
+  // Password match check
+  if (password !== confirmPassword) {
+    return setErrorMsg("Passwords do not match.");
+  }
+
+  try {
+    // Signup API
+    const res = await axios.post("https://sellit-classified-marketplace-backe.vercel.app/api/auth/signup", {
+      username,
+      identifier,
+      password,
+    });
+
+    // If signup is successful
+    if (res.data.token) {
+      // Save token (if needed)
+      localStorage.setItem("token", res.data.token);
+
+      // Send OTP API
+      await axios.post("https://sellit-classified-marketplace-backe.vercel.app/api/auth/send-otp", {
+        identifier,
+      });
+
+      // Save identifier for verification
+      localStorage.setItem("identifier", identifier);
+
+      // Navigate to OTP verification page
+      navigate("/verify-otp");
+    }
+  } catch (error) {
+    const msg = error.response?.data?.message || "Signup failed.";
+    setErrorMsg(msg);
+  }
+};
+
+
   return (
     <div className="container-fluid py-5 sign-in-container">
       <div className="row py-5">
@@ -16,6 +82,7 @@ const SignUpPage = () => {
             />
           </div>
         </div>
+
         <div className="col-md-6 d-flex justify-content-center align-items-center">
           <div className="form-container">
             <h2 className="text-center mb-2">Create Account</h2>
@@ -23,7 +90,13 @@ const SignUpPage = () => {
               Sign up to access the following sites.
             </p>
 
-            <form>
+            {errorMsg && (
+              <div className="alert alert-danger text-center py-2">
+                {errorMsg}
+              </div>
+            )}
+
+            <form onSubmit={handleSubmit}>
               <div className="mb-3">
                 <label htmlFor="username" className="form-label">
                   Username
@@ -32,17 +105,21 @@ const SignUpPage = () => {
                   type="text"
                   className="form-control"
                   id="username"
+                  value={formData.username}
+                  onChange={handleChange}
                 />
               </div>
 
               <div className="mb-3">
-                <label htmlFor="username" className="form-label">
-                  Email
+                <label htmlFor="identifier" className="form-label">
+                  Email or Phone
                 </label>
                 <input
                   type="text"
                   className="form-control"
-                  id="username"
+                  id="identifier"
+                  value={formData.identifier}
+                  onChange={handleChange}
                 />
               </div>
 
@@ -50,21 +127,33 @@ const SignUpPage = () => {
                 <label htmlFor="password" className="form-label">
                   Password
                 </label>
-                <input type="password" className="form-control" id="password" />
+                <input
+                  type="password"
+                  className="form-control"
+                  id="password"
+                  value={formData.password}
+                  onChange={handleChange}
+                />
               </div>
 
               <div className="mb-3">
-                <label htmlFor="password" className="form-label">
-                  Confirm password
+                <label htmlFor="confirmPassword" className="form-label">
+                  Confirm Password
                 </label>
-                <input type="password" className="form-control" id="password" />
+                <input
+                  type="password"
+                  className="form-control"
+                  id="confirmPassword"
+                  value={formData.confirmPassword}
+                  onChange={handleChange}
+                />
               </div>
 
               <button
                 type="submit"
                 className="btn btn-primary w-100 sign-in-btn"
               >
-                Login <FaArrowRight className="ms-2" />
+                Sign Up <FaArrowRight className="ms-2" />
               </button>
             </form>
 

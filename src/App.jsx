@@ -37,6 +37,9 @@ import UserPayments from "./Pages/user-dashboard/payments/UserPayments";
 import Favorites from "./Pages/user-dashboard/favorites/Favorites";
 import UserProfileSettings from "./Pages/user-dashboard/userprofile/UserProfileSettings";
 import MessagesPage from "./Pages/user-dashboard/messages/MessagesPage";
+import VerifyOTPPage from "./Pages/verify-otp";
+import ForgotPasswordPage from "./Pages/forgot-password";
+import NewPasswordPage from "./Pages/new-password";
 
 // Layout for general user pages (with Header + Footer)
 const UserLayout = () => (
@@ -96,6 +99,9 @@ function App() {
           <Route path="/example" element={<Example />} />
           <Route path="/login" element={<SignInPage />} />
           <Route path="/signup" element={<SignUpPage />} />
+          <Route path="/verify-otp" element={<VerifyOTPPage />} />
+          <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+          <Route path="/new-password" element={<NewPasswordPage />} />
         </Route>
 
         {/* Dashboard Layout */}
