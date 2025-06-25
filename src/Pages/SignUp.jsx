@@ -7,7 +7,7 @@ import axios from "axios";
 
 const SignUpPage = () => {
   const navigate = useNavigate();
-
+const [isLoading, setIsLoading] = useState(false)
   const [formData, setFormData] = useState({
     username: "",
     identifier: "",
@@ -39,13 +39,23 @@ const handleSubmit = async (e) => {
     return setErrorMsg("Passwords do not match.");
   }
 
+  // Password length check
+  if (password.length < 6) {
+    return setErrorMsg("Password must be at least 6 characters long.");
+  }
+
+  setIsLoading(true)
+
   try {
     // Signup API
-    const res = await axios.post("https://sellit-classified-marketplace-backe.vercel.app/api/auth/signup", {
-      username,
-      identifier,
-      password,
-    });
+    const res = await axios.post(
+      "https://sellit-classified-marketplace-backe.vercel.app/api/auth/signup",
+      {
+        username,
+        identifier,
+        password,
+      }
+    );
 
     // If signup is successful
     if (res.data.token) {
@@ -53,9 +63,12 @@ const handleSubmit = async (e) => {
       localStorage.setItem("token", res.data.token);
 
       // Send OTP API
-      await axios.post("https://sellit-classified-marketplace-backe.vercel.app/api/auth/send-otp", {
-        identifier,
-      });
+      await axios.post(
+        "https://sellit-classified-marketplace-backe.vercel.app/api/auth/send-otp",
+        {
+          identifier,
+        }
+      );
 
       // Save identifier for verification
       localStorage.setItem("identifier", identifier);
@@ -66,6 +79,8 @@ const handleSubmit = async (e) => {
   } catch (error) {
     const msg = error.response?.data?.message || "Signup failed.";
     setErrorMsg(msg);
+  } finally {
+    setIsLoading(false);
   }
 };
 
@@ -152,8 +167,22 @@ const handleSubmit = async (e) => {
               <button
                 type="submit"
                 className="btn btn-primary w-100 sign-in-btn"
+                disabled={isLoading}
               >
-                Sign Up <FaArrowRight className="ms-2" />
+                {isLoading ? (
+                  <>
+                    <span
+                      className="spinner-border spinner-border-sm me-2"
+                      role="status"
+                      aria-hidden="true"
+                    ></span>
+                    Creating account...
+                  </>
+                ) : (
+                  <>
+                    Sign Up <FaArrowRight className="ms-2" />
+                  </>
+                )}
               </button>
             </form>
 

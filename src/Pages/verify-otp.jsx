@@ -82,7 +82,7 @@ const VerifyOTPPage = () => {
         }
       );
 
-      if (res.data.success) {
+      if (res.data.message) {
         setSuccessMsg("Verification successful!");
         localStorage.removeItem("identifier"); // optional
           navigate("/");
