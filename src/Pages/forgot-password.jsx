@@ -27,39 +27,27 @@ const ForgotPasswordPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    location.href = "/new-password";
-    // const { identifier } = formData;
+    localStorage.setItem("identifier" , formData.identifier);
+          setIsLoading(true);
+        try {
+          // ✅ Always this API
+          const res = await axios.post(
+            "https://sellit-classified-marketplace-backe.vercel.app/api/auth/send-otp",
+            {
+              identifier: formData.identifier,
+            }
+          );
+          console.log(res);
 
-    // // Check if field is filled
-    // if (!identifier) {
-    //   return setErrorMsg("Please enter your email or phone number.");
-    // }
-
-    // setIsLoading(true);
-    // setErrorMsg("");
-    // setSuccessMsg("");
-
-    // try {
-    //   const res = await axios.post(
-    //     "http://localhost:3000/api/auth/forgot-password",
-    //     {
-    //       identifier,
-    //     }
-    //   );
-
-    //   if (res.data.success) {
-    //     setSuccessMsg("Reset instructions sent to your email/phone!");
-    //     setTimeout(() => {
-    //       navigate("/verify-otp", { state: { identifier, type: "reset" } });
-    //     }, 2000);
-    //   }
-    // } catch (error) {
-    //   const msg =
-    //     error.response?.data?.message || "Failed to send reset instructions.";
-    //   setErrorMsg(msg);
-    // } finally {
-    //   setIsLoading(false);
-    // }
+          if (res.data.message) {
+            location.href = "/verify-user";
+          }
+        } catch (error) {
+          const msg = error.response?.data?.message || "Failed to resend OTP.";
+          setErrorMsg(msg);
+        } finally {
+          setIsLoading(false);
+        }
   };
 
   return (

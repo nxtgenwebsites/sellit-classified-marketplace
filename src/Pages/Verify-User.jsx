@@ -5,7 +5,7 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 import axios from "axios";
 
-const VerifyOTPPage = () => {
+const VerifyUser = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -82,10 +82,9 @@ const VerifyOTPPage = () => {
         }
       );
 
-      if (res.data.success) {
+      if (res.data.message) {
         setSuccessMsg("Verification successful!");
-        localStorage.removeItem("identifier"); // optional
-          navigate("/");
+        navigate("/new-password");
       }
     } catch (error) {
       const msg =
@@ -103,11 +102,14 @@ const VerifyOTPPage = () => {
 
     try {
       // ✅ Always this API
-      const res = await axios.post("https://sellit-classified-marketplace-backe.vercel.app/api/auth/send-otp", {
-        identifier,
-      });
+      const res = await axios.post(
+        "https://sellit-classified-marketplace-backe.vercel.app/api/auth/send-otp",
+        {
+          identifier,
+        }
+      );
 
-      if (res.data.success) {
+      if (res.data.message) {
         setSuccessMsg("OTP sent successfully!");
         setTimer(60);
         setCanResend(false);
@@ -253,4 +255,4 @@ const VerifyOTPPage = () => {
   );
 };
 
-export default VerifyOTPPage;
+export default VerifyUser;

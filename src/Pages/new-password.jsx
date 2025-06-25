@@ -31,56 +31,12 @@ const NewPasswordPage = () => {
 // //     }
 // //   }, [token, navigate]);
 
-  const checkPasswordStrength = (password) => {
-    if (password.length === 0) return "";
-    if (password.length < 6) return "weak";
-    if (password.length < 8) return "medium";
-    if (
-      password.match(
-        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]/
-      )
-    ) {
-      return "strong";
-    }
-    return "medium";
-  };
-
   const handleChange = (e) => {
     const { id, value } = e.target;
     setFormData((prev) => ({
       ...prev,
       [id]: value,
     }));
-
-    if (id === "password") {
-      setPasswordStrength(checkPasswordStrength(value));
-    }
-  };
-
-  const getStrengthColor = () => {
-    switch (passwordStrength) {
-      case "weak":
-        return "danger";
-      case "medium":
-        return "warning";
-      case "strong":
-        return "success";
-      default:
-        return "secondary";
-    }
-  };
-
-  const getStrengthText = () => {
-    switch (passwordStrength) {
-      case "weak":
-        return "Weak";
-      case "medium":
-        return "Medium";
-      case "strong":
-        return "Strong";
-      default:
-        return "";
-    }
   };
 
   const handleSubmit = async (e) => {
@@ -109,20 +65,19 @@ const NewPasswordPage = () => {
 
     try {
       const res = await axios.post(
-        "http://localhost:3000/api/auth/reset-password",
+        "https://sellit-classified-marketplace-backe.vercel.app/api/auth/reset-password",
         {
-          token,
-          password,
+          identifier: localStorage.getItem("identifier"),
+          newPassword: password,
         }
       );
 
-      if (res.data.success) {
-        setSuccessMsg("Password reset successfully! Redirecting to login...");
-        setTimeout(() => {
+      if (res.data.message) {
+        setSuccessMsg("Password reset successfully!");
           navigate("/login");
-        }, 2000);
       }
     } catch (error) {
+      console.log(error);
       const msg =
         error.response?.data?.message ||
         "Failed to reset password. Please try again.";
@@ -188,30 +143,6 @@ const NewPasswordPage = () => {
                     {showPassword ? <FaEyeSlash /> : <FaEye />}
                   </button> */}
                 </div>
-                {passwordStrength && (
-                  <div className="mt-2">
-                    <div className="d-flex align-items-center">
-                      <div className="flex-grow-1 me-2">
-                        <div className="progress" style={{ height: "4px" }}>
-                          <div
-                            className={`progress-bar bg-${getStrengthColor()}`}
-                            style={{
-                              width:
-                                passwordStrength === "weak"
-                                  ? "33%"
-                                  : passwordStrength === "medium"
-                                  ? "66%"
-                                  : "100%",
-                            }}
-                          ></div>
-                        </div>
-                      </div>
-                      <small className={`text-${getStrengthColor()}`}>
-                        {getStrengthText()}
-                      </small>
-                    </div>
-                  </div>
-                )}
               </div>
 
               <div className="mb-4">
