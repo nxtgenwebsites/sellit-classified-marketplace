@@ -422,11 +422,6 @@ export default function ManageUsersPage() {
                 <tr key={user.id}>
                   <td>
                     <div className="user-cell">
-                      <img
-                        src={user.avatar || "/placeholder.svg"}
-                        alt={user.fullName}
-                        className="user-avatar"
-                      />
                       <div className="user-info">
                         <div className="user-name">{user.fullName}</div>
                         <div className="username">@{user.username}</div>
