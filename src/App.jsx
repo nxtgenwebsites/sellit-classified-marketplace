@@ -41,6 +41,10 @@ import VerifyOTPPage from "./Pages/verify-otp";
 import ForgotPasswordPage from "./Pages/forgot-password";
 import NewPasswordPage from "./Pages/new-password";
 import VerifyUser from "./Pages/Verify-User";
+import OverviewPage from "./Pages/admin-dashbord/overview/Overview";
+import SidebarAdmin from "./Pages/admin-dashbord/sidebar/Sidebar";
+import ManageUsersPage from "./Pages/admin-dashbord/manage-users/ManageUsers";
+
 
 // Layout for general user pages (with Header + Footer)
 const UserLayout = () => (
@@ -61,7 +65,21 @@ const DashboardLayout = () => (
       <Outlet />
     </div>
   </div>
+
 );
+// Layout for user dashboard (with Sidebar + TopNavbar)
+const AdminLayout = () => (
+  <div className="d-flex">
+    <SidebarAdmin />
+    <div className="w-100">
+      <TopNavbar />
+      <Outlet />
+    </div>
+  </div>
+);
+
+
+
 
 function App() {
   return (
@@ -106,7 +124,7 @@ function App() {
           <Route path="/new-password" element={<NewPasswordPage />} />
         </Route>
 
-        {/* Dashboard Layout */}
+        {/* Admin Dashboard Layout */}
         <Route element={<DashboardLayout />}>
           <Route path="/dashboard/ads-management" element={<AdsManagement />} />
           <Route path="/dashboard/overview" element={<Overview />} />
@@ -118,7 +136,12 @@ function App() {
           <Route path="/dashboard/messages" element={<MessagesPage />} />
           <Route path="/dashboard/favorites" element={<Favorites />} />
           <Route path="/dashboard/add-listing" element={<AddListingPage />} />
-          {/* Add more dashboard routes here if needed */}
+        </Route>
+
+        {/* Admin Dashboard Layout */}
+        <Route element={<AdminLayout />}>
+          <Route path="/admin/overview" element={<OverviewPage />} />
+          <Route path="/dashboard/manage-users" element={<ManageUsersPage />} />
         </Route>
       </Routes>
     </>

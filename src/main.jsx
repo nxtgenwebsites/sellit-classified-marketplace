@@ -7,11 +7,14 @@ import "bootstrap/dist/js/bootstrap.min.js";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import { BrowserRouter as Router } from "react-router-dom";
+import { GoogleOAuthProvider } from "@react-oauth/google";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <Router>
-      <App />
+      <GoogleOAuthProvider clientId="748553911845-pp4s8hkmuntilsvak0ks7t0lv7c4febn.apps.googleusercontent.com">
+        <App />
+      </GoogleOAuthProvider>
     </Router>
-  </StrictMode>,
+  </StrictMode>
 );

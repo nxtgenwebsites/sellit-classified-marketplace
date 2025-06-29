@@ -3,6 +3,8 @@ import { FaFacebookF, FaGoogle, FaArrowRight } from "react-icons/fa";
 import "./Signin.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { GoogleLogin } from "@react-oauth/google";
+import FacebookLogin from "react-facebook-login";
 import axios from "axios";
 
 const SignInPage = () => {
@@ -11,6 +13,48 @@ const SignInPage = () => {
   const [identifier, setIdentifier] = useState("");
   const [password, setPassword] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
+
+const handleGoogle = async (credentialResponse) => {
+  const token = credentialResponse?.credential;
+
+  const res = await axios.post("http://localhost:5000/api/auth/google", {
+    token,
+  });
+  console.log(res.data);
+};
+
+  const handleFacebook = async (res) => {
+    const token = res.accessToken;
+    const { data } = await axios.post(
+      "http://localhost:5000/api/auth/facebook",
+      { token }
+    );
+    console.log(data);
+  };
+
+  const responseFacebook = async (response) => {
+    try {
+      const res = await axios.post(
+        "http://localhost:5000/api/auth/facebook-login",
+        {
+          accessToken: response.accessToken,
+          userID: response.userID,
+        }
+      );
+
+      const { token, user } = res.data;
+      console.log("JWT Token:", token);
+      console.log("User:", user);
+
+      // Optionally save token to localStorage
+      localStorage.setItem("token", token);
+    } catch (error) {
+      console.error(
+        "Facebook login error:",
+        error.response?.data || error.message
+      );
+    }
+  };
 
   const handleLogin = async () => {
     try {
@@ -121,12 +165,17 @@ const SignInPage = () => {
             </div>
 
             <div className="social-login">
-              <button className="btn btn-outline-primary facebook-btn">
-                <FaFacebookF className="me-2" /> Continue Facebook
-              </button>
-              <button className="btn btn-outline-danger google-btn">
-                <FaGoogle className="me-2" /> Continue Google
-              </button>
+              <FacebookLogin
+                appId="739592505203061"
+                autoLoad={false}
+                fields="name,picture"
+                callback={responseFacebook}
+                textButton="Continue with Facebook"
+              />
+              <GoogleLogin
+                onSuccess={handleGoogle}
+                onError={() => console.log("Google Failed")}
+              />
             </div>
           </div>
         </div>
