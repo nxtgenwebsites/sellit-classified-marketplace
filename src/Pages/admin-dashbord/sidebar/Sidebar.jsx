@@ -10,6 +10,7 @@ import {
   BsPerson,
   BsBoxArrowRight,
 } from "react-icons/bs";
+import { RiTeamLine } from "react-icons/ri";
 import "./sidebar.css";
 const SidebarAdmin = () => {
   const location = useLocation();
@@ -24,6 +25,11 @@ const SidebarAdmin = () => {
       path: "/dashboard/manage-users",
       icon: BsPerson,
       label: "Manage Users",
+    },
+    {
+      path: "/dashboard/manage-team",
+      icon: RiTeamLine,
+      label: "Manage Team",
     },
   ];
 

@@ -17,16 +17,18 @@ const SignInPage = () => {
 const handleGoogle = async (credentialResponse) => {
   const token = credentialResponse?.credential;
 
-  const res = await axios.post("http://localhost:5000/api/auth/google", {
+  const res = await axios.post("https://sellit-classified-marketplace-backe.vercel.app/api/auth/google", {
     token,
   });
-  console.log(res.data);
+  localStorage.setItem("uid", res.data.user._id);
+  localStorage.setItem("token", res.data.token);
+  location.href = "/";
 };
 
   const handleFacebook = async (res) => {
     const token = res.accessToken;
     const { data } = await axios.post(
-      "http://localhost:5000/api/auth/facebook",
+      "https://sellit-classified-marketplace-backe.vercel.app/api/auth/facebook",
       { token }
     );
     console.log(data);
@@ -35,7 +37,7 @@ const handleGoogle = async (credentialResponse) => {
   const responseFacebook = async (response) => {
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/auth/facebook-login",
+        "https://sellit-classified-marketplace-backe.vercel.app/api/auth/facebook-login",
         {
           accessToken: response.accessToken,
           userID: response.userID,
@@ -65,9 +67,9 @@ const handleGoogle = async (credentialResponse) => {
 
       if (res.data.token) {
         // Optionally save token
+        localStorage.setItem("uid", res.data.user._id);
         localStorage.setItem("token", res.data.token);
-        // Redirect to home or dashboard
-        navigate("/");
+      location.href = '/';
       }
     } catch (error) {
       const msg =

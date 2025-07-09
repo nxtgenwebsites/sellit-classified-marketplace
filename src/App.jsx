@@ -44,6 +44,8 @@ import VerifyUser from "./Pages/Verify-User";
 import OverviewPage from "./Pages/admin-dashbord/overview/Overview";
 import SidebarAdmin from "./Pages/admin-dashbord/sidebar/Sidebar";
 import ManageUsersPage from "./Pages/admin-dashbord/manage-users/ManageUsers";
+import TeamManagementPage from "./Pages/admin-dashbord/manage-team/ManageTeam";
+import AdManagementPage from "./Pages/adds-manage/addsManageTeam";
 
 
 // Layout for general user pages (with Header + Footer)
@@ -142,7 +144,12 @@ function App() {
         <Route element={<AdminLayout />}>
           <Route path="/admin/overview" element={<OverviewPage />} />
           <Route path="/dashboard/manage-users" element={<ManageUsersPage />} />
+          <Route
+            path="/dashboard/manage-team"
+            element={<TeamManagementPage />}
+          />
         </Route>
+        <Route path="/manage-ads" element={<AdManagementPage />} />
       </Routes>
     </>
   );

@@ -9,6 +9,8 @@ import { BsChatLeftTextFill } from "react-icons/bs";
 import { BsHeartFill } from "react-icons/bs";
 import { BsFillPersonFill } from "react-icons/bs";
 import { Search } from "lucide-react";
+const uid = localStorage.getItem('uid');
+
 
 export default function Header() {
     const [location, setLocation] = useState("All Pakistan");
@@ -54,8 +56,7 @@ export default function Header() {
                         <div
                           className="position-absolute h-100 d-flex align-items-center"
                           style={{ left: "15px", pointerEvents: "none" }}
-                        >
-                        </div>
+                        ></div>
                         <select
                           className="form-select border-0 h-100 py-3 ps-4 border-0"
                           style={{
@@ -121,7 +122,7 @@ export default function Header() {
               <Nav.Link href="#">
                 <BsHeartFill className="nav-icon" />
               </Nav.Link>
-              <Nav.Link href="/login">
+              <Nav.Link href={uid ? "/dashboard/overview" : "/login"}>
                 <BsFillPersonFill className="nav-icon" />
               </Nav.Link>
             </Nav>
