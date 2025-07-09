@@ -11,6 +11,7 @@ export default function MobilesCategory() {
         <GoogleBanner />
         <div className="layout-container d-lg-flex gap-4">
           <Sidebar />
+          
           <MobileContent />
         </div>
       </Container>
