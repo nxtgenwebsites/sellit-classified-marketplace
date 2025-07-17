@@ -4,7 +4,7 @@ import "./Signin.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { GoogleLogin } from "@react-oauth/google";
-import FacebookLogin from "react-facebook-login";
+// import FacebookLogin from "react-facebook-login";
 import axios from "axios";
 
 const SignInPage = () => {
@@ -25,38 +25,38 @@ const handleGoogle = async (credentialResponse) => {
   location.href = "/";
 };
 
-  const handleFacebook = async (res) => {
-    const token = res.accessToken;
-    const { data } = await axios.post(
-      "https://sellit-classified-marketplace-backe.vercel.app/api/auth/facebook",
-      { token }
-    );
-    console.log(data);
-  };
+  // const handleFacebook = async (res) => {
+  //   const token = res.accessToken;
+  //   const { data } = await axios.post(
+  //     "https://sellit-classified-marketplace-backe.vercel.app/api/auth/facebook",
+  //     { token }
+  //   );
+  //   console.log(data);
+  // };
 
-  const responseFacebook = async (response) => {
-    try {
-      const res = await axios.post(
-        "https://sellit-classified-marketplace-backe.vercel.app/api/auth/facebook-login",
-        {
-          accessToken: response.accessToken,
-          userID: response.userID,
-        }
-      );
+  // const responseFacebook = async (response) => {
+  //   try {
+  //     const res = await axios.post(
+  //       "https://sellit-classified-marketplace-backe.vercel.app/api/auth/facebook-login",
+  //       {
+  //         accessToken: response.accessToken,
+  //         userID: response.userID,
+  //       }
+  //     );
 
-      const { token, user } = res.data;
-      console.log("JWT Token:", token);
-      console.log("User:", user);
+  //     const { token, user } = res.data;
+  //     console.log("JWT Token:", token);
+  //     console.log("User:", user);
 
-      // Optionally save token to localStorage
-      localStorage.setItem("token", token);
-    } catch (error) {
-      console.error(
-        "Facebook login error:",
-        error.response?.data || error.message
-      );
-    }
-  };
+  //     // Optionally save token to localStorage
+  //     localStorage.setItem("token", token);
+  //   } catch (error) {
+  //     console.error(
+  //       "Facebook login error:",
+  //       error.response?.data || error.message
+  //     );
+  //   }
+  // };
 
   const handleLogin = async () => {
     try {
@@ -150,7 +150,7 @@ const handleGoogle = async (credentialResponse) => {
               <button
                 type="submit"
                 className="btn btn-primary w-100 sign-in-btn"
-                onClick={handleLogin}
+                // onClick={handleLogin}
               >
                 Login <FaArrowRight className="ms-2" />
               </button>
@@ -167,13 +167,13 @@ const handleGoogle = async (credentialResponse) => {
             </div>
 
             <div className="social-login">
-              <FacebookLogin
+              {/* <FacebookLogin
                 appId="739592505203061"
                 autoLoad={false}
                 fields="name,picture"
                 callback={responseFacebook}
                 textButton="Continue with Facebook"
-              />
+              /> */}
               <GoogleLogin
                 onSuccess={handleGoogle}
                 onError={() => console.log("Google Failed")}
