@@ -10,7 +10,7 @@ import PartnersCards from "./PartnersCards";
 const Marquee = () => {
 const data = [
   {
-    name: "Pakwheel",
+    name: "Pakwheels",
     logo: "https://play-lh.googleusercontent.com/Q_3vIq94Bs2_QYFiFw4vQhobVioxzaKEq-XDuW0OEugD--iGQNLYktO2PgEcAED53v0",
     profileLink: "https://www.pakwheels.com/",
     location: "Islamabad",
