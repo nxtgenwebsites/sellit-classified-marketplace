@@ -25,11 +25,6 @@ const VerifyOTPPage = () => {
   const inputRefs = useRef([]);
 
   useEffect(() => {
-    if (!identifier) {
-      navigate("/login");
-      return;
-    }
-
     const countdown = setInterval(() => {
       setTimer((prev) => {
         if (prev <= 1) {
@@ -85,7 +80,7 @@ const VerifyOTPPage = () => {
       if (res.data.message) {
         setSuccessMsg("Verification successful!");
         localStorage.removeItem("identifier"); // optional
-          // navigate("/");
+          navigate("/");
       }
     } catch (error) {
       const msg =

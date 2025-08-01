@@ -4,6 +4,7 @@ import "./Signin.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
+import { GoogleLogin } from "@react-oauth/google";
 
 const SignUpPage = () => {
   const navigate = useNavigate();
@@ -82,6 +83,19 @@ const handleSubmit = async (e) => {
   }
 };
 
+const handleGoogle = async (credentialResponse) => {
+  const token = credentialResponse?.credential;
+
+  const res = await axios.post(
+    "https://sellit-backend-u8bz.onrender.com/api/auth/google",
+    {
+      token,
+    }
+  );
+  localStorage.setItem("uid", res.data.user.id);
+  localStorage.setItem("token", res.data.token);
+  location.href = "/";
+};
 
   return (
     <div className="container-fluid py-5 sign-in-container">
@@ -195,12 +209,17 @@ const handleSubmit = async (e) => {
             </div>
 
             <div className="social-login">
-              <button className="btn btn-outline-primary facebook-btn">
-                <FaFacebookF className="me-2" /> Continue Facebook
-              </button>
-              <button className="btn btn-outline-danger google-btn">
-                <FaGoogle className="me-2" /> Continue Google
-              </button>
+              {/* <FacebookLogin
+                appId="739592505203061"
+                autoLoad={false}
+                fields="name,picture"
+                callback={responseFacebook}
+                textButton="Continue with Facebook"
+              /> */}
+              <GoogleLogin
+                onSuccess={handleGoogle}
+                onError={() => console.log("Google Failed")}
+              />
             </div>
           </div>
         </div>
