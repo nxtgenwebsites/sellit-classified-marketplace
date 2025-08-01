@@ -65,7 +65,7 @@ const NewPasswordPage = () => {
 
     try {
       const res = await axios.post(
-        "https://sellit-classified-marketplace-backe.vercel.app/api/auth/reset-password",
+        "https://sellit-backend-u8bz.onrender.com/api/auth/reset-password",
         {
           identifier: localStorage.getItem("identifier"),
           newPassword: password,

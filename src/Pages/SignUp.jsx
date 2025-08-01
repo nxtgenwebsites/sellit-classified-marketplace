@@ -49,7 +49,7 @@ const handleSubmit = async (e) => {
   try {
     // Signup API
     const res = await axios.post(
-      "https://sellit-classified-marketplace-backe.vercel.app/api/auth/signup",
+      "https://sellit-backend-u8bz.onrender.com/api/auth/signup",
       {
         username,
         identifier,
@@ -61,14 +61,12 @@ const handleSubmit = async (e) => {
     if (res.data.token) {
       // Save token (if needed)
       localStorage.setItem("token", res.data.token);
+    localStorage.setItem("uid", res.data.user.id);
 
       // Send OTP API
-      await axios.post(
-        "https://sellit-classified-marketplace-backe.vercel.app/api/auth/send-otp",
-        {
-          identifier,
-        }
-      );
+      await axios.post("https://sellit-backend-u8bz.onrender.com/api/auth/send-otp", {
+        identifier,
+      });
 
       // Save identifier for verification
       localStorage.setItem("identifier", identifier);

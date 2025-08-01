@@ -9,6 +9,11 @@ const TopNavbar = () => {
     // return location.pathname === path ? "active" : "";
   };
 
+  const handleLogout = () => {
+    localStorage.clear();
+    window.location.replace("/");
+  };
+
   return (
     <nav className="top-navbar py-3 navbar-expand-lg navbar-light bg-white border-bottom sticky-top shadow-sm">
       <div className="container-fluid px-4">
@@ -106,7 +111,7 @@ const TopNavbar = () => {
                 className="btn btn-icon position-relative"
                 title="Notifications"
               >
-                <BsBell size={18} color="black"/>
+                <BsBell size={18} color="black" />
                 {/* <span className="notification-badge">2</span> */}
               </button>
             </div>
@@ -142,7 +147,7 @@ const TopNavbar = () => {
                 <li>
                   <hr className="dropdown-divider" />
                 </li>
-                <li>
+                <li onClick={handleLogout}>
                   <Link className="dropdown-item text-danger" to="/logout">
                     Logout
                   </Link>

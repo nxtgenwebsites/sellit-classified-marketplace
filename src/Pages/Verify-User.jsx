@@ -75,7 +75,7 @@ const VerifyUser = () => {
     try {
       // ✅ Always this API
       const res = await axios.post(
-        "https://sellit-classified-marketplace-backe.vercel.app/api/auth/verify-otp",
+        "https://sellit-backend-u8bz.onrender.com/api/auth/verify-otp",
         {
           identifier,
           otp: otpCode,
@@ -102,12 +102,9 @@ const VerifyUser = () => {
 
     try {
       // ✅ Always this API
-      const res = await axios.post(
-        "https://sellit-classified-marketplace-backe.vercel.app/api/auth/send-otp",
-        {
-          identifier,
-        }
-      );
+      const res = await axios.post("https://sellit-backend-u8bz.onrender.com/api/auth/send-otp", {
+        identifier,
+      });
 
       if (res.data.message) {
         setSuccessMsg("OTP sent successfully!");

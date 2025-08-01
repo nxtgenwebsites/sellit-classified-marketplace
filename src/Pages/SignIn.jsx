@@ -17,10 +17,10 @@ const SignInPage = () => {
 const handleGoogle = async (credentialResponse) => {
   const token = credentialResponse?.credential;
 
-  const res = await axios.post("https://sellit-classified-marketplace-backe.vercel.app/api/auth/google", {
+  const res = await axios.post("https://sellit-backend-u8bz.onrender.com/api/auth/google", {
     token,
   });
-  localStorage.setItem("uid", res.data.user._id);
+  localStorage.setItem("uid", res.data.user.id);
   localStorage.setItem("token", res.data.token);
   location.href = "/";
 };
@@ -60,14 +60,14 @@ const handleGoogle = async (credentialResponse) => {
 
   const handleLogin = async () => {
     try {
-      const res = await axios.post("https://sellit-classified-marketplace-backe.vercel.app/api/auth/signin", {
+      const res = await axios.post("https://sellit-backend-u8bz.onrender.com/api/auth/login", {
         identifier,
         password,
       });
-
       if (res.data.token) {
+        
         // Optionally save token
-        localStorage.setItem("uid", res.data.user._id);
+        localStorage.setItem("uid", res.data.user.id);
         localStorage.setItem("token", res.data.token);
       location.href = '/';
       }
@@ -148,6 +148,7 @@ const handleGoogle = async (credentialResponse) => {
               </div>
 
               <button
+                onClick={handleLogin}
                 type="submit"
                 className="btn btn-primary w-100 sign-in-btn"
                 // onClick={handleLogin}

@@ -32,7 +32,7 @@ const ForgotPasswordPage = () => {
         try {
           // ✅ Always this API
           const res = await axios.post(
-            "https://sellit-classified-marketplace-backe.vercel.app/api/auth/send-otp",
+            "https://sellit-backend-u8bz.onrender.com/api/auth/send-otp",
             {
               identifier: formData.identifier,
             }

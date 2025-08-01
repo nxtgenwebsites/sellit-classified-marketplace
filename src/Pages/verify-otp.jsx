@@ -75,7 +75,7 @@ const VerifyOTPPage = () => {
     try {
       // ✅ Always this API
       const res = await axios.post(
-        "https://sellit-classified-marketplace-backe.vercel.app/api/auth/verify-otp",
+        "https://sellit-backend-u8bz.onrender.com/api/auth/verify-otp",
         {
           identifier,
           otp: otpCode,
@@ -85,7 +85,7 @@ const VerifyOTPPage = () => {
       if (res.data.message) {
         setSuccessMsg("Verification successful!");
         localStorage.removeItem("identifier"); // optional
-          navigate("/");
+          // navigate("/");
       }
     } catch (error) {
       const msg =
@@ -103,7 +103,7 @@ const VerifyOTPPage = () => {
 
     try {
       // ✅ Always this API
-      const res = await axios.post("https://sellit-classified-marketplace-backe.vercel.app/api/auth/send-otp", {
+      const res = await axios.post("https://sellit-backend-u8bz.onrender.com/api/auth/send-otp", {
         identifier,
       });
 

@@ -15,6 +15,8 @@ export default function ManageUsersPage() {
 
   const uid = localStorage.getItem("uid");
 
+
+
   const [formData, setFormData] = useState({
     username: "",
     email: "",
@@ -64,7 +66,7 @@ export default function ManageUsersPage() {
     e.preventDefault();
     if (!validateForm()) return;
     axios
-      .post(`https://sellit-classified-marketplace-backe.vercel.app/api/users/add-user`, {
+      .post(`https://sellit-backend-u8bz.onrender.com/api/users/add-user`, {
         username: formData.username,
         identifier: formData.email,
         role: formData.role.toLowerCase(),
@@ -117,7 +119,7 @@ export default function ManageUsersPage() {
 
     axios
       .put(
-        `https://sellit-classified-marketplace-backe.vercel.app/api/users/update-user/${selectedUser._id}`,
+        `https://sellit-backend-u8bz.onrender.com/api/users/update-user/${selectedUser.id}`,
         updateData
       )
       .then((res) => {
@@ -152,8 +154,12 @@ export default function ManageUsersPage() {
   };
 
   const handleBlock = (id) => {
+    console.log(id);
+    
     axios
-      .post(`https://sellit-classified-marketplace-backe.vercel.app/api/users/block-user/${uid}`, { userId: id })
+      .put(`https://sellit-backend-u8bz.onrender.com/api/users/block-user/${uid}`, {
+        userId: id,
+      })
       .then((res) => {
         toast.success(res.data.message);
         console.log(res.data);
@@ -166,8 +172,10 @@ export default function ManageUsersPage() {
   };
 
   const handleUnblock = (id) => {
+    console.log(id);
+    
     axios
-      .post(`https://sellit-classified-marketplace-backe.vercel.app/api/users/unblock-user/${uid}`, {
+      .put(`https://sellit-backend-u8bz.onrender.com/api/users/unblock-user/${uid}`, {
         userId: id,
       })
       .then((res) => {
@@ -183,7 +191,7 @@ export default function ManageUsersPage() {
 
   const getData = () => {
     axios
-      .get(`https://sellit-classified-marketplace-backe.vercel.app/api/users/get-users/${uid}`)
+      .get(`https://sellit-backend-u8bz.onrender.com/api/users/get-users/${uid}`)
       .then((res) => {
         setUsers(res.data);
         console.log(res.data);
@@ -195,9 +203,11 @@ export default function ManageUsersPage() {
   };
 
   const deleteUser = (id) => {
+    console.log(id);
+    
     if (window.confirm("Are you sure you want to delete this user?")) {
       axios
-        .delete(`https://sellit-classified-marketplace-backe.vercel.app/api/users/delete-user/${id}`)
+        .delete(`https://sellit-backend-u8bz.onrender.com/api/users/delete-user/${id}`)
         .then((res) => {
           toast.success("User deleted successfully");
           getData();
@@ -210,7 +220,7 @@ export default function ManageUsersPage() {
   };
 
   const toggleUserStatus = (id) => {
-    const user = users.find((u) => u._id === id);
+    const user = users.find((u) => u.id === id);
     if (user.isBlocked) {
       handleUnblock(id);
     } else {
@@ -220,9 +230,9 @@ export default function ManageUsersPage() {
 
   useEffect(() => {
     getData();
-    if (!uid) {
-      location.href = "/";
-    }
+    // if (!uid) {
+    //   location.href = "/";
+    // }
   }, []);
 
   return (
@@ -297,7 +307,7 @@ export default function ManageUsersPage() {
               </thead>
               <tbody>
                 {currentUsers.map((user) => (
-                  <tr key={user._id}>
+                  <tr key={user.id}>
                     <td>
                       <div className="user-cell">
                         <div className="user-info">
@@ -334,7 +344,7 @@ export default function ManageUsersPage() {
                         {user.isBlocked ? (
                           <button
                             className="action-btn unblock"
-                            onClick={() => handleUnblock(user._id)}
+                            onClick={() => handleUnblock(user.id)}
                             title="Unblock User"
                           >
                             <i className="fas fa-check-circle"></i>
@@ -342,7 +352,7 @@ export default function ManageUsersPage() {
                         ) : (
                           <button
                             className="action-btn block"
-                            onClick={() => handleBlock(user._id)}
+                            onClick={() => handleBlock(user.id)}
                             title="Block User"
                           >
                             <i className="fas fa-ban"></i>
@@ -350,7 +360,7 @@ export default function ManageUsersPage() {
                         )}
                         <button
                           className="action-btn delete"
-                          onClick={() => deleteUser(user._id)}
+                          onClick={() => deleteUser(user.id)}
                           title="Delete User"
                         >
                           <i className="fas fa-trash-alt"></i>
@@ -510,8 +520,7 @@ export default function ManageUsersPage() {
                       setFormData({ ...formData, role: e.target.value })
                     }
                   >
-                    <option value="Member">User</option>
-                    <option value="Premium Member">Premium User</option>
+                    <option value="user">User</option>
                     <option value="admin">Admin</option>
                   </select>
                 </div>
@@ -657,8 +666,7 @@ export default function ManageUsersPage() {
                         setFormData({ ...formData, role: e.target.value })
                       }
                     >
-                      <option value="Member">Member</option>
-                      <option value="Premium Member">Premium Member</option>
+                      <option value="user">User</option>
                       <option value="admin">Admin</option>
                     </select>
                   </div>
@@ -808,7 +816,7 @@ export default function ManageUsersPage() {
                     selectedUser.status === "Active" ? "block" : "unblock"
                   }`}
                   onClick={() => {
-                    toggleUserStatus(selectedUser._id);
+                    toggleUserStatus(selectedUser.id);
                     setShowViewModal(false);
                   }}
                 >
