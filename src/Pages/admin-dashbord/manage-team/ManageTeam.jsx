@@ -1,93 +1,46 @@
-"use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./manage-team.css";
+import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
 
-const pakistanRegions = [
-  "Punjab",
-  "Sindh",
-  "Khyber Pakhtunkhwa",
-  "Balochistan",
-  "Islamabad Capital Territory",
-  "Azad Kashmir",
-  "Gilgit-Baltistan",
-];
-
-export default function TeamManagementPage() {
-  const [teamMembers, setTeamMembers] = useState([
-    {
-      _id: "1",
-      name: "Ahmed Ali Khan",
-      email: "ahmed.ali@sellit.pk",
-      phone: "+92-300-1234567",
-      region: "Punjab",
-      role: "admin",
-      isBlocked: false,
-      createdAt: new Date().toISOString(),
-    },
-    {
-      _id: "2",
-      name: "Fatima Sheikh",
-      email: "fatima.sheikh@sellit.pk",
-      phone: "+92-321-9876543",
-      region: "Sindh",
-      role: "manager",
-      isBlocked: false,
-      createdAt: new Date().toISOString(),
-    },
-    {
-      _id: "3",
-      name: "Muhammad Hassan",
-      email: "hassan.m@sellit.pk",
-      phone: "+92-333-5555555",
-      region: "Khyber Pakhtunkhwa",
-      role: "user",
-      isBlocked: true,
-      createdAt: new Date().toISOString(),
-    },
-    {
-      _id: "4",
-      name: "Ayesha Malik",
-      email: "ayesha.malik@sellit.pk",
-      phone: "+92-345-7777777",
-      region: "Balochistan",
-      role: "manager",
-      isBlocked: false,
-      createdAt: new Date().toISOString(),
-    },
-  ]);
-
+export default function ManageUsersPage() {
+  const [users, setUsers] = useState([]);
   const [showAddModal, setShowAddModal] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
   const [showViewModal, setShowViewModal] = useState(false);
-  const [selectedMember, setSelectedMember] = useState(null);
+  const [selectedUser, setSelectedUser] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
-  const [membersPerPage] = useState(10);
+  const [usersPerPage] = useState(10);
   const [errors, setErrors] = useState({});
 
+  const uid = localStorage.getItem("uid");
+
+
+
   const [formData, setFormData] = useState({
-    name: "",
+    username: "",
     email: "",
+    fullName: "",
     phone: "",
-    region: "",
-    role: "user",
+    type: "User",
+    state: "",
+    password: "",
+    confirmPassword: "",
   });
 
   // Pagination logic
-  const indexOfLastMember = currentPage * membersPerPage;
-  const indexOfFirstMember = indexOfLastMember - membersPerPage;
-  const currentMembers = teamMembers.slice(
-    indexOfFirstMember,
-    indexOfLastMember
-  );
-  const totalPages = Math.ceil(teamMembers.length / membersPerPage);
+  const indexOfLastUser = currentPage * usersPerPage;
+  const indexOfFirstUser = indexOfLastUser - usersPerPage;
+  const currentUsers = users.slice(indexOfFirstUser, indexOfLastUser);
+  const totalPages = Math.ceil(users.length / usersPerPage);
 
   const resetForm = () => {
     setFormData({
-      name: "",
+      username: "",
       email: "",
-      phone: "",
-      region: "",
-      role: "user",
+      type: "User",
+      password: "",
+      confirmPassword: "",
     });
     setErrors({});
   };
@@ -95,108 +48,196 @@ export default function TeamManagementPage() {
   const validateForm = () => {
     const newErrors = {};
 
-    if (!formData.name.trim()) newErrors.name = "Name is required";
+    if (!formData.username.trim()) newErrors.username = "Username is required";
     if (!formData.email.trim()) newErrors.email = "Email is required";
-    if (!formData.phone.trim()) newErrors.phone = "Phone is required";
-    if (!formData.region.trim()) newErrors.region = "Region is required";
+
+    if (showAddModal || formData.password) {
+      if (!formData.password) newErrors.password = "Password is required";
+      if (formData.password !== formData.confirmPassword) {
+        newErrors.confirmPassword = "Passwords do not match";
+      }
+    }
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleAddMember = (e) => {
+  const handleAddUser = (e) => {
     e.preventDefault();
     if (!validateForm()) return;
-
-    const newMember = {
-      _id: Date.now().toString(),
-      name: formData.name,
-      email: formData.email,
-      phone: formData.phone,
-      region: formData.region,
-      role: formData.role,
-      isBlocked: false,
-      createdAt: new Date().toISOString(),
-    };
-
-    setTeamMembers([...teamMembers, newMember]);
-    setShowAddModal(false);
-    resetForm();
+    axios
+      .post(`https://sellit-backend-u8bz.onrender.com/api/team/add-team`, {
+        username: formData.username,
+        identifier: formData.email,
+        state: formData.state.toLowerCase(),
+        password: formData.password,
+      })
+      .then((res) => {
+        setShowAddModal(false);
+        toast.success("User added successfully");
+        resetForm();
+        getData();
+      })
+      .catch((err) => {
+        setShowAddModal(false);
+        toast.error(err.response?.data?.message || "Error adding member");
+        console.log(err);
+      });
   };
 
-  const handleEditMember = (member) => {
-    setSelectedMember(member);
+  const handleEditUser = (user) => {
+    console.log("Edit user clicked:", user);
+    setSelectedUser(user);
     setFormData({
-      name: member.name,
-      email: member.email,
-      phone: member.phone,
-      region: member.region,
-      role: member.role,
+      username: user.username,
+      email: user.identifier,
+      fullName: user.fullName || "",
+      phone: user.phone || "",
+      type: user.type || "User",
+      state: user.state,
+      password: "",
+      confirmPassword: "",
     });
     setShowEditModal(true);
   };
 
-  const handleUpdateMember = (e) => {
+  const handleUpdateUser = (e) => {
     e.preventDefault();
-    if (!validateForm() || !selectedMember) return;
+    if (!validateForm()) return;
 
-    const updatedMembers = teamMembers.map((member) =>
-      member._id === selectedMember._id ? { ...member, ...formData } : member
-    );
+    const updateData = {
+      username: formData.username,
+      identifier: formData.email,
+      fullName: formData.fullName,
+      phone: formData.phone,
+      state: formData.state.toLowerCase(),
+    };
 
-    setTeamMembers(updatedMembers);
-    setShowEditModal(false);
-    resetForm();
-    setSelectedMember(null);
+    if (formData.password) {
+      updateData.password = formData.password;
+    }
+
+    axios
+      .put(
+        `https://sellit-backend-u8bz.onrender.com/api/team/edit-team/${selectedUser.id}`,
+        updateData
+      )
+      .then((res) => {
+        toast.success("User updated successfully");
+        setShowEditModal(false);
+        resetForm();
+        setSelectedUser(null);
+        getData();
+      })
+      .catch((err) => {
+        toast.error(err.response?.data?.message || "Error updating user");
+        console.log(err);
+      });
   };
 
-  const viewMemberDetails = (member) => {
-    setSelectedMember({
-      ...member,
-      fullName: member.name,
-      status: member.isBlocked ? "Blocked" : "Active",
-      joinDate: new Date(member.createdAt).toLocaleDateString(),
+  const viewUserDetails = (user) => {
+    console.log("View user clicked:", user);
+    setSelectedUser({
+      ...user,
+      fullName: user.fullName || user.username,
+      email: user.identifier,
+      phone: user.phone || "Not provided",
+      status: user.isBlocked ? "Blocked" : "Active",
+      type: user.type || "User",
+      joinDate: new Date(user.createdAt || Date.now()).toLocaleDateString(),
       lastLogin: "Recently",
-      totalAds: Math.floor(Math.random() * 100),
-      totalViews: Math.floor(Math.random() * 1000),
+      totalPosts: 0,
+      totalComments: 0,
       avatar: "/placeholder.svg",
     });
     setShowViewModal(true);
   };
 
   const handleBlock = (id) => {
-    setTeamMembers(
-      teamMembers.map((member) =>
-        member._id === id ? { ...member, isBlocked: true } : member
-      )
-    );
+    console.log(id);
+    
+    axios
+      .put(`https://sellit-backend-u8bz.onrender.com/api/users/block-user/${uid}`, {
+        userId: id,
+      })
+      .then((res) => {
+        toast.success(res.data.message);
+        console.log(res.data);
+        getData();
+      })
+      .catch((err) => {
+        toast.error(err.response?.data?.message || "Error blocking user");
+        console.log(err);
+      });
   };
 
   const handleUnblock = (id) => {
-    setTeamMembers(
-      teamMembers.map((member) =>
-        member._id === id ? { ...member, isBlocked: false } : member
-      )
-    );
+    console.log(id);
+    
+    axios
+      .put(`https://sellit-backend-u8bz.onrender.com/api/users/unblock-user/${uid}`, {
+        userId: id,
+      })
+      .then((res) => {
+        toast.success(res.data.message);
+        console.log(res.data);
+        getData();
+      })
+      .catch((err) => {
+        toast.error(err.response?.data?.message || "Error unblocking user");
+        console.log(err);
+      });
   };
 
-  const deleteMember = (id) => {
-    if (window.confirm("Are you sure you want to delete this team member?")) {
-      setTeamMembers(teamMembers.filter((member) => member._id !== id));
+  const getData = () => {
+    axios
+      .get(`https://sellit-backend-u8bz.onrender.com/api/team/get-team/${uid}`)
+      .then((res) => {
+        setUsers(res.data.teamMembers);
+        console.log(res.data);
+      })
+      .catch((err) => {
+        toast.error(err.response?.data?.message || "Error fetching users");
+        console.log(err);
+      });
+  };
+
+  const deleteUser = (id) => {
+    console.log(id);
+    
+    if (window.confirm("Are you sure you want to delete this user?")) {
+      axios
+        .delete(`https://sellit-backend-u8bz.onrender.com/api/users/delete-user/${id}`)
+        .then((res) => {
+          toast.success("User deleted successfully");
+          getData();
+        })
+        .catch((err) => {
+          toast.error("Error deleting user");
+          console.log(err);
+        });
     }
   };
 
-  const toggleMemberStatus = (id) => {
-    const member = teamMembers.find((m) => m._id === id);
-    if (member.isBlocked) {
+  const toggleUserStatus = (id) => {
+    const user = users.find((u) => u.id === id);
+    if (user.isBlocked) {
       handleUnblock(id);
     } else {
       handleBlock(id);
     }
   };
 
+  useEffect(() => {
+    getData();
+    // if (!uid) {
+    //   location.href = "/";
+    // }
+  }, []);
+
   return (
     <>
+      <ToastContainer />
       <div className="manage-users-page">
         {/* Header */}
         <div className="page-header w-100">
@@ -210,10 +251,13 @@ export default function TeamManagementPage() {
             </div>
             <button
               className="add-user-btn"
-              onClick={() => setShowAddModal(true)}
+              onClick={() => {
+                console.log("Add user button clicked");
+                setShowAddModal(true);
+              }}
             >
               <i className="fas fa-plus"></i>
-              Add New Member
+              Add New User
             </button>
           </div>
         </div>
@@ -225,8 +269,8 @@ export default function TeamManagementPage() {
               <i className="fas fa-user-slash"></i>
             </div>
             <div className="stat-info">
-              <h3>{teamMembers.filter((m) => m.isBlocked === true).length}</h3>
-              <p>Blocked Members</p>
+              <h3>{users.filter((u) => u.isBlocked === true).length}</h3>
+              <p>Blocked Users</p>
             </div>
           </div>
           <div className="stat-card">
@@ -234,7 +278,7 @@ export default function TeamManagementPage() {
               <i className="fas fa-user-shield"></i>
             </div>
             <div className="stat-info">
-              <h3>{teamMembers.filter((m) => m.role === "admin").length}</h3>
+              <h3>{users.filter((u) => u.role === "admin").length}</h3>
               <p>Administrators</p>
             </div>
           </div>
@@ -243,13 +287,13 @@ export default function TeamManagementPage() {
               <i className="fas fa-users"></i>
             </div>
             <div className="stat-info">
-              <h3>{teamMembers.length}</h3>
+              <h3>{users.length}</h3>
               <p>Total Members</p>
             </div>
           </div>
         </div>
 
-        {/* Team Members Table */}
+        {/* Users Table */}
         <div className="table-section">
           <div className="table-container">
             <table className="users-table">
@@ -258,77 +302,66 @@ export default function TeamManagementPage() {
                   <th>Member</th>
                   <th>Contact</th>
                   <th>Region</th>
-                  <th>Role</th>
                   <th>Actions</th>
                 </tr>
               </thead>
               <tbody>
-                {currentMembers.map((member) => (
-                  <tr key={member._id}>
+                {currentUsers.map((user) => (
+                  <tr key={user.id}>
                     <td>
                       <div className="user-cell">
                         <div className="user-info">
-                          <div className="user-name">{member.name}</div>
-                  </div>
-                      </div>
-                    </td>
-                    <td>
-                      <div className="contact-info">
-                        <div className="email">
-                          <i className="fas fa-envelope"></i>
-                          {member.email}
+                          <div className="username">{user.username}</div>
                         </div>
                       </div>
                     </td>
                     <td>
-                      <div className="type-role">
-                        <span className="user-type user">{member.region}</span>
+                      <div className="contact-info">
+                        <span>{user.identifier}</span>
                       </div>
                     </td>
                     <td>
-                      <div className="type-role">
-                        <span className={`user-type ${member.role}`}>
-                          {member.role}
-                        </span>
+                      <div class="type-role">
+                        <span class="user-type user">{user.state}</span>
                       </div>
                     </td>
                     <td>
                       <div className="actions-menu">
                         <button
                           className="action-btn view"
-                          onClick={() => viewMemberDetails(member)}
+                          onClick={() => viewUserDetails(user)}
                           title="View Details"
                         >
                           <i className="fas fa-eye"></i>
                         </button>
                         <button
                           className="action-btn edit"
-                          onClick={() => handleEditMember(member)}
-                          title="Edit Member"
+                          onClick={() => handleEditUser(user)}
+                          title="Edit User"
                         >
                           <i className="fas fa-edit"></i>
                         </button>
-                        {member.isBlocked ? (
+                        {user.isBlocked ? (
                           <button
                             className="action-btn unblock"
-                            onClick={() => handleUnblock(member._id)}
-                            title="Unblock Member"
+                            onClick={() => handleUnblock(user.id)}
+                            title="Unblock User"
                           >
                             <i className="fas fa-check-circle"></i>
                           </button>
                         ) : (
                           <button
                             className="action-btn block"
-                            onClick={() => handleBlock(member._id)}
-                            title="Block Member"
+                            onClick={() => handleBlock(user.id)}
+                            title="Block User"
                           >
                             <i className="fas fa-ban"></i>
                           </button>
                         )}
                         <button
                           className="action-btn delete"
-                          onClick={() => deleteMember(member._id)}
-                          title="Delete Member"
+                          onClick={() => deleteUser(user.id)}
+                          title="Delete User"
                         >
                           <i className="fas fa-trash-alt"></i>
                         </button>
@@ -338,19 +371,19 @@ export default function TeamManagementPage() {
                 ))}
               </tbody>
             </table>
-            {teamMembers.length === 0 && (
+            {users.length === 0 && (
               <div className="empty-state">
                 <div className="empty-icon">
                   <i className="fas fa-users"></i>
                 </div>
-                <h3>No team members found</h3>
-                <p>Add your first team member to get started</p>
+                <h3>No users found</h3>
+                <p>Try adjusting your search criteria or add a new user</p>
                 <button
                   className="add-user-btn"
                   onClick={() => setShowAddModal(true)}
                 >
                   <i className="fas fa-plus"></i>
-                  Add First Member
+                  Add First User
                 </button>
               </div>
             )}
@@ -395,17 +428,40 @@ export default function TeamManagementPage() {
         </div>
       </div>
 
-      {/* Add Member Modal */}
+      {/* Add User Modal */}
       {showAddModal && (
-        <div className="modal-overlay " onClick={() => setShowAddModal(false)}>
+        <div
+          className="modal-overlay"
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: "rgba(0, 0, 0, 0.5)",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            zIndex: 10000,
+          }}
+          onClick={() => setShowAddModal(false)}
+        >
           <div
-            className="modal add-user-modal"
+            style={{
+              backgroundColor: "white",
+              borderRadius: "8px",
+              maxWidth: "800px",
+              width: "90%",
+              maxHeight: "90vh",
+              overflowY: "auto",
+              boxShadow: "0 10px 25px rgba(0, 0, 0, 0.2)",
+            }}
             onClick={(e) => e.stopPropagation()}
           >
             <div className="modal-header">
               <h2>
                 <i className="fas fa-user-plus"></i>
-                Add New Team Member
+                Add New User
               </h2>
               <button
                 className="close-btn"
@@ -417,25 +473,24 @@ export default function TeamManagementPage() {
                 <i className="fas fa-times"></i>
               </button>
             </div>
-            <form onSubmit={handleAddMember} className="modal-form">
-              <div className="form-section">
-                <h3>Member Information</h3>
+            <form onSubmit={handleAddUser} className="modal-form">
+              <div className="form-section mb-0">
+                <h3>Personal Information</h3>
                 <div className="form-row">
                   <div className="form-group">
                     <label>
-                      Full Name <span className="required">*</span>
+                      Username <span className="required">*</span>
                     </label>
                     <input
                       type="text"
-                      value={formData.name}
+                      value={formData.username}
                       onChange={(e) =>
-                        setFormData({ ...formData, name: e.target.value })
+                        setFormData({ ...formData, username: e.target.value })
                       }
-                      className={errors.name ? "error" : ""}
-                      placeholder="Enter full name"
+                      className={errors.username ? "error" : ""}
                     />
-                    {errors.name && (
-                      <span className="error-text">{errors.name}</span>
+                    {errors.username && (
+                      <span className="error-text">{errors.username}</span>
                     )}
                   </div>
                   <div className="form-group">
@@ -449,88 +504,76 @@ export default function TeamManagementPage() {
                         setFormData({ ...formData, email: e.target.value })
                       }
                       className={errors.email ? "error" : ""}
-                      placeholder="Enter email address"
                     />
                     {errors.email && (
                       <span className="error-text">{errors.email}</span>
                     )}
                   </div>
                 </div>
-                <div className="form-row">
-                  <div className="form-group">
-                    <label>
-                      Phone Number <span className="required">*</span>
-                    </label>
-                    <input
-                      type="tel"
-                      value={formData.phone}
-                      onChange={(e) =>
-                        setFormData({ ...formData, phone: e.target.value })
-                      }
-                      className={errors.phone ? "error" : ""}
-                      placeholder="+92-XXX-XXXXXXX"
-                    />
-                    {errors.phone && (
-                      <span className="error-text">{errors.phone}</span>
-                    )}
-                  </div>
-                  <div className="form-group">
-                    <label>
-                      Pakistan Region <span className="required">*</span>
-                    </label>
-                    <select
-                      value={formData.region}
-                      onChange={(e) =>
-                        setFormData({ ...formData, region: e.target.value })
-                      }
-                      className={errors.region ? "error" : ""}
-                    >
-                      <option value="">Select Region</option>
-                      {pakistanRegions.map((region) => (
-                        <option key={region} value={region}>
-                          {region}
-                        </option>
-                      ))}
-                    </select>
-                    {errors.region && (
-                      <span className="error-text">{errors.region}</span>
-                    )}
-                  </div>
+              </div>
+              <div className="">
+                <div className="form-group w-100">
+                  <label>State</label>
+                  <select
+                    value={formData.state}
+                    onChange={(e) =>
+                      setFormData({ ...formData, state: e.target.value })
+                    }
+                  >
+                    <option value="">Select State</option>
+                    <option value="Punjab">Punjab</option>
+                    <option value="Sindh">Sindh</option>
+                    <option value="Khyber Pakhtunkhwa">
+                      Khyber Pakhtunkhwa
+                    </option>
+                    <option value="Balochistan">Balochistan</option>
+                    <option value="Islamabad">Islamabad</option>
+                    <option value="Gilgit-Baltistan">Gilgit-Baltistan</option>
+                    <option value="Kashmir">Kashmir</option>
+                  </select>
                 </div>
               </div>
-              <div className="form-section">
-                <h3>Role Settings</h3>
-                <div className="form-row">
-                  <div className="form-group">
-                    <label>Role</label>
-                    <select
-                      value={formData.role}
-                      onChange={(e) =>
-                        setFormData({ ...formData, role: e.target.value })
-                      }
-                    >
-                      <option value="user">User</option>
-                      <option value="manager">Manager</option>
-                      <option value="admin">Admin</option>
-                    </select>
-                  </div>
+              <div className="form-row">
+                <div className="form-group">
+                  <label>
+                    Password <span className="required">*</span>
+                  </label>
+                  <input
+                    type="password"
+                    value={formData.password}
+                    onChange={(e) =>
+                      setFormData({ ...formData, password: e.target.value })
+                    }
+                    className={errors.password ? "error" : ""}
+                  />
+                  {errors.password && (
+                    <span className="error-text">{errors.password}</span>
+                  )}
+                </div>
+                <div className="form-group">
+                  <label>
+                    Confirm Password <span className="required">*</span>
+                  </label>
+                  <input
+                    type="password"
+                    value={formData.confirmPassword}
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        confirmPassword: e.target.value,
+                      })
+                    }
+                    className={errors.confirmPassword ? "error" : ""}
+                  />
+                  {errors.confirmPassword && (
+                    <span className="error-text">{errors.confirmPassword}</span>
+                  )}
                 </div>
               </div>
-              <div className="modal-actions">
-                <button
-                  type="button"
-                  className="cancel-btn"
-                  onClick={() => {
-                    setShowAddModal(false);
-                    resetForm();
-                  }}
-                >
-                  <i className="fas fa-times"></i>
-                  Cancel
-                </button>
-                <button type="submit" className="submit-btn">
+              <div className="">
+                <button type="submit" className="submit-btn mt-0">
                   <i className="fas fa-plus"></i>
-                  Add Member
+                  Add User
                 </button>
               </div>
             </form>
@@ -538,17 +581,41 @@ export default function TeamManagementPage() {
         </div>
       )}
 
-      {/* Edit Member Modal */}
+      {/* Edit User Modal */}
       {showEditModal && (
-        <div className="modal-overlay" onClick={() => setShowEditModal(false)}>
+        <div
+          // className="modal-overlay"
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: "rgba(0, 0, 0, 0.5)",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            zIndex: 10000,
+          }}
+          onClick={() => setShowEditModal(false)}
+        >
           <div
-            className="modal edit-user-modal"
+            // className="modal edit-user-modal"
+            style={{
+              backgroundColor: "white",
+              borderRadius: "8px",
+              maxWidth: "800px",
+              width: "90%",
+              maxHeight: "90vh",
+              overflowY: "auto",
+              boxShadow: "0 10px 25px rgba(0, 0, 0, 0.2)",
+            }}
             onClick={(e) => e.stopPropagation()}
           >
             <div className="modal-header">
               <h2>
                 <i className="fas fa-user-edit"></i>
-                Edit Team Member
+                Edit User
               </h2>
               <button
                 className="close-btn"
@@ -560,24 +627,24 @@ export default function TeamManagementPage() {
                 <i className="fas fa-times"></i>
               </button>
             </div>
-            <form onSubmit={handleUpdateMember} className="modal-form">
-              <div className="form-section">
-                <h3>Member Information</h3>
+            <form onSubmit={handleUpdateUser} className="modal-form">
+              <div className="form-section mb-0">
+                <h3>Personal Information</h3>
                 <div className="form-row">
                   <div className="form-group">
                     <label>
-                      Full Name <span className="required">*</span>
+                      Username <span className="required">*</span>
                     </label>
                     <input
                       type="text"
-                      value={formData.name}
+                      value={formData.username}
                       onChange={(e) =>
-                        setFormData({ ...formData, name: e.target.value })
+                        setFormData({ ...formData, username: e.target.value })
                       }
-                      className={errors.name ? "error" : ""}
+                      className={errors.username ? "error" : ""}
                     />
-                    {errors.name && (
-                      <span className="error-text">{errors.name}</span>
+                    {errors.username && (
+                      <span className="error-text">{errors.username}</span>
                     )}
                   </div>
                   <div className="form-group">
@@ -597,80 +664,64 @@ export default function TeamManagementPage() {
                     )}
                   </div>
                 </div>
-                <div className="form-row">
-                  <div className="form-group">
-                    <label>
-                      Phone Number <span className="required">*</span>
-                    </label>
-                    <input
-                      type="tel"
-                      value={formData.phone}
-                      onChange={(e) =>
-                        setFormData({ ...formData, phone: e.target.value })
-                      }
-                      className={errors.phone ? "error" : ""}
-                    />
-                    {errors.phone && (
-                      <span className="error-text">{errors.phone}</span>
-                    )}
-                  </div>
-                  <div className="form-group">
-                    <label>
-                      Pakistan Region <span className="required">*</span>
-                    </label>
-                    <select
-                      value={formData.region}
-                      onChange={(e) =>
-                        setFormData({ ...formData, region: e.target.value })
-                      }
-                      className={errors.region ? "error" : ""}
-                    >
-                      <option value="">Select Region</option>
-                      {pakistanRegions.map((region) => (
-                        <option key={region} value={region}>
-                          {region}
-                        </option>
-                      ))}
-                    </select>
-                    {errors.region && (
-                      <span className="error-text">{errors.region}</span>
-                    )}
-                  </div>
+              </div>
+              <div className="">
+                <div className="form-group w-100">
+                  <label>State</label>
+                  <select
+                    value={formData.state}
+                    onChange={(e) =>
+                      setFormData({ ...formData, state: e.target.value })
+                    }
+                  >
+                    <option value="">Select State</option>
+                    <option value="Punjab">Punjab</option>
+                    <option value="Sindh">Sindh</option>
+                    <option value="Khyber Pakhtunkhwa">
+                      Khyber Pakhtunkhwa
+                    </option>
+                    <option value="Balochistan">Balochistan</option>
+                    <option value="Islamabad">Islamabad</option>
+                    <option value="Gilgit-Baltistan">Gilgit-Baltistan</option>
+                    <option value="Kashmir">Kashmir</option>
+                  </select>
                 </div>
               </div>
-              <div className="form-section">
-                <h3>Role Settings</h3>
-                <div className="form-row">
-                  <div className="form-group">
-                    <label>Role</label>
-                    <select
-                      value={formData.role}
-                      onChange={(e) =>
-                        setFormData({ ...formData, role: e.target.value })
-                      }
-                    >
-                      <option value="user">User</option>
-                      <option value="manager">Manager</option>
-                      <option value="admin">Admin</option>
-                    </select>
-                  </div>
+              <div className="form-row">
+                <div className="form-group">
+                  <label>New Password (leave blank to keep current)</label>
+                  <input
+                    type="password"
+                    value={formData.password}
+                    onChange={(e) =>
+                      setFormData({ ...formData, password: e.target.value })
+                    }
+                    placeholder="Enter new password"
+                  />
+                </div>
+                <div className="form-group">
+                  <label>Confirm New Password</label>
+                  <input
+                    type="password"
+                    value={formData.confirmPassword}
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        confirmPassword: e.target.value,
+                      })
+                    }
+                    className={errors.confirmPassword ? "error" : ""}
+                    placeholder="Confirm new password"
+                  />
+                  {errors.confirmPassword && (
+                    <span className="error-text">{errors.confirmPassword}</span>
+                  )}
                 </div>
               </div>
-              <div className="modal-actions">
-                <button
-                  type="button"
-                  className="cancel-btn"
-                  onClick={() => {
-                    setShowEditModal(false);
-                    resetForm();
-                  }}
-                >
-                  <i className="fas fa-times"></i>
-                  Cancel
-                </button>
-                <button type="submit" className="submit-btn">
+              <div className="mt-0">
+                <button type="submit" className="submit-btn mt-0">
                   <i className="fas fa-save"></i>
-                  Update Member
+                  Update User
                 </button>
               </div>
             </form>
@@ -678,17 +729,41 @@ export default function TeamManagementPage() {
         </div>
       )}
 
-      {/* View Member Details Modal */}
-      {showViewModal && selectedMember && (
-        <div className="modal-overlay" onClick={() => setShowViewModal(false)}>
+      {/* View User Details Modal */}
+      {showViewModal && selectedUser && (
+        <div
+          // className="modal-overlay"
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: "rgba(0, 0, 0, 0.5)",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            zIndex: 10000,
+          }}
+          onClick={() => setShowViewModal(false)}
+        >
           <div
-            className="modal view-user-modal"
+            // className="modal view-user-modal"
+            style={{
+              backgroundColor: "white",
+              borderRadius: "8px",
+              maxWidth: "800px",
+              width: "90%",
+              maxHeight: "90vh",
+              overflowY: "auto",
+              boxShadow: "0 10px 25px rgba(0, 0, 0, 0.2)",
+            }}
             onClick={(e) => e.stopPropagation()}
           >
             <div className="modal-header">
               <h2>
                 <i className="fas fa-user"></i>
-                Member Details
+                User Details
               </h2>
               <button
                 className="close-btn"
@@ -699,24 +774,13 @@ export default function TeamManagementPage() {
             </div>
             <div className="user-profile-section">
               <div className="profile-header">
-                <img
-                  src="/placeholder.svg?height=80&width=80"
-                  alt={selectedMember.name}
-                  className="profile-avatar"
-                />
                 <div className="profile-info">
-                  <h3>{selectedMember.name}</h3>
-                  <p>Manages ads in {selectedMember.region}</p>
+                  <p>@{selectedUser.username}</p>
                   <div className="profile-badges">
                     <span
-                      className={`status-badge ${
-                        selectedMember.isBlocked ? "blocked" : "active"
-                      }`}
+                      className={`status-badge ${selectedUser.status.toLowerCase()}`}
                     >
-                      {selectedMember.isBlocked ? "Blocked" : "Active"}
-                    </span>
-                    <span className={`user-type ${selectedMember.role}`}>
-                      {selectedMember.role}
+                      {selectedUser.state}
                     </span>
                   </div>
                 </div>
@@ -728,56 +792,18 @@ export default function TeamManagementPage() {
                     <div className="detail-item">
                       <i className="fas fa-envelope"></i>
                       <div>
-                        <label>Email</label>
-                        <span>{selectedMember.email}</span>
-                      </div>
-                    </div>
-                    <div className="detail-item">
-                      <i className="fas fa-phone"></i>
-                      <div>
-                        <label>Phone</label>
-                        <span>{selectedMember.phone}</span>
+                        <label>Contact</label>
+                        <span>{selectedUser.email}</span>
                       </div>
                     </div>
                   </div>
                   <div className="detail-group">
-                    <h4>Assignment Information</h4>
-                    <div className="detail-item">
-                      <i className="fas fa-map-marker-alt"></i>
-                      <div>
-                        <label>Pakistan Region</label>
-                        <span>{selectedMember.region}</span>
-                      </div>
-                    </div>
+                    <h4>Account Information</h4>
                     <div className="detail-item">
                       <i className="fas fa-user-tag"></i>
                       <div>
                         <label>Role</label>
-                        <span>{selectedMember.role}</span>
-                      </div>
-                    </div>
-                    <div className="detail-item">
-                      <i className="fas fa-calendar-alt"></i>
-                      <div>
-                        <label>Join Date</label>
-                        <span>{selectedMember.joinDate}</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="detail-group">
-                    <h4>Performance Stats</h4>
-                    <div className="stats-row">
-                      <div className="stat-item">
-                        <div className="stat-number">
-                          {selectedMember.totalAds || 0}
-                        </div>
-                        <div className="stat-label">Ads Managed</div>
-                      </div>
-                      <div className="stat-item">
-                        <div className="stat-number">
-                          {selectedMember.totalViews || 0}
-                        </div>
-                        <div className="stat-label">Total Views</div>
+                        <span>{selectedUser.role}</span>
                       </div>
                     </div>
                   </div>
@@ -788,27 +814,31 @@ export default function TeamManagementPage() {
                   className="edit-btn"
                   onClick={() => {
                     setShowViewModal(false);
-                    handleEditMember(selectedMember);
+                    handleEditUser(selectedUser);
                   }}
                 >
                   <i className="fas fa-edit"></i>
-                  Edit Member
+                  Edit User
                 </button>
                 <button
-                  className={`status-btn ${
-                    selectedMember.isBlocked ? "unblock" : "block"
+                  className={`status-btn ms-3 ${
+                    selectedUser.status === "Active" ? "block" : "unblock"
                   }`}
                   onClick={() => {
-                    toggleMemberStatus(selectedMember._id);
+                    toggleUserStatus(selectedUser.id);
                     setShowViewModal(false);
                   }}
                 >
                   <i
                     className={`fas ${
-                      selectedMember.isBlocked ? "fa-check-circle" : "fa-ban"
+                      selectedUser.status === "Active"
+                        ? "fa-ban"
+                        : "fa-check-circle"
                     }`}
                   ></i>
-                  {selectedMember.isBlocked ? "Unblock Member" : "Block Member"}
+                  {selectedUser.status === "Active"
+                    ? "Block User"
+                    : "Unblock User"}
                 </button>
               </div>
             </div>
