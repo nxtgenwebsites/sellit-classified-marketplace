@@ -197,7 +197,9 @@ export default function ManageUsersPage() {
         console.log(res.data);
       })
       .catch((err) => {
-        toast.error(err.response?.data?.message || "Error fetching users");
+        if (err) {
+          location.href = '/';
+        }
         console.log(err);
       });
   };
