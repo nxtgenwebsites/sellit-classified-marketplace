@@ -1,416 +1,740 @@
-import React, { useRef, useState } from "react";
+"use client";
+
+import { useState, useEffect } from "react";
+
+const uid = localStorage.getItem("uid");
 
 export default function Motors() {
-  // Checkbox state management
-  const [checked1, setChecked1] = useState({
-    checkOne: false,
-    checkTwo: false,
+  const [formData, setFormData] = useState({
+    sub_category: "",
+    ad_title: "",
+    description: "",
+    make: "",
+    car_condition: "",
+    year: "",
+    fuel: "",
+    transmission: "",
+    body_type: "",
+    color: "#000000",
+    number_of_seats: "",
+    features: [],
+    number_of_owners: "",
+    car_documents: "",
+    assembly: "",
+    location: "",
+    price: "",
+    seller_name: "",
+    seller_contact: "",
   });
-  const [checked2, setChecked2] = useState({
-    checkThree: false,
-    checkFour: false,
-  });
-  const [checked3, setChecked3] = useState({
-    checkFive: false,
-    checkSix: false,
-  });
-  const [checked4, setChecked4] = useState({
-    checkSeven: false,
-    checkEight: false,
-  });
-  // Form section references
-  const forms = {
-    mobiles: useRef(),
-    motors: useRef(),
-    "property-sale": useRef(),
-    "property-rent": useRef(),
-    "find-business": useRef(),
-    "find-service": useRef(),
-    "find-job": useRef(),
-    electronics: useRef(),
-    bikes: useRef(),
-    animals: useRef(),
-    furniture: useRef(),
-    fashion: useRef(),
-    books: useRef(),
-    kids: useRef(),
+
+  const [images, setImages] = useState([]);
+  const [imagePreviewUrls, setImagePreviewUrls] = useState([]);
+  const [selectedThumbnail, setSelectedThumbnail] = useState(null);
+  const [attachments, setAttachments] = useState([]);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  useEffect(() => {
+    return () => {
+      imagePreviewUrls.forEach((url) => URL.revokeObjectURL(url));
+    };
+  }, [imagePreviewUrls]);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
   };
 
-  // Checkbox handlers
-  const handleChange1 = (name) =>
-    setChecked1({
-      checkOne: name === "checkOne",
-      checkTwo: name === "checkTwo",
+  const handleCheckboxChange = (e) => {
+    const { name, checked } = e.target;
+    setFormData((prevData) => {
+      const currentFeatures = prevData.features;
+      if (checked) {
+        return { ...prevData, features: [...currentFeatures, name] };
+      } else {
+        return {
+          ...prevData,
+          features: currentFeatures.filter((feature) => feature !== name),
+        };
+      }
     });
-  const handleChange2 = (name) =>
-    setChecked2({
-      checkThree: name === "checkThree",
-      checkFour: name === "checkFour",
-    });
-  const handleChange3 = (name) =>
-    setChecked3({
-      checkFive: name === "checkFive",
-      checkSix: name === "checkSix",
-    });
-  const handleChange4 = (name) =>
-    setChecked4({
-      checkSeven: name === "checkSeven",
-      checkEight: name === "checkEight",
-    });
+  };
+
+  const handleImageChange = (e) => {
+    const files = Array.from(e.target.files);
+    if (files.length > 5) {
+      alert("Maximum 5 images allowed");
+      return;
+    }
+
+    const imageFiles = files.filter((file) => file.type.startsWith("image/"));
+    setImages(imageFiles);
+
+    const previewUrls = imageFiles.map((file) => URL.createObjectURL(file));
+    setImagePreviewUrls(previewUrls);
+
+    // Auto-select first image as thumbnail if none selected
+    if (imageFiles.length > 0 && !selectedThumbnail) {
+      setSelectedThumbnail(0);
+    }
+  };
+
+  const handleAttachmentChange = (e) => {
+    const files = Array.from(e.target.files);
+    const allowedTypes = [
+      "application/pdf",
+      "text/plain",
+      "application/msword",
+      "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+    ];
+
+    const validFiles = files.filter(
+      (file) =>
+        allowedTypes.includes(file.type) ||
+        file.name.toLowerCase().endsWith(".txt") ||
+        file.name.toLowerCase().endsWith(".doc") ||
+        file.name.toLowerCase().endsWith(".docx")
+    );
+
+    setAttachments(validFiles);
+  };
+
+  const selectThumbnail = (index) => {
+    setSelectedThumbnail(index);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      const data = new FormData();
+
+      // Append text fields
+      Object.keys(formData).forEach((key) => {
+        if (key === "features") {
+          data.append(key, JSON.stringify(formData[key]));
+        } else {
+          data.append(key, formData[key]);
+        }
+      });
+
+      if (selectedThumbnail !== null && images[selectedThumbnail]) {
+        data.append("thumbnail", images[selectedThumbnail]);
+      }
+
+      // Append images
+      images.forEach((image) => {
+        data.append("images", image);
+      });
+
+      // Append attachments
+      attachments.forEach((attachment) => {
+        data.append("attachments", attachment);
+      });
+
+      console.log("[v0] Submitting motor form data to API...");
+
+      const response = await fetch(
+        `https://sellit-backend-u8bz.onrender.com/api/ads/motor-add/${uid}`,
+        {
+          method: "POST",
+          body: data,
+        }
+      );
+
+      console.log("[v0] Response status:", response.status);
+      console.log(
+        "[v0] Response headers:",
+        response.headers.get("content-type")
+      );
+
+      const contentType = response.headers.get("content-type");
+      if (!contentType || !contentType.includes("application/json")) {
+        throw new Error(
+          `Server returned ${response.status}: Expected JSON but got ${contentType}. The API endpoint might not exist.`
+        );
+      }
+
+      const result = await response.json();
+      console.log("✅ Motor ad created:", result);
+
+      // Reset form on success
+      if (response.ok) {
+        setFormData({
+          sub_category: "",
+          ad_title: "",
+          description: "",
+          make: "",
+          car_condition: "",
+          year: "",
+          fuel: "",
+          transmission: "",
+          body_type: "",
+          color: "#000000",
+          number_of_seats: "",
+          features: [],
+          number_of_owners: "",
+          car_documents: "",
+          assembly: "",
+          location: "",
+          price: "",
+          seller_name: "",
+          seller_contact: "",
+        });
+        setImages([]);
+        setImagePreviewUrls([]);
+        setSelectedThumbnail(null);
+        setAttachments([]);
+        alert("Motor ad submitted successfully!");
+      } else {
+        throw new Error(result.message || `Server error: ${response.status}`);
+      }
+    } catch (err) {
+      console.error("❌ Error:", err);
+      if (err.message.includes("fetch")) {
+        alert(
+          "Network error: Could not connect to server. Please check if the API server is running."
+        );
+      } else if (err.message.includes("JSON")) {
+        alert(
+          "API Error: The server endpoint may not exist or is returning invalid data."
+        );
+      } else {
+        alert(`Error submitting motor ad: ${err.message}`);
+      }
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
-    <div>
-      <div
-        ref={forms.motors}
-        className="form-second-group w-100 py-3 my-3 rounded-2"
-      >
-        <div className="first-form-dropdown d-lg-flex justify-content-between w-100">
-          <div className="label">
-            <label htmlFor="make" className="w-75">
-              Make
-            </label>
-          </div>
-          <div className="select w-100">
-            <select
-              name="make"
-              id="make"
-              className="py-2 px-3 form-select w-100"
-            >
-              <option value="" selected disabled>
-                Select make
-              </option>
-              <option value="" disabled className="disabled">
-                Popular Make
-              </option>
-              <option value="1">Suzuki</option>
-              <option value="2">Toyota</option>
-              <option value="3">Honda</option>
-              <option value="4">Daihatsu</option>
-              <option value="5">Nissan</option>
-              <option value="" disabled className="disabled">
-                Others
-              </option>
-              <option value="6">Adam</option>
-              <option value="7">Audi</option>
-              <option value="8">BAIC</option>
-              <option value="9">Bentely</option>
-              <option value="10">BMW</option>
-              <option value="11">Buick</option>
-              <option value="12">Cadiac</option>
-              <option value="13">Changan</option>
-              <option value="14">Chery</option>
-              <option value="15">Chevrolet</option>
-              <option value="16">Chrysler</option>
-              <option value="17">Classic & Antiques</option>
-              <option value="18">Daewoo</option>
-              <option value="19">Daihatsu</option>
-              <option value="20">Datsun</option>
-              <option value="21">Dodge</option>
-              <option value="22">Dongfeng</option>
-              <option value="23">FAW</option>
-              <option value="24">Flat</option>
-              <option value="25">Ford</option>
-              <option value="26">GMC</option>
-              <option value="27">Haval</option>
-              <option value="28">Hino</option>
-              <option value="29">Honda</option>
-              <option value="30">Honri</option>
-              <option value="31">Hummer</option>
-              <option value="32">Hyundai</option>
-              <option value="33">Isuzu</option>
-              <option value="34">JAC</option>
-              <option value="35">Jaguar</option>
-              <option value="36">Jeep</option>
-              <option value="37">JW Forland</option>
-              <option value="38">Land Rover</option>
-              <option value="39">Lexus</option>
-              <option value="40">Mazda</option>
-              <option value="41">Mercedes</option>
-              <option value="42">MG</option>
-              <option value="43">Mitsubishi</option>
-              <option value="44">Mushtaq</option>
-              <option value="45">Nissan</option>
-              <option value="46">Other Brands</option>
-              <option value="47">Peugeot</option>
-              <option value="48">Porsche</option>
-              <option value="49">Prince</option>
-              <option value="50">Proton</option>
-              <option value="51">Range Rover</option>
-              <option value="52">Renault</option>
-              <option value="53">Seres</option>
-              <option value="54">Ssangyong</option>
-              <option value="55">Subaru</option>
-              <option value="56">Suzuki</option>
-              <option value="57">Tesla</option>
-              <option value="58">Toyota</option>
-              <option value="59">United</option>
-              <option value="60">Volkswagen</option>
-              <option value="61">ZOTYE</option>
-            </select>
-          </div>
-        </div>
-        <div className="second-form-dropdown d-lg-flex justify-content-between w-100 my-3">
-          <div className="label">
-            <label htmlFor="brand" className="w-75">
-              Condition
-            </label>
-          </div>
-          <div className="d-flex gap-2 align-items-center condition-group">
-            <input
-              type="checkbox"
-              name="checkOne"
-              className="checkOne"
-              checked={checked1.checkOne}
-              onChange={() => handleChange1("checkOne")}
-            />
-            <input
-              type="checkbox"
-              name="checkTwo"
-              className="checkTwo"
-              checked={checked1.checkTwo}
-              onChange={() => handleChange1("checkTwo")}
-            />
-          </div>
-        </div>
-        <div className="third-form-dropdown d-lg-flex justify-content-between w-100 my-3">
-          <div className="label">
-            <label htmlFor="year">Year</label>
-          </div>
-          <div className="input w-100">
-            <input
-              type="number"
-              name="year"
-              id="year"
-              className="year-input px-3 py-2 rounded-2"
-              placeholder="Enter Year"
-            />
-          </div>
-        </div>
-        <div className="fourth-form-dropdown d-lg-flex justify-content-between w-100 my-3">
-          <div className="label">
-            <label htmlFor="Fuel">Fuel</label>
-          </div>
-          <div className="select w-100">
-            <select name="Fuel" id="Fuel" className="form-select px-3 py-2">
-              <option value="" selected disabled>
-                Select Fuel
-              </option>
-              <option value="1">Patrol</option>
-              <option value="2">Diesel</option>
-              <option value="3">LPG</option>
-              <option value="4">CNG</option>
-              <option value="5">Hybrid</option>
-              <option value="6">Electric</option>
-            </select>
-          </div>
-        </div>
-        <div className="fifth-form-dropdown d-lg-flex justify-content-between w-100 my-3">
-          <div className="label">
-            <label htmlFor="Trasmission" className="w-75">
-              Trasmission
-            </label>
-          </div>
-          <div className="d-flex gap-2 align-items-center condition-group">
-            <input
-              type="checkbox"
-              name="checkThree"
-              className="checkThree"
-              checked={checked2.checkThree}
-              onChange={() => handleChange2("checkThree")}
-            />
-            <input
-              type="checkbox"
-              name="checkFour"
-              className="checkFour"
-              checked={checked2.checkFour}
-              onChange={() => handleChange2("checkFour")}
-            />
-          </div>
-        </div>
-        <div className="sixth-form-dropdown d-lg-flex justify-content-between w-100 my-3">
-          <div className="label">
-            <label htmlFor="Body Type" className="w-75">
-              Body Type
-            </label>
-          </div>
-          <div className="select w-100">
-            <select
-              name="Body Type"
-              id="Body Type"
-              className="form-select px-3 py-2"
-            >
-              <option value="" selected disabled>
-                Select Body Type
-              </option>
-              <option value="" disabled className="disabled">
-                Popular Body Type
-              </option>
-              <option value="1">Sedan</option>
-              <option value="2">Hatchback</option>
-              <option value="3">Other</option>
-              <option value="4">Small city car</option>
-              <option value="5">SUV</option>
-              <option value="" disabled className="disabled">
-                Others
-              </option>
-              <option value="6">Convertible</option>
-              <option value="6">Estate</option>
-              <option value="6">Hatchback</option>
-              <option value="6">MPV</option>
-              <option value="6">Other</option>
-              <option value="6">Pickup</option>
-              <option value="6">Sedan</option>
-              <option value="6">Small city car</option>
-              <option value="6">Sports / Coupe</option>
-              <option value="6">SUV</option>
-              <option value="6">Van / Bus</option>
-            </select>
-          </div>
-        </div>
-        <div className="seventh-form-dropdown d-lg-flex justify-content-between w-100 my-3">
-          <div className="label">
-            <label htmlFor="Color">Color</label>
-          </div>
-          <div className="input w-100 text-end">
-            <input type="color" name="Color" id="Color" className="color-inp" />
-          </div>
-        </div>
-        <div className="eighth-form-dropdown d-lg-flex justify-content-between w-100 my-3">
-          <div className="label">
-            <label htmlFor="Number Of Seats">Number Of Seats</label>
-          </div>
-          <div className="input w-100">
-            <input
-              type="number"
-              name="Number Of Seats"
-              id="Number Of Seats"
-              className="year-input px-3 py-2 rounded-2"
-              placeholder="Enter number of seats"
-            />
-          </div>
-        </div>
-        <div className="ninth-form-dropdown d-lg-flex justify-content-between w-100 my-3">
-          <div className="label">
-            <label htmlFor="Features" className="w-75">
-              Features
-            </label>
-          </div>
-          <div className="input w-100">
-            <div className="checkbox-main w-100">
-              <div className="check-1">
-                <div className="row align-items-center row-gap-2">
-                  <div className="col-md-6 mt-2">
-                    <div className="checkboxes w-100">
-                      <div className="checkbox-1 d-flex align-items-center w-100 gap-1">
-                        <input
-                          type="checkbox"
-                          name="Features1"
-                          id="Features1"
-                        />
-                        <span>ABS</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-md-6 mt-2">
-                    <div className="checkboxes">
-                      <div className="checkbox-2 d-flex align-items-center w-100 gap-1">
-                        <input
-                          type="checkbox"
-                          name="Features2"
-                          id="Features2"
-                        />
-                        <span>Airbags</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-md-6 mt-2">
-                    <div className="checkboxes">
-                      <div className="checkbox-1 d-flex align-items-center w-100 gap-1">
-                        <input
-                          type="checkbox"
-                          name="Features3"
-                          id="Features3"
-                        />
-                        <span>Premium Wheels</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-md-6 mt-2">
-                    <div className="checkboxes">
-                      <div className="checkbox-2 d-flex align-items-center w-100 gap-1">
-                        <input
-                          type="checkbox"
-                          name="Features4"
-                          id="Features4"
-                        />
-                        <span>AM/FM Radio</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+    <div className="w-100 motors-form-card mt-3">
+      <div className="card-body">
+        <form onSubmit={handleSubmit}>
+          <div className="row mb-3">
+            <div className="col-md-6">
+              <label htmlFor="sub_category" className="form-label">
+                Sub Category
+              </label>
+              <select
+                className="form-select"
+                id="sub_category"
+                name="sub_category"
+                value={formData.sub_category}
+                onChange={handleChange}
+                required
+              >
+                <option value="" disabled>
+                  Sub Category
+                </option>
+                <option value="Cars">Cars</option>
+                <option value="Cars Accessories">Cars Accessories</option>
+                <option value="Spare Parts">Spare Parts</option>
+                <option value="Buses, Vans & Trucks">
+                  Buses, Vans & Trucks
+                </option>
+                <option value="Rickshaw & Chingchi">Rickshaw & Chingchi</option>
+                <option value="Tractors & Trailers">Tractors & Trailers</option>
+                <option value="Boats">Boats</option>
+                <option value="Other Vehicles">Other Vehicles</option>
+              </select>
+            </div>
+            <div className="col-md-6">
+              <label htmlFor="make" className="form-label">
+                Make
+              </label>
+              <select
+                name="make"
+                id="make"
+                className="form-select"
+                value={formData.make}
+                onChange={handleChange}
+                required
+              >
+                <option value="" disabled>
+                  Select Make
+                </option>
+                <option value="Suzuki">Suzuki</option>
+                <option value="Toyota">Toyota</option>
+                <option value="Honda">Honda</option>
+                <option value="Daihatsu">Daihatsu</option>
+                <option value="Nissan">Nissan</option>
+                <option value="Adam">Adam</option>
+                <option value="Audi">Audi</option>
+                <option value="BMW">BMW</option>
+                <option value="Mercedes">Mercedes</option>
+                <option value="Ford">Ford</option>
+                <option value="Hyundai">Hyundai</option>
+                <option value="Kia">Kia</option>
+                <option value="MG">MG</option>
+                <option value="Proton">Proton</option>
+                <option value="Changan">Changan</option>
+                <option value="FAW">FAW</option>
+                <option value="Prince">Prince</option>
+                <option value="United">United</option>
+                <option value="Volkswagen">Volkswagen</option>
+                <option value="Other Brands">Other Brands</option>
+              </select>
             </div>
           </div>
-        </div>
-        <div className="tenth-form-dropdown d-lg-flex justify-content-between w-100 my-3">
-          <div className="label">
-            <label htmlFor="Number Of Owners">Number Of Owners</label>
-          </div>
-          <div className="input w-100">
-            <input
-              type="number"
-              name="Number Of Owners"
-              id="Number Of Owners"
-              className="year-input px-3 py-2 rounded-2"
-              placeholder="Enter number of owners"
-            />
-          </div>
-        </div>
-        <div className="eleventh-form-dropdown d-lg-flex justify-content-between w-100 my-3">
-          <div className="label">
-            <label htmlFor="Car Documents" className="w-75">
-              Car Documents
+
+          <div className="mb-3">
+            <label htmlFor="ad_title" className="form-label">
+              Ad Title
             </label>
-          </div>
-          <div className="d-flex gap-2 align-items-center condition-group">
             <input
-              type="checkbox"
-              name="checkFive"
-              className="checkFive"
-              checked={checked3.checkFive}
-              onChange={() => handleChange3("checkFive")}
-            />
-            <input
-              type="checkbox"
-              name="checkSix"
-              className="checkSix"
-              checked={checked3.checkSix}
-              onChange={() => handleChange3("checkSix")}
+              type="text"
+              className="form-control"
+              id="ad_title"
+              name="ad_title"
+              value={formData.ad_title}
+              onChange={handleChange}
+              required
             />
           </div>
-        </div>
-        <div className="twelveth-form-dropdown d-lg-flex justify-content-between w-100 my-3">
-          <div className="label">
-            <label htmlFor="Assembly" className="w-75">
-              Assembly
+
+          <div className="mb-3">
+            <label htmlFor="description" className="form-label">
+              Description
             </label>
+            <textarea
+              className="form-control"
+              id="description"
+              name="description"
+              value={formData.description}
+              onChange={handleChange}
+              rows="4"
+              required
+            ></textarea>
           </div>
-          <div className="d-flex gap-2 align-items-center condition-group">
-            <input
-              type="checkbox"
-              name="checkSeven"
-              className="checkSeven"
-              checked={checked4.checkSeven}
-              onChange={() => handleChange4("checkSeven")}
-            />
-            <input
-              type="checkbox"
-              name="checkEight"
-              className="checkEight"
-              checked={checked4.checkEight}
-              onChange={() => handleChange4("checkEight")}
-            />
+
+          <div className="row mb-3">
+            <div className="col-md-6">
+              <label htmlFor="car_condition" className="form-label">
+                Condition
+              </label>
+              <select
+                className="form-select"
+                id="car_condition"
+                name="car_condition"
+                value={formData.car_condition}
+                onChange={handleChange}
+                required
+              >
+                <option value="" disabled>
+                  Select Condition
+                </option>
+                <option value="New">New</option>
+                <option value="Used">Used</option>
+                <option value="Reconditioned">Reconditioned</option>
+                <option value="For Parts">For Parts</option>
+              </select>
+            </div>
+            <div className="col-md-6">
+              <label htmlFor="year" className="form-label">
+                Year
+              </label>
+              <input
+                type="number"
+                className="form-control"
+                id="year"
+                name="year"
+                value={formData.year}
+                onChange={handleChange}
+                placeholder="e.g., 2020"
+                required
+              />
+            </div>
           </div>
-        </div>
+
+          <div className="row mb-3">
+            <div className="col-md-6">
+              <label htmlFor="fuel" className="form-label">
+                Fuel
+              </label>
+              <select
+                name="fuel"
+                id="fuel"
+                className="form-select"
+                value={formData.fuel}
+                onChange={handleChange}
+                required
+              >
+                <option value="" disabled>
+                  Select Fuel
+                </option>
+                <option value="Petrol">Petrol</option>
+                <option value="Diesel">Diesel</option>
+                <option value="LPG">LPG</option>
+                <option value="CNG">CNG</option>
+                <option value="Hybrid">Hybrid</option>
+                <option value="Electric">Electric</option>
+              </select>
+            </div>
+            <div className="col-md-6">
+              <label htmlFor="transmission" className="form-label">
+                Transmission
+              </label>
+              <select
+                name="transmission"
+                id="transmission"
+                className="form-select"
+                value={formData.transmission}
+                onChange={handleChange}
+                required
+              >
+                <option value="" disabled>
+                  Select Transmission
+                </option>
+                <option value="Automatic">Automatic</option>
+                <option value="Manual">Manual</option>
+              </select>
+            </div>
+          </div>
+
+          <div className="row mb-3">
+            <div className="col-md-6">
+              <label htmlFor="body_type" className="form-label">
+                Body Type
+              </label>
+              <select
+                name="body_type"
+                id="body_type"
+                className="form-select"
+                value={formData.body_type}
+                onChange={handleChange}
+                required
+              >
+                <option value="" disabled>
+                  Select Body Type
+                </option>
+                <option value="Sedan">Sedan</option>
+                <option value="Hatchback">Hatchback</option>
+                <option value="SUV">SUV</option>
+                <option value="Coupe">Sports / Coupe</option>
+                <option value="Convertible">Convertible</option>
+                <option value="Estate">Estate</option>
+                <option value="MPV">MPV</option>
+                <option value="Pickup">Pickup</option>
+                <option value="Van / Bus">Van / Bus</option>
+                <option value="Small city car">Small city car</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <div className="col-md-6">
+              <label htmlFor="color" className="form-label">
+                Color
+              </label>
+              <input
+                type="color"
+                className="form-control form-control-color"
+                id="color"
+                name="color"
+                value={formData.color}
+                onChange={handleChange}
+                title="Choose your color"
+              />
+            </div>
+          </div>
+
+          <div className="row mb-3">
+            <div className="col-md-6">
+              <label htmlFor="number_of_seats" className="form-label">
+                Number Of Seats
+              </label>
+              <input
+                type="number"
+                className="form-control"
+                id="number_of_seats"
+                name="number_of_seats"
+                value={formData.number_of_seats}
+                onChange={handleChange}
+                placeholder="e.g., 5"
+                required
+              />
+            </div>
+            <div className="col-md-6">
+              <label htmlFor="number_of_owners" className="form-label">
+                Number Of Owners
+              </label>
+              <input
+                type="number"
+                className="form-control"
+                id="number_of_owners"
+                name="number_of_owners"
+                value={formData.number_of_owners}
+                onChange={handleChange}
+                placeholder="e.g., 1"
+                required
+              />
+            </div>
+          </div>
+
+          <div className="mb-3">
+            <label htmlFor="features" className="form-label">
+              Features
+            </label>
+            <div className="row">
+              {[
+                "ABS",
+                "Airbags",
+                "Premium Wheels",
+                "AM/FM Radio",
+                "Air Conditioning",
+                "Power Steering",
+                "Power Windows",
+                "Keyless Entry",
+                "Navigation System",
+                "Sunroof",
+                "Leather Seats",
+                "Rear Camera",
+              ].map((feature) => (
+                <div className="col-md-4 col-sm-6" key={feature}>
+                  <div className="form-check">
+                    <input
+                      className="form-check-input"
+                      type="checkbox"
+                      name={feature}
+                      id={`feature-${feature.replace(/\s/g, "")}`}
+                      checked={formData.features.includes(feature)}
+                      onChange={handleCheckboxChange}
+                    />
+                    <label
+                      className="form-check-label"
+                      htmlFor={`feature-${feature.replace(/\s/g, "")}`}
+                    >
+                      {feature}
+                    </label>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="row mb-3">
+            <div className="col-md-6">
+              <label htmlFor="car_documents" className="form-label">
+                Car Documents
+              </label>
+              <select
+                name="car_documents"
+                id="car_documents"
+                className="form-select"
+                value={formData.car_documents}
+                onChange={handleChange}
+                required
+              >
+                <option value="" disabled>
+                  Select Document Status
+                </option>
+                <option value="Original">Original</option>
+                <option value="Duplicate">Duplicate</option>
+                <option value="Lost">Lost</option>
+              </select>
+            </div>
+            <div className="col-md-6">
+              <label htmlFor="assembly" className="form-label">
+                Assembly
+              </label>
+              <select
+                name="assembly"
+                id="assembly"
+                className="form-select"
+                value={formData.assembly}
+                onChange={handleChange}
+                required
+              >
+                <option value="" disabled>
+                  Select Assembly
+                </option>
+                <option value="Local">Local</option>
+                <option value="Imported">Imported</option>
+              </select>
+            </div>
+          </div>
+
+          <div className="row mb-3">
+            <div className="col-md-6">
+              <label htmlFor="location" className="form-label">
+                Location
+              </label>
+              <select
+                className="form-control"
+                id="location"
+                name="location"
+                value={formData.location}
+                onChange={handleChange}
+                required
+              >
+                <option value="">Select Location</option>
+                <option value="Punjab">Punjab</option>
+                <option value="Sindh">Sindh</option>
+                <option value="Khyber Pakhtunkhwa">Khyber Pakhtunkhwa</option>
+                <option value="Balochistan">Balochistan</option>
+                <option value="Islamabad">Islamabad</option>
+                <option value="Gilgit-Baltistan">Gilgit-Baltistan</option>
+                <option value="Kashmir">Kashmir</option>
+              </select>
+            </div>
+            <div className="col-md-6">
+              <label htmlFor="price" className="form-label">
+                Price
+              </label>
+              <input
+                type="number"
+                className="form-control"
+                id="price"
+                name="price"
+                value={formData.price}
+                onChange={handleChange}
+                required
+              />
+            </div>
+          </div>
+
+          <div className="row mb-3">
+            <div className="col-md-6">
+              <label htmlFor="seller_name" className="form-label">
+                Seller Name
+              </label>
+              <input
+                type="text"
+                className="form-control"
+                id="seller_name"
+                name="seller_name"
+                value={formData.seller_name}
+                onChange={handleChange}
+                required
+              />
+            </div>
+            <div className="col-md-6">
+              <label htmlFor="seller_contact" className="form-label">
+                Seller Contact
+              </label>
+              <input
+                type="text"
+                className="form-control"
+                id="seller_contact"
+                name="seller_contact"
+                value={formData.seller_contact}
+                onChange={handleChange}
+                required
+              />
+            </div>
+          </div>
+
+          {/* Enhanced Image Upload Section - Same as Mobile Form */}
+          <div className="mb-4">
+            <label htmlFor="images" className="form-label">
+              Images Upload (Max 5)
+            </label>
+            <input
+              type="file"
+              className="form-control"
+              id="images"
+              name="images"
+              accept="image/*"
+              multiple
+              onChange={handleImageChange}
+            />
+            <small className="text-muted">
+              Select up to 5 images. You can choose one as thumbnail.
+            </small>
+
+            {images.length > 0 && (
+              <div className="mt-3">
+                <h6>Selected Images - Choose Thumbnail:</h6>
+                <div className="row">
+                  {images.map((image, index) => (
+                    <div key={index} className="col-md-3 mb-3">
+                      <div
+                        className={`card ${
+                          selectedThumbnail === index ? "border-primary" : ""
+                        }`}
+                      >
+                        <img
+                          src={imagePreviewUrls[index] || "/placeholder.svg"}
+                          alt={`Preview ${index + 1}`}
+                          className="card-img-top"
+                          style={{ height: "120px", objectFit: "cover" }}
+                        />
+                        <div className="card-body p-2">
+                          <small className="d-block text-truncate mb-2">
+                            {image.name}
+                          </small>
+                          <button
+                            type="button"
+                            className={`btn btn-sm w-100 ${
+                              selectedThumbnail === index
+                                ? "btn-primary"
+                                : "btn-outline-primary"
+                            }`}
+                            onClick={() => selectThumbnail(index)}
+                          >
+                            {selectedThumbnail === index
+                              ? "Thumbnail ✓"
+                              : "Set as Thumbnail"}
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Attachments Section - Same as Mobile Form */}
+          <div className="mb-4">
+            <label htmlFor="attachments" className="form-label">
+              Attachments (PDF, DOC, TXT)
+            </label>
+            <input
+              type="file"
+              className="form-control"
+              id="attachments"
+              name="attachments"
+              accept=".pdf,.doc,.docx,.txt"
+              multiple
+              onChange={handleAttachmentChange}
+            />
+            <small className="text-muted">
+              Upload PDF, Word documents, or text files.
+            </small>
+
+            {attachments.length > 0 && (
+              <div className="mt-2">
+                <h6>Selected Attachments:</h6>
+                <ul className="list-group">
+                  {attachments.map((file, index) => (
+                    <li
+                      key={index}
+                      className="list-group-item d-flex justify-content-between align-items-center"
+                    >
+                      <span className="text-truncate">{file.name}</span>
+                      <span className="badge bg-secondary">
+                        {(file.size / 1024).toFixed(1)} KB
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+
+          <div className="">
+            <button
+              type="submit"
+              className="rounded-3 nav-btn secondary-button"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? "Submitting..." : "Submit Motor Ad"}
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   );

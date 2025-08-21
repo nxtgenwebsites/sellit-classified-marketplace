@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 import {
   BsSearch,
   BsThreeDotsVertical,
@@ -10,69 +11,6 @@ import {
   BsChevronRight,
 } from "react-icons/bs";
 import "./AdsManagement.css";
-
-const adsData = [
-  {
-    id: "#954",
-    title: "Apple Watch 9 Series",
-    image: "/placeholder.svg?height=60&width=60",
-    location: "New York, USA",
-    category: "Laptops & PCs",
-    status: "Active",
-    price: "$200",
-    expiry: "4 weeks left",
-  },
-  {
-    id: "#54",
-    title: "Amazing Villa For Sale",
-    image: "/placeholder.svg?height=60&width=60",
-    location: "New York, USA",
-    category: "Real Estate",
-    status: "Inactive",
-    price: "$200",
-    expiry: "4 weeks left",
-  },
-  {
-    id: "#676",
-    title: "Audi Q7 35 TFSI",
-    image: "/placeholder.svg?height=60&width=60",
-    location: "New York, USA",
-    category: "Cars",
-    status: "Sold",
-    price: "$200",
-    expiry: "4 weeks left",
-  },
-  {
-    id: "#878",
-    title: "2024 Luxury Boat",
-    image: "/placeholder.svg?height=60&width=60",
-    location: "New York, USA",
-    category: "Yachting",
-    status: "Inactive",
-    price: "$200",
-    expiry: "4 weeks left",
-  },
-  {
-    id: "#123",
-    title: "Riding Quad Bike",
-    image: "/placeholder.svg?height=60&width=60",
-    location: "New York, USA",
-    category: "Fashion",
-    status: "Active",
-    price: "$200",
-    expiry: "4 weeks left",
-  },
-  {
-    id: "#003",
-    title: "Joyful Dog",
-    image: "/placeholder.svg?height=60&width=60",
-    location: "New York, USA",
-    category: "Pets",
-    status: "Active",
-    price: "$200",
-    expiry: "4 weeks left",
-  },
-];
 
 const filterTabs = [
   { id: "all", label: "All Ads", count: null, active: true },
@@ -87,6 +25,47 @@ const AdsManagement = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [activeTab, setActiveTab] = useState("all");
   const [sortBy, setSortBy] = useState("date");
+  const [adsData, setAdsData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalAds, setTotalAds] = useState(0);
+  const adsPerPage = 6;
+  const uid = localStorage.getItem('uid');
+  useEffect(() => {
+    fetchUserAds();
+  }, [currentPage]);
+
+  const fetchUserAds = async () => {
+    try {
+      setLoading(true);
+      // Replace 'USER_ID' with actual user ID
+      const response = await axios.get(
+        `https://sellit-backend-u8bz.onrender.com/api/manage-ads/get-ads/${uid}`
+      );
+
+      if (response.data.success) {
+        setAdsData(response.data.ads);
+        setTotalAds(response.data.total_ads);
+      }
+    } catch (error) {
+      console.error("Error fetching ads:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const totalPages = Math.ceil(totalAds / adsPerPage);
+  const startIndex = (currentPage - 1) * adsPerPage;
+  const currentAds = adsData.slice(startIndex, startIndex + adsPerPage);
+
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
+
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString();
+  };
 
   return (
     <div className="ads-management">
@@ -140,75 +119,115 @@ const AdsManagement = () => {
         </div>
 
         <div className="table-container">
-          <table className="ads-table">
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Title</th>
-                <th className="hide-sm">Category</th>
-                <th>Status</th>
-                <th>Price</th>
-                <th className="hide-md">Expiry</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              {adsData.map((ad, index) => (
-                <tr key={index}>
-                  <td>{ad.id}</td>
-                  <td>
-                    <div className="ad-info">
-                      <img
-                        src={
-                          "https://as-images.apple.com/is/refurb-45-nc-alum-midnight-sport-band-midnight-s9?wid=1000&hei=1000&fmt=jpeg&qlt=95&.v=1709325333040"
-                        }
-                        alt={ad.title}
-                        className="ad-image"
-                      />
-                      <div className="ad-details">
-                        <div className="ad-title">{ad.title}</div>
-                        <div className="ad-location">{ad.location}</div>
-                      </div>
-                    </div>
-                  </td>
-                  <td className="hide-sm">{ad.category}</td>
-                  <td>
-                    <span className={`status-badge ${ad.status.toLowerCase()}`}>
-                      {ad.status}
-                    </span>
-                  </td>
-                  <td>{ad.price}</td>
-                  <td className="hide-md">{ad.expiry}</td>
-                  <td>
-                    <div className="action-buttons">
-                      <button className="action-btn">
-                        <BsThreeDotsVertical />
-                      </button>
-                      <button className="action-btn">
-                        <BsPencil />
-                      </button>
-                      <button className="action-btn">
-                        <BsTrash />
-                      </button>
-                    </div>
-                  </td>
+          {loading ? (
+            <div style={{ padding: "20px", textAlign: "center" }}>
+              Loading...
+            </div>
+          ) : (
+            <table className="ads-table">
+              <thead>
+                <tr>
+                  <th>Title</th>
+                  <th className="hide-sm">Category</th>
+                  <th>Status</th>
+                  <th>Price</th>
+                  <th className="hide-md">Created</th>
+                  <th>Action</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {currentAds.map((ad, index) => (
+                  <tr key={ad.id || index}>
+                    <td>
+                      <div className="ad-info">
+                        <img
+                          src={
+                            ad.thumbnail_url ||
+                            "/placeholder.svg?height=60&width=60"
+                          }
+                          alt={ad.ad_title}
+                          className="ad-image"
+                        />
+                        <div className="ad-details">
+                          <div className="ad-title">
+                            {ad.ad_title?.length > 10
+                              ? ad.ad_title.slice(0, 10) + "..."
+                              : ad.ad_title}
+                          </div>
+
+                          <div className="ad-location">
+                            {ad.location || "N/A"}
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                    <td className="hide-sm">{ad.sub_category}</td>
+                    <td>
+                      <span className="status-badge active">Active</span>
+                    </td>
+                    <td>${ad.price}</td>
+                    <td className="hide-md">{formatDate(ad.created_at)}</td>
+                    <td>
+                      <div className="action-buttons">
+                        <button className="action-btn">
+                          <BsThreeDotsVertical />
+                        </button>
+                        <button className="action-btn">
+                          <BsPencil />
+                        </button>
+                        <button className="action-btn">
+                          <BsTrash />
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          )}
         </div>
 
         <div className="pagination">
-          <button className="pagination-btn">
+          <button
+            className="pagination-btn"
+            onClick={() => handlePageChange(currentPage - 1)}
+            disabled={currentPage === 1}
+          >
             <BsChevronLeft />
           </button>
-          <button className="pagination-btn active">1</button>
-          <button className="pagination-btn">2</button>
-          <button className="pagination-btn">3</button>
-          <button className="pagination-btn">4</button>
-          <span className="pagination-ellipsis">...</span>
-          <button className="pagination-btn">20</button>
-          <button className="pagination-btn">
+
+          {[...Array(Math.min(5, totalPages))].map((_, index) => {
+            const pageNum = index + 1;
+            return (
+              <button
+                key={pageNum}
+                className={`pagination-btn ${
+                  currentPage === pageNum ? "active" : ""
+                }`}
+                onClick={() => handlePageChange(pageNum)}
+              >
+                {pageNum}
+              </button>
+            );
+          })}
+
+          {totalPages > 5 && (
+            <>
+              <span className="pagination-ellipsis">...</span>
+              <button
+                className="pagination-btn"
+                onClick={() => handlePageChange(totalPages)}
+              >
+                {totalPages}
+              </button>
+            </>
+          )}
+
+          <button
+            className="pagination-btn"
+            onClick={() => handlePageChange(currentPage + 1)}
+            disabled={currentPage === totalPages}
+          >
             <BsChevronRight />
           </button>
         </div>

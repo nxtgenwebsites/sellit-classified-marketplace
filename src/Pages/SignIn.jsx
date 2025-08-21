@@ -17,9 +17,12 @@ const SignInPage = () => {
 const handleGoogle = async (credentialResponse) => {
   const token = credentialResponse?.credential;
 
-  const res = await axios.post("https://sellit-backend-u8bz.onrender.com/api/auth/google", {
-    token,
-  });
+  const res = await axios.post(
+    "https://sellit-backend-u8bz.onrender.com/api/auth/google",
+    {
+      token,
+    }
+  );
   localStorage.setItem("uid", res.data.user.id);
   localStorage.setItem("token", res.data.token);
   location.href = "/";
