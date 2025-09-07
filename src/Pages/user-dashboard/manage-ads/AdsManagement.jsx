@@ -10,7 +10,9 @@ import {
   BsChevronLeft,
   BsChevronRight,
 } from "react-icons/bs";
+import { FaRegEye } from "react-icons/fa";
 import "./AdsManagement.css";
+import { Link } from "react-router-dom";
 
 const filterTabs = [
   { id: "all", label: "All Ads", count: null, active: true },
@@ -172,9 +174,11 @@ const AdsManagement = () => {
                         <button className="action-btn">
                           <BsThreeDotsVertical />
                         </button>
-                        <button className="action-btn">
-                          <BsPencil />
-                        </button>
+                        <Link to={"/add"}>
+                          <button className="action-btn">
+                            <FaRegEye />
+                          </button>
+                        </Link>
                         <button className="action-btn">
                           <BsTrash />
                         </button>

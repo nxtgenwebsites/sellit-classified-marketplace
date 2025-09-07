@@ -14,8 +14,7 @@ export default function ManageUsersPage() {
   const [errors, setErrors] = useState({});
 
   const uid = localStorage.getItem("uid");
-
-
+  
 
   const [formData, setFormData] = useState({
     username: "",

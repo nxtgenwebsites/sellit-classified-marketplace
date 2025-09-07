@@ -2,25 +2,29 @@
 
 import { useState, useEffect } from "react";
 
-export default function Electronics({ selectedSubCategory }) {
+const uid = localStorage.getItem("uid");
+
+export default function ElectronicsForm({ selectedSubCategory }) {
   const [formData, setFormData] = useState({
-    sub_category: selectedSubCategory || "", // Pre-fill with selected sub-category
+    sub_category: selectedSubCategory || "",
     ad_title: "",
     description: "",
     type: "",
     brand: "",
-    condition: "",
     model: "",
+    condition: "",
     warranty: "",
-    features: [], // Array to store selected features
+    features: [],
     location: "",
     price: "",
     seller_name: "",
     seller_contact: "",
-    thumbnail_url: "https://via.placeholder.com/300x300.png?text=Image2", // Default placeholder
   });
-  const [imageFile, setImageFile] = useState(null);
-  const [attachmentFile, setAttachmentFile] = useState(null);
+
+  const [images, setImages] = useState([]);
+  const [imagePreviewUrls, setImagePreviewUrls] = useState([]);
+  const [selectedThumbnail, setSelectedThumbnail] = useState(null);
+  const [attachments, setAttachments] = useState([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   // Update sub_category in form data if it changes from parent
@@ -30,6 +34,12 @@ export default function Electronics({ selectedSubCategory }) {
       sub_category: selectedSubCategory || "",
     }));
   }, [selectedSubCategory]);
+
+  useEffect(() => {
+    return () => {
+      imagePreviewUrls.forEach((url) => URL.revokeObjectURL(url));
+    };
+  }, [imagePreviewUrls]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -55,50 +65,147 @@ export default function Electronics({ selectedSubCategory }) {
   };
 
   const handleImageChange = (e) => {
-    if (e.target.files && e.target.files[0]) {
-      setImageFile(e.target.files[0]);
+    const files = Array.from(e.target.files);
+    if (files.length > 5) {
+      alert("Maximum 5 images allowed");
+      return;
+    }
+
+    const imageFiles = files.filter((file) => file.type.startsWith("image/"));
+    setImages(imageFiles);
+
+    const previewUrls = imageFiles.map((file) => URL.createObjectURL(file));
+    setImagePreviewUrls(previewUrls);
+
+    // Auto-select first image as thumbnail if none selected
+    if (imageFiles.length > 0 && !selectedThumbnail) {
+      setSelectedThumbnail(0);
     }
   };
 
   const handleAttachmentChange = (e) => {
-    if (e.target.files && e.target.files[0]) {
-      setAttachmentFile(e.target.files[0]);
-    }
+    const files = Array.from(e.target.files);
+    const allowedTypes = [
+      "application/pdf",
+      "text/plain",
+      "application/msword",
+      "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+    ];
+
+    const validFiles = files.filter(
+      (file) =>
+        allowedTypes.includes(file.type) ||
+        file.name.toLowerCase().endsWith(".txt") ||
+        file.name.toLowerCase().endsWith(".doc") ||
+        file.name.toLowerCase().endsWith(".docx")
+    );
+
+    setAttachments(validFiles);
   };
 
-  const handleSubmit = (e) => {
+  const selectThumbnail = (index) => {
+    setSelectedThumbnail(index);
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Log form data to console as requested
-    console.log("Electronics Form Data:", formData);
-    console.log("Image File:", imageFile);
-    console.log("Attachment File:", attachmentFile);
+    try {
+      const data = new FormData();
 
-    // Simulate API call
-    setTimeout(() => {
-      alert("Electronics ad data logged to console!");
-      setIsSubmitting(false);
-      // Optionally reset form
-      setFormData({
-        sub_category: selectedSubCategory || "",
-        ad_title: "",
-        description: "",
-        type: "",
-        brand: "",
-        condition: "",
-        model: "",
-        warranty: "",
-        features: [],
-        location: "",
-        price: "",
-        seller_name: "",
-        seller_contact: "",
-        thumbnail_url: "https://via.placeholder.com/300x300.png?text=Image2",
+      // Append text fields
+      Object.keys(formData).forEach((key) => {
+        if (key === "features") {
+          // Convert features array to JSON string as expected by API
+          data.append(key, JSON.stringify(formData[key]));
+        } else {
+          data.append(key, formData[key]);
+        }
       });
-      setImageFile(null);
-      setAttachmentFile(null);
-    }, 1000);
+
+      // Append thumbnail
+      if (selectedThumbnail !== null && images[selectedThumbnail]) {
+        data.append("thumbnail", images[selectedThumbnail]);
+      }
+
+      // Append images
+      images.forEach((image) => {
+        data.append("images", image);
+      });
+
+      // Append attachments
+      attachments.forEach((attachment) => {
+        data.append("attachments", attachment);
+      });
+
+      console.log("[v0] Submitting electronics form data to API...");
+
+      const response = await fetch(
+        `https://sellit-backend-u8bz.onrender.com/api/ads/electronics/${uid}`,
+        {
+          method: "POST",
+          body: data,
+        }
+      );
+
+      console.log("[v0] Response status:", response.status);
+      console.log(
+        "[v0] Response headers:",
+        response.headers.get("content-type")
+      );
+
+      const contentType = response.headers.get("content-type");
+      if (!contentType || !contentType.includes("application/json")) {
+        throw new Error(
+          `Server returned ${response.status}: Expected JSON but got ${contentType}. The API endpoint might not exist.`
+        );
+      }
+
+      const result = await response.json();
+      console.log("✅ Electronics ad created:", result);
+
+      // Reset form on success
+      if (response.ok) {
+        setFormData({
+          sub_category: selectedSubCategory || "",
+          ad_title: "",
+          description: "",
+          type: "",
+          brand: "",
+          model: "",
+          condition: "",
+          warranty: "",
+          features: [],
+          location: "",
+          price: "",
+          seller_name: "",
+          seller_contact: "",
+        });
+        setImages([]);
+        setImagePreviewUrls([]);
+        setSelectedThumbnail(null);
+        setAttachments([]);
+        alert("Electronics ad submitted successfully!");
+      } else {
+        throw new Error(result.message || `Server error: ${response.status}`);
+      }
+    } catch (err) {
+      console.error("❌ Error:", err);
+      if (err.message.includes("fetch")) {
+        alert(
+          "Network error: Could not connect to server. Please check if the API server is running."
+        );
+      } else if (err.message.includes("JSON")) {
+        alert(
+          "API Error: The server endpoint may not exist or is returning invalid data."
+        );
+      } else {
+        alert(`Error submitting electronics ad: ${err.message}`);
+      }
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -342,16 +449,23 @@ export default function Electronics({ selectedSubCategory }) {
               <label htmlFor="location" className="form-label">
                 Location
               </label>
-              <input
-                type="text"
+              <select
                 className="form-control"
                 id="location"
                 name="location"
                 value={formData.location}
                 onChange={handleChange}
-                placeholder="e.g., Karachi, Lahore"
                 required
-              />
+              >
+                <option value="">Select Location</option>
+                <option value="Punjab">Punjab</option>
+                <option value="Sindh">Sindh</option>
+                <option value="Khyber Pakhtunkhwa">Khyber Pakhtunkhwa</option>
+                <option value="Balochistan">Balochistan</option>
+                <option value="Islamabad">Islamabad</option>
+                <option value="Gilgit-Baltistan">Gilgit-Baltistan</option>
+                <option value="Kashmir">Kashmir</option>
+              </select>
             </div>
             <div className="col-md-6">
               <label htmlFor="price" className="form-label">
@@ -401,42 +515,103 @@ export default function Electronics({ selectedSubCategory }) {
             </div>
           </div>
 
-          <div className="row mb-4">
-            <div className="col-md-6">
-              <label htmlFor="image_upload" className="form-label">
-                Product Image Upload
-              </label>
-              <input
-                type="file"
-                className="form-control"
-                id="image_upload"
-                name="image_upload"
-                accept="image/*"
-                onChange={handleImageChange}
-              />
-              {imageFile && (
-                <small className="text-muted mt-1 d-block">
-                  Selected: {imageFile.name}
-                </small>
-              )}
-            </div>
-            <div className="col-md-6">
-              <label htmlFor="attachments" className="form-label">
-                Attachments (Manual, Receipt, etc.)
-              </label>
-              <input
-                type="file"
-                className="form-control"
-                id="attachments"
-                name="attachments"
-                onChange={handleAttachmentChange}
-              />
-              {attachmentFile && (
-                <small className="text-muted mt-1 d-block">
-                  Selected: {attachmentFile.name}
-                </small>
-              )}
-            </div>
+          {/* Enhanced Image Upload Section */}
+          <div className="mb-4">
+            <label htmlFor="images" className="form-label">
+              Images Upload (Max 5)
+            </label>
+            <input
+              type="file"
+              className="form-control"
+              id="images"
+              name="images"
+              accept="image/*"
+              multiple
+              onChange={handleImageChange}
+            />
+            <small className="text-muted">
+              Select up to 5 images. You can choose one as thumbnail.
+            </small>
+
+            {images.length > 0 && (
+              <div className="mt-3">
+                <h6>Selected Images - Choose Thumbnail:</h6>
+                <div className="row">
+                  {images.map((image, index) => (
+                    <div key={index} className="col-md-3 mb-3">
+                      <div
+                        className={`card ${
+                          selectedThumbnail === index ? "border-primary" : ""
+                        }`}
+                      >
+                        <img
+                          src={imagePreviewUrls[index] || "/placeholder.svg"}
+                          alt={`Preview ${index + 1}`}
+                          className="card-img-top"
+                          style={{ height: "120px", objectFit: "cover" }}
+                        />
+                        <div className="card-body p-2">
+                          <small className="d-block text-truncate mb-2">
+                            {image.name}
+                          </small>
+                          <button
+                            type="button"
+                            className={`btn btn-sm w-100 ${
+                              selectedThumbnail === index
+                                ? "btn-primary"
+                                : "btn-outline-primary"
+                            }`}
+                            onClick={() => selectThumbnail(index)}
+                          >
+                            {selectedThumbnail === index
+                              ? "Thumbnail ✓"
+                              : "Set as Thumbnail"}
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Attachments Section */}
+          <div className="mb-4">
+            <label htmlFor="attachments" className="form-label">
+              Attachments (Manual, Receipt, etc.)
+            </label>
+            <input
+              type="file"
+              className="form-control"
+              id="attachments"
+              name="attachments"
+              accept=".pdf,.doc,.docx,.txt"
+              multiple
+              onChange={handleAttachmentChange}
+            />
+            <small className="text-muted">
+              Upload PDF, Word documents, or text files.
+            </small>
+
+            {attachments.length > 0 && (
+              <div className="mt-2">
+                <h6>Selected Attachments:</h6>
+                <ul className="list-group">
+                  {attachments.map((file, index) => (
+                    <li
+                      key={index}
+                      className="list-group-item d-flex justify-content-between align-items-center"
+                    >
+                      <span className="text-truncate">{file.name}</span>
+                      <span className="badge bg-secondary">
+                        {(file.size / 1024).toFixed(1)} KB
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </div>
 
           <div className="mt-3">
