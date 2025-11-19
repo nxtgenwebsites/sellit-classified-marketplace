@@ -16,6 +16,10 @@
   padding: 0;
 }
 
+.primary-btn{
+    background-color: var(--primary-color) !important;
+}
+
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background-color: var(--light-bg);
@@ -575,6 +579,13 @@ img {
     width: 100%;
   }
 
+  .nav-link.tab-btn{
+    font-size: 13px !important;
+    padding: 5px 10px !important;
+  }
+  .view-all-btn{
+   max-width: 121px;
+  }
 
   .thumbnail-container {
     grid-template-columns: repeat(2, 1fr);

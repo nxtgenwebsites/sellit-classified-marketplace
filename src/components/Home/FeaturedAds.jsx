@@ -12,7 +12,7 @@ export default function FeaturedAds() {
             <div className="">
               <h1 className="text-main-heading">Featured Ads</h1>
             </div>
-            <div className="d-flex w-100 justify-content-between align-items-center">
+            <div className="d-flex w-100 flex-column justify-content-between align-items-md-center flex-md-row gap-4">
               <ul
                 className="nav nav-tabs tabs w-auto mx-0 "
                 id="myTab"

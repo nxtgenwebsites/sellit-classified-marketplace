@@ -42,8 +42,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100% !important;
 }
-
+.stat-info p {
+  text-align: left !important;
+}
+.stat-info h3 {
+  text-align: left !important;
+}
 .stat-info {
   flex: 1;
 }
@@ -71,6 +77,7 @@
   justify-content: center;
   color: white;
   flex-shrink: 0;
+  margin-right: 0 !important;
 }
 
 .stat-icon-dark {

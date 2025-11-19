@@ -1,13 +1,57 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import "./css/home.css";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Card1 from "./RecentAdsCards/Card1";
 import Card2 from "./RecentAdsCards/Card2";
-import RecentCardData from "./data/RecentCardData.json";
 import { FaArrowRight } from "react-icons/fa6";
 
 function RecentlyAds() {
+  const [ads, setAds] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+  const [loading, setLoading] = useState(false);
+
+  // Fetch ads from API
+  useEffect(() => {
+    fetchAds(currentPage);
+  }, [currentPage]);
+
+  const fetchAds = async (page) => {
+    try {
+      setLoading(true);
+      const response = await axios.get(
+        `https://sellit-backend-u8bz.onrender.com/api/manage-ads/recent-ads?page=${page}`
+      );
+
+      if (response.data.success) {
+        setAds(response.data.ads);
+        setTotalPages(response.data.total_pages);
+      }
+    } catch (error) {
+      console.error("Error fetching ads:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // Insert Card2 after every 10 cards
+  const getCardsWithAdvertisement = () => {
+    const cardsWithAds = [];
+    ads.forEach((ad, index) => {
+      cardsWithAds.push(<Card1 ads={ad} key={`ad-${index}`} />);
+
+      // Add Card2 after every 10 cards
+      if ((index + 1) % 10 === 0) {
+        cardsWithAds.push(
+          <Card2 advertise={{ id: `ad-${index}` }} key={`ad2-${index}`} />
+        );
+      }
+    });
+    return cardsWithAds;
+  };
+
   return (
     <div>
       <section className="buy-ans-sell-section py-5">
@@ -17,9 +61,10 @@ function RecentlyAds() {
               <h1 className="text-main-heading">Recently Posted Ads</h1>
             </div>
           </div>
-          <div className="d-flex w-100 justify-content-between align-items-center">
+
+          <div className="d-flex w-100 flex-column justify-content-between align-items-md-center flex-md-row gap-4">
             <ul
-              className="nav nav-tabs tabs w-auto mx-0 "
+              className="nav nav-tabs tabs w-auto mx-0"
               id="myTab"
               role="tablist"
             >
@@ -127,139 +172,57 @@ function RecentlyAds() {
               <FaArrowRight />
             </button>
           </div>
+
           <div className="tab-content mt-4" id="myTabContent">
             <div
               className="tab-pane fade show active"
-              id="Raw"
+              id="all"
               role="tabpanel"
-              aria-labelledby="raw-tab"
+              aria-labelledby="all-tab"
             >
-              <Row className="row-gap-3 gx-3">
-                {RecentCardData.recentAds.map((ads, i) => (
-                  <Card1 ads={ads} key={i} />
-                ))}
-                {RecentCardData.advertisement.map((advertise, i) => (
-                  <Card2 advertise={advertise} key={i} />
-                ))}
-                {RecentCardData.recentAds.map((ads, i) => (
-                  <Card1 ads={ads} key={i} />
-                ))}
-                {RecentCardData.advertisement.map((advertise, i) => (
-                  <Card2 advertise={advertise} key={i} />
-                ))}
-              </Row>
-            </div>
-            <div
-              className="tab-pane fade"
-              id="Isl"
-              role="tabpanel"
-              aria-labelledby="isl-tab"
-            >
-              <Row className="row-gap-3 gx-3">
-                {RecentCardData.recentAds.map((ads, i) => (
-                  <Card1 ads={ads} key={i} />
-                ))}
-                {RecentCardData.advertisement.map((advertise, i) => (
-                  <Card2 advertise={advertise} key={i} />
-                ))}
-                {RecentCardData.recentAds.map((ads, i) => (
-                  <Card1 ads={ads} key={i} />
-                ))}
-                {RecentCardData.advertisement.map((advertise, i) => (
-                  <Card2 advertise={advertise} key={i} />
-                ))}
-              </Row>
-            </div>
-            <div
-              className="tab-pane fade"
-              id="Lah"
-              role="tabpanel"
-              aria-labelledby="lah-tab"
-            >
-              <Row className="row-gap-3 gx-3">
-                {RecentCardData.recentAds.map((ads, i) => (
-                  <Card1 ads={ads} key={i} />
-                ))}
-                {RecentCardData.advertisement.map((advertise, i) => (
-                  <Card2 advertise={advertise} key={i} />
-                ))}
-                {RecentCardData.recentAds.map((ads, i) => (
-                  <Card1 ads={ads} key={i} />
-                ))}
-                {RecentCardData.advertisement.map((advertise, i) => (
-                  <Card2 advertise={advertise} key={i} />
-                ))}
-              </Row>
-            </div>
-            <div
-              className="tab-pane fade"
-              id="Mul"
-              role="tabpanel"
-              aria-labelledby="mul-tab"
-            >
-              <Row className="row-gap-3 gx-3">
-                {RecentCardData.recentAds.map((ads, i) => (
-                  <Card1 ads={ads} key={i} />
-                ))}
-                {RecentCardData.advertisement.map((advertise, i) => (
-                  <Card2 advertise={advertise} key={i} />
-                ))}
-                {RecentCardData.recentAds.map((ads, i) => (
-                  <Card1 ads={ads} key={i} />
-                ))}
-                {RecentCardData.advertisement.map((advertise, i) => (
-                  <Card2 advertise={advertise} key={i} />
-                ))}
-              </Row>
-            </div>
-            <div
-              className="tab-pane fade"
-              id="Kar"
-              role="tabpanel"
-              aria-labelledby="kar-tab"
-            >
-              <Row className="row-gap-3 gx-3">
-                {RecentCardData.recentAds.map((ads, i) => (
-                  <Card1 ads={ads} key={i} />
-                ))}
-                {RecentCardData.advertisement.map((advertise, i) => (
-                  <Card2 advertise={advertise} key={i} />
-                ))}
-                {RecentCardData.recentAds.map((ads, i) => (
-                  <Card1 ads={ads} key={i} />
-                ))}
-                {RecentCardData.advertisement.map((advertise, i) => (
-                  <Card2 advertise={advertise} key={i} />
-                ))}
-              </Row>
-            </div>
-            <div
-              className="tab-pane fade"
-              id="KPK"
-              role="tabpanel"
-              aria-labelledby="kpk-tab"
-            >
-              <Row className="row-gap-3 gx-3">
-                {RecentCardData.recentAds.map((ads, i) => (
-                  <Card1 ads={ads} key={i} />
-                ))}
-                {RecentCardData.advertisement.map((advertise, i) => (
-                  <Card2 advertise={advertise} key={i} />
-                ))}
-                {RecentCardData.recentAds.map((ads, i) => (
-                  <Card1 ads={ads} key={i} />
-                ))}
-                {RecentCardData.advertisement.map((advertise, i) => (
-                  <Card2 advertise={advertise} key={i} />
-                ))}
-              </Row>
+              {loading ? (
+                <div className="text-center py-5">
+                  <p>Loading ads...</p>
+                </div>
+              ) : ads.length > 0 ? (
+                <Row className="row-gap-3 gx-3">
+                  {getCardsWithAdvertisement()}
+                </Row>
+              ) : (
+                <div className="text-center py-5">
+                  <p>No ads found</p>
+                </div>
+              )}
             </div>
           </div>
-          <div className="text-center">
-            <button type="button" className="secondary-button mt-4">
-              Load More
+
+          {/* <div className="d-flex justify-content-between align-items-center mt-5 w-25 mx-auto">
+            <button
+              type="button"
+              className="secondary-button"
+              onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+              disabled={currentPage === 1}
+            >
+              Previous
             </button>
-          </div>
+
+            <div className="pagination-info">
+              <span>
+                Page {currentPage} of {totalPages}
+              </span>
+            </div>
+
+            <button
+              type="button"
+              className="secondary-button"
+              onClick={() =>
+                setCurrentPage((prev) => Math.min(prev + 1, totalPages))
+              }
+              disabled={currentPage === totalPages}
+            >
+              Next
+            </button>
+          </div> */}
         </Container>
       </section>
     </div>
@@ -267,3 +230,6 @@ function RecentlyAds() {
 }
 
 export default RecentlyAds;
+
+
+

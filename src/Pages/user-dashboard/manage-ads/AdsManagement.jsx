@@ -31,8 +31,10 @@ const AdsManagement = () => {
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalAds, setTotalAds] = useState(0);
+  const [deleting, setDeleting] = useState(null);
   const adsPerPage = 6;
-  const uid = localStorage.getItem('uid');
+  const uid = localStorage.getItem("uid");
+
   useEffect(() => {
     fetchUserAds();
   }, [currentPage]);
@@ -40,14 +42,13 @@ const AdsManagement = () => {
   const fetchUserAds = async () => {
     try {
       setLoading(true);
-      // Replace 'USER_ID' with actual user ID
       const response = await axios.get(
         `https://sellit-backend-u8bz.onrender.com/api/manage-ads/get-ads/${uid}`
       );
 
       if (response.data.success) {
         setAdsData(response.data.ads);
-        setTotalAds(response.data.total_ads);
+        setTotalAds(response.data.ads.length);
       }
     } catch (error) {
       console.error("Error fetching ads:", error);
@@ -56,12 +57,41 @@ const AdsManagement = () => {
     }
   };
 
-  const totalPages = Math.ceil(totalAds / adsPerPage);
+  const filteredAds = adsData.filter((ad) => {
+    const matchesSearch =
+      ad.ad_title?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      ad.location?.toLowerCase().includes(searchTerm.toLowerCase());
+    return matchesSearch;
+  });
+
+  const totalPages = Math.ceil(filteredAds.length / adsPerPage);
   const startIndex = (currentPage - 1) * adsPerPage;
-  const currentAds = adsData.slice(startIndex, startIndex + adsPerPage);
+  const currentAds = filteredAds.slice(startIndex, startIndex + adsPerPage);
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
+  };
+
+  const handleDelete = async (ad) => {
+
+    try {
+      setDeleting(ad.id);
+      const response = await axios.delete(
+        `https://sellit-backend-u8bz.onrender.com/api/manage-ads/delete/${ad.sub_category}/${ad.id}`
+      );
+
+      if (response.data.success) {
+        // Remove the deleted ad from state
+        setAdsData(adsData.filter((item) => item.id !== ad.id));
+        setTotalAds(totalAds - 1);
+        alert("Ad deleted successfully!");
+      }
+    } catch (error) {
+      console.error("Error deleting ad:", error);
+      alert("Failed to delete ad. Please try again.");
+    } finally {
+      setDeleting(null);
+    }
   };
 
   const formatDate = (dateString) => {
@@ -73,9 +103,7 @@ const AdsManagement = () => {
     <div className="ads-management">
       <div className="section-header">
         <h2 className="section-title">My Ads</h2>
-        <p className="section-description">
-          Lorem ipsum dolor sit amet, consectetur.
-        </p>
+        <p className="section-description">Manage all your listings here</p>
       </div>
 
       <div className="content-card">
@@ -87,7 +115,10 @@ const AdsManagement = () => {
               className="search-input"
               placeholder="Search Listing"
               value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
+              onChange={(e) => {
+                setSearchTerm(e.target.value);
+                setCurrentPage(1);
+              }}
             />
           </div>
 
@@ -101,7 +132,7 @@ const AdsManagement = () => {
                   }`}
                   onClick={() => setActiveTab(tab.id)}
                 >
-                  {tab.label} {tab.count && `(${tab.count})`}
+                  {tab.label}
                 </button>
               ))}
             </div>
@@ -125,6 +156,12 @@ const AdsManagement = () => {
             <div style={{ padding: "20px", textAlign: "center" }}>
               Loading...
             </div>
+          ) : currentAds.length === 0 ? (
+            <div style={{ padding: "20px", textAlign: "center" }}>
+              {searchTerm
+                ? "No ads found matching your search."
+                : "No ads available."}
+            </div>
           ) : (
             <table className="ads-table">
               <thead>
@@ -145,7 +182,8 @@ const AdsManagement = () => {
                         <img
                           src={
                             ad.thumbnail_url ||
-                            "/placeholder.svg?height=60&width=60"
+                            "/placeholder.svg?height=60&width=60" ||
+                            "/placeholder.svg"
                           }
                           alt={ad.ad_title}
                           className="ad-image"
@@ -171,16 +209,18 @@ const AdsManagement = () => {
                     <td className="hide-md">{formatDate(ad.created_at)}</td>
                     <td>
                       <div className="action-buttons">
-                        <button className="action-btn">
-                          <BsThreeDotsVertical />
-                        </button>
                         <Link to={"/add"}>
                           <button className="action-btn">
                             <FaRegEye />
                           </button>
                         </Link>
-                        <button className="action-btn">
-                          <BsTrash />
+                        <button
+                          className="action-btn"
+                          onClick={() => handleDelete(ad)}
+                          disabled={deleting === ad.id}
+                          title="Delete ad"
+                        >
+                          {deleting === ad.id ? "..." : <BsTrash />}
                         </button>
                       </div>
                     </td>
