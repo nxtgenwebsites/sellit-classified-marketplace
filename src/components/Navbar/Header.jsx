@@ -1,40 +1,65 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Container from "react-bootstrap/Container";
 import "./header.css";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Button from "react-bootstrap/Button";
-import { Link } from "react-router-dom";
-import { BsChatLeftTextFill } from "react-icons/bs";
-import { BsHeartFill } from "react-icons/bs";
-import { BsFillPersonFill } from "react-icons/bs";
+import { Link, useNavigate, useLocation } from "react-router-dom";
+import {
+  BsChatLeftTextFill,
+  BsHeartFill,
+  BsFillPersonFill,
+} from "react-icons/bs";
 import { Search } from "lucide-react";
-const uid = localStorage.getItem('uid');
 
+const uid = localStorage.getItem("uid");
 
 export default function Header() {
-    const [location, setLocation] = useState("All Pakistan");
-    const [searchQuery, setSearchQuery] = useState("");
+  const navigate = useNavigate();
+  const { search } = useLocation();
 
-    const locations = [
-      "All Pakistan",
-      "Karachi",
-      "Lahore",
-      "Islamabad",
-      "Rawalpindi",
-      "Faisalabad",
-      "Multan",
-      "Peshawar",
-      "Quetta",
-      "Sialkot",
-      "Gujranwala",
-    ];
+  // URL Params read
+  const params = new URLSearchParams(search);
+  const urlQuery = params.get("query") || "";
+  const urlLocation = params.get("location") || "All Pakistan";
 
-    const handleSearch = (e) => {
-      e.preventDefault();
-      console.log("Searching for:", searchQuery, "in", location);
-      // Implement your search functionality here
-    };
+  const [location, setLocation] = useState(urlLocation);
+  const [searchQuery, setSearchQuery] = useState(urlQuery);
+
+  const locations = [
+    "All Pakistan",
+    "Karachi",
+    "Lahore",
+    "Islamabad",
+    "Rawalpindi",
+    "Faisalabad",
+    "Multan",
+    "Peshawar",
+    "Quetta",
+    "Sialkot",
+    "Gujranwala",
+  ];
+
+  // URL change → Inputs auto update
+  useEffect(() => {
+    setSearchQuery(urlQuery);
+    setLocation(urlLocation);
+  }, [urlQuery, urlLocation]);
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+
+    const query = searchQuery.trim();
+
+    let url = `/search?query=${encodeURIComponent(query)}`;
+
+    if (location !== "All Pakistan") {
+      url += `&location=${encodeURIComponent(location)}`;
+    }
+
+    window.location.href = url; // full reload + navigate
+  };
+
   return (
     <div>
       <Navbar expand="lg">
@@ -44,7 +69,7 @@ export default function Header() {
           </Link>
           <Navbar.Toggle aria-controls="Header" />
           <Navbar.Collapse id="Header" className="mt-3 mt-lg-0">
-            <div className="container py-4  search-box">
+            <div className="container py-4 search-box">
               <div
                 className="card shadow border-0"
                 style={{ borderRadius: "12px", overflow: "hidden" }}
@@ -53,21 +78,15 @@ export default function Header() {
                   <form onSubmit={handleSearch}>
                     <div className="row g-0">
                       <div className="col-md-3 position-relative">
-                        <div
-                          className="position-absolute h-100 d-flex align-items-center"
-                          style={{ left: "15px", pointerEvents: "none" }}
-                        ></div>
                         <select
-                          className="form-select border-0 h-100 py-3 ps-4 border-0"
+                          className="form-select border-0 h-100 py-3 ps-4"
                           style={{
                             backgroundColor: "#f8f9fa",
-                            // borderRight: "1px solid #e9ecef",
                             boxShadow: "none",
                             fontSize: "15px",
                           }}
                           value={location}
                           onChange={(e) => setLocation(e.target.value)}
-                          aria-label="Select location"
                         >
                           {locations.map((loc) => (
                             <option key={loc} value={loc}>
@@ -76,6 +95,7 @@ export default function Header() {
                           ))}
                         </select>
                       </div>
+
                       <div className="col-md-7">
                         <input
                           type="text"
@@ -87,9 +107,9 @@ export default function Header() {
                           placeholder="What are you looking for?"
                           value={searchQuery}
                           onChange={(e) => setSearchQuery(e.target.value)}
-                          aria-label="Search query"
                         />
                       </div>
+
                       <div className="col-md-2 position-relative">
                         <button
                           type="submit"
@@ -100,12 +120,6 @@ export default function Header() {
                             transition: "all 0.3s ease",
                             borderRadius: "0 12px 12px 0",
                           }}
-                          onMouseOver={(e) =>
-                            (e.currentTarget.style.backgroundColor = "#3a56d4")
-                          }
-                          onMouseOut={(e) =>
-                            (e.currentTarget.style.backgroundColor = "#4361ee")
-                          }
                         >
                           <Search size={22} />
                         </button>
@@ -115,6 +129,7 @@ export default function Header() {
                 </div>
               </div>
             </div>
+
             <Nav className="mb-2 mb-lg-0 gap-2 navbar-list mx-lg-auto align-items-lg-baseline">
               <Nav.Link href="#">
                 <BsChatLeftTextFill className="nav-icon" />
@@ -126,6 +141,7 @@ export default function Header() {
                 <BsFillPersonFill className="nav-icon" />
               </Nav.Link>
             </Nav>
+
             <Link to={"/add-listing"}>
               <Button type="button" className="rounded-3 primary-button">
                 Add Listings

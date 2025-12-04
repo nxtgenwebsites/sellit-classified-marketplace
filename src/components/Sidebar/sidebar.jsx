@@ -197,22 +197,6 @@ export default function sidebar() {
           </div>
         </div>
       </div>
-      <div className="fourth-section mt-3 rounded-2">
-        <select className="brands p-2 w-100 form-select">
-          <option value="Apple">Apple</option>
-          <option value="Samsung">Samsung</option>
-          <option value="Nokia">Nokia</option>
-          <option value="Lenovo">Lenovo</option>
-          <option value="Sony">Sony</option>
-          <option value="Hier">Hier</option>
-        </select>
-      </div>
-      <div className="fifth-section mt-3 rounded-2">
-        <select className="brands p-2 w-100 form-select">
-          <option value="Used">Used</option>
-          <option value="New">New</option>
-        </select>
-      </div>
       <div className="sixth-section mt-3 rounded-2">
         <img
           src="assets/img/Post Free Classified Ads to Sell Anything Anywhere in Pakistan.jpg"

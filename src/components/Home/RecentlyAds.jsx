@@ -54,7 +54,7 @@ function RecentlyAds() {
 
   return (
     <div>
-      <section className="buy-ans-sell-section py-5">
+      <section className="buy-ans-sell-section py-5 h-full">
         <Container>
           <div className="buy-sell-heading">
             <div className="">

@@ -46,6 +46,17 @@ import SidebarAdmin from "./Pages/admin-dashbord/sidebar/Sidebar";
 import ManageUsersPage from "./Pages/admin-dashbord/manage-users/ManageUsers";
 import TeamManagementPage from "./Pages/admin-dashbord/manage-team/ManageTeam";
 import AdManagementPage from "./Pages/adds-manage/addsManageTeam";
+import MobileAdsView from "./Pages/ads-view/MobileAdsView";
+import CarsMotorsView from "./Pages/ads-view/CarsMotorsView";
+import PropertyAdsView from "./Pages/ads-view/PropertyAdsView";
+import PropertyRentAdsView from "./Pages/ads-view/propertyRentView";
+import KidsAdsView from "./Pages/ads-view/KidsAdsView";
+import AnimalAdsView from "./Pages/ads-view/AnimalAdsView";
+import BikesAdsView from "./Pages/ads-view/BikesAdsView";
+import ElectronicsAdsView from "./Pages/ads-view/ElectronicsAdsView";
+import FashionAdsView from "./Pages/ads-view/FashionAdsView";
+import BooksSportsAdsView from "./Pages/ads-view/BooksSportsAdsView";
+import FurnitureAdsView from "./Pages/ads-view/FurnitureAdsView";
 
 
 // Layout for general user pages (with Header + Footer)
@@ -90,7 +101,7 @@ function App() {
         {/* General User Layout */}
         <Route element={<UserLayout />}>
           <Route path="/" element={<HomePage />} />
-          <Route path="/mobiles-category" element={<MobilesCategory />} />
+          <Route path="/search" element={<MobilesCategory />} />
           <Route
             path="/motorcycle-category"
             element={<MotorcyclesCategory />}
@@ -117,6 +128,23 @@ function App() {
           <Route path="/payment" element={<PaymentPage />} />
           <Route path="/preview" element={<Preview />} />
           <Route path="/add" element={<AddPage />} />
+          <Route path="/mobile_ads/:id" element={<MobileAdsView />} />
+          <Route path="/motors_ads/:id" element={<CarsMotorsView />} />
+          <Route path="/property_ads/:id" element={<PropertyAdsView />} />
+          <Route path="/kids_ads/:id" element={<KidsAdsView />} />
+          <Route path="/electronics_ads/:id" element={<ElectronicsAdsView />} />
+          <Route path="/animal_ads/:id" element={<AnimalAdsView />} />
+          <Route path="/bike_ads/:id" element={<BikesAdsView />} />
+          <Route path="/fashion_ads/:id" element={<FashionAdsView />} />
+          <Route path="/furniture_ads/:id" element={<FurnitureAdsView />} />
+          <Route
+            path="/books_sports_ads/:id"
+            element={<BooksSportsAdsView />}
+          />
+          <Route
+            path="/property_rent_ads/:id"
+            element={<PropertyRentAdsView />}
+          />
           <Route path="/example" element={<Example />} />
           <Route path="/login" element={<SignInPage />} />
           <Route path="/signup" element={<SignUpPage />} />
