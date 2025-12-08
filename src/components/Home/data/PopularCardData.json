@@ -2,57 +2,83 @@
   {
     "icon": "fa-solid fa-house",
     "name": "Properties for Sale",
-    "sub1": "House / ",
-    "sub2": "Flats / ",
-    "sub3": "Lands / ",
-    "sub4": "Plots"
-  },
-  {
-    "icon": "fa-solid fa-house",
-    "name": "Properties for Rent",
-    "sub1": "House / ",
-    "sub2": "Flats / ",
-    "sub3": "Lands / ",
-    "sub4": "Plots"
+    "link": "/properties-sale",
+    "sub_categories": [
+      "Houses",
+      "Flats",
+      "Lands",
+      "Plots"
+    ]
   },
   {
     "icon": "fa-solid fa-car-side",
-    "name": "Cars For Sale",
-    "sub1": "New Cars / ",
-    "sub2": "Used Cars"
-  },
-  {
-    "icon": "fa-solid fa-car-side",
-    "name": "Cars For Rent",
-    "sub1": "New Cars / ",
-    "sub2": "Used Cars"
+    "name": "Cars for Sale",
+    "link": "/cars-sale",
+    "sub_categories": [
+      "New Cars",
+      "Used Cars"
+    ]
   },
   {
     "icon": "fa-solid fa-mobile-button",
-    "name": "Mobiles Phones",
-    "sub1": "Mobiles / ",
-    "sub2": "Tablets / ",
-    "sub3": "iPads"
+    "name": "Mobile Phones",
+    "link": "/mobiles",
+    "sub_categories": [
+      "Mobiles",
+      "Tablets",
+      "iPads"
+    ]
   },
   {
-    "icon": "fa fa-solid fa-laptop",
+    "icon": "fa-solid fa-laptop",
     "name": "Electronics",
-    "sub1": "UPS / ",
-    "sub2": "Cameras / ",
-    "sub3": "Games"
+    "link": "/electronics",
+    "sub_categories": [
+      "UPS",
+      "Cameras",
+      "Games"
+    ]
   },
   {
-    "icon": "fa fa-solid fa-briefcase",
-    "name": "Find a Buisness",
-    "sub1": "Coupes / ",
-    "sub2": "Hatchbacks / ",
-    "sub3": "SuV's"
+    "icon": "fa-solid fa-shirt",
+    "name": "Fashion & Clothes",
+    "link": "/fashion",
+    "sub_categories": [
+      "Men",
+      "Women",
+      "Kids"
+    ]
   },
   {
-    "icon": "fa fa-solid fa-briefcase",
-    "name": "Find a Job",
-    "sub1": "Coupes / ",
-    "sub2": "Hatchbacks / ",
-    "sub3": "SuV's"
+    "icon": "fa-solid fa-couch",
+    "name": "Furniture",
+    "link": "/furniture",
+    "sub_categories": [
+      "Sofas",
+      "Chairs",
+      "Beds",
+      "Tables"
+    ]
+  },
+  {
+    "icon": "fa-solid fa-dog",
+    "name": "Pets",
+    "link": "/pets",
+    "sub_categories": [
+      "Cats",
+      "Dogs",
+      "Birds",
+      "Other Animals"
+    ]
+  },
+  {
+    "icon": "fa-solid fa-child-reaching",
+    "name": "Kids & Toys",
+    "link": "/kids-toys",
+    "sub_categories": [
+      "Toys",
+      "Games",
+      "Baby Products"
+    ]
   }
 ]
