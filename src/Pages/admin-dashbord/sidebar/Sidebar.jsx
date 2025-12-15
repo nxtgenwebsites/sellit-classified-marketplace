@@ -12,6 +12,7 @@ import {
 } from "react-icons/bs";
 import { RiTeamLine } from "react-icons/ri";
 import "./sidebar.css";
+import { IoCashOutline } from 'react-icons/io5';
 const SidebarAdmin = () => {
   const location = useLocation();
 
@@ -30,6 +31,11 @@ const SidebarAdmin = () => {
       path: "/dashboard/manage-team",
       icon: RiTeamLine,
       label: "Manage Team",
+    },
+    {
+      path: "/dashboard/manage-payments",
+      icon: IoCashOutline,
+      label: "Manage Payments",
     },
   ];
 

@@ -57,6 +57,7 @@ import ElectronicsAdsView from "./Pages/ads-view/ElectronicsAdsView";
 import FashionAdsView from "./Pages/ads-view/FashionAdsView";
 import BooksSportsAdsView from "./Pages/ads-view/BooksSportsAdsView";
 import FurnitureAdsView from "./Pages/ads-view/FurnitureAdsView";
+import ManagePayments from "./Pages/admin-dashbord/manage-payments/ManagePayments";
 
 
 // Layout for general user pages (with Header + Footer)
@@ -154,7 +155,7 @@ function App() {
           <Route path="/new-password" element={<NewPasswordPage />} />
         </Route>
 
-        {/* Admin Dashboard Layout */}
+        {/* User Dashboard Layout */}
         <Route element={<DashboardLayout />}>
           <Route path="/dashboard/ads-management" element={<AdsManagement />} />
           <Route path="/dashboard/overview" element={<Overview />} />
@@ -175,6 +176,10 @@ function App() {
           <Route
             path="/dashboard/manage-team"
             element={<TeamManagementPage />}
+          />
+          <Route
+            path="/dashboard/manage-payments"
+            element={<ManagePayments />}
           />
         </Route>
         <Route path="/manage-ads" element={<AdManagementPage />} />
