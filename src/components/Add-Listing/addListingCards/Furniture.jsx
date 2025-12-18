@@ -184,7 +184,7 @@ export default function FurnitureForm({ selectedSubCategory }) {
         setImagePreviewUrls([]);
         setSelectedThumbnail(null);
         setAttachments([]);
-        alert("Furniture ad submitted successfully!");
+       location.href = `/successful/furniture_ads/${result.ad_id}`;
       } else {
         throw new Error(result.message || `Server error: ${response.status}`);
       }

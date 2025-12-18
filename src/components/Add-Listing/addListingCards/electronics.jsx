@@ -186,7 +186,7 @@ export default function ElectronicsForm({ selectedSubCategory }) {
         setImagePreviewUrls([]);
         setSelectedThumbnail(null);
         setAttachments([]);
-        alert("Electronics ad submitted successfully!");
+       location.href = `/successful/electronics_ads/${result.ad_id}`;
       } else {
         throw new Error(result.message || `Server error: ${response.status}`);
       }

@@ -153,7 +153,7 @@ export default function Mobiles() {
         setImagePreviewUrls([]); // Clear preview URLs
         setSelectedThumbnail(null);
         setAttachments([]);
-        alert("Ad submitted successfully!");
+       location.href = `/successful/mobile_ads/${result.ad_id}`;
       } else {
         throw new Error(result.message || `Server error: ${response.status}`);
       }

@@ -168,7 +168,7 @@ export default function KidsForm() {
         setImagePreviewUrls([])
         setSelectedThumbnail(null)
         setAttachments([])
-        alert("Kids ad submitted successfully!")
+       location.href = `/successful/kids_ads/${result.ad_id}`;
       } else {
         throw new Error(result.message || `Server error: ${response.status}`)
       }

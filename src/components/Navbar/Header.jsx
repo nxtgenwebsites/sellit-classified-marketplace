@@ -28,16 +28,13 @@ export default function Header() {
 
   const locations = [
     "All Pakistan",
-    "Karachi",
-    "Lahore",
+    "Punjab",
+    "Sindh",
+    "Khyber Pakhtunkhwa",
+    "Balochistan",
     "Islamabad",
-    "Rawalpindi",
-    "Faisalabad",
-    "Multan",
-    "Peshawar",
-    "Quetta",
-    "Sialkot",
-    "Gujranwala",
+    "Gilgit-Baltistan",
+    "Kashmir",
   ];
 
   // URL change → Inputs auto update

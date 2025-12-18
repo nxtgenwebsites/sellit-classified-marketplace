@@ -186,7 +186,7 @@ export default function BooksForm({ selectedSubCategory }) {
         setImagePreviewUrls([]);
         setSelectedThumbnail(null);
         setAttachments([]);
-        alert("Books ad submitted successfully!");
+       location.href = `/successful/books_sports_ads/${result.ad_id}`;
       } else {
         throw new Error(result.message || `Server error: ${response.status}`);
       }

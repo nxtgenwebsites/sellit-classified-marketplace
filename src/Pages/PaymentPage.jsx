@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Container,
   Row,
@@ -8,9 +8,12 @@ import {
   Button,
   Card,
   Modal,
+  Spinner,
 } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { MdOutlineWorkspacePremium } from "react-icons/md";
+import { useParams } from "react-router-dom";
+import axios from "axios";
 
 const PaymentForm = () => {
   const [validated, setValidated] = useState(false);
@@ -18,6 +21,10 @@ const PaymentForm = () => {
   const [showModal, setShowModal] = useState(false);
   const [screenshot, setScreenshot] = useState(null);
   const [submitted, setSubmitted] = useState(false);
+  const [paymentData, setPaymentData] = useState(null);
+  const [adData, setAdData] = useState(null);
+  const [loadingAd, setLoadingAd] = useState(true);
+  const { tableName, adId } = useParams();
 
   const handleSubmit = (event) => {
     const form = event.currentTarget;
@@ -26,7 +33,6 @@ const PaymentForm = () => {
     if (form.checkValidity() === false) {
       event.stopPropagation();
     } else {
-      // Show popup for screenshot upload
       setShowModal(true);
     }
 
@@ -45,6 +51,41 @@ const PaymentForm = () => {
       alert("Please upload payment screenshot");
     }
   };
+
+  useEffect(() => {
+    // Load paymentData from localStorage
+    const data = JSON.parse(localStorage.getItem("featured_ad_payment"));
+    if (data) {
+      setPaymentData(data);
+      localStorage.removeItem("featured_ad_payment");
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!tableName || !adId) return;
+
+    const fetchAd = async () => {
+      try {
+        const response = await axios.get(
+          `https://sellit-backend-u8bz.onrender.com/api/manage-ads/get-ad/${tableName}/${adId}`
+        );
+
+        // Check if response has data object
+        if (response.data) {
+          setAdData(response.data.ad); // Update state
+          console.log("Fetched ad:", response.data.ad);
+        } else {
+          console.warn("Ad data is empty");
+        }
+      } catch (error) {
+        console.error("Error fetching ad:", error);
+      } finally {
+        setLoadingAd(false);
+      }
+    };
+
+    fetchAd();
+  }, [tableName, adId]);
 
   if (submitted) {
     return (
@@ -80,8 +121,8 @@ const PaymentForm = () => {
         <Row className="justify-content-between">
           <Col md={7}>
             <Form noValidate validated={validated} onSubmit={handleSubmit}>
+              {/* Contact Details */}
               <h3 style={{ color: "#3a4fc4" }}>Contact Details</h3>
-
               <Row className="mb-3 row-gap-3">
                 <Col md={6}>
                   <Form.Group>
@@ -108,7 +149,6 @@ const PaymentForm = () => {
                   </Form.Group>
                 </Col>
               </Row>
-
               <Form.Group className="mb-4">
                 <Form.Control type="email" placeholder="Email" required />
                 <Form.Control.Feedback type="invalid">
@@ -116,52 +156,47 @@ const PaymentForm = () => {
                 </Form.Control.Feedback>
               </Form.Group>
 
+              {/* Address */}
               <h3 style={{ color: "#3a4fc4" }}>Address</h3>
-
               <Row className="mb-4 row-gap-3">
                 <Col md={6}>
-                  <Form.Group>
-                    <Form.Select required>
-                      <option value="">Select Country</option>
-                      <option value="pakistan">Pakistan</option>
-                      <option value="other">Other</option>
-                    </Form.Select>
-                  </Form.Group>
+                  <Form.Select required>
+                    <option value="">Select Country</option>
+                    <option value="pakistan">Pakistan</option>
+                    <option value="other">Other</option>
+                  </Form.Select>
                 </Col>
                 <Col md={6}>
-                  <Form.Group>
-                    <Form.Select required>
-                      <option value="">Select State</option>
-                      <option value="punjab">Punjab</option>
-                      <option value="sindh">Sindh</option>
-                      <option value="kpk">KPK</option>
-                      <option value="balochistan">Balochistan</option>
-                      <option value="other">Other</option>
-                    </Form.Select>
-                  </Form.Group>
+                  <Form.Select required>
+                    <option value="">Select State</option>
+                    <option value="punjab">Punjab</option>
+                    <option value="sindh">Sindh</option>
+                    <option value="kpk">KPK</option>
+                    <option value="balochistan">Balochistan</option>
+                    <option value="other">Other</option>
+                  </Form.Select>
                 </Col>
                 <Col md={12}>
-                  <Form.Group>
-                    <Form.Select required>
-                      <option value="">Select City</option>
-                      <option value="karachi">Karachi</option>
-                      <option value="lahore">Lahore</option>
-                      <option value="islamabad">Islamabad</option>
-                      <option value="rawalpindi">Rawalpindi</option>
-                      <option value="faisalabad">Faisalabad</option>
-                      <option value="multan">Multan</option>
-                      <option value="peshawar">Peshawar</option>
-                      <option value="quetta">Quetta</option>
-                      <option value="other">Other</option>
-                    </Form.Select>
-                  </Form.Group>
+                  <Form.Select required>
+                    <option value="">Select City</option>
+                    <option value="karachi">Karachi</option>
+                    <option value="lahore">Lahore</option>
+                    <option value="islamabad">Islamabad</option>
+                    <option value="rawalpindi">Rawalpindi</option>
+                    <option value="faisalabad">Faisalabad</option>
+                    <option value="multan">Multan</option>
+                    <option value="peshawar">Peshawar</option>
+                    <option value="quetta">Quetta</option>
+                    <option value="other">Other</option>
+                  </Form.Select>
                 </Col>
               </Row>
 
+              {/* Payment Method */}
               <h3 style={{ color: "#3a4fc4" }}>Payment Method</h3>
               <p className="text-muted mb-4">Select your payment method</p>
 
-              <Card className="bg-light p-4 mb-4 ">
+              <Card className="bg-light p-4 mb-4">
                 <Form.Group className="mb-3 d-flex gap-4">
                   <Form.Check
                     type="radio"
@@ -171,7 +206,6 @@ const PaymentForm = () => {
                     value="jazzcash"
                     checked={paymentMethod === "jazzcash"}
                     onChange={(e) => setPaymentMethod(e.target.value)}
-                    className="mb-2"
                   />
                   <Form.Check
                     type="radio"
@@ -181,7 +215,6 @@ const PaymentForm = () => {
                     value="easypaisa"
                     checked={paymentMethod === "easypaisa"}
                     onChange={(e) => setPaymentMethod(e.target.value)}
-                    className="mb-2"
                   />
                   <Form.Check
                     type="radio"
@@ -280,54 +313,83 @@ const PaymentForm = () => {
           </Col>
 
           <Col md={5}>
-            <Card className="border-0 mb-4 px-4 py-4 rounded-2">
-              <Card.Header className="bg-white border-0 px-0">
-                <h3 style={{ color: "#3a4fc4" }}>Selected Account Type</h3>
-              </Card.Header>
-              <Card.Body className="bg-light rounded">
-                <div className="d-flex align-items-center">
-                  <div className="premium-icon me-3">
-                    <MdOutlineWorkspacePremium size={35} color="#636363" />
-                  </div>
-                  <div className="flex-grow-1">
-                    <h5 className="mb-0">
-                      Premium <span className="text-muted">Ad</span>
-                    </h5>
-                  </div>
-                  <div className="text-end">
-                    <h5>Rs 2999</h5>
-                  </div>
+            {/* Selected Ad Card */}
+            {loadingAd ? (
+              <div className="text-center my-4">
+                <Spinner animation="border" />
+              </div>
+            ) : adData ? (
+              <div className="border-0  p-4 bg-transparent">
+                <div className="mb-3">
+                  <img
+                    src={
+                      adData?.thumbnail_url ||
+                      "/assets/img/default-thumbnail.png"
+                    }
+                    alt={adData?.ad_title || "Ad Thumbnail"}
+                    className="rounded-top w-100"
+                    style={{ height: "180px", objectFit: "cover" }}
+                  />
                 </div>
-              </Card.Body>
-            </Card>
+                <div>
+                  <h4 style={{ color: "#3a4fc4" }}>
+                    {adData?.ad_title || "No Title"}
+                  </h4>
+                  {adData?.price ? (
+                    <p className="fw-bold mb-0">{`Rs ${Number(
+                      adData?.price
+                    ).toLocaleString("en-US", {
+                      maximumFractionDigits: 0,
+                    })}`}</p>
+                  ) : (
+                    <p className="text-muted mb-0">Price not available</p>
+                  )}
+                </div>
+              </div>
+            ) : (
+              <p className="text-center text-muted">Ad not found</p>
+            )}
 
+            {/* Payment Details Card */}
             <Card className="border-0 px-4 py-4 rounded-2">
               <Card.Header className="bg-white border-0 px-0">
                 <h3 style={{ color: "#3a4fc4" }}>Payment Details</h3>
               </Card.Header>
               <Card.Body className="px-0">
-                <div className="d-flex justify-content-between mb-2">
-                  <span>Subtotal</span>
-                  <span>Rs 2999</span>
-                </div>
+                {paymentData ? (
+                  <>
+                    <div className="d-flex justify-content-between mb-2">
+                      <span>Package</span>
+                      <span>{paymentData.offer?.title || "N/A"}</span>
+                    </div>
 
-                <div className="d-flex justify-content-between mb-2">
-                  <span>Tax</span>
-                  <span>Rs 0.00</span>
-                </div>
+                    <div className="d-flex justify-content-between mb-2">
+                      <span>Subtotal</span>
+                      <span>Rs {paymentData.offer?.price || "N/A"}</span>
+                    </div>
 
-                <hr />
+                    <div className="d-flex justify-content-between mb-2">
+                      <span>Tax</span>
+                      <span>Rs 0.00</span>
+                    </div>
 
-                <div className="d-flex justify-content-between">
-                  <h5>Total</h5>
-                  <h5>Rs 2999</h5>
-                </div>
+                    <hr />
+
+                    <div className="d-flex justify-content-between">
+                      <h5>Total</h5>
+                      <h5>Rs {paymentData.offer?.price || "N/A"}</h5>
+                    </div>
+                  </>
+                ) : (
+                  <p>Loading...</p>
+                )}
               </Card.Body>
             </Card>
           </Col>
         </Row>
       </Container>
 
+      {/* Screenshot Modal */}
       <Modal
         show={showModal}
         className="modal-screen"

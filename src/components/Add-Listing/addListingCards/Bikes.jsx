@@ -194,7 +194,7 @@ export default function BikeForm({ selectedSubCategory }) {
         setImagePreviewUrls([]);
         setSelectedThumbnail(null);
         setAttachments([]);
-        alert("Bike ad submitted successfully!");
+       location.href = `/successful/bike_ads/${result.ad_id}`;
       } else {
         throw new Error(result.message || `Server error: ${response.status}`);
       }

@@ -123,10 +123,14 @@ function App() {
           />
           <Route path="/add-listing" element={<AddListingPage />} />
           <Route
-            path="/successful"
+            path="/successful/:tableName/:adId"
             element={<Featured_succesful_listing_page />}
           />
-          <Route path="/payment" element={<PaymentPage />} />
+
+          <Route
+            path="/payment/:tableName/:adId"
+            element={<PaymentPage />}
+          />
           <Route path="/preview" element={<Preview />} />
           <Route path="/add" element={<AddPage />} />
           <Route path="/mobile_ads/:id" element={<MobileAdsView />} />

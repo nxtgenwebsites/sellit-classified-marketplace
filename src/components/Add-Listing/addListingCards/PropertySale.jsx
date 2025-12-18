@@ -123,7 +123,7 @@ export default function PropertySale() {
         data.append("attachments", attachment);
       });
 
-      console.log("[v0] Submitting property form data to API...");
+      console.log("Submitting property form data to API...");
 
       const response = await fetch(
         `https://sellit-backend-u8bz.onrender.com/api/ads/property-add/${uid}`,
@@ -132,10 +132,11 @@ export default function PropertySale() {
           body: data,
         }
       );
+console.log(response);
 
-      console.log("[v0] Response status:", response.status);
+      console.log("Response status:", response.status);
       console.log(
-        "[v0] Response headers:",
+        "Response headers:",
         response.headers.get("content-type")
       );
 
@@ -175,7 +176,7 @@ export default function PropertySale() {
         setImagePreviewUrls([]);
         setSelectedThumbnail(null);
         setAttachments([]);
-        alert("Property ad submitted successfully!");
+        location.href = `/successful/property_ads/${result.ad_id}`;
       } else {
         throw new Error(result.message || `Server error: ${response.status}`);
       }

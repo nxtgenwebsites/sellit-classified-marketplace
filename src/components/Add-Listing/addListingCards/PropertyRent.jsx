@@ -188,7 +188,7 @@ export default function PropertyRent({ selectedSubCategory }) {
         setImagePreviewUrls([]);
         setSelectedThumbnail(null);
         setAttachments([]);
-        alert("Property rent ad submitted successfully!");
+       location.href = `/successful/property_rent_ads/${result.ad_id}`;
       } else {
         throw new Error(result.message || `Server error: ${response.status}`);
       }

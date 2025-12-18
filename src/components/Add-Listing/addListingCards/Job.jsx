@@ -161,7 +161,7 @@ export default function JobAdsForm({ selectedSubCategory }) {
         setImagePreviewUrls([])
         setSelectedThumbnail(null)
         setAttachments([])
-        alert("Job ad submitted successfully!")
+       location.href = `/successful/job_ads/${result.ad_id}`;
       } else {
         throw new Error(result.message || `Server error: ${response.status}`)
       }

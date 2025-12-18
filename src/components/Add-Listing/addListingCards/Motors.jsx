@@ -188,7 +188,7 @@ export default function Motors() {
         setImagePreviewUrls([]);
         setSelectedThumbnail(null);
         setAttachments([]);
-        alert("Motor ad submitted successfully!");
+       location.href = `/successful/motors_ads/${result.ad_id}`;
       } else {
         throw new Error(result.message || `Server error: ${response.status}`);
       }
