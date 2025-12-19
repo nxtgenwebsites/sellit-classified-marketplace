@@ -70,12 +70,6 @@ export default function AddListstingContent() {
       }
     }
 
-    if (defaultValueCategory === "find-job") {
-      if (forms.jobs?.current) {
-        forms.jobs.current.classList.remove("d-none");
-      }
-    }
-
     if (defaultValueCategory === "electronics") {
       if (forms.electronics?.current) {
         forms.electronics.current.classList.remove("d-none");
@@ -162,7 +156,6 @@ export default function AddListstingContent() {
                     Electronics & Home Appliances
                   </option>
                   <option value="bikes">Bikes</option>
-                  <option value="find-job">Jobs</option>
                   <option value="animals">Animals</option>
                   <option value="furniture">Furniture & Home Decor</option>
                   <option value="fashion">Fashion & Beauty</option>

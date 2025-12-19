@@ -110,7 +110,7 @@ const handleGoogle = async (credentialResponse) => {
             <form onSubmit={(e) => e.preventDefault()}>
               <div className="mb-3">
                 <label htmlFor="identifier" className="form-label">
-                  Email or Phone
+                  Email
                 </label>
                 <input
                   type="text"

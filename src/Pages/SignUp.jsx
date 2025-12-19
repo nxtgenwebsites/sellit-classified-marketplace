@@ -139,7 +139,7 @@ const handleGoogle = async (credentialResponse) => {
 
               <div className="mb-3">
                 <label htmlFor="identifier" className="form-label">
-                  Email or Phone
+                  Email
                 </label>
                 <input
                   type="text"

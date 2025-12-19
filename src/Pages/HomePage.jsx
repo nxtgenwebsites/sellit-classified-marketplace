@@ -16,7 +16,6 @@ const Homepage = () => {
         <FeaturedAds />
         <RecentlyAds />
         <PopularCategories />
-        <BuisnessProfile />
         {/* <GoogleBanner /> */}
       </>
     </div>

@@ -203,28 +203,34 @@ function FurnitureAdsView() {
             </div>
 
             <div className="product-sidebar lg:w-1/3">
-              <div className="sidebar-card p-6 border rounded-lg sticky top-4">
-                <div className="seller-info mb-4">
-                  <h4 className="font-semibold text-lg">{ad.seller_name}</h4>
-                  <p className="text-sm text-gray-500">
-                    Posted on {new Date(ad.created_at).toLocaleDateString()}
-                  </p>
+              <div className="position-sticky top-0">
+                <div className="sidebar-card p-6 border rounded-lg position-relative">
+                  <div className="seller-info mb-4">
+                    <h4 className="font-semibold text-lg">{ad.seller_name}</h4>
+                    <p className="text-sm text-gray-500">
+                      Posted on {new Date(ad.created_at).toLocaleDateString()}
+                    </p>
+                  </div>
+                  <div className="seller-location space-y-3 mb-4">
+                    <p className="flex items-center gap-2 text-gray-700">
+                      <FaMapMarkerAlt className="text-gray-500" />
+                      {ad.location}
+                    </p>
+                    <p className="flex items-center gap-2 text-gray-700">
+                      <FaPhone className="text-gray-500" />
+                      {showNumber ? ad.seller_contact : "***********"}
+                    </p>
+
+                    <button
+                      className="btn show-number-btn w-full py-2 bg-gray-100 hover:bg-gray-200 rounded-md transition"
+                      onClick={() => setShowNumber(!showNumber)}
+                    >
+                      {showNumber ? "Hide Number" : "Show Number"}
+                    </button>
+                  </div>
                 </div>
-                <div className="seller-location space-y-3 mb-4">
-                  <p className="flex items-center gap-2 text-gray-700">
-                    <FaMapMarkerAlt className="text-gray-500" />
-                    {ad.location}
-                  </p>
-                  <p className="flex items-center gap-2 text-gray-700">
-                    <FaPhone className="text-gray-500" />
-                    {showNumber ? ad.seller_contact : "***********"}
-                  </p>
-                  <button
-                    className="btn show-number-btn w-full py-2 bg-gray-100 hover:bg-gray-200 rounded-md transition"
-                    onClick={() => setShowNumber(true)}
-                  >
-                    Show Number
-                  </button>
+                <div className="pt-3">
+                  <img src="/public/assets/img/sellit-ad.jpeg" alt="" />
                 </div>
               </div>
             </div>

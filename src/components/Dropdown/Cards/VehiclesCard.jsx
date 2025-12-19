@@ -17,7 +17,10 @@ export default function VehiclesCard() {
         </div>
         <div className="popular-category-content d-flex flex-wrap gap-1 mt-3 w-100">
           <div className="sub-item">
-            <Link to={"/"} className="text-decoration-none sub-category">
+            <Link
+              to={"/search?query=car"}
+              className="text-decoration-none sub-category"
+            >
               Cars
             </Link>
           </div>

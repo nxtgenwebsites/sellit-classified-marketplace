@@ -205,11 +205,11 @@ const AdsManagement = () => {
                     <td>
                       <span className="status-badge active">Active</span>
                     </td>
-                    <td>${ad.price}</td>
+                    <td>Rs {ad.price}</td>
                     <td className="hide-md">{formatDate(ad.created_at)}</td>
                     <td>
                       <div className="action-buttons">
-                        <Link to={"/add"}>
+                        <Link to={`${ad.source}/${ad.id}`}>
                           <button className="action-btn">
                             <FaRegEye />
                           </button>

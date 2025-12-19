@@ -87,49 +87,6 @@ export default function SubCategoryDropdowns() {
         </Dropdown>
         <Dropdown className="category-item">
           <Dropdown.Toggle className="bg-transparent border-0">
-            <h6 className="fw-medium text-black d-flex">
-              <div className="me-2">
-                <IoBriefcaseOutline size={17} />
-              </div>
-              Buisnesses
-              <span>
-                <img
-                  src="/assets/icons/chevron.svg"
-                  alt="IMG"
-                  className="ms-2"
-                />
-              </span>
-            </h6>
-          </Dropdown.Toggle>
-          <Dropdown.Menu className="mt-1 p-0 menu-ca">
-            <Dropdown.Item className="dropdown-item category_item p-2 rounded-top-2">
-              <Link
-                to={"/buisness-category"}
-                className="category_link d-flex align-items-center gap-2"
-              >
-                <IoBriefcaseOutline className="category-icon" /> Find A Buisness
-              </Link>
-            </Dropdown.Item>
-            <Dropdown.Item className="dropdown-item category_item p-2">
-              <Link
-                to={"/service-category"}
-                className="category_link d-flex align-items-center gap-2"
-              >
-                <FaHeadset className="category-icon" /> Find a Service Provider
-              </Link>
-            </Dropdown.Item>
-            <Dropdown.Item className="dropdown-item category_item p-2 rounded-bottom-2">
-              <Link
-                to={"/job-category"}
-                className="category_link d-flex align-items-center gap-2"
-              >
-                <IoBriefcaseOutline className="category-icon" /> Find a Job
-              </Link>
-            </Dropdown.Item>
-          </Dropdown.Menu>
-        </Dropdown>
-        <Dropdown className="category-item">
-          <Dropdown.Toggle className="bg-transparent border-0">
             <h6 className="fw-medium d-flex text-black">
               <div className="me-2">
               <MdComputer size={19}/>
